@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46035048287712"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA Developer Lightspeed</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications command-line interface to migrate your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46035030747168">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven static code analysis for Java applications.
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#configuring-llm_mta-developer-lightspeed">1. Configuring large language models for analysis</a></span><ul><li><span class="section"><a href="#model-as-a-service_configuring-llm">1.1. Deploying an LLM as a scalable service</a></span><ul><li><span class="section"><a href="#maas-oc-install-config_configuring-llm">1.1.1. Installing and configuring OpenShift Container Platform cluster</a></span></li><li><span class="section"><a href="#configuring-openshift-ai_configuring-llm">1.1.2. Configuring OpenShift Container Platform AI</a></span></li><li><span class="section"><a href="#deploying-openshift-ai-llm_configuring-llm">1.1.3. Deploying the large language model</a></span></li><li><span class="section"><a href="#preparing-llm-analysis_configuring-llm">1.1.4. Preparing the large language model for analysis</a></span></li></ul></li><li><span class="section"><a href="#configuring-llm-podman_configuring-llm">1.2. Configuring the LLM in Podman Desktop</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
+		</p></section><section class="chapter" id="configuring-llm_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Configuring large language models for analysis</h1></div></div></div><p>
+			In an analysis, MTA with Developer Lightspeed provides the large language model (LLM) with the contextual prompt to identify the issues in the current application and generate suggestions to resolve them.
+		</p><p>
+			MTA with Developer Lightspeed is designed to be model agnostic. It works with LLMs that are run in different environments (in local containers, as local AI, as a shared service) to support analyzing Java applications in a wide range of scenarios. You can choose an LLM from well-known providers, local models that you run from Ollama or Podman desktop, and OpenAI API compatible models that are configured as Model-as-a-Service deployments.
+		</p><p>
+			The result of an analysis performed by MTA with Developer Lightspeed depends on the parameters of the LLM that you choose.
+		</p><p>
+			You can run an LLM from the following generative AI providers:
+		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+					OpenAI
+				</li><li class="listitem">
+					Azure OpenAI
+				</li><li class="listitem">
+					Google Gemini
+				</li><li class="listitem">
+					Amazon Bedrock
+				</li><li class="listitem">
+					Deepseek
+				</li><li class="listitem">
+					OpenShift AI
+				</li></ul></div><section class="section" id="model-as-a-service_configuring-llm"><div class="titlepage"><div><div><h2 class="title">1.1. Deploying an LLM as a scalable service</h2></div></div></div><p class="_abstract _abstract">
+				The code suggestions differ based on various parameters about the large language model (LLM) used for an analysis. Therefore, model-as-a-service enables you more control over using MTA with Developer Lightspeed with an LLM that is trained for your specific requirements than general purpose models from the public AI providers.
+			</p><p>
+				MTA with Developer Lightspeed is built to analyze better when it can access code changes resulting from analysis performed at scale across many application teams. In an enterprise, changes at scale become more consistent when the LLMs that generate the code change suggestions are shared across application teams than when each team uses a different LLM. This approach calls for a common strategy in an enterprise to manage the underlying resources that power the models that must be exposed to multiple members in different teams.
+			</p><p>
+				To cater to an enterprise-wide LLM deployment, MTA with Developer Lightspeed integrates with LLMs that are deployed as a scalable service on Red Hat OpenShift Container Platform clusters. These deployments, called model-as-a-service (MaaS), provide you with a granular control over resources such as compute, cluster nodes, and auto-scaling Graphical Processing Units (GPUs) while enabling you to leverage LLMs to perform analysis at a large scale.
+			</p><p>
+				The workflow for configuring an LLM on OpenShift Container Platform AI can be broadly divided into the following parts:
+			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+						Installing and configuring infrastructure resources
+					</li><li class="listitem">
+						Configuring OpenShift AI
+					</li><li class="listitem">
+						Connecting OpenShift AI with the LLM
+					</li><li class="listitem">
+						Preparing the LLM for analysis
+					</li></ul></div><section class="section" id="maas-oc-install-config_configuring-llm"><div class="titlepage"><div><div><h3 class="title">1.1.1. Installing and configuring OpenShift Container Platform cluster</h3></div></div></div><p>
+					As a member of the hybrid cloud infrastructure team, your initial set of tasks to deploy a large language model (LLM) through model-as-a-service involves creating OpenShift Container Platform clusters with primary and secondary nodes and configuring an identity provider with role-based access control for users to log in to the clusters.
+				</p><p>
+					Next, you configure the GPU operators required to run an LLM, GPU nodes, and auto scaling for the GPU nodes in your namespace on OpenShift Container Platform AI. The following procedures refer to an Red Hat OpenShift Container Platform cluster hosted on Amazon Web Services.
+				</p><section class="section" id="install-oc-cluster_maas-oc-install-config"><div class="titlepage"><div><div><h4 class="title">1.1.1.1. Installing an OpenShift Container Platform cluster</h4></div></div></div><p class="_abstract _abstract">
+						The following procedure considers m6i.2xlarge Amazon EC2 M6i instances for the primary nodes. See <a class="link" href="https://aws.amazon.com/ec2/instance-types/m6i/">Amazon EC2 M6i Instances</a> to consider instances that are suitable for your requirements.
+					</p><p>
+						To create an OpenShift cluster with three AWS primary and secondary nodes:
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								Download the OpenShift Container Platform stable client from the <a class="link" href="https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/">mirror site</a>.
+							</li><li class="listitem"><p class="simpara">
+								Extract the tar file in your system with the following command:
+							</p><pre class="programlisting language-terminal">tar xvzf &lt;file-name&gt;</pre></li><li class="listitem">
+								Place the <code class="literal">oc</code> binary in a directory on your <code class="literal">$PATH</code>.
+							</li><li class="listitem"><p class="simpara">
+								Create an <span class="emphasis"><em>install-config</em></span>.yml file with the following configurations. Replace <code class="literal">BASE.DOMAIN</code>, <code class="literal">CLUSTER_NAME</code>, <code class="literal">PULL_SECRET</code>, and <code class="literal">SSL_PUBLIC_KEY</code> with applicable values.
+							</p><pre class="programlisting language-yaml">additionalTrustBundlePolicy: Proxyonly
+apiVersion: v1
+baseDomain: BASE.DOMAIN
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform:
+    aws:
+      type: m6i.2xlarge
+  replicas: 3
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    aws:
+      type: m6i.2xlarge
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: CLUSTER_NAME
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  aws:
+    region: REGION
+publish: External
+pullSecret: 'PULL_SECRET'
+sshKey: |
+  SSH_PUBLIC_KEY</pre><p class="simpara">
+								+ Run <code class="literal">./openshift-install create cluster</code> from the <code class="literal">oc</code> binary path to install the OpenShift Container Platform cluster.
+							</p></li></ol></div><p>
+						Next, install OpenShift AI operator in your OpenShift Container Platform cluster and configure <a class="link" href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html-single/authentication_and_authorization/index#identity-provider-htpasswd-about_configuring-htpasswd-identity-provider">htpasswd authentication</a> for users to log in to the OCP AI operator.
+					</p></section><section class="section" id="configuring-operators_maas-oc-install-config"><div class="titlepage"><div><div><h4 class="title">1.1.1.2. Configuring operators for OpenShift Container Platform AI</h4></div></div></div><p class="_abstract _abstract">
+						The OpenShift Container Platform AI operator automatically installs all the required operators. However, since this example model-as-a-service deployment needs NVidia GPUs, you must install the following operators in your OpenShift Container Platform AI namespace:
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								NVIDIA GPU Operator (provided by NVIDIA Corporation) - The NVIDIA GPU Operator uses the Operator framework within Red Hat OpenShift Container Platform to manage the full lifecycle of NVIDIA software components required to run GPU-accelerated workloads. The components include the NVIDIA drivers (to enable CUDA), the Kubernetes device plugin for GPUs, the NVIDIA Container Toolkit, automatic node tagging using GPU feature discovery (GFD), DCGM-based monitoring, and others. See <a class="link" href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/hardware_accelerators/nvidia-gpu-architecture">NVidia GPU Architecture</a> for more information.
+							</li><li class="listitem">
+								Node Feature Discovery Operator (provided by Red Hat) - The Node Feature Discovery Operator (NFD) is a Kubernetes add-on for detecting hardware features and system configuration. It manages the detection of hardware features and configuration in an Red Hat OpenShift Container Platform cluster by labeling the nodes with hardware-specific information. NFD labels the host with node-specific attributes, such as PCI cards, kernel, operating system version, and so on.
+							</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								Log in to the OCP cluster web interface with <code class="literal">cluster-admin</code> privileges.
+							</li><li class="listitem">
+								Select <span class="strong strong"><strong>Node Feature Discovery Operator</strong></span> on the <span class="strong strong"><strong>Operators</strong></span> page.
+							</li><li class="listitem">
+								In the <span class="strong strong"><strong>NodeFeatureDiscovery</strong></span> tab, click <span class="strong strong"><strong>Create a NodeFeatureDiscovery</strong></span> to create an instance with default values.
+							</li><li class="listitem">
+								Select <span class="strong strong"><strong>Nvidia GPU Operator</strong></span> on the <span class="strong strong"><strong>Operators</strong></span> page.
+							</li><li class="listitem">
+								In the <span class="strong strong"><strong>ClusterPolicy</strong></span> tab, click <span class="strong strong"><strong>Create a ClusterPolicy</strong></span> to create an instance with default values.
+							</li></ol></div></section><section class="section" id="creating-gpu-machine-set_maas-oc-install-config"><div class="titlepage"><div><div><h4 class="title">1.1.1.3. Creating a GPU machine set</h4></div></div></div><p class="_abstract _abstract">
+						The <code class="literal">machineset</code> custom resource contains details about the underlying infrastructure such as compute instance from a public cloud provider, block devices, region and zone of the compute instance, and accelarator to your OpenShift Container Platform cluster.
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+								Log in to the OpenShift Container Platform CLI and type the following command to get <code class="literal">CLUSTER_NAME</code>, <code class="literal">CLUSTER_ID</code>, <code class="literal">AVALABILITY_ZONE</code>, and <code class="literal">REGION</code> to list currently available machineset in your cluster:
+							</p><pre class="programlisting language-terminal">$ oc get machineset -n openshift-machine-api</pre></li><li class="listitem"><p class="simpara">
+								Enter the following command to view values of a specific compute machine set custom resource (CR):
+							</p><pre class="programlisting language-terminal">$ oc get machineset &lt;machineset_name&gt; \
+  -n openshift-machine-api -o yaml</pre></li><li class="listitem">
+								Enter the values for <code class="literal">CLUSTER_NAME</code>, <code class="literal">CLUSTER_ID</code>, <code class="literal">AVALABILITY_ZONE</code>, <code class="literal">REGION</code>, <code class="literal">instanceType</code>, <code class="literal">cluster-api/accelerator</code> in the sample <code class="literal">machineset</code> YAML configuration.
+							</li><li class="listitem"><p class="simpara">
+								Type the following command to create the <code class="literal">machineset</code> resource for nodes in your OpenShift Container Platform cluster.
+							</p><pre class="programlisting language-terminal">oc create -f machineset.yml</pre></li><li class="listitem"><p class="simpara">
+								Enter the following command to get the status of the <code class="literal">machineset</code>, <code class="literal">machine</code>, and <code class="literal">node</code> CRs.
+							</p><pre class="programlisting language-terminal">watch 'oc get machineset -n openshift-machine-api &amp;&amp; oc get machines -n openshift-machine-api &amp;&amp; oc get nodes'</pre><div class="formalpara"><p class="title"><strong>Sample <code class="literal">machineset</code> yaml file</strong></p><p>
+									
+<pre class="programlisting language-yaml">cat &lt;&lt; EOF &gt; machineset.yml
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  annotations:
+    capacity.cluster-autoscaler.kubernetes.io/labels: kubernetes.io/arch=amd64
+    machine.openshift.io/GPU: "8"
+    machine.openshift.io/memoryMb: "786432"
+    machine.openshift.io/vCPU: "192"
+  labels:
+    machine.openshift.io/cluster-api-cluster: CLUSTER_NAME-CLUSTER_ID
+  name: CLUSTER_NAME-CLUSTER_ID-gpu-AVAILABILITY_ZONE
+  namespace: openshift-machine-api
+spec:
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: CLUSTER_NAME-CLUSTER_ID
+      machine.openshift.io/cluster-api-machineset: CLUSTER_NAME-CLUSTER_ID-gpu-AVAILABILITY_ZONE
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: CLUSTER_NAME-CLUSTER_ID
+        machine.openshift.io/cluster-api-machine-role: gpu
+        machine.openshift.io/cluster-api-machine-type: gpu
+        machine.openshift.io/cluster-api-machineset: CLUSTER_NAME-CLUSTER_ID-gpu-AVAILABILITY_ZONE
+    spec:
+      replicas: 0
+      lifecycleHooks: {}
+      metadata:
+        labels:
+          cluster-api/accelerator: A10G
+          node-role.kubernetes.io/gpu: ""
+      providerSpec:
+        value:
+          ami:
+            id: ami-0c65d71e89d43aa90 <span id="CO1-1"/><span class="callout">1</span>
+          apiVersion: awsproviderconfig.openshift.io/v1beta1
+          blockDevices:
+          - ebs:
+              iops: 0
+              kmsKey: {}
+              volumeSize: 240
+              volumeType: gp2
+          credentialsSecret:
+            name: aws-cloud-credentials
+          deviceIndex: 0
+          iamInstanceProfile:
+            id: CLUSTER_NAME-CLUSTER_ID-worker-profile
+          instanceType: g5.48xlarge
+          kind: AWSMachineProviderConfig
+          metadata:
+            creationTimestamp: null
+          metadataServiceOptions: {}
+          placement:
+            availabilityZone: AVAILABILITY_ZONE
+            region: REGION
+          securityGroups:
+          - filters:
+            - name: tag:Name
+              values:
+              - CLUSTER_NAME-CLUSTER_ID-node
+          - filters:
+            - name: tag:Name
+              values:
+              - CLUSTER_NAME-CLUSTER_ID-lb
+          subnet:
+            filters:
+            - name: tag:Name
+              values:
+              - CLUSTER_NAME-CLUSTER_ID-subnet-private-AVAILABILITY_ZONE
+          tags:
+          - name: kubernetes.io/cluster/CLUSTER_NAME-CLUSTER_ID
+            value: owned
+          userDataSecret:
+            name: worker-user-data
+EOF</pre>
+								</p></div><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO1-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+										Specify a valid Red Hat Enterprise Linux CoreOS (RHCOS) Amazon Machine Image (AMI) for your AWS zone for your OpenShift Container Platform nodes. If you want to use an AWS Marketplace image, you must complete the OpenShift Container Platform subscription from the AWS Marketplace to obtain an AMI ID for your region.
+									</div></dd></dl></div></li></ol></div></section><section class="section" id="configuring-node-auto-scaling_maas-oc-install-config"><div class="titlepage"><div><div><h4 class="title">1.1.1.4. Configuring GPU node auto scaling</h4></div></div></div><p class="_abstract _abstract">
+						The cluster autoscaler increases and decreases the size of the cluster based on deployment needs.
+					</p><p>
+						To autoscale your cluster, you must deploy a <code class="literal">ClusterAutoscaler</code> custom resource (CR), and then deploy a <code class="literal">MachineAutoscaler</code> CR for each compute machine set.
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+								Modify the parameters for the <code class="literal">ClusterAutoscaler</code> custom resource (CR) by using the sample resource definition file.
+							</p><pre class="programlisting language-yaml">cat &lt;&lt; EOF &gt; &lt;filename&gt;.yml
+apiVersion: autoscaling.openshift.io/v1
+kind: ClusterAutoscaler
+metadata:
+  generation: 1
+  name: default
+spec:
+  logVerbosity: 4
+  maxNodeProvisionTime: 15m
+  podPriorityThreshold: -10
+  resourceLimits:
+    gpus:
+    - max: 16
+      min: 0
+      type: A10G
+  scaleDown:
+    delayAfterAdd: 20m
+    delayAfterDelete: 5m
+    delayAfterFailure: 30s
+    enabled: true
+    unneededTime: 5m
+EOF</pre></li></ol></div><p>
+						See <a class="link" href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/machine_management/applying-autoscaling#additional-resources-2">Cluster autoscaler resource definition</a> for descriptions of the CR parameters.
+					</p><p>
+						+ . Enter the following command to deploy the cluster auto scaler CR.
+					</p><p>
+						+
+					</p><pre class="programlisting language-terminal">$ oc create -f &lt;filename&gt;.yaml</pre><p>
+						After you deploy the <code class="literal">ClusterAutoscaler</code> CR, you must deploy at least one <code class="literal">MachineAutoscaler</code> CR.
+					</p></section><section class="section" id="configuring-machine-auto-scaling_maas-oc-install-config"><div class="titlepage"><div><div><h4 class="title">1.1.1.5. Configuring machine auto scaling</h4></div></div></div><p class="_abstract _abstract">
+						The machine autoscaler adjusts the number of machines in the compute machine sets that you deploy in an Red Hat OpenShift Container Platform cluster. The machine autoscaler makes more machines when the cluster runs out of resources to support more deployments. Any changes to the values in <code class="literal">MachineAutoscaler</code> resources, such as the minimum or maximum number of instances, are immediately applied to the compute machine set they target.
+					</p><p>
+						To deploy a <code class="literal">MachineAutoscaler</code> CR for each compute machine set:
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+								Modify the parameters for the <code class="literal">MachineAutoscaler</code> custom resource (CR) by using the sample resource definition file.
+							</p><pre class="programlisting language-yaml">cat &lt;&lt; EOF &gt; &lt;filename&gt;.yml
+apiVersion: autoscaling.openshift.io/v1beta1
+kind: MachineAutoscaler
+metadata:
+  name: CLUSTER_NAME-CLUSTER_ID-gpu-AVAILABILITY_ZONE
+  namespace: "openshift-machine-api"
+spec:
+  minReplicas: 0
+  maxReplicas: 2
+  scaleTargetRef:
+    apiVersion: machine.openshift.io/v1beta1
+    kind: MachineSet
+    name: CLUSTER_NAME-CLUSTER_ID-gpu-AVAILABILITY_ZONE
+EOF</pre></li></ol></div><p>
+						See <a class="link" href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/machine_management/applying-autoscaling#additional-resources-2">Machine autoscaler resource definition</a> for descriptions of the CR parameters.
+					</p><p>
+						+ . Enter the following command to deploy the cluster auto scaler CR.
+					</p><p>
+						+
+					</p><pre class="programlisting language-terminal">$ oc create -f &lt;filename&gt;.yaml</pre><p>
+						After you deploy the <code class="literal">MachineAutoscaler</code> CR, you must configure the OpenShift Container Platform AI operator.
+					</p></section></section><section class="section" id="configuring-openshift-ai_configuring-llm"><div class="titlepage"><div><div><h3 class="title">1.1.2. Configuring OpenShift Container Platform AI</h3></div></div></div><p>
+					The configurations that you must complete for OpenShift Container Platform AI include creating a data science project instance in the OpenShift Container Platform AI operator. Next, you can configure model-specific configurations in the <span class="strong strong"><strong>Red Hat OpenShift Container Platform AI</strong></span> console.
+				</p><section class="section" id="creating-datascience-cluster_configuring-openshift-ai"><div class="titlepage"><div><div><h4 class="title">1.1.2.1. Creating a DataScience project cluster</h4></div></div></div><p class="_abstract _abstract">
+						To create a Data science project instance:
+					</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+								You have <code class="literal">admin</code> rights to access the <span class="strong strong"><strong>Red Hat OpenShift Container Platform Service on AWS</strong></span> cluster.
+							</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								Install the OCP AI operator on the <span class="strong strong"><strong>Red Hat OpenShift Container Platform Service on AWS</strong></span> web console.
+							</li><li class="listitem">
+								From the <span class="strong strong"><strong>Data Science Cluster</strong></span> tab of the operator, click <span class="strong strong"><strong>Create DataScienceCluster</strong></span> to create an instance with default values.
+							</li><li class="listitem">
+								After you create the <span class="strong strong"><strong>Data Science Cluster</strong></span> instance, select <span class="strong strong"><strong>Red Hat OpenShift AI</strong></span> from the application launcher icon at the top to launch the OCP AI web console.
+							</li></ol></div></section><section class="section" id="configuring-llm-serving-runtime_configuring-openshift-ai"><div class="titlepage"><div><div><h4 class="title">1.1.2.2. Configuring the LLM serving runtime</h4></div></div></div><p class="_abstract _abstract">
+						It takes several minutes to scale nodes and pull the image to serve the virtual large language model (vLLM). However, the default time for deploying a vLLM is 10 minutes. A vLLM deployment that takes longer fails on the OpenShift Container Platform AI cluster.
+					</p><p>
+						To mitigate this issue, you must enter a custom serving time configuration.
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								On the OpenShift Container Platform AI dashboard, click <span class="strong strong"><strong>Settings &gt; Serving runtimes</strong></span>. The <span class="strong strong"><strong>Serving runtimes</strong></span> page lists the <code class="literal">vLLM ServingRuntime for KServe</code> custom resource (CR). <code class="literal">KServe</code> orchestrates model serving for all types of models and includes model-serving runtimes that implement the loading of given types of model servers. KServe also handles the lifecycle of the deployment object, storage access, and networking setup.
+							</li><li class="listitem">
+								Click on the kebab menu for <code class="literal">vLLM ServingRuntime for KServe</code> and select <span class="strong strong"><strong>Duplicate serving runtime</strong></span>.
+							</li><li class="listitem">
+								Enter a different display name for the serving runtime and increase the value for <code class="literal">serving.knative.dev/progress-deadline</code> to <code class="literal">60m</code>.
+							</li><li class="listitem"><p class="simpara">
+								To support multiple GPU nodes and scaling, add <code class="literal">--distributed-executor-backend</code> and <code class="literal">--tensor-parallel-size</code> to <code class="literal">containers.args</code> as follows:
+							</p><pre class="programlisting language-yaml">spec:
+  containers:
+    - args:
+        - --port=8080
+        - --model=/mnt/models
+        - --served-model-name={{.Name}}
+        - --distributed-executor-backend=mp
+        - --tensor-parallel-size=8</pre><p class="simpara">
+								Next, you must create an accelerator profile if you want to run a GPU node for the first time.
+							</p></li></ol></div></section><section class="section" id="creating-accelerator-profile_configuring-openshift-ai"><div class="titlepage"><div><div><h4 class="title">1.1.2.3. Creating an accelerator profile</h4></div></div></div><p class="_abstract _abstract">
+						Taints and tolerations allow the NVidia GPU nodes to control which pods should (or should not) be scheduled on them. A taint allows a node to refuse a pod to be scheduled unless that pod has a matching toleration.
+					</p><p>
+						You can use accelerators to configure taints and associated tolerance levels for the GPU nodes.
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								On the OpenShift Container Platform AI dashboard, click <span class="strong strong"><strong>Settings &gt; Accelerator profiles</strong></span>.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Create accelerator profile</strong></span>.
+							</li><li class="listitem">
+								On the <span class="strong strong"><strong>Create accelerator profile</strong></span> dialog, type <code class="literal">NVIDIA GPU</code> as the <span class="strong strong"><strong>Name</strong></span> and <code class="literal">nvidia.com/gpu</code> as the <span class="strong strong"><strong>Identifier</strong></span>.
+							</li><li class="listitem">
+								To enable or disable the accelerator profile immediately after creation, click the toggle in the <span class="strong strong"><strong>Enable</strong></span> column.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Add toleration</strong></span> to open the <span class="strong strong"><strong>Add toleration</strong></span> dialog. Toleration schedules pods with matching taints.
+							</li><li class="listitem">
+								From the <span class="strong strong"><strong>Operator</strong></span> list, select <code class="literal">Exists</code>. The key/effect parameters in the taint must match the same parameters configured under toleration in the pod. You must leave a blank value parameter, which matches any value.
+							</li><li class="listitem">
+								Enter <code class="literal">nvidia.com/gpu</code> as the key.
+							</li><li class="listitem">
+								From the <span class="strong strong"><strong>Effect</strong></span> list, select <code class="literal">NoSchedule</code>. New pods that do not match the taint are not scheduled onto that node. Existing pods on the node remain.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Add</strong></span> to add the toleration configuration for the node.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Create accelerator profile</strong></span> to complete the accelerator configuration.
+							</li></ol></div></section></section><section class="section" id="deploying-openshift-ai-llm_configuring-llm"><div class="titlepage"><div><div><h3 class="title">1.1.3. Deploying the large language model</h3></div></div></div><p>
+					To connect the OpenShift Container Platform AI platform to a large language model (LLM), first, you must upload your LLM to a data source.
+				</p><p>
+					OpenShift Container Platform AI, that runs on pods in a Red Hat OpenShift Container Platform on AWS (ROSA) cluster, can access the LLM from a data source such as an Amazon Web Services (AWS) S3 storage. You must create an AWS S3 bucket and configure access permission so that it can access the pods running in the ROSA cluster. See how to enable <a class="link" href="https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/authentication_and_authorization/assuming-an-aws-iam-role-for-a-service-account#how-service-accounts-assume-aws-iam-roles-in-user-defined-projects_assuming-an-aws-iam-role-for-a-service-account">service account to assume AWS IAM role to access the ROSA pods</a>.
+				</p><p>
+					Next, you must configure a data connection to the bucket and deploy the LLM from the OpenShift Container Platform AI platform.
+				</p><section class="section" id="adding-data-connection_deploying-openshift-ai-llm"><div class="titlepage"><div><div><h4 class="title">1.1.3.1. Adding a data connection</h4></div></div></div><p class="_abstract _abstract">
+						In OpenShift Container Platform, a project is a Kubernetes namespace with additional annotations, and is the main way that you can manage user access to resources. A project organizes your data science work in one place and also allows you to collaborate with other developers in your organization.
+					</p><p>
+						In your data science project, you must create a data connection to your existing S3-compatible storage bucket to which you uploaded a large language model.
+					</p><div class="formalpara"><p class="title"><strong>Prerequisites</strong></p><p>
+							You need the following credential information for the storage buckets:
+						</p></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Endpoint URL
+							</li><li class="listitem">
+								Access key
+							</li><li class="listitem">
+								Secret key
+							</li><li class="listitem">
+								Region
+							</li><li class="listitem">
+								Bucket name
+							</li></ul></div><p>
+						If you do not have this information, contact your storage administrator.
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								In the OpenShift Container Platform AI web console, select <span class="strong strong"><strong>Data science projects</strong></span>. The <span class="strong strong"><strong>Data science projects</strong></span> page shows a list of projects that you can access. For each user-requested project in the list, the <span class="strong strong"><strong>Name</strong></span> column shows the project display name, the user who requested the project, and the project description.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Create project</strong></span>. In the <span class="strong strong"><strong>Create project</strong></span> dialog, update the <span class="strong strong"><strong>Name</strong></span> field to enter a unique display name for your project.
+							</li><li class="listitem">
+								Optional: In the <span class="strong strong"><strong>Description</strong></span> field, provide a project description.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Create</strong></span>. Your project is listed on the <span class="strong strong"><strong>Data science projects</strong></span> page.
+							</li><li class="listitem">
+								Click the name of your project, select the <span class="strong strong"><strong>Connections</strong></span> tab, and click <span class="strong strong"><strong>Create connection</strong></span>.
+							</li><li class="listitem">
+								In the <span class="strong strong"><strong>Connection type</strong></span> drop down, select <span class="strong strong"><strong>S3 compatible object storage - v1</strong></span>.
+							</li><li class="listitem">
+								In the <span class="strong strong"><strong>Connection details</strong></span> section, enter the connection name, the access key, the secret key, endpoint to your storage bucket, and the region.
+							</li><li class="listitem">
+								Click <span class="strong strong"><strong>Create</strong></span>.
+							</li></ol></div></section><section class="section" id="deploying-the-model_deploying-openshift-ai-llm"><div class="titlepage"><div><div><h4 class="title">1.1.3.2. Deploying the LLM</h4></div></div></div><p class="_abstract _abstract">
+						After you configure the data connection, you must deploy the model in OpenShift Container Platform AI web console.
+					</p><div class="formalpara"><p class="title"><strong>Prerequisites</strong></p><p>
+							A user with <code class="literal">admin</code> privileges has enabled the single-model serving platform on your OpenShift Container Platform cluster.
+						</p></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+								In the OpenShift Container Platform AI dashboard, navigate to the project details page and click the <span class="strong strong"><strong>Models</strong></span> tab.
+							</li><li class="listitem">
+								In the <span class="strong strong"><strong>Single-model serving platform</strong></span> tile, click <span class="strong strong"><strong>Select single-model</strong></span> to open the <span class="strong strong"><strong>Deploy model</strong></span> dialog.
+							</li><li class="listitem"><p class="simpara">
+								Complete the following configurations:
+							</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+										<span class="strong strong"><strong>Model name</strong></span>: enter the model name in RFC compliant format.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Serving runtime</strong></span>: select the serving runtime you configured.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Model framework</strong></span>: select <span class="strong strong"><strong>vLLM</strong></span>.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Model server size</strong></span>: select <span class="strong strong"><strong>Large</strong></span>.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Accelerator</strong></span>: select the accelerator you configured.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Number of accelerators</strong></span>: enter <span class="strong strong"><strong>8</strong></span>
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Make deployed models available through an external route</strong></span>: enable the option.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Require token authentication</strong></span>: enable the option.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Existing connection</strong></span>: enable existing connection under <span class="strong strong"><strong>Source model location</strong></span>.
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Connection</strong></span>: select the data connection name for the data connection you created
+									</li><li class="listitem">
+										<span class="strong strong"><strong>Path</strong></span>: Enter the path to your model. For example, Llama-3.1-8B-Instruct.
+									</li></ol></div></li><li class="listitem">
+								Click <span class="strong strong"><strong>Deploy</strong></span>. On the <span class="strong strong"><strong>Models</strong></span> tab, an endpoint and token will be provided for your model after it is provisioned.
+							</li><li class="listitem"><p class="simpara">
+								Export variables to access the model after the model status becomes Ready. Replace <span class="emphasis"><em>&lt;values&gt;</em></span> in the command with applicable values for the variables.
+							</p><pre class="programlisting language-terminal">$ export SERVING_NAME=&lt;serving-name&gt;
+$ export NAMESPACE=&lt;project-name&gt;
+$ export TOKEN=$(oc get secret -n $NAMESPACE default-name-$SERVING_NAME-sa -o go-template='{{ .data.token }}' | base64 -d)
+$ export ENDPOINT=https://$(oc get route -n istio-system ${SERVING_NAME}-${NAMESPACE} -o go-template='{{ .spec.host }}')
+$ curl -k -w %{certs} $ENDPOINT &gt; ca-cert.pem
+$ export SSL_CERT_FILE=ca-cert.pem
+$ export REQUESTS_CA_BUNDLE=ca-cert.pem
+$ export OPENAI_API_BASE="$ENDPOINT/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+									Note the <code class="literal">OPENAI_API_BASE</code> endpoint URL.
+								</p></div></div><div class="formalpara"><p class="title"><strong>Verification</strong></p><p>
+									You can verify the successful deployment of the model by using the following <code class="literal">curl</code> command to write a short Python programme by using the model. Replace <code class="literal">PROVIDED_ENDPOINT</code> and <code class="literal">PROVIDED_TOKEN</code> with the values on the <span class="strong strong"><strong>Models</strong></span> tab. The following command has an example model name which must be replaced with the model that you deployed.
+								</p></div></li></ol></div><pre class="programlisting language-terminal">$ export ENDPOINT=PROVIDED_ENDPOINT
+$ export TOKEN=PROVIDED_TOKEN
+$ curl -k -H "Authorization: Bearer $TOKEN"  -H "Content-Type: application/json" \
+-d '{"model": "llama-3.1-8B-instruct", \
+"prompt": "Write a hello world program in python", \
+"max_tokens": 100, "temperature": 0.01 }' \
+$ {ENDPOINT}/v1/completions</pre><p>
+						After you deploy the LLM, scale down the service by using the following command:
+					</p><pre class="programlisting language-terminal">$ oc process deploy-model -p SERVING_NAME=&lt;serving-name&gt; -p MODEL_PATH=&lt;model-path&gt; | oc delete -f -</pre></section></section><section class="section" id="preparing-llm-analysis_configuring-llm"><div class="titlepage"><div><div><h3 class="title">1.1.4. Preparing the large language model for analysis</h3></div></div></div><p>
+					To access the large language model (LLM), you must create an API key for the model and update settings in MTA with Developer Lightspeed to enable the extension to use the LLM.
+				</p><section class="section" id="configuring-openai-api-key_preparing-llm-analysis"><div class="titlepage"><div><div><h4 class="title">1.1.4.1. Configuring the OpenAI API key</h4></div></div></div><p class="_abstract _abstract">
+						After you deployed a model and exported the self-signed SSL certificate, you must configure the OpenAI API compatible key to use the large language model (LLM). Update the API key and base URL in the `provider-settings`YAML configuration to use the LLM for an MTA with Developer Lightspeed analysis.
+					</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+								Enter the following command to generate the <code class="literal">OPENAI_API_KEY</code>:
+							</p><pre class="programlisting language-terminal">$ export OPENAI_API_KEY=$(oc create token --duration=87600h -n ${NAMESPACE} ${SERVING_NAME}-sa)</pre></li><li class="listitem"><p class="simpara">
+								Next, you must enter the following configuration in the <code class="literal">provider-settings.yaml</code> in the MTA with Developer Lightspeed Visual Studio (VS) Code extension.
+							</p><pre class="programlisting language-yaml">openshift-kai-test-generation: &amp;active
+    environment:
+      SSL_CERT_FILE: "&lt;name-of-SSL_CERT_FILE&gt;"
+      REQUESTS_CA_BUNDLE: "&lt;name-of-REQUESTS_CA_BUNDLE&gt;"
+      OPENAI_API_KEY: "&lt;OPENAI_API_KEY&gt;"
+
+    provider: "ChatOpenAI"
+    args:
+      model: "&lt;serving-name&gt;"
+      base_url:  "https://&lt;serving-name&gt;-&lt;data-science-project-name&gt;.apps.konveyor-ai.migration.redhat.com/v1"</pre></li></ol></div><p>
+						You must now be able to use the model for application analysis by using the MTA with Developer Lightspeed extension.
+					</p></section></section></section><section class="section" id="configuring-llm-podman_configuring-llm"><div class="titlepage"><div><div><h2 class="title">1.2. Configuring the LLM in Podman Desktop</h2></div></div></div><p class="_abstract _abstract">
+				The Podman AI lab extension enables you to use an open-source model from a curated list of models and use it locally in your system.
+			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+						You installed <a class="link" href="https://podman-desktop.io/docs/installation">Podman Desktop</a> in your system.
+					</li><li class="listitem">
+						You completed initial configurations in MTA with Developer Lightspeed required for the analysis.
+					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						Go to the Podman AI Lab extension and click <span class="strong strong"><strong>Catalog</strong></span> under <span class="strong strong"><strong>Models</strong></span>.
+					</li><li class="listitem">
+						Download one or more models.
+					</li><li class="listitem">
+						Go to <span class="strong strong"><strong>Services</strong></span> and click <span class="strong strong"><strong>New Model Service</strong></span>.
+					</li><li class="listitem">
+						Select a model that you downloaded in the <span class="strong strong"><strong>Model</strong></span> drop down menu and click <span class="strong strong"><strong>Create Service</strong></span>.
+					</li><li class="listitem">
+						Click the deployed model service to open the <span class="strong strong"><strong>Service Details</strong></span> page.
+					</li><li class="listitem">
+						Note the server URL and the model name. You must configure these specifications in the MTA with Developer Lightspeed extension.
+					</li><li class="listitem"><p class="simpara">
+						Export the inference server URL as follows:
+					</p><pre class="programlisting language-terminal">export OPENAI_API_BASE=&lt;server-url&gt;</pre></li><li class="listitem">
+						In the VS Code, click <span class="strong strong"><strong>Configure GenAI Settings</strong></span> to open the <code class="literal">provider-settings.yaml</code> file.
+					</li><li class="listitem"><p class="simpara">
+						Enter the model details from Podman Desktop. For example, use the following configuration for a Mistral model.
+					</p><pre class="programlisting language-yaml">podman_mistral:
+    provider: "ChatOpenAI"
+     environment:
+      OPENAI_API_KEY: "unused value"
+    args:
+      model: "mistral-7b-instruct-v0-2"
+      base_url: "http://localhost:35841/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+							The Podman Desktop service endpoint does not need a password but the OpenAI library expects the <code class="literal">OPENAI_API_KEY</code> to be set. In this case, the value of the <code class="literal">OPENAI_API_KEY</code> variable does not matter.
+						</p></div></div></li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm46035030747168"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, the Red Hat logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>
