@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="you can use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46192172979168"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA Developer Lightspeed</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications Developer Lightspeed to modernize your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46192154434624">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				you can use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven static code analysis for Java applications.
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#configuring-dev-lightspeed-ide_mta-developer-lightspeed">1. Using MTA with Developer Lightspeed in IDE</a></span><ul><li><span class="section"><a href="#configuring-developer-lightspeed-ide-settings_configuring-dev-lightspeed-ide">1.1. Configuring the MTA with Developer Lightspeed IDE settings</a></span></li><li><span class="section"><a href="#configuring-developer-lightspeed-profile-settings_configuring-dev-lightspeed-ide">1.2. Configuring the MTA with Developer Lightspeed profile settings</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
+		</p></section><section class="chapter" id="configuring-dev-lightspeed-ide_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Using MTA with Developer Lightspeed in IDE</h1></div></div></div><p>
+			You must configure the following settings in MTA with Developer Lightspeed:
+		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+					Visual Studio Code IDE settings for all analysis.
+				</li><li class="listitem">
+					Profile settings that provide context for a particular analysis.
+				</li></ul></div><section class="section" id="configuring-developer-lightspeed-ide-settings_configuring-dev-lightspeed-ide"><div class="titlepage"><div><div><h2 class="title">1.1. Configuring the MTA with Developer Lightspeed IDE settings</h2></div></div></div><p>
+				After you install the MTA extension in Visual Studio (VS) Code, you must provide your large language model (LLM) credentials to activate MTA with Developer Lightspeed settings in Visual Studio (VS) Code.
+			</p><p>
+				MTA with Developer Lightspeed settings are applied to all AI-assisted analysis that you perform by using the MTA extension. The extension settings can be broadly categorized into debugging and logging, MTA with Developer Lightspeed settings, analysis related settings, and solution server settings.
+			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+						You installed the Migration Toolkit for Applications (MTA) extension version 8.0.0 in VS Code.
+					</li><li class="listitem">
+						You provided LLM credentials to enable generative AI for the MTA extension in <code class="literal">settings.json</code> file.
+					</li><li class="listitem">
+						You installed the MTA distribution version 8.0.0 in your system.
+					</li><li class="listitem">
+						You installed the latest version of Language Support for Java™ by Red Hat extension in VS Code.
+					</li><li class="listitem">
+						You installed Jave 17+ and Maven 3.9.9+ in your system.
+					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+						Go to the MTA with Developer Lightspeed settings in one of the following ways:
+					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+								Click <code class="literal">Extensions &gt; MTA CLI Extension for VSCode &gt; Settings</code>
+							</li><li class="listitem">
+								Type <code class="literal">Ctrl + Shift + P</code> on the search bar to open the Command Palette and enter <code class="literal">Preferences: Open Settings (UI)</code>. Go to <code class="literal">Extensions &gt; MTA</code> to open the settings page.
+							</li></ol></div></li><li class="listitem">
+						Configure the settings described in the following table:
+					</li></ol></div><div class="table" id="idm46192171940864"><p class="title"><strong>Table 1.1. MTA with Developer Lightspeed settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 40%; " class="col_1"/><col style="width: 60%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46192171709632" scope="col">Settings</th><th align="left" valign="top" id="idm46192171678320" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Log level
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Set the log level for the MTA binary. The default log level is <code class="literal">debug</code>. The log level increases or decreases the verbosity of logs.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								RPC Server Path
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Displays the path to the solution server binary. If you do not modify the path, MTA with Developer Lightspeed uses the bundled binary.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Analyzer path
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Specify a MTA custom binary path. If you do not provide a path, MTA with Developer Lightspeed uses the default path to the binary.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Solution Server:URL
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Configure the URL of the Solution Server end point. This field comes with the default URL.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Solution Server:enabled
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable the Solution Server client (MTA extension) to connect with the Solution Server to perform analysis.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Analyze on save
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable this setting for MTA with Developer Lightspeed to run an analysis on a file that is saved after code modification. This setting is enabled automatically when you enable Agentic AI mode.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Agent mode
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable the experimental Agentic AI flow for analysis. MTA with Developer Lightspeed runs an automated analysis of a file to identify issues and suggest resolutions. After you accept the solutions, MTA with Developer Lightspeed makes the changes in the code and re-analyzes the file.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Super agent mode
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320"> </td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Diff editor type
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Select from diff or merge view to review the suggested solutions after running an analysis. The diff view shows the old code and a copy of the code with changes side-by-side. The merge view overlays the changes in the code in a single view.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Excluded diagnostic sources
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Add diagnostic sources in the <code class="literal">settings.json</code> file. The issues generated by such diagnostic sources are excluded from the automated Agentic AI analysis.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Get solution max effort
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Select the effort level for generating solutions. This can be adjusted depending on the type of incidents. Higher values increase processing time.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Get solution max LLM queries
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Specify the maximum number of LLM queries made per solution request.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Get solution max priority
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Specify the maximum priority level of issues to be considered in a solution request.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Cache directory
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Specify the path to a directory in your filesystem to store cached responses from the LLM.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Demo mode
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable to run MTA with Developer Lightspeed in demo mode that uses the LLM responses saved in the <code class="literal">cache</code> directory for analysis.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Trace enabled
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable to trace MTA communication with the LLM model. Traces are stored in the <code class="literal">/.vscode/konveyor-logs/traces</code> path in your IDE project.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Debug:Webview
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable debug level logging for Webview message handling in VS Code.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Analyze dependencies
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable MTA with Developer Lightspeed to analyze dependency-related errors detected by the LLM in your project.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Analyze known libraries
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Enable MTA with Developer Lightspeed to analyze well-known open-source libraries in your code.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Code snip limit
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Set the maximum number of lines of code that are included in incident reports.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Context lines
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Configure the number of context lines included in incident reports. The greater the number, the more the LLM accuracy.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192171709632">
+							<p>
+								Incident limit
+							</p>
+							</td><td align="left" valign="top" headers="idm46192171678320">
+							<p>
+								Specifies the maximum number of incidents to be reported. If you enter a higher value, it increases the coverage of incidents in your report.
+							</p>
+							</td></tr></tbody></table></div></div></section><section class="section" id="configuring-developer-lightspeed-profile-settings_configuring-dev-lightspeed-ide"><div class="titlepage"><div><div><h2 class="title">1.2. Configuring the MTA with Developer Lightspeed profile settings</h2></div></div></div><p>
+				To run an analysis using MTA with Developer Lightspeed, you must configure a profile that contains all the necessary configurations for an analysis, such as source and target technologies and API key to connect with your chosen large language model (LLM).
+			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+						You installed the MTA extension version 8.0.0 in Visual Studio (VS) Code.
+					</li><li class="listitem">
+						You provided LLM credentials to enable generative AI for the MTA extension in <code class="literal">settings.json</code> file.
+					</li><li class="listitem">
+						You installed the MTA distribution version 8.0.0 in your system.
+					</li><li class="listitem">
+						You installed the latest version of Language Support for Java™ by Red Hat extension in VS Code.
+					</li><li class="listitem">
+						You installed Jave 17+ and Maven 3.9.9+ in your system.
+					</li><li class="listitem">
+						You opened a Java project in your VS Code workspace.
+					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+						Open the <code class="literal">Konveyor View Analysis</code> page in either of the following ways:
+					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+								Click the screen icon on the <code class="literal">Konveyor Issues</code> pane of the MTA extension.
+							</li><li class="listitem">
+								Type <code class="literal">Ctrl + Shift + P</code> on the search bar to open the Command Palette and enter <code class="literal">Konveyor:Open Konveyor Analysis View</code>.
+							</li></ol></div></li><li class="listitem"><p class="simpara">
+						Click the settings button on the <code class="literal">Konveyor View Analysis</code> page to configure a profile for your project. The <code class="literal">Get Ready to Analyze</code> pane lists the follwoing basic configurations required for an analysis:
+					</p><div class="formalpara"><p class="title"><strong>Verification</strong></p><p>
+							After you complete the profile configuration, close the <code class="literal">Get Ready to Analyze</code> pane. You can verify that your configuration works by running an analysis. See run an analysis.
+						</p></div></li></ol></div><div class="table" id="idm46192170680736"><p class="title"><strong>Table 1.2. MTA with Developer Lightspeed profile settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 20%; " class="col_1"/><col style="width: 80%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46192170374304" scope="col">Profile settings</th><th align="left" valign="top" id="idm46192170385280" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46192170374304">
+							<p>
+								Select profile
+							</p>
+							</td><td align="left" valign="top" headers="idm46192170385280">
+							<p>
+								Create a profile that you can reuse for multiple analyses. The profile name is part of the context provided to the LLM for analysis.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192170374304">
+							<p>
+								Configure label selector
+							</p>
+							</td><td align="left" valign="top" headers="idm46192170385280">
+							<p>
+								A label selector filters rules for analysis based on the source or target technology.
+							</p>
+							<p>
+								Specify one or more target or source technologies (for example, cloud-readiness). MTA with Developer Lightspeed uses this configuration to determine the rules that are applied to a project during analysis.
+							</p>
+							<p>
+								If you mentioned a new target or a source technology in your custom rule, you can type that name to create and add the new item to the list.
+							</p>
+							<div class="admonition note"><div class="admonition_header">Note</div><div><p>
+									You must configure either target or source tehcnologies before running an analysis.
+								</p></div></div>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192170374304">
+							<p>
+								Set rules
+							</p>
+							</td><td align="left" valign="top" headers="idm46192170385280">
+							<p>
+								Enable default rules and Select your custom rule that you want MTA with Developer Lightspeed to use for an analysis. You can use the custom rules in addition to the default rules.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm46192170374304">
+							<p>
+								Configure generative AI
+							</p>
+							</td><td align="left" valign="top" headers="idm46192170385280">
+							<p>
+								This option opens the <code class="literal">provider-settings.yaml</code> file that contains API keys and other parameters for all supported LLMs. By default, MTA with Developer Lightspeed is configured to use OpenAI LLM. To change the model, update the anchor <code class="literal">&amp;active</code> to the desired block. Modify this file with the required arguments, such as the model and API key, to complete the setup.
+							</p>
+							</td></tr></tbody></table></div></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm46192154434624"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, the Red Hat logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>
