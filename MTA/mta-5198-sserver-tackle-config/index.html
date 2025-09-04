@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA with Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46013719161056"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA with Developer Lightspeed</h1></div><div><h2 class="subtitle">Identify and resolve migration issues by analyzing your applications with the Migration Toolkit for Applications plugin for IntelliJ IDEA.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46013715626624">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications.
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#solution-server-configurations_mta-developer-lightspeed">1. Solution Server Configurations</a></span><ul><li><span class="section"><a href="#tackle-llm-secret_solution-server-configurations">1.1. Configuring the model secret key</a></span></li><li><span class="section"><a href="#tackle-enable-dev-lightspeed_solution-server-configurations">1.2. Enabling Developer Lightspeed for MTA in Tackle custom resource</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
+		</p></section><section class="chapter" id="solution-server-configurations_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Solution Server Configurations</h1></div></div></div><p class="_abstract _abstract">
+			Solution server is a component that allows Developer Lightspeed for MTA to build a collective memory of code changes from all analysis performed in an organization. In the local context of an analysis run in the Visual Studio (VS) Code, the Solution Server augments previous patterns of how codes changed to resolve issues (also called solved examples) that were similar to those in the current file, and suggests a resolution that has a higher confidence level derived from previous solutions.
+		</p><p>
+			As Developer Lightspeed for MTA is an optional set of features in MTA, you must complete the following configurations before you can access settings necessary to use AI analysis.
+		</p><section class="section" id="tackle-llm-secret_solution-server-configurations"><div class="titlepage"><div><div><h2 class="title">1.1. Configuring the model secret key</h2></div></div></div><p class="_abstract _abstract">
+				You must configure the Kubernetes secret for the large language model (LLM) provider in the OpenShift Container Platform project where you installed the MTA operator.
+			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+						Create a credentials secret named <code class="literal">kai-api-keys</code> in the <code class="literal">openshift-mta</code> project.
+					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem"><p class="simpara">
+								For the default IBM GenAI provider <code class="literal">ChatIBMGenAI</code>, type:
+							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+--from-literal=genai_key='&lt;YOUR_IBM_GENAI_KEY&gt;'</pre></li><li class="listitem"><p class="simpara">
+								For Amazon Bedrock as the provider, type:
+							</p><pre class="programlisting language-terminal">kubectl create secret generic aws-credentials \
+ --from-literal=AWS_ACCESS_KEY_ID=&lt;YOUR_AWS_ACCESS_KEY_ID&gt; \
+ --from-literal=AWS_SECRET_ACCESS_KEY=&lt;YOUR_AWS_SECRET_ACCESS_KEY&gt;</pre></li><li class="listitem"><p class="simpara">
+								For Azure OpenAI as the provider, type:
+							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+ --from-literal=AZURE_OPENAI_API_KEY='&lt;YOUR_AZURE_OPENAI_API_KEY&gt;'</pre></li><li class="listitem"><p class="simpara">
+								For the Google as the provider, type:
+							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+ --from-literal=GEMINI_API_KEY='&lt;YOUR_GOOGLE_API_KEY&gt;'</pre></li><li class="listitem"><p class="simpara">
+								For the OpenAI-compatible providers, type:
+							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+ --from-literal=OPENAI_API_BASE='https://example.openai.com/v1' \
+ --from-literal=OPENAI_API_KEY='&lt;YOUR_OPENAI_KEY&gt;'</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+									You can also set the base URL as the <code class="literal">kai_llm_baseurl</code> variable in the Tackle custom resource.
+								</p></div></div></li></ol></div></li><li class="listitem">
+						(Optional) Force a reconcile so that the MTA operator picks up the secret immediately
+					</li></ol></div><pre class="screen">kubectl patch tackle tackle -n openshift-mta --type=merge -p \
+'{"metadata":{"annotations":{"konveyor.io/force-reconcile":"'"$(date +%s)"'"}}}'</pre></section><section class="section" id="tackle-enable-dev-lightspeed_solution-server-configurations"><div class="titlepage"><div><div><h2 class="title">1.2. Enabling Developer Lightspeed for MTA in Tackle custom resource</h2></div></div></div><p class="_abstract _abstract">
+				Solution Server integrates with the MTA Hub backend component to use the database and volumes necessary to store and retrieve the solved examples.
+			</p><p>
+				To enable Solution Server and other AI configurations in the Red Hat Developer Lightspeed for migration toolkit for applications VS Code extension, you must modify the Tackle custom resource (CR) with additional parameters.
+			</p><div class="orderedlist"><p class="title"><strong>Prerequisites</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						You deployed an additional RWO volume for the <code class="literal">Developer Lightspeed for MTA-database</code> if you want to use Developer Lightspeed for MTA. See <a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.3/html/user_interface_guide/mta-7-installing-web-console-on-openshift_user-interface-guide#openshift-persistent-volume-requirements_user-interface-guide">Persistent volume requirements</a> for more information.
+					</li><li class="listitem">
+						You installed the MTA operator v8.0.0.
+					</li></ol></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						Log in to the OpenShift Container Platform cluster and switch to the <code class="literal">openshift-mta</code> project.
+					</li><li class="listitem"><p class="simpara">
+						Edit the Tackle custom resource (CR) settings in the <code class="literal">tackle_hub.yml</code> to enable Developer Lightspeed for MTA and then enter applicable values for <code class="literal">kai_llm_provider</code> and <code class="literal">kai_llm_model</code> variables.
+					</p><pre class="programlisting language-yaml">---
+kind: Tackle
+apiVersion: tackle.konveyor.io/v1alpha1
+metadata:
+  name: mta
+  namespace: openshift-mta
+spec:
+  kai_solution_server_enabled: true
+  kai_llm_provider: ChatIBMGenAI
+  # optional, pick a suitable model for your provider
+  kai_llm_model: &lt;model-name&gt;
+...</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+							The default large language model (LLM) provider is <code class="literal">ChatIBMGenAI</code>. You may also enter <code class="literal">google</code> or <code class="literal">openai</code> as providers.
+						</p></div></div></li><li class="listitem"><p class="simpara">
+						Apply the Tackle CR by in the <code class="literal">openshift-mta</code> project using the following command.
+					</p><pre class="programlisting language-terminal"> $ kubectl apply -f tackle_hub.yaml</pre></li></ol></div><div class="orderedlist"><p class="title"><strong>Verification</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+						Enter the following command to verify the Developer Lightspeed for MTA resources.
+					</p><pre class="programlisting language-terminal">kubectl get deploy,svc -n openshift-mta | grep -E 'kai-(api|db|importer)'</pre></li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm46013715626624"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, the Red Hat logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>
