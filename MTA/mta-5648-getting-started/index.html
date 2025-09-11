@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45447170425296"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA Developer Lightspeed</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications Developer Lightspeed to modernize your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45447145461808">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications.
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#getting-started_mta-developer-lightspeed">1. Getting started with Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#prerequisites_mta-developer-lightspeed">1.1. Prerequisites</a></span></li><li><span class="section"><a href="#persistent-volumes_mta-developer-lightspeed">1.2. Persistent volume requirements</a></span></li><li><span class="section"><a href="#installation_mta-developer-lightspeed">1.3. Installation</a></span></li><li><span class="section"><a href="#how-to-use-developer-lightspeed_mta-developer-lightspeed">1.4. Introducing Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#configurations_to_use_the_solution_server">1.4.1. Configurations to use the solution server</a></span></li><li><span class="section"><a href="#configurations_to_use_the_agent_mode">1.4.2. Configurations to use the agent mode</a></span></li></ul></li><li><span class="section"><a href="#example-code-generation_mta-developer-lightspeed">1.5. Generating code fix suggestions example</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
+		</p></section><section class="chapter" id="getting-started_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Getting started with Developer Lightspeed for MTA</h1></div></div></div><p class="_abstract _abstract">
+			The getting started section contains information to walk you through the prerequisites, persistent volume requirements, installation, and workflows that help you to decide how you want to use Red Hat Developer Lightspeed for migration toolkit for applications.
+		</p><section class="section" id="prerequisites_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.1. Prerequisites</h2></div></div></div><p class="_abstract _abstract">
+				Before you install Developer Lightspeed for MTA, you must:
+			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+						Install Language Support for Java™ by Red Hat extension
+					</li><li class="listitem">
+						Install Java v17 and later
+					</li><li class="listitem">
+						Install Maven v3.9+
+					</li><li class="listitem">
+						Install Git and add it to the $PATH variable
+					</li><li class="listitem">
+						Installed the MTA command line 8.0.0
+					</li><li class="listitem"><p class="simpara">
+						Installed the MTA Operator 8.0.0
+					</p><p class="simpara">
+						The Operator is mandatory if you plan to enable solution server to work with the LLM for generating code changes. It enables you to log in to the <code class="literal">openshift-mta</code> project where you must deploy the Tackle custom resources (CR) required for running the Solution Server.
+					</p></li><li class="listitem"><p class="simpara">
+						Create an API key for a large language model (LLM).
+					</p><p class="simpara">
+						You must enter the provider value and model name in Tackle custom resource (CR) to enable generative AI configuration in the MTA VS Code plugin.
+					</p><div class="table" id="idm45447163616512"><p class="title"><strong>Table 1.1. Supported large langage models and providers</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45447164212576" scope="col">LLM Provider (Tackle CR value)</th><th align="left" valign="top" id="idm45447168958240" scope="col">Large language model in Tackle CR</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Open AI (<code class="literal">openai</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">gpt-4</code>, <code class="literal">gpt-4o</code>, <code class="literal">gpt-4o-mini</code>, <code class="literal">gpt-3.5-turbo</code>
+									</p>
+									</td></tr><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Azure OpenAI (<code class="literal">azure_openai</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">gpt-4</code>, <code class="literal">gpt-35-turbo</code>
+									</p>
+									</td></tr><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Amazon Bedrock (<code class="literal">bedrock</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">anthropic.claude-3-5-sonnet-20241022-v2:0</code>, <code class="literal">meta.llama3-1-70b-instruct-v1:0</code>
+									</p>
+									</td></tr><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Google Gemini (<code class="literal">google</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">gemini-2.0-flash-exp</code>, <code class="literal">gemini-1.5-pro</code>
+									</p>
+									</td></tr><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Ollama (<code class="literal">ollama</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">llama3.1</code>, <code class="literal">codellama</code>, <code class="literal">mistral</code>
+									</p>
+									</td></tr><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Groq (<code class="literal">groq</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">llama-3.1-70b-versatile</code>, <code class="literal">mixtral-8x7b-32768</code>
+									</p>
+									</td></tr><tr><td align="left" valign="top" headers="idm45447164212576">
+									<p>
+										Anthropic (<code class="literal">anthropic</code>)
+									</p>
+									</td><td align="left" valign="top" headers="idm45447168958240">
+									<p>
+										<code class="literal">claude-3-5-sonnet-20241022</code>, <code class="literal">claude-3-haiku-20240307</code>
+									</p>
+									</td></tr></tbody></table></div></div></li></ul></div></section><section class="section" id="persistent-volumes_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.2. Persistent volume requirements</h2></div></div></div><p class="_abstract _abstract">
+				The Solution Server component requires a backend database to store code changes from previous analyses.
+			</p><p>
+				If you plan to enable Solution Server, you must create a <code class="literal">5Gi</code> <code class="literal">RWO</code> persistent volume used by the Developer Lightspeed for MTA database. See <a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.3/html/user_interface_guide/mta-7-installing-web-console-on-openshift_user-interface-guide#openshift-persistent-volume-requirements_user-interface-guide">Persistent volume requirements</a> for more information.
+			</p></section><section class="section" id="installation_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.3. Installation</h2></div></div></div><p class="_abstract _abstract">
+				You can install the Migration Toolkit for Applications (MTA) 8.0.0 Visual Studio (VS) Code plug-in from the <a class="link" href="https://marketplace.visualstudio.com/search?term=migration%20toolkit&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">VS Code marketplace</a>.
+			</p><p>
+				You can use the MTA VS Code plug-in to perform analysis and optionally enable Red Hat Developer Lightspeed for migration toolkit for applications to use generative AI capabilities to fix code issues before migrating to target technologies.
+			</p></section><section class="section" id="how-to-use-developer-lightspeed_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.4. Introducing Developer Lightspeed for MTA</h2></div></div></div><p class="_abstract _abstract">
+				Starting with Migration Toolkit for Applications (MTA) 8.0.0, you can run an application anlysis using the MTA Visual Studio (VS) Code plug-in. An MTA analysis detects the issues in the code given a set of targets for migration.
+			</p><p>
+				You can opt to use Red Hat Developer Lightspeed for migration toolkit for applications features to request a code fix suggestion. Developer Lightspeed for MTA augments the manual changes made to code throughout your organization in different migration waves and creates a context that is shared with a large language model (LLM). The LLM suggests code resolutions based on the issue description, context, and previous examples of code changes to resolve issues.
+			</p><p>
+				To make code changes by using the LLM, you must enable the generative AI option, along with either the Solution Server mode or the Agent mode. The configurations that you complete before you request code fixes depend on the mode you prefer.
+			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+					If you make any change after enabling the generative AI settings in the extension, you must restart the extension for the change to take effect.
+				</p></div></div><section class="section" id="configurations_to_use_the_solution_server"><div class="titlepage"><div><div><h3 class="title">1.4.1. Configurations to use the solution server</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Enable solution server in the Tackle custom resource (CR).
+						</li><li class="listitem">
+							Configure the LLM key and the base URL of your model in the Tackle CR.
+						</li><li class="listitem">
+							Enable generative AI option and configure solution server in the Developer Lightspeed for MTA extension settings.
+						</li><li class="listitem">
+							Configure profile settings for code fixes and activate the LLM provider in the <code class="literal">provider-settings.yaml</code> file.
+						</li></ul></div></section><section class="section" id="configurations_to_use_the_agent_mode"><div class="titlepage"><div><div><h3 class="title">1.4.2. Configurations to use the agent mode</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Enable generative AI and agent mode in the Developer Lightspeed for MTA extension settings.
+						</li><li class="listitem">
+							Configure profile settings for code fixes and activate the LLM provider in the <code class="literal">provider-settings.yaml</code> file.
+						</li></ul></div></section></section><section class="section" id="example-code-generation_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.5. Generating code fix suggestions example</h2></div></div></div><p class="_abstract _abstract">
+				This example will walk you through generating code fixes for a Java application that must be migrated to <code class="literal">quarkus</code>. To generate resolutions for issues in the code, we use agentic AI mode and <code class="literal">gpt-4</code> model from <code class="literal">OpenAI</code> as the large language model (LLM).
+			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						Open the <code class="literal">my-Java</code> project in Visual Studio (VS) Code.
+					</li><li class="listitem">
+						Download the Red Hat Developer Lightspeed for migration toolkit for applications extension from the <a class="link" href="https://marketplace.visualstudio.com/search?term=migration%20toolkit&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">VS Code marketplace</a>.
+					</li><li class="listitem"><p class="simpara">
+						Open Command Palette:
+					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+								Type <code class="literal">Ctrl+Shift+P</code> in Windows and Linux systems.
+							</li><li class="listitem">
+								Type <code class="literal">Cmd+Shift+P</code> in Mac systems.
+							</li></ol></div></li><li class="listitem">
+						Type <code class="literal">Preferences: Open Settings (UI)</code> in the Command Palette to open the VS Code settings and select <code class="literal">Extension &gt; MTA</code>.
+					</li><li class="listitem">
+						Select <code class="literal">MTA:Agent Mode</code> and restart VS Code.
+					</li><li class="listitem">
+						In the Developer Lightspeed for MTA extension, click <code class="literal">Open MTA Analysis View</code>.
+					</li><li class="listitem">
+						Type <code class="literal">MTA: Manage Analysis Profile</code> in the Command Palette to open the analysis profile page.
+					</li><li class="listitem"><p class="simpara">
+						Configure the following fields:
+					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+								<span class="strong strong"><strong>Profile Name</strong></span>: Type a profile name
+							</li><li class="listitem">
+								<span class="strong strong"><strong>Target Technologies</strong></span>: <code class="literal">quarkus</code>
+							</li><li class="listitem">
+								<span class="strong strong"><strong>Use Default Rules</strong></span>: Toggle the button to use default rules for <code class="literal">quarkus</code>
+							</li></ol></div></li><li class="listitem">
+						Close the profile manager.
+					</li><li class="listitem">
+						Type <code class="literal">MTA: Open the Gen AI model provider configuration file</code> in the Command Palette.
+					</li><li class="listitem"><p class="simpara">
+						Configure the following in the <code class="literal">provider-settings</code> file and close it:
+					</p><pre class="programlisting language-yaml">models:
+  OpenAI: &amp;active
+    environment:
+      OPENAI_API_KEY: "_&lt;your-API-key&gt;_" # Required
+    provider: ChatOpenAI
+    args:
+      model: gpt-4 # Required</pre></li><li class="listitem">
+						Type <code class="literal">MTA: Open MTA Analysis View</code> in the Command Palette.
+					</li><li class="listitem"><p class="simpara">
+						Click <span class="strong strong"><strong>Start</strong></span> to start the Developer Lightspeed for MTA server.
+					</p><p class="simpara">
+						Starting the server activates the <span class="strong strong"><strong>Run Analysis</strong></span> feature and the Agent mode.
+					</p></li><li class="listitem">
+						Select the profile you configured and toggle the <span class="strong strong"><strong>Agent Mode</strong></span> on.
+					</li><li class="listitem"><p class="simpara">
+						Click <span class="strong strong"><strong>Run Analysis</strong></span> to scan the Java application.
+					</p><p class="simpara">
+						MTA identifies the issues in the code.
+					</p></li><li class="listitem"><p class="simpara">
+						Click the solutions icon in an issue to request suggestions to resolve the issue.
+					</p><p class="simpara">
+						Developer Lightspeed for MTA streams the issue description, code change that resolves the issue, and the file in which the changes are to be made.
+					</p><p class="simpara">
+						You can review the code changes in a diff editor and accept or reject the changes. If you accept the changes, Developer Lightspeed for MTA creates a new file with the accepted code changes.
+					</p></li><li class="listitem"><p class="simpara">
+						Click <span class="strong strong"><strong>Continue</strong></span> to allow Developer Lightspeed for MTA to run a follow-up analysis.
+					</p><p class="simpara">
+						This round of analysis detects lint issues, compilation issues, or diagnostic issues that may have occurred when you accepted the suggested code change.
+					</p><p class="simpara">
+						Repeat the review and accept or reject the resolutions. Developer Lightspeed for MTA continues to run repeated rounds of scan if you allow until all issues are resolved.
+					</p></li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45447145461808"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, the Red Hat logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>
