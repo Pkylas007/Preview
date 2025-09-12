@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45700174939056"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA Developer Lightspeed</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications Developer Lightspeed for application to modernize applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45700165644272">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications.
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#developer-lightspeed-logs_mta-developer-lightspeed">1. Debugging Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#dev-lightspeed-access-logs_mta-developer-lightspeed">1.1. Access the logs</a></span></li><li><span class="section"><a href="#dev-lightspeed-archive-logs_mta-developer-lightspeed">1.2. Archive logs</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
+		</p></section><section class="chapter" id="developer-lightspeed-logs_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Debugging Developer Lightspeed for MTA</h1></div></div></div><p class="_abstract _abstract">
+			Red Hat Developer Lightspeed for migration toolkit for applications generates logs to debug issues specific to the extension host and the MTA analysis and RPC server. You can also configure the log level for the Developer Lightspeed for MTA in the extension settings. The default log level is <span class="strong strong"><strong>debug</strong></span>.
+		</p><p>
+			Extension logs are stored as <code class="literal">extension.log</code> with automatic rotation. The maximum size of the log file is 10 MB and three files are retained. Analyzer RPC logs are stored as <code class="literal">analyzer.log</code> without rotation.
+		</p><section class="section" id="dev-lightspeed-access-logs_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.1. Access the logs</h2></div></div></div><p>
+				You can access the extension logs in the following ways:
+			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+						<span class="strong strong"><strong>Command Palette</strong></span>: Type <code class="literal">Show Logs</code> or <code class="literal">Open Log</code> and select <code class="literal">Extension Host</code>.
+					</li><li class="listitem">
+						<span class="strong strong"><strong>Output panel</strong></span>: Select <code class="literal">Extension Host</code> from the drop-down menu.
+					</li><li class="listitem">
+						<span class="strong strong"><strong>Log file</strong></span>: Go to <code class="literal">.vscode/mta-logs</code> directory in your project and open the extension log file.
+					</li></ul></div><p>
+				To access the analyzer log file, go to <code class="literal">.vscode/mta-logs</code> directory in your project and open the analyzer log file.
+			</p><p>
+				You can also inspect webview content by using the webview logs. To access the webview logs, type <code class="literal">Open Webview Developer Tools</code> in the VS Code Command Palette.
+			</p></section><section class="section" id="dev-lightspeed-archive-logs_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.2. Archive logs</h2></div></div></div><p>
+				The archival feature helps you to save the following information:
+			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+						Large language model (LLM) provider configuration
+					</li><li class="listitem">
+						LLM model arguments
+					</li><li class="listitem">
+						Template configuration
+					</li><li class="listitem">
+						LLama header
+					</li><li class="listitem">
+						LLM retry attempts
+					</li><li class="listitem">
+						LLM retries delay
+					</li></ul></div><p>
+				Type <code class="literal">Generate Debug Archive</code> in the VS Code Command Palette and select the information type that must be archived as a log file. You can access the tar file of archived logs in the <code class="literal">.vscode</code> directory of your project.
+			</p></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45700165644272"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, the Red Hat logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>
