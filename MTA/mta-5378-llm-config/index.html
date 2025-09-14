@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46267760371568"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA Developer Lightspeed</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications command-line interface to migrate your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46267746362128">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>MTA Developer Lightspeed</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45677583448224"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">7.3</span></div><div><h1 class="title">MTA Developer Lightspeed</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications command-line interface to migrate your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45677573107456">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				Use Migration Toolkit for Applications (MTA) Developer Lightspeed for application modernization in your organization by running Artificial Intelligence-driven code updates after a static code analysis for Java applications.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#configuring-llm_mta-developer-lightspeed">1. Configuring large language models for analysis</a></span><ul><li><span class="section"><a href="#llm-service-openshift-ai_configuring-llm">1.1. Deploying an LLM as a service in OpenShift Container Platform AI</a></span></li><li><span class="section"><a href="#llm-provider-settings_configuring-llm">1.2. Provider settings configuration</a></span></li><li><span class="section"><a href="#configuring-llm-podman_configuring-llm">1.3. Configuring the LLM in Podman Desktop</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
 		</p></section><section class="chapter" id="configuring-llm_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Configuring large language models for analysis</h1></div></div></div><p>
-			In an analysis, Developer Lightspeed for MTA provides the large language model (LLM) with the contextual prompt to identify the issues in the current application and generate suggestions to resolve them.
+			To generate suggestions to resolves issues in the code, Developer Lightspeed for MTA provides the large language model (LLM) with the contextual prompt, migration hints, and solved examples to generate suggestions to resolve issues identified in the current code by running an analysis.
 		</p><p>
 			Developer Lightspeed for MTA is designed to be model agnostic. It works with LLMs that are run in different environments (in local containers, as local AI, as a shared service) to support analyzing Java applications in a wide range of scenarios. You can choose an LLM from well-known providers, local models that you run from Ollama or Podman desktop, and OpenAI API compatible models.
 		</p><p>
-			The migration hints produced to resolve issues detected through an analysis depends on the LLM’s capabilities.
+			The code fix suggestions produced to resolve issues detected through an analysis depends on the LLM’s capabilities.
 		</p><p>
 			You can run an LLM from the following generative AI providers:
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -22,6 +22,10 @@
 					Amazon Bedrock
 				</li><li class="listitem">
 					Ollama
+				</li><li class="listitem">
+					Groq
+				</li><li class="listitem">
+					Anthropic
 				</li></ul></div><p>
 			You can also run OpenAI API-compatible LLMs deployed as a service in your OpenShift AI cluster or deployed locally in the Podman AI Lab in your system.
 		</p><section class="section" id="llm-service-openshift-ai_configuring-llm"><div class="titlepage"><div><div><h2 class="title">1.1. Deploying an LLM as a service in OpenShift Container Platform AI</h2></div></div></div><p class="_abstract _abstract">
@@ -133,9 +137,9 @@
 					When you change the <code class="literal">model</code> deployed in OpenShift Container Platform AI, you must also change the <code class="literal">base_url</code> endpoint.
 				</p></div></div></section><section class="section" id="configuring-llm-podman_configuring-llm"><div class="titlepage"><div><div><h2 class="title">1.3. Configuring the LLM in Podman Desktop</h2></div></div></div><p class="_abstract _abstract">
 				The Podman AI lab extension enables you to use an open-source model from a curated list of models and use it locally in your system.
-			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
-					The migration hints generated by a model to resolve issues depends on the model’s capabilities.
-				</p></div></div><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+			</p><p>
+				The code fix suggestions generated by a model depends on the model’s capabilities. Models deployed through the Podman AI Lab must were found to be insufficient for the complexity of code changes required to fix issues discovered by MTA. You must not use such models in production environment.
+			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 						You installed <a class="link" href="https://podman-desktop.io/docs/installation">Podman Desktop</a> in your system.
 					</li><li class="listitem">
 						You completed initial configurations in Developer Lightspeed for MTA required for the analysis.
@@ -165,7 +169,7 @@
       model: "mistral-7b-instruct-v0-2"
       base_url: "http://localhost:35841/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							The Podman Desktop service endpoint does not need a password but the OpenAI library expects the <code class="literal">OPENAI_API_KEY</code> to be set. In this case, the value of the <code class="literal">OPENAI_API_KEY</code> variable does not matter.
-						</p></div></div></li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm46267746362128"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+						</p></div></div></li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45677573107456"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
