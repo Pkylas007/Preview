@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and Using Developer Lightspeed for MTA</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using Developer Lightspeed for Migration Toolkit for Applications (MTA), you can modernize applications in your organization by applying LLM-driven code changes to resolve issues found through static code analysis. You can automate code fixes, review and apply the suggested code changes with minimum manual effort."/><link rel="next" href="#intro-to-the-developer-lightspeed_mta-developer-lightspeed" title="Chapter 1. Introduction to the Developer Lightspeed for MTA"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46401549376320"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and Using Developer Lightspeed for MTA</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications Developer Lightspeed to modernize your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46401531192832">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and Using Developer Lightspeed for MTA</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using Developer Lightspeed for Migration Toolkit for Applications (MTA), you can modernize applications in your organization by applying LLM-driven code changes to resolve issues found through static code analysis. You can automate code fixes, review and apply the suggested code changes with minimum manual effort."/><link rel="next" href="#intro-to-the-developer-lightspeed_mta-developer-lightspeed" title="Chapter 1. Introduction to the Developer Lightspeed for MTA"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45715026131984"><div class="titlepage"><div><div class="producttitle"><span class="productname">Migration Toolkit for Applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and Using Developer Lightspeed for MTA</h1></div><div><h2 class="subtitle">Using the Migration Toolkit for Applications Developer Lightspeed to modernize your applications</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45715007994160">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				By using Developer Lightspeed for Migration Toolkit for Applications (MTA), you can modernize applications in your organization by applying LLM-driven code changes to resolve issues found through static code analysis. You can automate code fixes, review and apply the suggested code changes with minimum manual effort.
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro-to-the-developer-lightspeed_mta-developer-lightspeed">1. Introduction to the Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#use-case-ai-code-fix_mta-developer-lightspeed">1.1. Use case for AI-driven code fixes</a></span></li><li><span class="section"><a href="#how-developerlightspped-works_mta-developer-lightspeed">1.2. How does Developer Lightspeed for MTA work</a></span></li><li><span class="section"><a href="#modes-developer-lightspeed_mta-developer-lightspeed">1.3. Requesting code fixes in Developer Lightspeed for MTA</a></span></li><li><span class="section"><a href="#benefits-using-developer-lightspeed_mta-developer-lightspeed">1.4. Benefits of using Developer Lightspeed for MTA</a></span></li></ul></li><li><span class="chapter"><a href="#getting-started_mta-developer-lightspeed">2. Getting started with Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#prerequisites_getting-started">2.1. Prerequisites</a></span></li><li><span class="section"><a href="#persistent-volumes_getting-started">2.2. Persistent volume requirements</a></span></li><li><span class="section"><a href="#installation_getting-started">2.3. Installation</a></span></li><li><span class="section"><a href="#how-to-use-developer-lightspeed_getting-started">2.4. How to use Developer Lightspeed for MTA</a></span></li><li><span class="section"><a href="#example-code-generation_getting-started">2.5. Generating code fix suggestions example</a></span></li></ul></li><li><span class="chapter"><a href="#solution-server-configurations_mta-developer-lightspeed">3. Solution Server Configurations</a></span><ul><li><span class="section"><a href="#tackle-llm-secret_solution-server-configurations">3.1. Configuring the model secret key</a></span></li><li><span class="section"><a href="#tackle-enable-dev-lightspeed_solution-server-configurations">3.2. Enabling Developer Lightspeed for MTA in Tackle custom resource</a></span></li></ul></li><li><span class="chapter"><a href="#configuring-llm_mta-developer-lightspeed">4. Configuring large language models for analysis</a></span><ul><li><span class="section"><a href="#llm-service-openshift-ai_configuring-llm">4.1. Deploying an LLM as a service in an OpenShift AI cluster</a></span></li><li><span class="section"><a href="#llm-provider-settings_configuring-llm">4.2. Configuring LLM provider settings</a></span></li><li><span class="section"><a href="#configuring-llm-podman_configuring-llm">4.3. Configuring the LLM in Podman Desktop</a></span></li></ul></li><li><span class="chapter"><a href="#configuring-dev-lightspeed-ide_mta-developer-lightspeed">5. Using MTA with Developer Lightspeed in IDE</a></span><ul><li><span class="section"><a href="#configuring-developer-lightspeed-ide-settings_configuring-dev-lightspeed-ide">5.1. Configuring the Developer Lightspeed for MTA IDE settings</a></span></li><li><span class="section"><a href="#configuring-developer-lightspeed-profile-settings_configuring-dev-lightspeed-ide">5.2. Configuring the Developer Lightspeed for MTA profile settings</a></span></li></ul></li><li><span class="chapter"><a href="#run-dev-lightspeed-analysis_mta-developer-lightspeed">6. Running an analysis and resolving issues</a></span><ul><li><span class="section"><a href="#running-rag-analysis_run-dev-lightspeed-analysis">6.1. Running an Analysis</a></span></li><li><span class="section"><a href="#apply-rag-resolution_run-dev-lightspeed-analysis">6.2. Applying resolutions generated by the solution server</a></span></li><li><span class="section"><a href="#running-agent-analysis_run-dev-lightspeed-analysis">6.3. Generating code resolutions in the agent mode</a></span></li></ul></li><li><span class="chapter"><a href="#developer-lightspeed-logs_mta-developer-lightspeed">7. Debugging Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#dev-lightspeed-archive-logs_mta-developer-lightspeed">7.1. Archiving the logs</a></span></li><li><span class="section"><a href="#dev-lightspeed-access-logs_mta-developer-lightspeed">7.2. Accessing the logs</a></span></li></ul></li></ul></div><section class="chapter" id="intro-to-the-developer-lightspeed_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to the Developer Lightspeed for MTA</h1></div></div></div><p>
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro-to-the-developer-lightspeed_mta-developer-lightspeed">1. Introduction to the Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#use-case-ai-code-fix_mta-developer-lightspeed">1.1. Use case for AI-driven code fixes</a></span></li><li><span class="section"><a href="#how-developerlightspped-works_mta-developer-lightspeed">1.2. How does Developer Lightspeed for MTA work</a></span></li><li><span class="section"><a href="#modes-developer-lightspeed_mta-developer-lightspeed">1.3. Requesting code fixes in Developer Lightspeed for MTA</a></span></li><li><span class="section"><a href="#benefits-using-developer-lightspeed_mta-developer-lightspeed">1.4. Benefits of using Developer Lightspeed for MTA</a></span></li></ul></li><li><span class="chapter"><a href="#getting-started_mta-developer-lightspeed">2. Getting started with Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#prerequisites_getting-started">2.1. Prerequisites</a></span></li><li><span class="section"><a href="#persistent-volumes_getting-started">2.2. Persistent volume requirements</a></span></li><li><span class="section"><a href="#installation_getting-started">2.3. Installation</a></span></li><li><span class="section"><a href="#how-to-use-developer-lightspeed_getting-started">2.4. How to use Developer Lightspeed for MTA</a></span></li><li><span class="section"><a href="#example-code-generation_getting-started">2.5. Generating code fix suggestions example</a></span></li></ul></li><li><span class="chapter"><a href="#solution-server-configurations_mta-developer-lightspeed">3. Solution Server Configurations</a></span><ul><li><span class="section"><a href="#tackle-llm-secret_solution-server-configurations">3.1. Configuring the model secret key</a></span></li><li><span class="section"><a href="#tackle-enable-dev-lightspeed_solution-server-configurations">3.2. Enabling Developer Lightspeed for MTA in Tackle custom resource</a></span></li></ul></li><li><span class="chapter"><a href="#configuring-llm_mta-developer-lightspeed">4. Configuring large language models for analysis</a></span><ul><li><span class="section"><a href="#llm-service-openshift-ai_configuring-llm">4.1. Deploying an LLM as a service in an OpenShift AI cluster</a></span></li><li><span class="section"><a href="#llm-provider-settings_configuring-llm">4.2. Configuring LLM provider settings</a></span></li><li><span class="section"><a href="#configuring-llm-podman_configuring-llm">4.3. Configuring the LLM in Podman Desktop</a></span></li></ul></li><li><span class="chapter"><a href="#configuring-dev-lightspeed-ide_mta-developer-lightspeed">5. Using MTA with Developer Lightspeed in IDE</a></span><ul><li><span class="section"><a href="#configuring-developer-lightspeed-ide-settings_configuring-dev-lightspeed-ide">5.1. Configuring the Developer Lightspeed for MTA IDE settings</a></span></li><li><span class="section"><a href="#configuring-solution-server-settings-file_configuring-dev-lightspeed-ide">5.2. Configuring the solution server settings</a></span></li><li><span class="section"><a href="#configuring-developer-lightspeed-profile-settings_configuring-dev-lightspeed-ide">5.3. Configuring the Developer Lightspeed for MTA profile settings</a></span></li></ul></li><li><span class="chapter"><a href="#run-dev-lightspeed-analysis_mta-developer-lightspeed">6. Running an analysis and resolving issues</a></span><ul><li><span class="section"><a href="#running-rag-analysis_run-dev-lightspeed-analysis">6.1. Running an Analysis</a></span></li><li><span class="section"><a href="#apply-rag-resolution_run-dev-lightspeed-analysis">6.2. Applying resolutions generated by the solution server</a></span></li><li><span class="section"><a href="#running-agent-analysis_run-dev-lightspeed-analysis">6.3. Generating code resolutions in the agent mode</a></span></li></ul></li><li><span class="chapter"><a href="#developer-lightspeed-logs_mta-developer-lightspeed">7. Debugging Developer Lightspeed for MTA</a></span><ul><li><span class="section"><a href="#dev-lightspeed-archive-logs_mta-developer-lightspeed">7.1. Archiving the logs</a></span></li><li><span class="section"><a href="#dev-lightspeed-access-logs_mta-developer-lightspeed">7.2. Accessing the logs</a></span></li></ul></li></ul></div><section class="chapter" id="intro-to-the-developer-lightspeed_mta-developer-lightspeed"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to the Developer Lightspeed for MTA</h1></div></div></div><p>
 			Starting from 8.0.0, Migration Toolkit for Applications (MTA) integrates with large language models (LLM) through the Red Hat Developer Lightspeed for migration toolkit for applications component in the Visual Studio (VS) Code extension. You can use Developer Lightspeed for MTA to apply LLM-driven code changes to resolve issues found through static code analysis of Java applications.
 		</p><section class="section" id="use-case-ai-code-fix_mta-developer-lightspeed"><div class="titlepage"><div><div><h2 class="title">1.1. Use case for AI-driven code fixes</h2></div></div></div><p>
 				Migration Toolkit for Applications (MTA) performs the static code analysis for a specified target technology to which you want to migrate your applications. Red Hat provides 2400+ analysis rules in MTA for various Java technologies and you can extend the ruleset for custom frameworks or new technologies by creating custom rules.
@@ -82,51 +82,51 @@
 						Create an API key for an LLM.
 					</p><p class="simpara">
 						You must enter the provider value and model name in Tackle custom resource (CR) to enable generative AI configuration in the MTA VS Code plugin.
-					</p><div class="table" id="idm46401553449216"><p class="title"><strong>Table 2.1. Configurable large language models and providers</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46401550111968" scope="col">LLM Provider (Tackle CR value)</th><th align="left" valign="top" id="idm46401550569440" scope="col">Large language model examples for Tackle CR configuration</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46401550111968">
+					</p><div class="table" id="idm45715027498496"><p class="title"><strong>Table 2.1. Configurable large language models and providers</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45715029611984" scope="col">LLM Provider (Tackle CR value)</th><th align="left" valign="top" id="idm45715027387216" scope="col">Large language model examples for Tackle CR configuration</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45715029611984">
 									<p>
 										OpenShift AI platform
 									</p>
-									</td><td align="left" valign="top" headers="idm46401550569440">
+									</td><td align="left" valign="top" headers="idm45715027387216">
 									<p>
 										Models deployed in an OpenShift AI cluster that can be accessed by using Open AI-compatible API.
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm46401550111968">
+									</td></tr><tr><td align="left" valign="top" headers="idm45715029611984">
 									<p>
 										Open AI (<code class="literal">openai</code>)
 									</p>
-									</td><td align="left" valign="top" headers="idm46401550569440">
+									</td><td align="left" valign="top" headers="idm45715027387216">
 									<p>
 										<code class="literal">gpt-4</code>, <code class="literal">gpt-4o</code>, <code class="literal">gpt-4o-mini</code>, <code class="literal">gpt-3.5-turbo</code>
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm46401550111968">
+									</td></tr><tr><td align="left" valign="top" headers="idm45715029611984">
 									<p>
 										Azure OpenAI (<code class="literal">azure_openai</code>)
 									</p>
-									</td><td align="left" valign="top" headers="idm46401550569440">
+									</td><td align="left" valign="top" headers="idm45715027387216">
 									<p>
 										<code class="literal">gpt-4</code>, <code class="literal">gpt-35-turbo</code>
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm46401550111968">
+									</td></tr><tr><td align="left" valign="top" headers="idm45715029611984">
 									<p>
 										Amazon Bedrock (<code class="literal">bedrock</code>)
 									</p>
-									</td><td align="left" valign="top" headers="idm46401550569440">
+									</td><td align="left" valign="top" headers="idm45715027387216">
 									<p>
 										<code class="literal">anthropic.claude-3-5-sonnet-20241022-v2:0</code>, <code class="literal">meta.llama3-1-70b-instruct-v1:0</code>
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm46401550111968">
+									</td></tr><tr><td align="left" valign="top" headers="idm45715029611984">
 									<p>
 										Google Gemini (<code class="literal">google</code>)
 									</p>
-									</td><td align="left" valign="top" headers="idm46401550569440">
+									</td><td align="left" valign="top" headers="idm45715027387216">
 									<p>
 										<code class="literal">gemini-2.0-flash-exp</code>, <code class="literal">gemini-1.5-pro</code>
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm46401550111968">
+									</td></tr><tr><td align="left" valign="top" headers="idm45715029611984">
 									<p>
 										Ollama (<code class="literal">ollama</code>)
 									</p>
-									</td><td align="left" valign="top" headers="idm46401550569440">
+									</td><td align="left" valign="top" headers="idm45715027387216">
 									<p>
 										<code class="literal">llama3.1</code>, <code class="literal">codellama</code>, <code class="literal">mistral</code>
 									</p>
@@ -202,13 +202,12 @@
   openshift-example-model: &amp;active
     environment:
       OPENAI_API_KEY: "&lt;Server's OPENAI_API_KEY&gt;"
-      REQUESTS_CA_BUNDLE: "&lt;Servers CA Bundle path&gt;"
-      ALLOW_INSECURE: "true"
+      CA_BUNDLE: "&lt;Servers CA Bundle path&gt;"
     provider: "ChatOpenAI"
     args:
       model: "my-model"
       configuration:
-        base_url: "https://&lt;serving-name&gt;-&lt;data-science-project-name&gt;.apps.konveyor-ai.migration.redhat.com/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+        baseURL: "https://&lt;serving-name&gt;-&lt;data-science-project-name&gt;.apps.konveyor-ai.migration.redhat.com/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							You must change the <code class="literal">provider-setting</code> configuration if you plan to use a different LLM provider.
 						</p></div></div></li><li class="listitem">
 						Type <code class="literal">MTA: Open Analysis View</code> in the Command Palette.
@@ -243,72 +242,74 @@
 				</li><li class="listitem">
 					<span class="strong strong"><strong>Migration Success Metrics</strong></span>: It exposes detailed success metrics for each migration rule, derived from real-world usage data. These metrics can be used by IDEs or automation tools to present users with a “confidence level” or likelihood of Developer Lightspeed for MTA successfully migrating a given code segment.
 				</li></ul></div><p>
-			As Developer Lightspeed for MTA is an optional set of features in MTA, you must complete the following configurations before you can access settings necessary to use AI analysis.
-		</p><div class="table" id="idm46401534911696"><p class="title"><strong>Table 3.1. Configurable large language models and providers</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46401529939152" scope="col">LLM Provider (Tackle CR value)</th><th align="left" valign="top" id="idm46401529938288" scope="col">Large language model examples for Tackle CR configuration</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46401529939152">
+			Solution Server is an optional component in Developer Lightspeed for MTA. You must complete the following configurations before you can place a code resolution request.
+		</p><div class="table" id="idm45715009518704"><p class="title"><strong>Table 3.1. Configurable large language models and providers in Tackle custom resource</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45715011268112" scope="col">LLM Provider (Tackle CR value)</th><th align="left" valign="top" id="idm45715011267248" scope="col">Large language model examples for Tackle CR configuration</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45715011268112">
 						<p>
 							OpenShift AI platform
 						</p>
-						</td><td align="left" valign="top" headers="idm46401529938288">
+						</td><td align="left" valign="top" headers="idm45715011267248">
 						<p>
 							Models deployed in an OpenShift AI cluster that can be accessed by using Open AI-compatible API
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm46401529939152">
+						</td></tr><tr><td align="left" valign="top" headers="idm45715011268112">
 						<p>
 							Open AI (<code class="literal">openai</code>)
 						</p>
-						</td><td align="left" valign="top" headers="idm46401529938288">
+						</td><td align="left" valign="top" headers="idm45715011267248">
 						<p>
 							<code class="literal">gpt-4</code>, <code class="literal">gpt-4o</code>, <code class="literal">gpt-4o-mini</code>, <code class="literal">gpt-3.5-turbo</code>
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm46401529939152">
+						</td></tr><tr><td align="left" valign="top" headers="idm45715011268112">
 						<p>
 							Azure OpenAI (<code class="literal">azure_openai</code>)
 						</p>
-						</td><td align="left" valign="top" headers="idm46401529938288">
+						</td><td align="left" valign="top" headers="idm45715011267248">
 						<p>
 							<code class="literal">gpt-4</code>, <code class="literal">gpt-35-turbo</code>
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm46401529939152">
+						</td></tr><tr><td align="left" valign="top" headers="idm45715011268112">
 						<p>
 							Amazon Bedrock (<code class="literal">bedrock</code>)
 						</p>
-						</td><td align="left" valign="top" headers="idm46401529938288">
+						</td><td align="left" valign="top" headers="idm45715011267248">
 						<p>
 							<code class="literal">anthropic.claude-3-5-sonnet-20241022-v2:0</code>, <code class="literal">meta.llama3-1-70b-instruct-v1:0</code>
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm46401529939152">
+						</td></tr><tr><td align="left" valign="top" headers="idm45715011268112">
 						<p>
 							Google Gemini (<code class="literal">google</code>)
 						</p>
-						</td><td align="left" valign="top" headers="idm46401529938288">
+						</td><td align="left" valign="top" headers="idm45715011267248">
 						<p>
 							<code class="literal">gemini-2.0-flash-exp</code>, <code class="literal">gemini-1.5-pro</code>
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm46401529939152">
+						</td></tr><tr><td align="left" valign="top" headers="idm45715011268112">
 						<p>
 							Ollama (<code class="literal">ollama</code>)
 						</p>
-						</td><td align="left" valign="top" headers="idm46401529938288">
+						</td><td align="left" valign="top" headers="idm45715011267248">
 						<p>
 							<code class="literal">llama3.1</code>, <code class="literal">codellama</code>, <code class="literal">mistral</code>
 						</p>
 						</td></tr></tbody></table></div></div><section class="section" id="tackle-llm-secret_solution-server-configurations"><div class="titlepage"><div><div><h2 class="title">3.1. Configuring the model secret key</h2></div></div></div><p class="_abstract _abstract">
 				You must configure the Kubernetes secret for the large language model (LLM) provider in the OpenShift Container Platform project where you installed the MTA operator.
-			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+					You can replace <code class="literal">oc</code> in the following commands with <code class="literal">kubectl</code>.
+				</p></div></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 						Create a credentials secret named <code class="literal">kai-api-keys</code> in the <code class="literal">openshift-mta</code> project.
 					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem"><p class="simpara">
 								For Amazon Bedrock as the provider, type:
-							</p><pre class="programlisting language-terminal">kubectl create secret generic aws-credentials \
+							</p><pre class="programlisting language-terminal">oc create secret generic aws-credentials \
  --from-literal=AWS_ACCESS_KEY_ID=&lt;YOUR_AWS_ACCESS_KEY_ID&gt; \
  --from-literal=AWS_SECRET_ACCESS_KEY=&lt;YOUR_AWS_SECRET_ACCESS_KEY&gt;</pre></li><li class="listitem"><p class="simpara">
 								For Azure OpenAI as the provider, type:
-							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+							</p><pre class="programlisting language-terminal">oc create secret generic kai-api-keys -n openshift-mta \
  --from-literal=AZURE_OPENAI_API_KEY='&lt;YOUR_AZURE_OPENAI_API_KEY&gt;'</pre></li><li class="listitem"><p class="simpara">
 								For the Google as the provider, type:
-							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+							</p><pre class="programlisting language-terminal">oc create secret generic kai-api-keys -n openshift-mta \
  --from-literal=GEMINI_API_KEY='&lt;YOUR_GOOGLE_API_KEY&gt;'</pre></li><li class="listitem"><p class="simpara">
 								For the OpenAI-compatible providers, type:
-							</p><pre class="programlisting language-terminal">kubectl create secret generic kai-api-keys -n openshift-mta \
+							</p><pre class="programlisting language-terminal">oc create secret generic kai-api-keys -n openshift-mta \
  --from-literal=OPENAI_API_BASE='https://example.openai.com/v1' \
  --from-literal=OPENAI_API_KEY='&lt;YOUR_OPENAI_KEY&gt;'</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 									You can also set the base URL as the <code class="literal">kai_llm_baseurl</code> variable in the Tackle custom resource.
@@ -404,9 +405,7 @@ spec:
 								Configure an OpenAI API key
 							</li><li class="listitem">
 								Update the OpenAI API key and the base URL in <code class="literal">provider-settings.yaml</code>.
-							</li></ul></div></li></ul></div><p>
-				See Provider settings configuration to configure the base URL and the LLM API key in the Developer Lightspeed for MTA VS Code extension.
-			</p></section><section class="section" id="llm-provider-settings_configuring-llm"><div class="titlepage"><div><div><h2 class="title">4.2. Configuring LLM provider settings</h2></div></div></div><p class="_abstract _abstract">
+							</li></ul></div></li></ul></div></section><section class="section" id="llm-provider-settings_configuring-llm"><div class="titlepage"><div><div><h2 class="title">4.2. Configuring LLM provider settings</h2></div></div></div><p class="_abstract _abstract">
 				Red Hat Developer Lightspeed for migration toolkit for applications is large language model (LLM) agnostic and integrates with an LLM of your choice.
 			</p><p>
 				To enable Red Hat Developer Lightspeed for migration toolkit for applications to access your large language model (LLM), you must enter the LLM provider configurations in the <code class="literal">provider-settings.yaml</code> file.
@@ -424,12 +423,11 @@ spec:
   openshift-example-model: &amp;active
     environment:
       CA_BUNDLE: "&lt;Servers CA Bundle path&gt;"
-      ALLOW_INSECURE: "true"
     provider: "ChatOpenAI"
     args:
       model: "my-model"
       configuration:
-        base_url: "https://&lt;serving-name&gt;-&lt;data-science-project-name&gt;.apps.konveyor-ai.migration.redhat.com/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+        baseURL: "https://&lt;serving-name&gt;-&lt;data-science-project-name&gt;.apps.konveyor-ai.migration.redhat.com/v1"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					When you change the <code class="literal">model</code> deployed in OpenShift AI, you must also change the <code class="literal">model</code> argument and the <code class="literal">base_url</code> endpoint.
 				</p></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					If you want to select a public LLM provider, you must move the <code class="literal">&amp;active</code> anchor to the desired block and change the provider arguments.
@@ -453,7 +451,6 @@ spec:
 			</p><pre class="programlisting language-yaml">AmazonBedrock: &amp;active
     environment:
       ## May have to use if no global `~/.aws/credentials`
-      AWS_DEFAULT_REGION: us-east-1
       AWS_ACCESS_KEY_ID: "" # Required if a global ~/.aws/credentials file is not present
       AWS_SECRET_ACCESS_KEY: "" # Required if a global ~/.aws/credentials file is not present
       AWS_DEFAULT_REGION: "" # Required
@@ -501,7 +498,7 @@ spec:
 						In the Developer Lightspeed for MTA extension, type <code class="literal">Open the GenAI model provider configuration file</code> in the Command Palette to open the <code class="literal">provider-settings.yaml</code> file.
 					</li><li class="listitem"><p class="simpara">
 						Enter the model details from Podman Desktop. For example, use the following configuration for a Mistral model.
-					</p><pre class="programlisting language-yaml">podman_mistral:
+					</p><pre class="programlisting language-yaml">podman_mistral: &amp;active
     provider: "ChatOpenAI"
      environment:
       OPENAI_API_KEY: "unused value"
@@ -528,119 +525,149 @@ spec:
 					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
 								Click <code class="literal">Extensions &gt; MTA CLI Extension for VSCode &gt; Settings</code>
 							</li><li class="listitem">
-								Type <code class="literal">Ctrl + Shift + P</code> on the search bar to open the Command Palette and enter <code class="literal">Preferences: Open Settings (UI)</code>. Go to <code class="literal">Extensions &gt; MTA</code> to open the settings page.
+								Type <code class="literal">Ctrl + Shift + P</code> or <code class="literal">Cmd + Shift + P</code> on the search bar to open the Command Palette and enter <code class="literal">Preferences: Open Settings (UI)</code>. Go to <code class="literal">Extensions &gt; MTA</code> to open the settings page.
 							</li></ol></div></li><li class="listitem">
 						Configure the settings described in the following table:
-					</li></ol></div><div class="table" id="idm46401529944416"><p class="title"><strong>Table 5.1. Developer Lightspeed for MTA extension settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 40%; " class="col_1"/><col style="width: 60%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46401529940576" scope="col">Settings</th><th align="left" valign="top" id="idm46401529939712" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46401529940576">
+					</li></ol></div><div class="table" id="idm45715006612992"><p class="title"><strong>Table 5.1. Developer Lightspeed for MTA extension settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 40%; " class="col_1"/><col style="width: 60%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45715011206496" scope="col">Settings</th><th align="left" valign="top" id="idm45715011205632" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Log level
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Set the log level for the MTA binary. The default log level is <code class="literal">debug</code>. The log level increases or decreases the verbosity of logs.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Analyzer path
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Specify an MTA custom binary path. If you do not provide a path, Developer Lightspeed for MTA uses the default path to the binary.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Auto Accept on Save
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								This option is enabled by default. When you accept the changes suggested by the LLM, the updated code is saved automatically in a new file. Disable this option if you want to manually save the new file after accepting the suggested code changes.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Gen AI:Enabled
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								This option is enabled by default. It enables you to get code fixes by using Developer Lightspeed for MTA with a large language model.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Gen AI: Agent mode
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Enable the experimental Agentic AI flow for analysis. Developer Lightspeed for MTA runs an automated analysis of a file to identify issues and suggest resolutions. After you accept the solutions, Developer Lightspeed for MTA makes the changes in the code and re-analyzes the file.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Gen AI: Excluded diagnostic sources
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Add diagnostic sources in the <code class="literal">settings.json</code> file. The issues generated by such diagnostic sources are excluded from the automated Agentic AI analysis.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Cache directory
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Specify the path to a directory in your filesystem to store cached responses from the LLM.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Trace directory
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Configure the absolute path to the directory that contains the saved LLM interaction.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Trace enabled
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Enable to trace MTA communication with the LLM model. Traces are stored in the trace directory that you configured.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Demo mode
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Enable to run Developer Lightspeed for MTA in demo mode that uses the LLM responses saved in the <code class="literal">cache</code> directory for analysis.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Solution Server:URL
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Edit the configurations for solution server in <code class="literal">settings.json</code>:
 							</p>
 							<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 										“enabled”: Enter a boolean value. Set <code class="literal">true</code> for connecting the Solution Server client (Developer Lightspeed for MTA extension) to the Solution Server.
 									</li><li class="listitem">
-										“url”: Configure the URL of the Solution Server end point. This field has the localhost as the default URL.
+										“url”: Configure the URL of the Solution Server end point.
 									</li><li class="listitem"><p class="simpara">
 										“auth”: The authentication settings allows you to configure a list of options to authenticate to the solution server.
 									</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
-												"enabled": Set to <code class="literal">true</code> to enable authentication.
+												"enabled": Set to <code class="literal">true</code> to enable authentication. If you enable authentication, then you must configure the Solution Server realm.
 											</li><li class="listitem">
 												"insecure": Set to <code class="literal">true</code> to skip SSL certificate verification when clients connect to the Solution Server. Set to <code class="literal">false</code> to allow secure connections to the Solution Server.
 											</li><li class="listitem">
 												"realm": Enter the name of the Keycloak realm for Solution Server. If you enabled authentication for the Solution Server, you must configure a <a class="link" href="https://docs.redhat.com/en/documentation/red_hat_build_of_keycloak/26.0/html/server_administration_guide/red_hat_build_of_keycloak_features_and_concepts">Keycloak realm</a> to allow clients to connect to the Solution Server. An administrator can configure SSL for the realm.
 											</li></ul></div></li></ul></div>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529940576">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715011206496">
 							<p>
 								Debug:Webview
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529939712">
+							</td><td align="left" valign="top" headers="idm45715011205632">
 							<p>
 								Enable debug level logging for Webview message handling in VS Code.
 							</p>
-							</td></tr></tbody></table></div></div></section><section class="section" id="configuring-developer-lightspeed-profile-settings_configuring-dev-lightspeed-ide"><div class="titlepage"><div><div><h2 class="title">5.2. Configuring the Developer Lightspeed for MTA profile settings</h2></div></div></div><p>
+							</td></tr></tbody></table></div></div></section><section class="section" id="configuring-solution-server-settings-file_configuring-dev-lightspeed-ide"><div class="titlepage"><div><div><h2 class="title">5.2. Configuring the solution server settings</h2></div></div></div><p class="_abstract _abstract">
+				You need a Keycloak realm and the solution server URL to connect Developer Lightspeed for MTA extension with the Solution Server.
+			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+						The Solution Server URL is available.
+					</li><li class="listitem">
+						An administrator configured the Keycloak realm for the Solution Server.
+					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						Type <code class="literal">Ctrl + Shift + P</code> or <code class="literal">Cmd + Shift + P</code> on the search bar and enter <code class="literal">Preferences:Open User Settings (JSON)</code>.
+					</li><li class="listitem">
+						In the <code class="literal">settings.json</code> file, enter <code class="literal">Ctrl + SPACE</code> to enable the auto-complete for the Solution Server configurable fields.
+					</li><li class="listitem"><p class="simpara">
+						Modify the following configuration as necessary:
+					</p><pre class="programlisting language-yaml">{
+    "mta-vscode-extension.solutionServer": {
+
+        "url": "https://mta-openshift-mta-kai.apps.konveyor-ai.example.com/hub/services/kai/api",
+
+        "enabled": true,
+        "auth": {
+
+           "enabled": true, #you must enter the username and password
+           "insecure": true,
+           "realm": "mta"
+        },
+
+    }
+}</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+							When you enable Solution Server authentication for the first time, you must enter the <code class="literal">username</code> and <code class="literal">password</code> in the VS Code search bar.
+						</p></div></div><div class="admonition tip"><div class="admonition_header">Tip</div><div><p>
+						Enter <code class="literal">MTA: Restart Solution Server</code> in the Command Palette to restart the Solution Server.
+					</p></div></div></li></ol></div></section><section class="section" id="configuring-developer-lightspeed-profile-settings_configuring-dev-lightspeed-ide"><div class="titlepage"><div><div><h2 class="title">5.3. Configuring the Developer Lightspeed for MTA profile settings</h2></div></div></div><p>
 				Starting with Migration Toolkit for Applications (MTA) 8.0.0, you can use the Visual Studio Code plugin to run an analysis to discover issues in the code. You can optionally enable Red Hat Developer Lightspeed for migration toolkit for applications to get AI-assisted code suggestions.
 			</p><p>
 				To generate code changes using Developer Lightspeed for MTA, you must configure a profile that contains all the necessary configurations, such as source and target technologies and the API key to connect to your chosen large language model (LLM).
@@ -651,26 +678,26 @@ spec:
 					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 						Open the <code class="literal">MTA View Analysis</code> page in either of the following ways:
 					</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
-								Click the screen icon on the <code class="literal">MTA: Issues</code> pane of the MTA extension.
+								Click the book icon on the <code class="literal">MTA: Issues</code> pane of the MTA extension.
 							</li><li class="listitem">
-								Type <code class="literal">Ctrl + Shift + P</code> on the search bar to open the Command Palette and enter <code class="literal">MTA:Open Analysis View</code>.
+								Type <code class="literal">Ctrl + Shift + P</code> or <code class="literal">Cmd + Shift + P</code> on the search bar to open the Command Palette and enter <code class="literal">MTA:Open Analysis View</code>.
 							</li></ol></div></li><li class="listitem"><p class="simpara">
 						Click the settings button on the <code class="literal">MTA View Analysis</code> page to configure a profile for your project. The <code class="literal">Get Ready to Analyze</code> pane lists the follwoing basic configurations required for an analysis:
 					</p><div class="formalpara"><p class="title"><strong>Verification</strong></p><p>
 							After you complete the profile configuration, close the <code class="literal">Get Ready to Analyze</code> pane. You can verify that your configuration works by running an analysis. See run an analysis.
-						</p></div></li></ol></div><div class="table" id="idm46401529885520"><p class="title"><strong>Table 5.2. Developer Lightspeed for MTA profile settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 20%; " class="col_1"/><col style="width: 80%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46401529881616" scope="col">Profile settings</th><th align="left" valign="top" id="idm46401529880752" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46401529881616">
+						</p></div></li></ol></div><div class="table" id="idm45715004978000"><p class="title"><strong>Table 5.2. Developer Lightspeed for MTA profile settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 20%; " class="col_1"/><col style="width: 80%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45715004974096" scope="col">Profile settings</th><th align="left" valign="top" id="idm45715010083200" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45715004974096">
 							<p>
 								Select profile
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529880752">
+							</td><td align="left" valign="top" headers="idm45715010083200">
 							<p>
 								Create a profile that you can reuse for multiple analyses. The profile name is part of the context provided to the LLM for analysis.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529881616">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715004974096">
 							<p>
 								Configure label selector
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529880752">
+							</td><td align="left" valign="top" headers="idm45715010083200">
 							<p>
 								A label selector filters rules for analysis based on the source or target technology.
 							</p>
@@ -683,19 +710,19 @@ spec:
 							<div class="admonition note"><div class="admonition_header">Note</div><div><p>
 									You must configure either target or source tehcnologies before running an analysis.
 								</p></div></div>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529881616">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715004974096">
 							<p>
 								Set rules
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529880752">
+							</td><td align="left" valign="top" headers="idm45715010083200">
 							<p>
 								Enable default rules and select your custom rule that you want MTA to use for an analysis. You can use the custom rules in addition to the default rules.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46401529881616">
+							</td></tr><tr><td align="left" valign="top" headers="idm45715004974096">
 							<p>
 								Configure generative AI
 							</p>
-							</td><td align="left" valign="top" headers="idm46401529880752">
+							</td><td align="left" valign="top" headers="idm45715010083200">
 							<p>
 								This option opens the <code class="literal">provider-settings.yaml</code> file that contains API keys and other parameters for all supported LLMs. By default, Developer Lightspeed for MTA is configured to use OpenAI LLM. To change the model, update the anchor <code class="literal">&amp;active</code> to the desired block. Modify this file with the required arguments, such as the model and API key, to complete the setup.
 							</p>
@@ -819,7 +846,7 @@ spec:
 						<span class="strong strong"><strong>Output panel</strong></span>: Select <code class="literal">Developer Lightspeed for MTA</code> from the drop-down menu.
 					</li><li class="listitem">
 						<span class="strong strong"><strong>Webview logs</strong></span>: You can also inspect webview content by using the webview logs. To access the webview logs, type <code class="literal">Open Webview Developer Tools</code> in the VS Code Command Palette.
-					</li></ul></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm46401531192832"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+					</li></ul></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45715007994160"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
