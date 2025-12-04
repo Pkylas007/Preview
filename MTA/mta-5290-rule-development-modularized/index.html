@@ -1,20 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and using rules for an MTA analysis</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide describes how to create custom XML rules for the migration toolkit for applications."/><link rel="next" href="#making-open-source-more-inclusive_rules-development-guide" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45009250379024"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and using rules for an MTA analysis</h1></div><div><h2 class="subtitle">Create custom rules to enhance migration coverage.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45009253975088">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and using rules for an MTA analysis</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide describes how to create custom XML rules for the migration toolkit for applications."/><link rel="next" href="#making-open-source-more-inclusive_rules-development-guide" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46480117766400"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and using rules for an MTA analysis</h1></div><div><h2 class="subtitle">Create custom rules to enhance migration coverage.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46480097212304">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This guide describes how to create custom XML rules for the migration toolkit for applications.
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive_rules-development-guide">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#rules-introduction_rules-development-guide">1. Introduction to rules</a></span><ul><li><span class="section"><a href="#mta-about-home-var_rules-introduction">1.1. Use of <code class="literal">&lt;MTA_HOME&gt;</code> in this guide</a></span></li><li><span class="section"><a href="#about-rules_rules-introduction">1.2. The MTA rules</a></span></li><li><span class="section"><a href="#yaml-rule-structure-syntax_rules-introduction">1.3. YAML rule structure and syntax</a></span></li></ul></li><li><span class="chapter"><a href="#rule-yaml-metadata">2. Rule metadata</a></span><ul><li><span class="section"><a href="#yaml-rule-metadata-structure_rule-yaml-metadata">2.1. Rule metadata structure</a></span></li><li><span class="section"><a href="#yaml-rule-hyperlinks_rule-yaml-metadata">2.2. Hyperlinks</a></span></li><li><span class="section"><a href="#yaml-rule-labels_rule-yaml-metadata">2.3. Rule labels</a></span></li><li><span class="section"><a href="#yaml-rule-categories_rule-yaml-metadata">2.4. Rule categories</a></span></li></ul></li><li><span class="chapter"><a href="#rule-provider-conditions">3. Providers and rule conditions</a></span><ul><li><span class="section"><a href="#yaml-provider-conditions_rule-provider-conditions">3.1. Provider condition</a></span></li><li><span class="section"><a href="#yaml-builin-provider_rule-provider-conditions">3.2. Builtin provider</a></span></li><li><span class="section"><a href="#yaml-java-provider_rule-provider-conditions">3.3. Java provider</a></span></li><li><span class="section"><a href="#yaml-go-provider_rule-provider-conditions">3.4. Go provider</a></span></li><li><span class="section"><a href="#yaml-dotnet-provider_rule-provider-conditions">3.5. Dotnet provider</a></span></li></ul></li><li><span class="chapter"><a href="#java-conditions-capabilities">4. Java condition and capabilities</a></span><ul><li><span class="section"><a href="#yaml-java-provider_java-conditions-capabilities">4.1. Java provider</a></span></li><li><span class="section"><a href="#yaml-java-locations_java-conditions-capabilities">4.2. Java locations</a></span></li><li><span class="section"><a href="#yaml-annotation-inspection_java-conditions-capabilities">4.3. Annotation inspection</a></span></li><li><span class="section"><a href="#yaml-condition-patterns_java-conditions-capabilities">4.4. Condition patterns</a></span></li></ul></li><li><span class="chapter"><a href="#logical-chaining-custom-variables">5. Logical conditions, condition chaining, and custom variables</a></span><ul><li><span class="section"><a href="#yaml-logical-conditions_logical-chaining-custom-variables">5.1. Logical conditions</a></span></li><li><span class="section"><a href="#yaml-and-condition_logical-chaining-custom-variables">5.2. AND condition</a></span></li><li><span class="section"><a href="#yaml-or-condition_logical-chaining-custom-variables">5.3. OR condition</a></span></li><li><span class="section"><a href="#yaml-chaining-condition-variables_logical-chaining-custom-variables">5.4. Chaining Condition Variables</a></span></li><li><span class="section"><a href="#yaml-chaining-java-provider_logical-chaining-custom-variables">5.5. Chaining in the Java provider</a></span></li><li><span class="section"><a href="#yaml-nested-condition_logical-chaining-custom-variables">5.6. Nested conditions</a></span></li><li><span class="section"><a href="#yaml-custom-variables_logical-chaining-custom-variables">5.7. Custom variables</a></span></li></ul></li><li><span class="chapter"><a href="#rule-yaml-actions">6. Rule actions</a></span><ul><li><span class="section"><a href="#yaml-rule-actions_rule-yaml-actions">6.1. Types of rule actions</a></span></li><li><span class="section"><a href="#yaml-tag-actions_rule-yaml-actions">6.2. Tag actions</a></span></li><li><span class="section"><a href="#yaml-message-actions_rule-yaml-actions">6.3. Message action</a></span></li></ul></li><li><span class="chapter"><a href="#creating-rule">7. Creating custom rules</a></span><ul><li><span class="section"><a href="#create-basic-yaml-rule-template_creating-rule">7.1. Creating a YAML rule template</a></span></li><li><span class="section"><a href="#create-first-yaml-rule_creating-rule">7.2. Creating a YAML rule</a></span></li><li><span class="section"><a href="#create-go-custom-rule_creating-rule">7.3. Creating a custom Go rule</a></span></li><li><span class="section"><a href="#create-nodejs-custom-rule_creating-rule">7.4. Creating a custom Node.js rule</a></span></li><li><span class="section"><a href="#create-python-custom-rule_creating-rule">7.5. Creating custom Python rules</a></span></li></ul></li><li><span class="chapter"><a href="#rule-rulesets">8. Rulesets</a></span><ul><li><span class="section"><a href="#yaml-rulesets_rule-rulesets">8.1. Creating and using a ruleset</a></span></li><li><span class="section"><a href="#create-basic-yaml-ruleset-template_rule-rulesets">8.2. Creating a basic YAML ruleset template</a></span></li><li><span class="section"><a href="#running-analysis-using-custom-yaml-rule_rule-rulesets">8.3. Running an analysis using a custom YAML rule</a></span></li></ul></li><li><span class="chapter"><a href="#additional_resources">9. Additional resources</a></span></li></ul></div><section class="preface" id="making-open-source-more-inclusive_rules-development-guide"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive_rules-development-guide">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#rules-introduction_rules-development-guide">1. Introduction to rules</a></span><ul><li><span class="section"><a href="#about-rules_rules-introduction">1.1. The MTA rules</a></span></li><li><span class="section"><a href="#yaml-rule-structure-syntax_rules-introduction">1.2. YAML rule structure and syntax</a></span></li></ul></li><li><span class="chapter"><a href="#rule-yaml-metadata">2. Rule metadata</a></span><ul><li><span class="section"><a href="#yaml-rule-metadata-structure_rule-yaml-metadata">2.1. Rule metadata structure</a></span></li><li><span class="section"><a href="#yaml-rule-hyperlinks_rule-yaml-metadata">2.2. Hyperlinks</a></span></li><li><span class="section"><a href="#yaml-rule-labels_rule-yaml-metadata">2.3. Rule labels</a></span></li><li><span class="section"><a href="#yaml-rule-categories_rule-yaml-metadata">2.4. Rule categories</a></span></li></ul></li><li><span class="chapter"><a href="#rule-provider-conditions">3. Providers and rule conditions</a></span><ul><li><span class="section"><a href="#yaml-provider-conditions_rule-provider-conditions">3.1. Provider condition</a></span></li><li><span class="section"><a href="#yaml-builin-provider_rule-provider-conditions">3.2. Builtin provider</a></span></li><li><span class="section"><a href="#yaml-java-provider_rule-provider-conditions">3.3. Java provider</a></span></li><li><span class="section"><a href="#yaml-go-provider_rule-provider-conditions">3.4. Go provider</a></span></li><li><span class="section"><a href="#yaml-dotnet-provider_rule-provider-conditions">3.5. Dotnet provider</a></span></li></ul></li><li><span class="chapter"><a href="#java-conditions-capabilities">4. Java condition and capabilities</a></span><ul><li><span class="section"><a href="#yaml-java-provider_java-conditions-capabilities">4.1. Java provider</a></span></li><li><span class="section"><a href="#yaml-java-locations_java-conditions-capabilities">4.2. Java locations</a></span></li><li><span class="section"><a href="#yaml-annotation-inspection_java-conditions-capabilities">4.3. Annotation inspection</a></span></li><li><span class="section"><a href="#yaml-condition-patterns_java-conditions-capabilities">4.4. Condition patterns</a></span></li></ul></li><li><span class="chapter"><a href="#logical-chaining-custom-variables">5. Logical conditions, condition chaining, and custom variables</a></span><ul><li><span class="section"><a href="#yaml-logical-conditions_logical-chaining-custom-variables">5.1. Logical conditions</a></span></li><li><span class="section"><a href="#yaml-and-condition_logical-chaining-custom-variables">5.2. AND condition</a></span></li><li><span class="section"><a href="#yaml-or-condition_logical-chaining-custom-variables">5.3. OR condition</a></span></li><li><span class="section"><a href="#yaml-chaining-condition-variables_logical-chaining-custom-variables">5.4. Chaining Condition Variables</a></span></li><li><span class="section"><a href="#yaml-chaining-java-provider_logical-chaining-custom-variables">5.5. Chaining in the Java provider</a></span></li><li><span class="section"><a href="#yaml-nested-condition_logical-chaining-custom-variables">5.6. Nested conditions</a></span></li><li><span class="section"><a href="#yaml-custom-variables_logical-chaining-custom-variables">5.7. Custom variables</a></span></li></ul></li><li><span class="chapter"><a href="#rule-yaml-actions">6. Rule actions</a></span><ul><li><span class="section"><a href="#yaml-rule-actions_rule-yaml-actions">6.1. Types of rule actions</a></span></li><li><span class="section"><a href="#yaml-tag-actions_rule-yaml-actions">6.2. Tag actions</a></span></li><li><span class="section"><a href="#yaml-message-actions_rule-yaml-actions">6.3. Message action</a></span></li></ul></li><li><span class="chapter"><a href="#creating-rule">7. Creating custom rules</a></span><ul><li><span class="section"><a href="#create-basic-yaml-rule-template_creating-rule">7.1. Creating a YAML rule template</a></span></li><li><span class="section"><a href="#create-first-yaml-rule_creating-rule">7.2. Creating a YAML rule</a></span></li><li><span class="section"><a href="#create-go-custom-rule_creating-rule">7.3. Creating a custom Go rule</a></span></li><li><span class="section"><a href="#create-nodejs-custom-rule_creating-rule">7.4. Creating a custom Node.js rule</a></span></li><li><span class="section"><a href="#create-python-custom-rule_creating-rule">7.5. Creating custom Python rules</a></span></li></ul></li><li><span class="chapter"><a href="#rule-rulesets">8. Rulesets</a></span><ul><li><span class="section"><a href="#yaml-rulesets_rule-rulesets">8.1. Creating and using a ruleset</a></span></li><li><span class="section"><a href="#create-basic-yaml-ruleset-template_rule-rulesets">8.2. Creating a basic YAML ruleset template</a></span></li><li><span class="section"><a href="#running-analysis-using-custom-yaml-rule_rule-rulesets">8.3. Running an analysis using a custom YAML rule</a></span></li></ul></li><li><span class="chapter"><a href="#additional_resources">9. Additional resources</a></span></li></ul></div><section class="preface abstract" id="making-open-source-more-inclusive_rules-development-guide"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
 		</p></section><section class="chapter" id="rules-introduction_rules-development-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to rules</h1></div></div></div><p class="_abstract _abstract">
 			This guide is intended for software engineers who want to create custom YAML-based rules for migration toolkit for applications (MTA) tools.
 		</p><p>
 			See the <a class="link" href="https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/8.0/html-single/introduction_to_the_migration_toolkit_for_applications"><span class="emphasis"><em>Introduction to the migration toolkit for applications</em></span></a> for an overview and the <a class="link" href="https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/8.0/html-single/using_the_mta_command-line_interface_to_analyze_applications/index"><span class="emphasis"><em>CLI Guide</em></span></a> for details.
-		</p><section class="section" id="mta-about-home-var_rules-introduction"><div class="titlepage"><div><div><h2 class="title">1.1. Use of <code class="literal">&lt;MTA_HOME&gt;</code> in this guide</h2></div></div></div><p>
-				This guide uses the <code class="literal">&lt;MTA_HOME&gt;</code> replaceable variable to denote the path to your MTA installation.
-			</p><p>
-				The mta-8.0.1-cli&lt;OS&gt;.zip* extracts a single binary called <code class="literal">mta-cli</code>.
-			</p><p>
-				When you encounter <code class="literal">&lt;MTA_HOME&gt;</code> in this guide, replace it with the actual path to your MTA installation.
-			</p></section><section class="section" id="about-rules_rules-introduction"><div class="titlepage"><div><div><h2 class="title">1.2. The MTA rules</h2></div></div></div><p>
+		</p><section class="section" id="about-rules_rules-introduction"><div class="titlepage"><div><div><h2 class="title">1.1. The MTA rules</h2></div></div></div><p class="_abstract _abstract">
 				The migration toolkit for applications (MTA) contains rule-based migration tools (analyzers) that you can use to analyze the application user interfaces (APIs), technologies, and architectures used by the applications you plan to migrate.
 			</p><p>
 				An analyzer rule is a set of instructions used to analyze source code and detect issues that are problematic for migration.
@@ -42,7 +36,7 @@
 				MTA builds a data model based on the analysis results and stores component data and relationships in a graph database. This database can then be queried and updated as required by the migration rules and for reporting purposes.
 			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					You can create your own custom analyzer rules. You can use custom rules to identify the use of custom libraries or other components that might not be covered by the provided standard migration rules.
-				</p></div></div></section><section class="section" id="yaml-rule-structure-syntax_rules-introduction"><div class="titlepage"><div><div><h2 class="title">1.3. YAML rule structure and syntax</h2></div></div></div><p>
+				</p></div></div></section><section class="section" id="yaml-rule-structure-syntax_rules-introduction"><div class="titlepage"><div><div><h2 class="title">1.2. YAML rule structure and syntax</h2></div></div></div><p class="_abstract _abstract">
 				MTA analyzer rules use the following rule pattern:
 			</p><pre class="screen">when(condition)
  message(message)
@@ -68,7 +62,7 @@
 					Evaluate if a resolution is mandatory through rule category before migrating the applications to the target technologies or platforms
 				</li><li class="listitem">
 					Define labels for which MTA filterfilters rules to trigger a violation.
-				</li></ul></div><section class="section" id="yaml-rule-metadata-structure_rule-yaml-metadata"><div class="titlepage"><div><div><h2 class="title">2.1. Rule metadata structure</h2></div></div></div><p>
+				</li></ul></div><section class="section" id="yaml-rule-metadata-structure_rule-yaml-metadata"><div class="titlepage"><div><div><h2 class="title">2.1. Rule metadata structure</h2></div></div></div><p class="_abstract _abstract">
 				Rule metadata contains a unique rule ID, labels, effort, and category.
 			</p><pre class="programlisting language-yaml">ruleID: "unique_id" <span id="CO1-1"/><span class="callout">1</span>
 labels: <span id="CO1-2"/><span class="callout">2</span>
@@ -89,14 +83,14 @@ category: mandatory <span id="CO1-4"/><span class="callout">4</span></pre><div c
 						<span class="strong strong"><strong>effort</strong></span>: Effort is an integer value that indicates the level of effort needed to resolve this issue.
 					</div></dd><dt><a href="#CO1-4"><span class="callout">4</span></a> </dt><dd><div class="para">
 						<span class="strong strong"><strong>category</strong></span>: Category describes severity of the issue for migration. Values can be one of <code class="literal">mandatory</code>, <code class="literal">potential</code> or <code class="literal">optional</code>. For more details, see <a class="link" href="#yaml-rule-categories_rule-yaml-metadata" title="2.4. Rule categories">Rule categories</a>.
-					</div></dd></dl></div></section><section class="section" id="yaml-rule-hyperlinks_rule-yaml-metadata"><div class="titlepage"><div><div><h2 class="title">2.2. Hyperlinks</h2></div></div></div><p>
+					</div></dd></dl></div></section><section class="section" id="yaml-rule-hyperlinks_rule-yaml-metadata"><div class="titlepage"><div><div><h2 class="title">2.2. Hyperlinks</h2></div></div></div><p class="_abstract _abstract">
 				Hyperlinks can be provided along with a <code class="literal">message</code> or <code class="literal">tag</code> action to provide relevant information about the issue, which has been discovered:
 			</p><pre class="programlisting language-yaml"># links point to external hyperlinks
 # rule authors are expected to provide
 # relevant hyperlinks for quick fixes, docs and so on.
 links:
   - url: "konveyor.io"
-    title: "short title for the link"</pre></section><section class="section" id="yaml-rule-labels_rule-yaml-metadata"><div class="titlepage"><div><div><h2 class="title">2.3. Rule labels</h2></div></div></div><p>
+    title: "short title for the link"</pre></section><section class="section" id="yaml-rule-labels_rule-yaml-metadata"><div class="titlepage"><div><div><h2 class="title">2.3. Rule labels</h2></div></div></div><p class="_abstract _abstract">
 				Labels are <code class="literal">key=val</code> pairs specified for rules or rulesets as well as dependencies. For dependencies, a provider adds the labels to the dependencies when retrieving them. Labels on a ruleset are automatically inherited by all the rules that belong to it.
 			</p><div class="formalpara"><p class="title"><strong>Label format</strong></p><p>
 					Labels are specified under the <code class="literal">labels</code> field as a list of strings in <code class="literal">key=val</code> format as follows:
@@ -187,7 +181,7 @@ links:
 					Go
 				</li><li class="listitem">
 					External providers
-				</li></ul></div><section class="section" id="yaml-provider-conditions_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.1. Provider condition</h2></div></div></div><p>
+				</li></ul></div><section class="section" id="yaml-provider-conditions_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.1. Provider condition</h2></div></div></div><p class="_abstract _abstract">
 				The analyzer engine enables multi-language source code analysis by using <span class="strong strong"><strong>providers</strong></span>. The source code of a technology is analyzed by the provider.
 			</p><p>
 				The provider publishes what they can do with the source code in terms of capabilities.
@@ -209,27 +203,27 @@ links:
 					Support for providing a single report when analyzing multiple applications on the CLI is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
 				</p><p>
 					For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
-				</p></div></div><div class="informaltable" id="table-Supported-providers-and-rule-conditions"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45009250373328" scope="col">Provider rule conditions</th><th align="left" valign="top" id="idm45009250372272" scope="col">Provider name</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45009250373328">
+				</p></div></div><div class="informaltable" id="table-Supported-providers-and-rule-conditions"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46480092544912" scope="col">Provider rule conditions</th><th align="left" valign="top" id="idm46480092543856" scope="col">Provider name</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46480092544912">
 							<p>
 								Providers that are fully supported and included in the product
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250372272">
+							</td><td align="left" valign="top" headers="idm46480092543856">
 							<p>
 								Java
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009250373328">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092544912">
 							<p>
 								Providers that have rules already defined in the product
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250372272">
+							</td><td align="left" valign="top" headers="idm46480092543856">
 							<p>
 								.NET
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009250373328">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092544912">
 							<p>
 								Providers that require custom rulesets for analysis
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250372272">
+							</td><td align="left" valign="top" headers="idm46480092543856">
 							<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 										Go
 									</li><li class="listitem">
@@ -261,87 +255,87 @@ links:
 						<code class="literal">generic</code>
 					</li></ul></div><p>
 				The following table summarizes all the providers and their capabilities:
-			</p><div class="table" id="idm45009253566416"><p class="title"><strong>Table 3.1. Summary of providers and their capabilities</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45009253024496" scope="col">Provider Name</th><th align="left" valign="top" id="idm45009253023408" scope="col">Capabilities</th><th align="left" valign="top" id="idm45009253022320" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm45009253024496">
+			</p><div class="table" id="idm46480097608784"><p class="title"><strong>Table 3.1. Summary of providers and their capabilities</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm46480095561072" scope="col">Provider Name</th><th align="left" valign="top" id="idm46480095559984" scope="col">Capabilities</th><th align="left" valign="top" id="idm46480097564192" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm46480095561072">
 							<p>
 								<code class="literal">java</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253023408">
+							</td><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Find references of a pattern with an optional code location for detailed searches.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253023408">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Check whether the application has a given dependency.
 							</p>
-							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm45009253024496">
+							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm46480095561072">
 							<p>
 								<code class="literal">builtin</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253023408">
+							</td><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								xml
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Search XML files using xpath queries.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253023408">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								<code class="literal">json</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Search JSON files using <code class="literal">jsonpath</code> queries.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253023408">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								filecontent
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Search content in regular files using regular expression patterns.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253023408">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								file
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Find files with names matching a given pattern.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253023408">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								hasTags
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Check whether a tag is created for the application using a tagging rule.
 							</p>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45009253024496">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46480095561072">
 							<p>
 								<code class="literal">go</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253023408">
+							</td><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Find references to a pattern.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253023408">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480095559984">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253022320">
+							</td><td align="left" valign="top" headers="idm46480097564192">
 							<p>
 								Check whether the application has a given dependency.
 							</p>
@@ -355,295 +349,295 @@ links:
 					Depending on the <span class="emphasis"><em>provider</em></span> and the <span class="emphasis"><em>capability</em></span>, there will be different <code class="literal">&lt;fields&gt;</code> in the condition.
 				</p></div></div><p>
 				The following table summarizes available providers, their capabilities and all of their fields:
-			</p><div class="table" id="idm45009254690704"><p class="title"><strong>Table 3.2. Summary of providers, their capabilities, and their fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 10%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 60%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45009253301536" scope="col">Provider</th><th align="left" valign="top" id="idm45009253300448" scope="col">Capability</th><th align="left" valign="top" id="idm45009253299360" scope="col">Fields</th><th align="left" valign="top" id="idm45009250317232" scope="col">Required</th><th align="left" valign="top" id="idm45009250316144" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="top" headers="idm45009253301536">
+			</p><div class="table" id="idm46480092466304"><p class="title"><strong>Table 3.2. Summary of providers, their capabilities, and their fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 10%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 60%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm46480092563056" scope="col">Provider</th><th align="left" valign="top" id="idm46480092561968" scope="col">Capability</th><th align="left" valign="top" id="idm46480092560880" scope="col">Fields</th><th align="left" valign="top" id="idm46480093881936" scope="col">Required</th><th align="left" valign="top" id="idm46480093880848" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="top" headers="idm46480092563056">
 							<p>
 								java
 							</p>
-							</td><td rowspan="3" align="left" valign="top" headers="idm45009253300448">
+							</td><td rowspan="3" align="left" valign="top" headers="idm46480092561968">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
-								Regex pattern
+								Regular expression pattern
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								location
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Source code location (see <a class="link" href="#yaml-java-locations_java-conditions-capabilities" title="4.2. Java locations">Java locations</a>)
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								annotated
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Additional query to inspect annotations (see <a class="link" href="#yaml-annotation-inspection_java-conditions-capabilities" title="4.3. Annotation inspection">Annotation inspection</a>).
 							</p>
-							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm45009253300448">
+							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm46480092561968">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								name
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Name of the dependency.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								nameregex
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
-								Regex pattern to match the name.
+								Regular expression pattern to match the name.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								upperbound
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Match versions lower than or equal to
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								lowerbound
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Match versions greater than or equal to
 							</p>
-							</td></tr><tr><td rowspan="9" align="left" valign="top" headers="idm45009253301536">
+							</td></tr><tr><td rowspan="9" align="left" valign="top" headers="idm46480092563056">
 							<p>
 								builtin
 							</p>
-							</td><td rowspan="3" align="left" valign="top" headers="idm45009253300448">
+							</td><td rowspan="3" align="left" valign="top" headers="idm46480092561968">
 							<p>
 								xml
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								xpath
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Xpath query
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								namespaces
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								A map to scope down query to namespaces
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								filepaths
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Optional list of files to scope down search
 							</p>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45009253300448">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46480092561968">
 							<p>
 								json
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								xpath
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Xpath query
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								filepaths
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Optional list of files to scope down search
 							</p>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45009253300448">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46480092561968">
 							<p>
 								filecontent
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
-								Regex pattern to match in content
+								Regular expression pattern to match in content
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								filePattern
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Only search in files with names matching this pattern
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253300448">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092561968">
 							<p>
 								file hasTags
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Find files with names matching this pattern
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253300448">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092561968">
 							<p>
 								hasTags
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360"> </td><td align="left" valign="top" headers="idm45009250317232"> </td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480092560880"> </td><td align="left" valign="top" headers="idm46480093881936"> </td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
-								This is an inline list of string tags. See <a class="link" href="#yaml-rule-actions_rule-yaml-actions" title="6.1. Types of rule actions">Tag action</a>
+								This is an inline list of string tags. See <a class="link" href="#yaml-tag-actions_rule-yaml-actions" title="6.2. Tag actions">Tag action</a>
 							</p>
-							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm45009253301536">
+							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm46480092563056">
 							<p>
 								go
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253300448">
+							</td><td align="left" valign="top" headers="idm46480092561968">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
-								Regex pattern.
+								Regular expression pattern.
 							</p>
-							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm45009253300448">
+							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm46480092561968">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm45009253299360">
+							</td><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								name
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Name of the dependency.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								nameregex
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
-								Regex pattern to match the name.
+								Regular expression pattern to match the name.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								upperbound
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Match versions lower than or equal to.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45009253299360">
+							</td></tr><tr><td align="left" valign="top" headers="idm46480092560880">
 							<p>
 								lowerbound
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250317232">
+							</td><td align="left" valign="top" headers="idm46480093881936">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm45009250316144">
+							</td><td align="left" valign="top" headers="idm46480093880848">
 							<p>
 								Match versions greater than or equal to.
 							</p>
@@ -652,7 +646,7 @@ links:
 				</p></div><pre class="programlisting language-yaml">when:
   java.referenced:
     location: PACKAGE
-    pattern: org.jboss*</pre></section><section class="section" id="yaml-builin-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.2. Builtin provider</h2></div></div></div><p>
+    pattern: org.jboss*</pre></section><section class="section" id="yaml-builin-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.2. Builtin provider</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">builtin</code> is an internal provider that can analyze various files and internal metadata generated by the engine. This provider has the following capabilities:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 						<code class="literal">file</code>
@@ -698,7 +692,7 @@ links:
     - "tag1"
     - "tag2"</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO4-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 						When more than one tag is given, a logical AND is implied.
-					</div></dd></dl></div></section><section class="section" id="yaml-java-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.3. Java provider</h2></div></div></div><p>
+					</div></dd></dl></div></section><section class="section" id="yaml-java-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.3. Java provider</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">java</code> provider analyzes Java source code.
 			</p><p>
 				This provider has the following capabilities:
@@ -722,7 +716,7 @@ links:
       pattern: org.framework.Bean
       elements:
       - name: url
-        value: "http://www.example.com"</pre></dd></dl></div></section><section class="section" id="yaml-go-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.4. Go provider</h2></div></div></div><p>
+        value: "http://www.example.com"</pre></dd></dl></div></section><section class="section" id="yaml-go-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.4. Go provider</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">go</code> provider analyzes Go source code. This provider’s capabilities are <code class="literal">referenced</code> and <code class="literal">dependency</code>.
 			</p><div class="formalpara"><p class="title"><strong><code class="literal">referenced</code></strong></p><p>
 					By using the <code class="literal">referenced</code> capability, the provider finds references in the source code.
@@ -739,18 +733,20 @@ links:
 						Upper bound on the version of the dependency.
 					</div></dd><dt><a href="#CO6-3"><span class="callout">3</span></a> </dt><dd><div class="para">
 						Lower bound on the version of the dependency.
-					</div></dd></dl></div></section><section class="section" id="yaml-dotnet-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.5. Dotnet provider</h2></div></div></div><p>
+					</div></dd></dl></div></section><section class="section" id="yaml-dotnet-provider_rule-provider-conditions"><div class="titlepage"><div><div><h2 class="title">3.5. Dotnet provider</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">dotnet</code> provider is an external provider used to analyze .NET and C# source code. Currently, the provider supports the <code class="literal">referenced</code> capability.
 			</p><div class="formalpara"><p class="title"><strong><code class="literal">referenced</code></strong></p><p>
 					By using the <code class="literal">referenced</code> capability, the provider finds references in the source code.
 				</p></div><pre class="programlisting language-yaml">when:
   dotnet.referenced:
-    pattern: "&lt;pattern&gt;" <span id="CO7-1"/><span class="callout">1</span>
-    namespace: "&lt;namespace&gt;" <span id="CO7-2"/><span class="callout">2</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO7-1"><span class="callout">1</span></a> </dt><dd><div class="para">
-						<code class="literal">pattern</code>: A regular expression (regex) pattern to match the desired reference. For example, <code class="literal">HttpNotFound</code>.
-					</div></dd><dt><a href="#CO7-2"><span class="callout">2</span></a> </dt><dd><div class="para">
-						<code class="literal">namespace</code>: Specifies the namespace to search within. For example, <code class="literal">System.Web.Mvc</code>.
-					</div></dd></dl></div></section></section><section class="chapter" id="java-conditions-capabilities"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Java condition and capabilities</h1></div></div></div><p class="_abstract _abstract">
+    pattern: "&lt;pattern&gt;"
+    namespace: "&lt;namespace&gt;"</pre><p>
+				where:
+			</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">pattern</code> </span></dt><dd>
+							A regular expression pattern to match the desired reference. For example, <code class="literal">HttpNotFound</code>.
+						</dd><dt><span class="term"><code class="literal">namespace</code> </span></dt><dd>
+							Specifies the namespace to search within. For example, <code class="literal">System.Web.Mvc</code>.
+						</dd></dl></div></section></section><section class="chapter" id="java-conditions-capabilities"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Java condition and capabilities</h1></div></div></div><p class="_abstract _abstract">
 			The <code class="literal">java.referenced</code> capability in the when condition for Java rules can define search queries for the following fields in the source code:
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 					Locations - such as the classes, methods, packages and so on
@@ -760,7 +756,7 @@ links:
 					Patterns
 				</li></ul></div><p>
 			You can refer to this section for a detailed explanation on the Locations, Annotations, and Patterns.
-		</p><section class="section" id="yaml-java-provider_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.1. Java provider</h2></div></div></div><p>
+		</p><section class="section" id="yaml-java-provider_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.1. Java provider</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">java</code> provider analyzes Java source code.
 			</p><p>
 				This provider has the following capabilities:
@@ -772,19 +768,19 @@ links:
 					By using the <code class="literal">referenced</code> capability, the provider finds references in the source code. This capability takes three input parameters: <code class="literal">pattern</code>, <code class="literal">location</code>, and <code class="literal">annotated</code>.
 				</p></div><pre class="programlisting language-terminal">when:
   java.referenced:
-    pattern: "&lt;pattern&gt;" <span id="CO8-1"/><span class="callout">1</span>
-    location: "&lt;location&gt;" <span id="CO8-2"/><span class="callout">2</span>
-    annotated: "&lt;annotated&gt;" <span id="CO8-3"/><span class="callout">3</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO8-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+    pattern: "&lt;pattern&gt;" <span id="CO7-1"/><span class="callout">1</span>
+    location: "&lt;location&gt;" <span id="CO7-2"/><span class="callout">2</span>
+    annotated: "&lt;annotated&gt;" <span id="CO7-3"/><span class="callout">3</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO7-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 						A regular expression pattern to match.
-					</div></dd><dt><a href="#CO8-2"><span class="callout">2</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO7-2"><span class="callout">2</span></a> </dt><dd><div class="para">
 						Specifies the exact location where the pattern needs to be matched, for example, <code class="literal">IMPORT</code>.
-					</div></dd><dt><a href="#CO8-3"><span class="callout">3</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO7-3"><span class="callout">3</span></a> </dt><dd><div class="para">
 						Checks for specific annotations and their elements, such as name and value, in the Java code using a query. For example, the following query matches the <code class="literal">Bean</code> (url = “http://www.example.com”) annotation in the method.
 					</div><pre class="programlisting language-yaml"> annotated:
       pattern: org.framework.Bean
       elements:
       - name: url
-        value: "http://www.example.com"</pre></dd></dl></div></section><section class="section" id="yaml-java-locations_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.2. Java locations</h2></div></div></div><p>
+        value: "http://www.example.com"</pre></dd></dl></div></section><section class="section" id="yaml-java-locations_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.2. Java locations</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">java</code> provider allows scoping the search down to certain source code locations.
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 						<span class="strong strong"><strong>IMPORT</strong></span>: IMPORT allows for searches on class imports. It can either be used with FQNs or an asterisk to allow for wider matches:
@@ -866,15 +862,15 @@ import org.apache.lucene.search.SortField;</pre><p>
 					By using the <code class="literal">dependency</code> capability, the provider finds dependencies for a given application. MTA generates a list of the application’s dependencies, and you can use this capability to query the list and check whether a certain dependency exists for the application within a given range of the dependency’s versions.
 				</p></div><pre class="programlisting language-yaml">when:
   java.dependency:
-    name: "&lt;dependency_name&gt;" <span id="CO9-1"/><span class="callout">1</span>
-    upperbound: "&lt;version_string&gt;" <span id="CO9-2"/><span class="callout">2</span>
-    lowerbound: "&lt;version_string&gt;" <span id="CO9-3"/><span class="callout">3</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO9-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+    name: "&lt;dependency_name&gt;" <span id="CO8-1"/><span class="callout">1</span>
+    upperbound: "&lt;version_string&gt;" <span id="CO8-2"/><span class="callout">2</span>
+    lowerbound: "&lt;version_string&gt;" <span id="CO8-3"/><span class="callout">3</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO8-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 						Name of the dependency to search for.
-					</div></dd><dt><a href="#CO9-2"><span class="callout">2</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO8-2"><span class="callout">2</span></a> </dt><dd><div class="para">
 						Upper bound on the version of the dependency.
-					</div></dd><dt><a href="#CO9-3"><span class="callout">3</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO8-3"><span class="callout">3</span></a> </dt><dd><div class="para">
 						Lower bound on the version of the dependency.
-					</div></dd></dl></div></section><section class="section" id="yaml-annotation-inspection_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.3. Annotation inspection</h2></div></div></div><p>
+					</div></dd></dl></div></section><section class="section" id="yaml-annotation-inspection_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.3. Annotation inspection</h2></div></div></div><p class="_abstract _abstract">
 				You can add a query to match against specific annotations and their elements, for example:
 			</p><pre class="programlisting language-yaml">when:
   java.referenced:
@@ -913,7 +909,7 @@ class MyApplication {
         - name: url
           value: "http://www.example.com"</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					The only element specified with a <code class="literal">pattern</code> is the annotation itself.
-				</p></div></div></section><section class="section" id="yaml-condition-patterns_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.4. Condition patterns</h2></div></div></div><p>
+				</p></div></div></section><section class="section" id="yaml-condition-patterns_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.4. Condition patterns</h2></div></div></div><p class="_abstract _abstract">
 				The Language Server used by the Java provider is Eclipse’s JDTLS. Internally, the JDTLS uses the Eclipse Java Development Toolkit, which includes utilities for searching code in projects.
 			</p><p>
 				In the <code class="literal">pattern</code> element of a <code class="literal">java.referenced</code> condition, you can search through application code by using these utilities. For more details, see <a class="link" href="https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.jdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fjdt%2Fcore%2Fsearch%2FSearchPattern.html&amp;anchor=createPattern">Class SearchPattern</a>, which contains all the information for building these patterns for <code class="literal">createPattern(String, int, int, int)</code>.
@@ -944,9 +940,9 @@ class MyApplication {
 					Nested conditions to create conditions that depend on the evaluation of other conditions.
 				</li><li class="listitem">
 					Custom variables to capture specific information from the code that is evaluated by a rule. You can use the custom variable in the message displayed for the code if it contains a violation defined by the rule.
-				</li></ul></div><section class="section" id="yaml-logical-conditions_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.1. Logical conditions</h2></div></div></div><p>
+				</li></ul></div><section class="section" id="yaml-logical-conditions_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.1. Logical conditions</h2></div></div></div><p class="_abstract _abstract">
 				The analyzer provides two basic logical conditions, <code class="literal">and</code> and <code class="literal">or</code>, which you can use to aggregate results of other conditions.
-			</p></section><section class="section" id="yaml-and-condition_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.2. AND condition</h2></div></div></div><p>
+			</p></section><section class="section" id="yaml-and-condition_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.2. AND condition</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">and</code> condition performs a logical AND operation on the results of an array of conditions.
 			</p><p>
 				The <code class="literal">and</code> condition matches when <span class="emphasis"><em>all</em></span> of its child conditions match, for example:
@@ -964,7 +960,7 @@ class MyApplication {
     - java.referenced:
         location: IMPORT
         pattern: junit.junit</pre>
-				</p></div></section><section class="section" id="yaml-or-condition_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.3. OR condition</h2></div></div></div><p>
+				</p></div></section><section class="section" id="yaml-or-condition_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.3. OR condition</h2></div></div></div><p class="_abstract _abstract">
 				The <code class="literal">or</code> condition performs a logical OR operation on the results of an array of conditions.
 			</p><p>
 				The <code class="literal">or</code> condition matches when <span class="emphasis"><em>any</em></span> of its child conditions matches, for example:
@@ -982,7 +978,7 @@ class MyApplication {
   - java.referenced:
       location: IMPORT
       pattern: junit.junit</pre>
-				</p></div></section><section class="section" id="yaml-chaining-condition-variables_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.4. Chaining Condition Variables</h2></div></div></div><p>
+				</p></div></section><section class="section" id="yaml-chaining-condition-variables_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.4. Chaining Condition Variables</h2></div></div></div><p class="_abstract _abstract">
 				You can use the output of one condition as the input for filtering another one in the <code class="literal">and</code> and <code class="literal">or</code> conditions. This is called <span class="strong strong"><strong>condition chaining</strong></span>.
 			</p><div class="formalpara"><p class="title"><strong>Example</strong></p><p>
 					
@@ -1024,7 +1020,7 @@ class MyApplication {
 					+
 				</p><pre class="programlisting language-yaml">[...]
     ignore: true
-[...]</pre></div></div></section><section class="section" id="yaml-chaining-java-provider_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.5. Chaining in the Java provider</h2></div></div></div><p>
+[...]</pre></div></div></section><section class="section" id="yaml-chaining-java-provider_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.5. Chaining in the Java provider</h2></div></div></div><p class="_abstract _abstract">
 				In the <code class="literal">java</code> provider, the <code class="literal">filepaths</code> variable must be uppercased. for example:
 			</p><pre class="programlisting language-yaml">  when:
     and:
@@ -1035,7 +1031,7 @@ class MyApplication {
       - java.referenced:
           pattern: org.springframework.stereotype.Controller
           location: ANNOTATION
-          filepaths: "{{annotation.Filepaths}}"</pre></section><section class="section" id="yaml-nested-condition_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.6. Nested conditions</h2></div></div></div><p>
+          filepaths: "{{annotation.Filepaths}}"</pre></section><section class="section" id="yaml-nested-condition_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.6. Nested conditions</h2></div></div></div><p class="_abstract _abstract">
 				Conditions can also be nested within other conditions.
 			</p><pre class="programlisting language-yaml">when:
   and:
@@ -1043,25 +1039,25 @@ class MyApplication {
     - go.referenced: "*CustomResourceDefinition*"
     - java.referenced:
         pattern: "*CustomResourceDefinition*"
-  - go.referenced: "*CustomResourceDefinition*"</pre></section><section class="section" id="yaml-custom-variables_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.7. Custom variables</h2></div></div></div><p>
+  - go.referenced: "*CustomResourceDefinition*"</pre></section><section class="section" id="yaml-custom-variables_logical-chaining-custom-variables"><div class="titlepage"><div><div><h2 class="title">5.7. Custom variables</h2></div></div></div><p class="_abstract _abstract">
 				Provider conditions can have associated custom variables. You can use custom variables to capture relevant information from the matched line in the source code. The values of these variables are interpolated with data matched in the source code. These values can be used to generate detailed template messages in a rule’s action (see <a class="link" href="#yaml-rule-actions_rule-yaml-actions" title="6.1. Types of rule actions">Message actions</a>). They can be added to a rule in the <code class="literal">customVariables</code> field:
 			</p><pre class="programlisting language-yaml">- ruleID: lang-ref-004
    customVariables:
-   - pattern: '([A-z]+)\.get\(\)' <span id="CO10-1"/><span class="callout">1</span>
-      name: VariableName <span id="CO10-2"/><span class="callout">2</span>
-    message: "Found generic call - {{ VariableName }}" <span id="CO10-3"/><span class="callout">3</span>
+   - pattern: '([A-z]+)\.get\(\)' <span id="CO9-1"/><span class="callout">1</span>
+      name: VariableName <span id="CO9-2"/><span class="callout">2</span>
+    message: "Found generic call - {{ VariableName }}" <span id="CO9-3"/><span class="callout">3</span>
   when:
       java.referenced:
           location: METHOD_CALL
-          pattern: com.example.apps.GenericClass.get</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO10-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+          pattern: com.example.apps.GenericClass.get</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO9-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 						<code class="literal">pattern</code>: A regular expression pattern that is matched on the source code line when a match is found.
-					</div></dd><dt><a href="#CO10-2"><span class="callout">2</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO9-2"><span class="callout">2</span></a> </dt><dd><div class="para">
 						<code class="literal">name</code>: The name of the variable that can be used in templates.
-					</div></dd><dt><a href="#CO10-3"><span class="callout">3</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO9-3"><span class="callout">3</span></a> </dt><dd><div class="para">
 						<code class="literal">message</code>: A template for a message using a custom variable.
 					</div></dd></dl></div></section></section><section class="chapter" id="rule-yaml-actions"><div class="titlepage"><div><div><h1 class="title">Chapter 6. Rule actions</h1></div></div></div><p class="_abstract _abstract">
 			Rule actions.
-		</p><section class="section" id="yaml-rule-actions_rule-yaml-actions"><div class="titlepage"><div><div><h2 class="title">6.1. Types of rule actions</h2></div></div></div><p>
+		</p><section class="section" id="yaml-rule-actions_rule-yaml-actions"><div class="titlepage"><div><div><h2 class="title">6.1. Types of rule actions</h2></div></div></div><p class="_abstract _abstract">
 				Rules can include the following types of actions:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 						message
@@ -1080,7 +1076,7 @@ class MyApplication {
   - url: "konveyor.io"
     title: "Short title for the link"</pre><p>
 				A message can also be a template to include information about the match interpolated through custom variables on the rule.
-			</p></section><section class="section" id="yaml-tag-actions_rule-yaml-actions"><div class="titlepage"><div><div><h2 class="title">6.2. Tag actions</h2></div></div></div><p>
+			</p></section><section class="section" id="yaml-tag-actions_rule-yaml-actions"><div class="titlepage"><div><div><h2 class="title">6.2. Tag actions</h2></div></div></div><p class="_abstract _abstract">
 				A tag action instructs the analyzer to generate one or more tags for the application when a match is found. Each string in the <code class="literal">tag</code> field can be a comma-separated list of tags. Optionally, you can assign categories to tags.
 			</p><pre class="programlisting language-yaml">tag:
   - "tag1,tag2,tag3"
@@ -1096,7 +1092,7 @@ class MyApplication {
 				A tag can be a string or a <code class="literal">key=val</code> pair, where the key is treated as a tag category in MTA. Any rule that has a tag action is referred to as a “tagging rule” in this document.
 			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					Issues are not created for rules that contain only tag actions.
-				</p></div></div></section><section class="section" id="yaml-message-actions_rule-yaml-actions"><div class="titlepage"><div><div><h2 class="title">6.3. Message action</h2></div></div></div><p>
+				</p></div></div></section><section class="section" id="yaml-message-actions_rule-yaml-actions"><div class="titlepage"><div><div><h2 class="title">6.3. Message action</h2></div></div></div><p class="_abstract _abstract">
 				A message action is employed to generate an issue with the specified message when a rule matches, for example:
 			</p><pre class="programlisting language-yaml"># When a match is found, the analyzer generates incidents with the same message.
 message: "helpful message about the violation"</pre><p>
@@ -1109,7 +1105,7 @@ message: "helpful message about the violation"</pre><p>
   when:
     &lt;CONDITION&gt;</pre></section></section><section class="chapter" id="creating-rule"><div class="titlepage"><div><div><h1 class="title">Chapter 7. Creating custom rules</h1></div></div></div><p class="_abstract _abstract">
 			You can refer to example rules that describe how to create a YAML rule. This assumes that you already have MTA installed. See the MTA CLI Guide for installation instructions.
-		</p><section class="section" id="create-basic-yaml-rule-template_creating-rule"><div class="titlepage"><div><div><h2 class="title">7.1. Creating a YAML rule template</h2></div></div></div><p>
+		</p><section class="section" id="create-basic-yaml-rule-template_creating-rule"><div class="titlepage"><div><div><h2 class="title">7.1. Creating a YAML rule template</h2></div></div></div><p class="_abstract _abstract">
 				MTA YAML-based rules have the following basic structure:
 			</p><pre class="programlisting language-terminal">when(condition)
  message(message)
@@ -1132,7 +1128,7 @@ message: "helpful message about the violation"</pre><p>
   - &lt;TAG2&gt;
   ruleID: &lt;RULE_ID&gt;
   when:
-   &lt;CONDITIONS&gt;</pre></li></ol></div></section><section class="section" id="create-first-yaml-rule_creating-rule"><div class="titlepage"><div><div><h2 class="title">7.2. Creating a YAML rule</h2></div></div></div><p>
+   &lt;CONDITIONS&gt;</pre></li></ol></div></section><section class="section" id="create-first-yaml-rule_creating-rule"><div class="titlepage"><div><div><h2 class="title">7.2. Creating a YAML rule</h2></div></div></div><p class="_abstract _abstract">
 				This section guides you through the process of creating and testing your first MTA YAML-based rule. This assumes that you have already installed MTA. See <a class="link" href="https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/8.0/html-single/using_the_mta_command-line_interface_to_analyze_applications/index/index#installing_and_running_the_cli">Installing and running the CLI</a> in the <span class="emphasis"><em>CLI Guide</em></span> for installation instructions.
 			</p><p>
 				In this example, you will create a rule to discover instances where an application defines a <code class="literal">jboss-web.xml</code> file containing a <code class="literal">&lt;class-loading&gt;</code> element and to provide a link to the documentation that describes how to migrate the code.
@@ -1171,19 +1167,19 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   &lt;/dependencies&gt;
 &lt;/project&gt;</pre></li><li class="listitem"><p class="simpara">
 						In the <code class="literal">rule.yaml</code> file you created, paste the following contents:
-					</p><pre class="screen">- ruleID: &lt;UNIQUE_RULE_ID&gt; <span id="CO11-1"/><span class="callout">1</span>
-  description: &lt;DESCRIPTION&gt; <span id="CO11-2"/><span class="callout">2</span>
+					</p><pre class="screen">- ruleID: &lt;UNIQUE_RULE_ID&gt; <span id="CO10-1"/><span class="callout">1</span>
+  description: &lt;DESCRIPTION&gt; <span id="CO10-2"/><span class="callout">2</span>
   when:
-    &lt;CONDITION(S)&gt; <span id="CO11-3"/><span class="callout">3</span>
-  message: &lt;MESSAGE&gt; <span id="CO11-4"/><span class="callout">4</span>
-  labels: &lt;LABELS&gt; <span id="CO11-5"/><span class="callout">5</span>
-  effort: &lt;EFFORT&gt; <span id="CO11-6"/><span class="callout">6</span>
+    &lt;CONDITION(S)&gt; <span id="CO10-3"/><span class="callout">3</span>
+  message: &lt;MESSAGE&gt; <span id="CO10-4"/><span class="callout">4</span>
+  labels: &lt;LABELS&gt; <span id="CO10-5"/><span class="callout">5</span>
+  effort: &lt;EFFORT&gt; <span id="CO10-6"/><span class="callout">6</span>
   links:
-  - &lt;LINKS&gt; <span id="CO11-7"/><span class="callout">7</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO11-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+  - &lt;LINKS&gt; <span id="CO10-7"/><span class="callout">7</span></pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO10-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 								Unique ID for your rule. For example, <code class="literal">jboss5-web-class-loading</code>.
-							</div></dd><dt><a href="#CO11-2"><span class="callout">2</span></a> </dt><dd><div class="para">
+							</div></dd><dt><a href="#CO10-2"><span class="callout">2</span></a> </dt><dd><div class="para">
 								Text description of the rule.
-							</div></dd><dt><a href="#CO11-3"><span class="callout">3</span></a> </dt><dd><div class="para">
+							</div></dd><dt><a href="#CO10-3"><span class="callout">3</span></a> </dt><dd><div class="para">
 								Complete the <code class="literal">when</code> block specifying one or more conditions:
 							</div><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
 										Use the <code class="literal">builtin</code> provider’s XML capability because this rule checks for a match in an XML file.
@@ -1191,13 +1187,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 										To match on the <code class="literal">class-loading</code> element that is a child of <code class="literal">jboss-web</code>, use the XPath expression <code class="literal">jboss-web/web-loading</code> as an XML query. In this case, you need just one condition:
 									</p><pre class="screen">when:
   builtin.xml:
-    xpath: jboss-web/class-loading</pre></li></ol></div></dd><dt><a href="#CO11-4"><span class="callout">4</span></a> </dt><dd><div class="para">
+    xpath: jboss-web/class-loading</pre></li></ol></div></dd><dt><a href="#CO10-4"><span class="callout">4</span></a> </dt><dd><div class="para">
 								Helpful message explaining the migration issue. The message is generated in the report when the rule matches. For example:
-							</div><pre class="screen">message: The class-loading element is no longer valid in the jboss-web.xml file.</pre></dd><dt><a href="#CO11-5"><span class="callout">5</span></a> </dt><dd><div class="para">
+							</div><pre class="screen">message: The class-loading element is no longer valid in the jboss-web.xml file.</pre></dd><dt><a href="#CO10-5"><span class="callout">5</span></a> </dt><dd><div class="para">
 								List of string labels for the rule.
-							</div></dd><dt><a href="#CO11-6"><span class="callout">6</span></a> </dt><dd><div class="para">
+							</div></dd><dt><a href="#CO10-6"><span class="callout">6</span></a> </dt><dd><div class="para">
 								Number of expected story points to fix this issue.
-							</div></dd><dt><a href="#CO11-7"><span class="callout">7</span></a> </dt><dd><div class="para">
+							</div></dd><dt><a href="#CO10-7"><span class="callout">7</span></a> </dt><dd><div class="para">
 								One or more hyperlinks pointing to documentation around the migration issues that you find.
 							</div><pre class="screen">links:
 - url: https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Migration_Guide/index.html#Create_or_Modify_Files_That_Control_Class_Loading_in_JBoss_Enterprise_Application_Platform_6
@@ -1360,12 +1356,12 @@ print(file_b.bad_method())</pre></li><li class="listitem"><p class="simpara">
 				You can create a ruleset by placing one or more YAML rules in a directory and creating a <code class="literal">ruleset.yaml</code> file at the directory root. When you pass this directory as input to the MTA CLI by using the <code class="literal">--rules</code> option, all rules in this directory are treated as a part of the ruleset defined by the <code class="literal">ruleset.yaml</code> file.
 			</p><p>
 				The <code class="literal">ruleset.yaml</code> file stores the metadata of the ruleset.
-			</p><pre class="programlisting language-yaml">name: "Name of the ruleset" <span id="CO12-1"/><span class="callout">1</span>
+			</p><pre class="programlisting language-yaml">name: "Name of the ruleset" <span id="CO11-1"/><span class="callout">1</span>
 description: "Description of the ruleset"
-labels: #  <span id="CO12-2"/><span class="callout">2</span>
-  - key=val</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO12-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+labels: #  <span id="CO11-2"/><span class="callout">2</span>
+  - key=val</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO11-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 						The name must be unique within the provided rulesets.
-					</div></dd><dt><a href="#CO12-2"><span class="callout">2</span></a> </dt><dd><div class="para">
+					</div></dd><dt><a href="#CO11-2"><span class="callout">2</span></a> </dt><dd><div class="para">
 						Ruleset labels are inherited by all rules that belong to the ruleset.
 					</div></dd></dl></div><p>
 				To perform any application analysis, enter:
@@ -1381,12 +1377,12 @@ labels: #  <span id="CO12-2"/><span class="callout">2</span>
 				If you want to group multiple similar rules, you can create a ruleset for them by placing their files in a directory and creating a <code class="literal">ruleset.yaml</code> file at the directory’s root. When you pass this directory as input to the MTA CLI using the <code class="literal">--rules</code> option, MTA treats all the files in the directory as belonging to the ruleset defined in the <code class="literal">ruleset.yaml</code> file.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 						Create a template for <code class="literal">ruleset.yaml</code> files if you want to pass the entire directory using the <code class="literal">--rules</code> option:
-					</p><pre class="programlisting language-terminal">name: &lt;RULESET_NAME&gt; <span id="CO13-1"/><span class="callout">1</span>
+					</p><pre class="programlisting language-terminal">name: &lt;RULESET_NAME&gt; <span id="CO12-1"/><span class="callout">1</span>
 description: &lt;RULESET_DESCRIPTION&gt;
-labels: <span id="CO13-2"/><span class="callout">2</span>
-  - key=val</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO13-1"><span class="callout">1</span></a> </dt><dd><div class="para">
+labels: <span id="CO12-2"/><span class="callout">2</span>
+  - key=val</pre><div class="calloutlist"><dl class="calloutlist"><dt><a href="#CO12-1"><span class="callout">1</span></a> </dt><dd><div class="para">
 								The name must be unique within the provided rulesets.
-							</div></dd><dt><a href="#CO13-2"><span class="callout">2</span></a> </dt><dd><div class="para">
+							</div></dd><dt><a href="#CO12-2"><span class="callout">2</span></a> </dt><dd><div class="para">
 								Ruleset labels are inherited by all rules that belong to the ruleset.
 							</div></dd></dl></div></li></ol></div></section><section class="section" id="running-analysis-using-custom-yaml-rule_rule-rulesets"><div class="titlepage"><div><div><h2 class="title">8.3. Running an analysis using a custom YAML rule</h2></div></div></div><p class="_abstract _abstract">
 				To run an analysis, use the <code class="literal">--rules</code> option in the CLI.
@@ -1406,7 +1402,7 @@ labels: <span id="CO13-2"/><span class="callout">2</span>
 					MTA Jira issue tracker: <a class="link" href="https://issues.redhat.com/projects/MTA/issues">https://issues.redhat.com/projects/MTA/issues</a>
 				</li><li class="listitem">
 					MTA mailing list: <a class="link" href="mailto:windup-eng@redhat.com">windup-eng@redhat.com</a>
-				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45009253975088"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm46480097212304"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
