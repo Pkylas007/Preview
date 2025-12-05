@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and using rules for an MTA analysis</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide describes how to create custom XML rules for the migration toolkit for applications."/><link rel="next" href="#making-open-source-more-inclusive_rules-development-guide" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46462815956064"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and using rules for an MTA analysis</h1></div><div><h2 class="subtitle">Create custom rules to enhance migration coverage.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46462819664112">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and using rules for an MTA analysis</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide describes how to create custom XML rules for the migration toolkit for applications."/><link rel="next" href="#making-open-source-more-inclusive_rules-development-guide" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46211584889536"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and using rules for an MTA analysis</h1></div><div><h2 class="subtitle">Create custom rules to enhance migration coverage.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46211585959328">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This guide describes how to create custom XML rules for the migration toolkit for applications.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive_rules-development-guide">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#rules-introduction_rules-development-guide">1. Introduction to rules</a></span><ul><li><span class="section"><a href="#about-rules_rules-introduction">1.1. The MTA rules</a></span></li><li><span class="section"><a href="#yaml-rule-structure-syntax_rules-introduction">1.2. YAML rule structure and syntax</a></span></li></ul></li><li><span class="chapter"><a href="#rule-yaml-metadata">2. Rule metadata</a></span><ul><li><span class="section"><a href="#yaml-rule-metadata-structure_rule-yaml-metadata">2.1. Rule metadata structure</a></span></li><li><span class="section"><a href="#yaml-rule-labels_rule-yaml-metadata">2.2. Rule labels</a></span></li><li><span class="section"><a href="#yaml-rule-categories_rule-yaml-metadata">2.3. Rule categories</a></span></li></ul></li><li><span class="chapter"><a href="#rule-provider-conditions">3. Providers and rule conditions</a></span><ul><li><span class="section"><a href="#yaml-provider-conditions_rule-provider-conditions">3.1. Provider condition</a></span></li><li><span class="section"><a href="#yaml-builin-provider_rule-provider-conditions">3.2. Builtin provider</a></span></li><li><span class="section"><a href="#yaml-java-provider_rule-provider-conditions">3.3. Java provider</a></span></li><li><span class="section"><a href="#yaml-go-provider_rule-provider-conditions">3.4. Go provider</a></span></li><li><span class="section"><a href="#yaml-dotnet-provider_rule-provider-conditions">3.5. Dotnet provider</a></span></li></ul></li><li><span class="chapter"><a href="#java-conditions-capabilities">4. Java condition and capabilities</a></span><ul><li><span class="section"><a href="#yaml-java-provider_java-conditions-capabilities">4.1. Java provider</a></span></li><li><span class="section"><a href="#yaml-java-locations_java-conditions-capabilities">4.2. Java locations</a></span></li><li><span class="section"><a href="#yaml-annotation-inspection_java-conditions-capabilities">4.3. Annotation inspection</a></span></li><li><span class="section"><a href="#yaml-condition-patterns_java-conditions-capabilities">4.4. Condition patterns</a></span></li></ul></li><li><span class="chapter"><a href="#logical-chaining-custom-variables">5. Logical conditions, condition chaining, and custom variables</a></span><ul><li><span class="section"><a href="#yaml-logical-conditions_logical-chaining-custom-variables">5.1. Logical conditions</a></span></li><li><span class="section"><a href="#yaml-and-condition_logical-chaining-custom-variables">5.2. AND condition</a></span></li><li><span class="section"><a href="#yaml-or-condition_logical-chaining-custom-variables">5.3. OR condition</a></span></li><li><span class="section"><a href="#yaml-chaining-condition-variables_logical-chaining-custom-variables">5.4. Chaining Condition Variables</a></span></li><li><span class="section"><a href="#yaml-chaining-java-provider_logical-chaining-custom-variables">5.5. Chaining in the Java provider</a></span></li><li><span class="section"><a href="#yaml-nested-condition_logical-chaining-custom-variables">5.6. Nested conditions</a></span></li><li><span class="section"><a href="#yaml-custom-variables_logical-chaining-custom-variables">5.7. Custom variables</a></span></li></ul></li><li><span class="chapter"><a href="#rule-yaml-actions">6. Rule actions</a></span><ul><li><span class="section"><a href="#yaml-rule-actions_rule-yaml-actions">6.1. Types of rule actions</a></span></li><li><span class="section"><a href="#yaml-tag-actions_rule-yaml-actions">6.2. Tag actions</a></span></li><li><span class="section"><a href="#yaml-message-actions_rule-yaml-actions">6.3. Message action</a></span></li><li><span class="section"><a href="#yaml-rule-hyperlinks_rule-yaml-actions">6.4. Hyperlinks</a></span></li></ul></li><li><span class="chapter"><a href="#creating-rule">7. Creating custom rules</a></span><ul><li><span class="section"><a href="#create-basic-yaml-rule-template_creating-rule">7.1. Creating a YAML rule template</a></span></li><li><span class="section"><a href="#create-first-yaml-rule_creating-rule">7.2. Creating a YAML rule</a></span></li><li><span class="section"><a href="#create-go-custom-rule_creating-rule">7.3. Creating a custom Go rule</a></span></li><li><span class="section"><a href="#create-nodejs-custom-rule_creating-rule">7.4. Creating a custom Node.js rule</a></span></li><li><span class="section"><a href="#create-python-custom-rule_creating-rule">7.5. Creating custom Python rules</a></span></li></ul></li><li><span class="chapter"><a href="#rule-rulesets">8. Rulesets</a></span><ul><li><span class="section"><a href="#yaml-rulesets_rule-rulesets">8.1. Creating and using a ruleset</a></span></li><li><span class="section"><a href="#create-basic-yaml-ruleset-template_rule-rulesets">8.2. Creating a basic YAML ruleset template</a></span></li><li><span class="section"><a href="#running-analysis-using-custom-yaml-rule_rule-rulesets">8.3. Running an analysis using a custom YAML rule</a></span></li></ul></li><li><span class="chapter"><a href="#additional_resources">9. Additional resources</a></span></li></ul></div><section class="preface abstract" id="making-open-source-more-inclusive_rules-development-guide"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
@@ -204,27 +204,27 @@ category: mandatory</pre><p>
 					Support for providing a single report when analyzing multiple applications on the CLI is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
 				</p><p>
 					For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
-				</p></div></div><div class="informaltable" id="table-Supported-providers-and-rule-conditions"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46462818015552" scope="col">Provider rule conditions</th><th align="left" valign="top" id="idm46462818014496" scope="col">Provider name</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46462818015552">
+				</p></div></div><div class="informaltable" id="table-Supported-providers-and-rule-conditions"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46211582713600" scope="col">Provider rule conditions</th><th align="left" valign="top" id="idm46211589416640" scope="col">Provider name</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46211582713600">
 							<p>
 								Providers that are fully supported and included in the product
 							</p>
-							</td><td align="left" valign="top" headers="idm46462818014496">
+							</td><td align="left" valign="top" headers="idm46211589416640">
 							<p>
 								Java
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462818015552">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582713600">
 							<p>
 								Providers that have rules already defined in the product
 							</p>
-							</td><td align="left" valign="top" headers="idm46462818014496">
+							</td><td align="left" valign="top" headers="idm46211589416640">
 							<p>
 								.NET
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462818015552">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582713600">
 							<p>
 								Providers that require custom rulesets for analysis
 							</p>
-							</td><td align="left" valign="top" headers="idm46462818014496">
+							</td><td align="left" valign="top" headers="idm46211589416640">
 							<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 										Go
 									</li><li class="listitem">
@@ -236,15 +236,15 @@ category: mandatory</pre><p>
 					Depending on the provider, the fields of the condition, for example, the <code class="literal">pattern</code> and <code class="literal">location</code> in the previous example changes.
 				</p></div></div><p>
 				The following table summarizes all the providers and their capabilities:
-			</p><div class="table" id="idm46462818032752"><p class="title"><strong>Table 3.1. Summary of providers and their capabilities</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm46462819919392" scope="col">Provider Name</th><th align="left" valign="top" id="idm46462819918304" scope="col">Capabilities</th><th align="left" valign="top" id="idm46462819917216" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm46462819919392">
+			</p><div class="table" id="idm46211584040160"><p class="title"><strong>Table 3.1. Summary of providers and their capabilities</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm46211584171840" scope="col">Provider Name</th><th align="left" valign="top" id="idm46211584170752" scope="col">Capabilities</th><th align="left" valign="top" id="idm46211584169664" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm46211584171840">
 							<p>
 								<code class="literal">java</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819918304">
+							</td><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Find references of a pattern with an optional code location for detailed searches. For example,
 							</p>
@@ -252,11 +252,11 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   java.referenced:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462819918304">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Check whether the application has a given dependency. For example,
 							</p>
@@ -264,23 +264,23 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   java.dependency:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm46462819919392">
+							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm46211584171840">
 							<p>
 								<code class="literal">builtin</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819918304">
+							</td><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								xml
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Search XML files using xpath queries.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462819918304">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								<code class="literal">json</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Search JSON files using <code class="literal">jsonpath</code> queries. For example,
 							</p>
@@ -288,11 +288,11 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   builtin.json:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462819918304">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								filecontent
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Search content in regular files using regular expression patterns. For example,
 							</p>
@@ -300,11 +300,11 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   builtin.filecontent:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462819918304">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								file
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Find files with names matching a given pattern. For example,
 							</p>
@@ -312,11 +312,11 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   builtin.file:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462819918304">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								hasTags
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Check whether a tag is created for the application using a tagging rule. For example,
 							</p>
@@ -324,15 +324,15 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   builtin.hasTags:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46462819919392">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46211584171840">
 							<p>
 								<code class="literal">go</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819918304">
+							</td><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Find references to a pattern. For example,
 							</p>
@@ -340,11 +340,11 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   go.referenced:
     &lt;fields&gt;</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462819918304">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211584170752">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm46462819917216">
+							</td><td align="left" valign="top" headers="idm46211584169664">
 							<p>
 								Check whether the application has a given dependency. For example,
 							</p>
@@ -362,23 +362,23 @@ category: mandatory</pre><p>
 					Depending on the <span class="emphasis"><em>provider</em></span> and the <span class="emphasis"><em>capability</em></span>, there will be different <code class="literal">&lt;fields&gt;</code> in the condition.
 				</p></div></div><p>
 				The following table summarizes available providers, their capabilities and all of their fields:
-			</p><div class="table" id="idm46462818736832"><p class="title"><strong>Table 3.2. Summary of providers, their capabilities, and their fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 10%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 60%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm46462814347664" scope="col">Provider</th><th align="left" valign="top" id="idm46462814346576" scope="col">Capability</th><th align="left" valign="top" id="idm46462814345488" scope="col">Fields</th><th align="left" valign="top" id="idm46462814344400" scope="col">Required</th><th align="left" valign="top" id="idm46462814343312" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="top" headers="idm46462814347664">
+			</p><div class="table" id="idm46211585745760"><p class="title"><strong>Table 3.2. Summary of providers, their capabilities, and their fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 10%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 60%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm46211582834768" scope="col">Provider</th><th align="left" valign="top" id="idm46211582833680" scope="col">Capability</th><th align="left" valign="top" id="idm46211582832592" scope="col">Fields</th><th align="left" valign="top" id="idm46211582831504" scope="col">Required</th><th align="left" valign="top" id="idm46211582830416" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="top" headers="idm46211582834768">
 							<p>
 								java
 							</p>
-							</td><td rowspan="3" align="left" valign="top" headers="idm46462814346576">
+							</td><td rowspan="3" align="left" valign="top" headers="idm46211582833680">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Regular expression pattern For example,
 							</p>
@@ -387,15 +387,15 @@ category: mandatory</pre><p>
   java.referenced:
     location: PACKAGE
     pattern: org.jboss*</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								location
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Source code location (see <a class="link" href="#yaml-java-locations_java-conditions-capabilities" title="4.2. Java locations">Java locations</a>) For example,
 							</p>
@@ -404,15 +404,15 @@ category: mandatory</pre><p>
   java.referenced:
     pattern: org.kubernetes*
     location: IMPORT</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								annotated
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Additional query to inspect annotations (see <a class="link" href="#yaml-annotation-inspection_java-conditions-capabilities" title="4.3. Annotation inspection">Annotation inspection</a>). For example,
 							</p>
@@ -421,19 +421,19 @@ category: mandatory</pre><p>
   java.referenced:
     location: ANNOTATION
     pattern: javax.ejb.Singleton</pre>
-							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm46462814346576">
+							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm46211582833680">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								name
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Name of the dependency. For example,
 							</p>
@@ -441,27 +441,27 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   java.dependency:
     name: junit.junit</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								nameregex
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Regular expression pattern to match the name.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								upperbound
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Match versions lower than or equal to For example,
 							</p>
@@ -470,15 +470,15 @@ category: mandatory</pre><p>
   java.dependency:
     name: junit.junit
     upperbound: 4.12.2</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								lowerbound
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Match versions greater than or equal to For example,
 							</p>
@@ -488,63 +488,63 @@ category: mandatory</pre><p>
     name: junit.junit
     upperbound: 4.12.2
     lowerbound: 4.4.0</pre>
-							</td></tr><tr><td rowspan="9" align="left" valign="top" headers="idm46462814347664">
+							</td></tr><tr><td rowspan="9" align="left" valign="top" headers="idm46211582834768">
 							<p>
 								builtin
 							</p>
-							</td><td rowspan="3" align="left" valign="top" headers="idm46462814346576">
+							</td><td rowspan="3" align="left" valign="top" headers="idm46211582833680">
 							<p>
 								xml
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								xpath
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Xpath query
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								namespaces
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								A map to scope down query to namespaces
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								filepaths
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Optional list of files to scope down search
 							</p>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46462814346576">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46211582833680">
 							<p>
 								json
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								xpath
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Xpath query For example,
 							</p>
@@ -553,15 +553,15 @@ category: mandatory</pre><p>
     and:
     - builtin.json:
         xpath: //inclusionTestNode</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								filepaths
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Optional list of files to scope down search For example,
 							</p>
@@ -571,19 +571,19 @@ category: mandatory</pre><p>
     - builtin.json:
         xpath: //inclusionTestNode
         filepaths: "{{incTest.filepaths}}"</pre>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46462814346576">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm46211582833680">
 							<p>
 								filecontent
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Regular expression pattern to match in content For example,
 							</p>
@@ -591,15 +591,15 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   builtin.filecontent:
     pattern: "import.*React"</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								filePattern
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Only search in files with names matching this pattern For example,
 							</p>
@@ -608,19 +608,19 @@ category: mandatory</pre><p>
   builtin.filecontent:
     pattern: "import.*React"
     filePattern: "\\.tsx$"</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814346576">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582833680">
 							<p>
 								file
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Find files with names matching this pattern For example,
 							</p>
@@ -628,11 +628,11 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
     builtin.file:
       pattern: "*.go"</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814346576">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582833680">
 							<p>
 								hasTags
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488"> </td><td align="left" valign="top" headers="idm46462814344400"> </td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582832592"> </td><td align="left" valign="top" headers="idm46211582831504"> </td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								This is an inline list of string tags. See <a class="link" href="#yaml-tag-actions_rule-yaml-actions" title="6.2. Tag actions">Tag action</a> For example,
 							</p>
@@ -642,23 +642,23 @@ category: mandatory</pre><p>
    - builtin.hasTags:
      - Golang
      - Kubernetes</pre>
-							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm46462814347664">
+							</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm46211582834768">
 							<p>
 								go
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814346576">
+							</td><td align="left" valign="top" headers="idm46211582833680">
 							<p>
 								referenced
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								pattern
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Regular expression pattern. For example,
 							</p>
@@ -666,19 +666,19 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   go.referenced:
     pattern: "v1beta1.CustomResourceDefinition"</pre>
-							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm46462814346576">
+							</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm46211582833680">
 							<p>
 								dependency
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814345488">
+							</td><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								name
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								Yes
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Name of the dependency. For example,
 							</p>
@@ -686,27 +686,27 @@ category: mandatory</pre><p>
 <pre class="programlisting language-yaml">when:
   - go.dependency:
       name: sigs.k8s.io/structured-merge-diff/v4</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								nameregex
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Regular expression pattern to match the name.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								upperbound
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Match versions lower than or equal to. For example,
 							</p>
@@ -715,15 +715,15 @@ category: mandatory</pre><p>
   - go.dependency:
       name: sigs.k8s.io/structured-merge-diff/v4
       upperbound: v4.2.2</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462814345488">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211582832592">
 							<p>
 								lowerbound
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814344400">
+							</td><td align="left" valign="top" headers="idm46211582831504">
 							<p>
 								No
 							</p>
-							</td><td align="left" valign="top" headers="idm46462814343312">
+							</td><td align="left" valign="top" headers="idm46211582830416">
 							<p>
 								Match versions greater than or equal to. For example,
 							</p>
@@ -937,43 +937,44 @@ import org.apache.lucene.search.SortField;</pre><pre class="programlisting langu
 				More information about the possibilities of these patterns can be found in <a class="link" href="https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.jdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fjdt%2Fcore%2Fsearch%2FSearchPattern.html&amp;anchor=createPattern(java.lang.String,int,int,int)">the official Java documentaion, which contain all the information for building these patterns</a> in the <code class="literal">createPattern(String, int, int, int)</code> section.
 			</p><div class="admonition warning"><div class="admonition_header">Warning</div><div><p>
 					Presently, fully qualified static method matching is prone to errors.
-				</p></div></div><div class="table" id="idm46462816960992"><p class="title"><strong>Table 4.1. Supported Java locations</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm46462817562288" scope="col">Location</th><th align="left" valign="top" id="idm46462817561200" scope="col">Description</th><th align="left" valign="top" id="idm46462817560112" scope="col">Rule condition example</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46462817562288">
+				</p></div></div><div class="table" id="idm46211585801264"><p class="title"><strong>Table 4.1. Supported Java locations</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm46211585795488" scope="col">Location</th><th align="left" valign="top" id="idm46211585794400" scope="col">Description</th><th align="left" valign="top" id="idm46211585778576" scope="col">Rule condition example</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								TYPE
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against all types including classes, interfaces, enum, and annotation types that appear anywhere.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								The following example looks for a class that implements <code class="literal">java.util.List</code>.
 							</p>
 							
-<pre class="programlisting language-yaml">  java.referenced:
+<pre class="programlisting language-yaml"> when:
+  java.referenced:
    location: TYPE
    pattern: java.util.List</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								INHERITANCE
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a class inheriting from a given type.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								abc
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								ANNOTATION
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against annotations.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								The following example matches the <code class="literal">@Bean</code> annotation in the source code.
 							</p>
@@ -986,137 +987,146 @@ import org.apache.lucene.search.SortField;</pre><pre class="programlisting langu
       elements:
         - name: url
           value: "http://www.example.com"</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								IMPLEMENTS_TYPE
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against any type implementing the given type.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								The following example looks for a class that implements <code class="literal">java.util.ArrayList</code>.
 							</p>
 							
-<pre class="programlisting language-yaml">  java.referenced:
+<pre class="programlisting language-yaml"> when:
+  java.referenced:
    location: IMPLEMENTS_TYPE
    pattern: java.util.ArrayList</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								ENUM_CONSTANT
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against enum constants.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								abc
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								RETURN_TYPE
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a type being returned by a method.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								abc
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								VARIABLE_DECLARATION
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a type being declared as a variable
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								abc
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								FIELD (declaration)
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a type appearing in a field declaration. It can be coupled with an annotation match, this is, an annotation happening on the field. See <a class="link" href="#yaml-annotation-inspection_java-conditions-capabilities" title="4.3. Annotation inspection">Annotation inspection</a>
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								abc
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								METHOD
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a given method declaration. It can be coupled with an annotation match. See <a class="link" href="#yaml-annotation-inspection_java-conditions-capabilities" title="4.3. Annotation inspection">Annotation inspection</a>
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								The following example locates all methods that return <code class="literal">java.lang.String</code>.
 							</p>
 							
-<pre class="programlisting language-yaml">java.referenced:
- location: METHOD
- pattern: '* java.lang.String'</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+<pre class="programlisting language-yaml">when:
+ java.referenced:
+   location: METHOD
+   pattern: '* java.lang.String'</pre>
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								CLASS (declaration)
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a given method declaration. Can be coupled with an annotation match. See <a class="link" href="#yaml-annotation-inspection_java-conditions-capabilities" title="4.3. Annotation inspection">Annotation inspection</a>.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								The following example locates all classes under the <code class="literal">javax.xml</code> package occurring in all locations of the source code.
 							</p>
 							
-<pre class="programlisting language-yaml">java.referenced:
+<pre class="programlisting language-yaml">when:
+ java.referenced:
   pattern: javax.xml*</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								CONSTRUCTOR_CALL
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against a constructor.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
 								abc
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								IMPORT
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches against class imports. You can use it with FQNs or an asterisk (*) to allow for wider matches.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
-<pre class="programlisting language-yaml">java.referenced:
-  pattern: org.apache.lucene.search*
-  location: IMPORT</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm46462817562288">
+							</td><td align="left" valign="top" headers="idm46211585778576">
+<pre class="programlisting language-yaml">when:
+ java.referenced:
+   pattern: org.apache.lucene.search*
+   location: IMPORT</pre>
+							</td></tr><tr><td align="left" valign="top" headers="idm46211585795488">
 							<p>
 								PACKAGE
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817561200">
+							</td><td align="left" valign="top" headers="idm46211585794400">
 							<p>
 								Matches on any usage of a package, be it in an import or used as part of a fully qualified name in the code.
 							</p>
-							</td><td align="left" valign="top" headers="idm46462817560112">
+							</td><td align="left" valign="top" headers="idm46211585778576">
 							<p>
-								abc
+								The following example matches all occurrences of <code class="literal">org.jboss</code> package and its sub packages in the source code.
 							</p>
+							
+<pre class="programlisting language-yaml">when:
+  java.referenced:
+    location: PACKAGE
+    pattern: org.jboss*</pre>
 							</td></tr></tbody></table></div></div></section><section class="section" id="yaml-annotation-inspection_java-conditions-capabilities"><div class="titlepage"><div><div><h2 class="title">4.3. Annotation inspection</h2></div></div></div><p class="_abstract _abstract">
 				You can add a query to match against specific annotations and their elements, for example:
 			</p><pre class="programlisting language-yaml">when:
@@ -1665,7 +1675,7 @@ labels:
 					MTA Jira issue tracker: <a class="link" href="https://issues.redhat.com/projects/MTA/issues">https://issues.redhat.com/projects/MTA/issues</a>
 				</li><li class="listitem">
 					MTA mailing list: <a class="link" href="mailto:windup-eng@redhat.com">windup-eng@redhat.com</a>
-				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm46462819664112"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm46211585959328"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
