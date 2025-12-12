@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Rules Development Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide describes how to create custom XML rules for the migration toolkit for applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45930709746688"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Rules Development Guide</h1></div><div><h2 class="subtitle">Create custom rules to enhance migration coverage.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45930690351696">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Rules Development Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide describes how to create custom XML rules for the migration toolkit for applications."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45817507468576"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Rules Development Guide</h1></div><div><h2 class="subtitle">Create custom rules to enhance migration coverage.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45817460177728">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This guide describes how to create custom XML rules for the migration toolkit for applications.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#introduction_rules-development-guide">1. Introduction</a></span><ul><li><span class="section"><a href="#rules-guide-intro_rules-development-guide">1.1. About the Rule Development Guide</a></span><ul><li><span class="section"><a href="#mta-about-home-var_rules-development-guide">1.1.1. Use of <code class="literal">&lt;MTA_HOME&gt;</code> in this guide</a></span></li></ul></li><li><span class="section"><a href="#about-rules_rules-development-guide">1.2. The MTA rules</a></span></li></ul></li><li><span class="chapter"><a href="#creating-yaml-rules_rules-development-guide">2. Creating YAML rules</a></span><ul><li><span class="section"><a href="#yaml-rule-structure-syntax_rules-development-guide">2.1. YAML rule structure and syntax</a></span><ul><li><span class="section"><a href="#yaml-rule-metadata_rules-development-guide">2.1.1. Rule metadata</a></span></li></ul></li><li><span class="section"><a href="#yaml-rule-labels_rules-development-guide">2.2. Rule labels</a></span></li><li><span class="section"><a href="#creating-basic-yaml-rules_rules-development-guide">2.3. Creating a basic YAML rule</a></span><ul><li><span class="section"><a href="#create-basic-yaml-rule-template_rules-development-guide">2.3.1. Creating a basic YAML rule template</a></span></li><li><span class="section"><a href="#yaml-rule-categories_rules-development-guide">2.3.2. Rule categories</a></span></li><li><span class="section"><a href="#yaml-rule-actions_rules-development-guide">2.3.3. Rule actions</a></span></li><li><span class="section"><a href="#yaml-rule-conditions_rules-development-guide">2.3.4. Rule conditions</a></span></li><li><span class="section"><a href="#yaml-tag-actions_rules-development-guide">2.3.5. Tag actions</a></span></li><li><span class="section"><a href="#yaml-message-actions_rules-development-guide">2.3.6. Message action</a></span></li><li><span class="section"><a href="#yaml-rule-hyperlinks_rules-development-guide">2.3.7. Hyperlinks</a></span></li><li><span class="section"><a href="#yaml-provider-conditions_rules-development-guide">2.3.8. Provider condition</a></span></li><li><span class="section"><a href="#yaml-condition-patterns_rules-development-guide">2.3.9. Condition patterns</a></span></li><li><span class="section"><a href="#yaml-custom-variables_rules-development-guide">2.3.10. Custom variables</a></span></li><li><span class="section"><a href="#yaml-logical-conditions_rules-development-guide">2.3.11. Logical conditions</a></span></li><li><span class="section"><a href="#yaml-rulesets_rules-development-guide">2.3.12. Rulesets</a></span></li><li><span class="section"><a href="#create-basic-yaml-ruleset-template_rules-development-guide">2.3.13. Creating a basic YAML ruleset template</a></span></li><li><span class="section"><a href="#create-yaml-rule_rules-development-guide">2.3.14. Creating a YAML rule</a></span></li><li><span class="section"><a href="#running-analysis-using-custom-yaml-rule_rules-development-guide">2.3.15. Running an analysis using a custom YAML rule</a></span></li></ul></li><li><span class="section"><a href="#create-first-yaml-rule_rules-development-guide">2.4. Creating your first YAML rule</a></span><ul><li><span class="section"><a href="#creating-yaml-file-for-the-rule_rules-development-guide">2.4.1. Creating a YAML file for the rule</a></span></li><li><span class="section"><a href="#mta-creating-data-to-test-the-rule_rules-development-guide">2.4.2. Creating data to test the rule</a></span></li><li><span class="section"><a href="#mta-creating-the-rule_rules-development-guide">2.4.3. Creating the rule</a></span></li><li><span class="section"><a href="#mta-installing-the-rule_rules-development-guide">2.4.4. Installing the rule</a></span></li><li><span class="section"><a href="#mta-testing-the-rule_rules-development-guide">2.4.5. Testing the rule</a></span></li><li><span class="section"><a href="#mta-reviewing-the-report_rules-development-guide">2.4.6. Reviewing the report</a></span></li></ul></li><li><span class="section"><a href="#create-go-custom-rule_rules-development-guide">2.5. Creating a custom Go rule</a></span></li><li><span class="section"><a href="#create-python-custom-rule_rules-development-guide">2.6. Creating custom Python rules</a></span></li><li><span class="section"><a href="#create-nodejs-custom-rule_rules-development-guide">2.7. Creating a custom Node.js rule</a></span></li><li><span class="section"><a href="#additional_resources">2.8. Additional resources</a></span><ul><li><span class="section"><a href="#rules-important-links_rules-development-guide">2.8.1. Additional resources</a></span></li></ul></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
@@ -266,27 +266,27 @@ links:
 						Support for providing a single report when analyzing multiple applications on the CLI is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
 					</p><p>
 						For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
-					</p></div></div><div class="informaltable" id="table-Supported-providers-and-rule-conditions"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45930686520304" scope="col">Provider rule conditions</th><th align="left" valign="top" id="idm45930686519200" scope="col">Provider name</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45930686520304">
+					</p></div></div><div class="informaltable" id="table-Supported-providers-and-rule-conditions"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45817462962112" scope="col">Provider rule conditions</th><th align="left" valign="top" id="idm45817462961056" scope="col">Provider name</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45817462962112">
 								<p>
 									Providers that are fully supported and included in the product
 								</p>
-								</td><td align="left" valign="top" headers="idm45930686519200">
+								</td><td align="left" valign="top" headers="idm45817462961056">
 								<p>
 									Java
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930686520304">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817462962112">
 								<p>
 									Providers that have rules already defined in the product
 								</p>
-								</td><td align="left" valign="top" headers="idm45930686519200">
+								</td><td align="left" valign="top" headers="idm45817462961056">
 								<p>
 									.NET
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930686520304">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817462962112">
 								<p>
 									Providers that require custom rulesets for analysis
 								</p>
-								</td><td align="left" valign="top" headers="idm45930686519200">
+								</td><td align="left" valign="top" headers="idm45817462961056">
 								<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 											Go
 										</li><li class="listitem">
@@ -318,87 +318,87 @@ links:
 							<code class="literal">generic</code>
 						</li></ul></div><p>
 					The following table summarizes all the providers and their capabilities:
-				</p><div class="table" id="idm45930685103168"><p class="title"><strong>Table 2.1. Summary of providers and their capabilities</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45930689042096" scope="col">Provider Name</th><th align="left" valign="top" id="idm45930689041008" scope="col">Capabilities</th><th align="left" valign="top" id="idm45930689039920" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm45930689042096">
+				</p><div class="table" id="idm45817458808064"><p class="title"><strong>Table 2.1. Summary of providers and their capabilities</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45817461219296" scope="col">Provider Name</th><th align="left" valign="top" id="idm45817461218208" scope="col">Capabilities</th><th align="left" valign="top" id="idm45817461217120" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm45817461219296">
 								<p>
 									<code class="literal">java</code>
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689041008">
+								</td><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									referenced
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Find references of a pattern with an optional code location for detailed searches.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930689041008">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									dependency
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Check whether the application has a given dependency.
 								</p>
-								</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm45930689042096">
+								</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm45817461219296">
 								<p>
 									<code class="literal">builtin</code>
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689041008">
+								</td><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									xml
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Search XML files using xpath queries.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930689041008">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									<code class="literal">json</code>
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Search JSON files using <code class="literal">jsonpath</code> queries.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930689041008">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									filecontent
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Search content in regular files using regular expression patterns.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930689041008">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									file
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Find files with names matching a given pattern.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930689041008">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									hasTags
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Check whether a tag is created for the application using a tagging rule.
 								</p>
-								</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45930689042096">
+								</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45817461219296">
 								<p>
 									<code class="literal">go</code>
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689041008">
+								</td><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									referenced
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Find references to a pattern.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930689041008">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817461218208">
 								<p>
 									dependency
 								</p>
-								</td><td align="left" valign="top" headers="idm45930689039920">
+								</td><td align="left" valign="top" headers="idm45817461217120">
 								<p>
 									Check whether the application has a given dependency.
 								</p>
@@ -412,295 +412,295 @@ links:
 						Depending on the <span class="emphasis"><em>provider</em></span> and the <span class="emphasis"><em>capability</em></span>, there will be different <code class="literal">&lt;fields&gt;</code> in the condition.
 					</p></div></div><p>
 					The following table summarizes available providers, their capabilities and all of their fields:
-				</p><div class="table" id="idm45930687254880"><p class="title"><strong>Table 2.2. Summary of providers, their capabilities, and their fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 10%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 60%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45930688072736" scope="col">Provider</th><th align="left" valign="top" id="idm45930688071648" scope="col">Capability</th><th align="left" valign="top" id="idm45930688070560" scope="col">Fields</th><th align="left" valign="top" id="idm45930688069472" scope="col">Required</th><th align="left" valign="top" id="idm45930688068384" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="top" headers="idm45930688072736">
+				</p><div class="table" id="idm45817458928032"><p class="title"><strong>Table 2.2. Summary of providers, their capabilities, and their fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 10%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 60%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45817459078144" scope="col">Provider</th><th align="left" valign="top" id="idm45817459077056" scope="col">Capability</th><th align="left" valign="top" id="idm45817459075968" scope="col">Fields</th><th align="left" valign="top" id="idm45817459074880" scope="col">Required</th><th align="left" valign="top" id="idm45817459073792" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="top" headers="idm45817459078144">
 								<p>
 									java
 								</p>
-								</td><td rowspan="3" align="left" valign="top" headers="idm45930688071648">
+								</td><td rowspan="3" align="left" valign="top" headers="idm45817459077056">
 								<p>
 									referenced
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									pattern
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Regular expression pattern
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									location
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Source code location (see <a class="link" href="#yaml-java-locations_rules-development-guide" title="2.3.8.3. Java locations">Java locations</a>)
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									annotated
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Additional query to inspect annotations (see <a class="link" href="#yaml-annotation-inspection_rules-development-guide" title="2.3.8.4. Annotation inspection">Annotation inspection</a>).
 								</p>
-								</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm45930688071648">
+								</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm45817459077056">
 								<p>
 									dependency
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									name
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Name of the dependency.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									nameregex
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Regular expression pattern to match the name.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									upperbound
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Match versions lower than or equal to
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									lowerbound
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Match versions greater than or equal to
 								</p>
-								</td></tr><tr><td rowspan="9" align="left" valign="top" headers="idm45930688072736">
+								</td></tr><tr><td rowspan="9" align="left" valign="top" headers="idm45817459078144">
 								<p>
 									builtin
 								</p>
-								</td><td rowspan="3" align="left" valign="top" headers="idm45930688071648">
+								</td><td rowspan="3" align="left" valign="top" headers="idm45817459077056">
 								<p>
 									xml
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									xpath
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Xpath query
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									namespaces
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									A map to scope down query to namespaces
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									filepaths
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Optional list of files to scope down search
 								</p>
-								</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45930688071648">
+								</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45817459077056">
 								<p>
 									json
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									xpath
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Xpath query
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									filepaths
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Optional list of files to scope down search
 								</p>
-								</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45930688071648">
+								</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45817459077056">
 								<p>
 									filecontent
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									pattern
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Regular expression pattern to match in content
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									filePattern
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Only search in files with names matching this pattern
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688071648">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459077056">
 								<p>
 									file hasTags
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									pattern
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Find files with names matching this pattern
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688071648">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459077056">
 								<p>
 									hasTags
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560"> </td><td align="left" valign="top" headers="idm45930688069472"> </td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459075968"> </td><td align="left" valign="top" headers="idm45817459074880"> </td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									This is an inline list of string tags. See <a class="link" href="#yaml-tag-actions_rules-development-guide" title="2.3.5. Tag actions">Tag action</a>
 								</p>
-								</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm45930688072736">
+								</td></tr><tr><td rowspan="5" align="left" valign="top" headers="idm45817459078144">
 								<p>
 									go
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688071648">
+								</td><td align="left" valign="top" headers="idm45817459077056">
 								<p>
 									referenced
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									pattern
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Regular expression pattern.
 								</p>
-								</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm45930688071648">
+								</td></tr><tr><td rowspan="4" align="left" valign="top" headers="idm45817459077056">
 								<p>
 									dependency
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688070560">
+								</td><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									name
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									Yes
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Name of the dependency.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									nameregex
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Regular expression pattern to match the name.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									upperbound
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Match versions lower than or equal to.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45930688070560">
+								</td></tr><tr><td align="left" valign="top" headers="idm45817459075968">
 								<p>
 									lowerbound
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688069472">
+								</td><td align="left" valign="top" headers="idm45817459074880">
 								<p>
 									No
 								</p>
-								</td><td align="left" valign="top" headers="idm45930688068384">
+								</td><td align="left" valign="top" headers="idm45817459073792">
 								<p>
 									Match versions greater than or equal to.
 								</p>
@@ -1144,87 +1144,87 @@ labels:
 									The condition’s general format is <code class="literal">&lt;provider_name&gt;.&lt;capability&gt;</code>. The condition also has inner fields to specify details of the search. The way you create a <code class="literal">provider</code> condition and its inner fields depends on which provider you use and which capability you invoke.
 								</p><p class="simpara">
 									The table below lists the available providers and their capabilities. Select a provider and its capability that suit the purpose of the rule you want to create. This part of the condition does not contain any of the condition’s fields yet.
-								</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45930690693808" scope="col">Provider</th><th align="left" valign="top" id="idm45930690692720" scope="col">Capability</th><th align="left" valign="top" id="idm45930690691632" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="middle" headers="idm45930690693808">
+								</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45817459223072" scope="col">Provider</th><th align="left" valign="top" id="idm45817459221984" scope="col">Capability</th><th align="left" valign="top" id="idm45817459220896" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="middle" headers="idm45817459223072">
 												<p>
 													<code class="literal">java</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690692720">
+												</td><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">referenced</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Finds references of a pattern, including annotations, with an optional code location for detailed searches
 												</p>
-												</td></tr><tr><td align="left" valign="top" headers="idm45930690692720">
+												</td></tr><tr><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">dependency</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Checks whether the application has a given dependency
 												</p>
-												</td></tr><tr><td rowspan="5" align="left" valign="middle" headers="idm45930690693808">
+												</td></tr><tr><td rowspan="5" align="left" valign="middle" headers="idm45817459223072">
 												<p>
 													<code class="literal">builtin</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690692720">
+												</td><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">xml</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Searches XML files using XPath queries
 												</p>
-												</td></tr><tr><td align="left" valign="top" headers="idm45930690692720">
+												</td></tr><tr><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">json</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Searches JSON files using JSONPath queries
 												</p>
-												</td></tr><tr><td align="left" valign="top" headers="idm45930690692720">
+												</td></tr><tr><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">filecontent</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Searches content in regular files using regular expression patterns
 												</p>
-												</td></tr><tr><td align="left" valign="top" headers="idm45930690692720">
+												</td></tr><tr><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">file</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Finds files with names matching a given pattern
 												</p>
-												</td></tr><tr><td align="left" valign="top" headers="idm45930690692720">
+												</td></tr><tr><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">hasTags</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Checks whether a tag is created for the application through a tagging rule
 												</p>
-												</td></tr><tr><td rowspan="2" align="left" valign="middle" headers="idm45930690693808">
+												</td></tr><tr><td rowspan="2" align="left" valign="middle" headers="idm45817459223072">
 												<p>
 													go
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690692720">
+												</td><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">referenced</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Finds references of a pattern
 												</p>
-												</td></tr><tr><td align="left" valign="top" headers="idm45930690692720">
+												</td></tr><tr><td align="left" valign="top" headers="idm45817459221984">
 												<p>
 													<code class="literal">dependency</code>
 												</p>
-												</td><td align="left" valign="top" headers="idm45930690691632">
+												</td><td align="left" valign="top" headers="idm45817459220896">
 												<p>
 													Checks whether the application has a given dependency
 												</p>
@@ -1237,295 +1237,295 @@ labels:
 							Add suitable fields to the <code class="literal">provider</code> condition.
 						</p><p class="simpara">
 							The table below lists all available providers, their capabilities, and their fields. Select the fields that belong to the provider and capability that you have chosen. Note that some fields are mandatory.
-						</p><div class="informaltable"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 15%; " class="col_2"/><col style="width: 20%; " class="col_3"/><col style="width: 15%; " class="col_4"/><col style="width: 35%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45930686821264" scope="col">Provider</th><th align="left" valign="top" id="idm45930686820176" scope="col">Capability</th><th align="left" valign="top" id="idm45930686819088" scope="col">Field</th><th align="left" valign="top" id="idm45930686818000" scope="col">Required?</th><th align="left" valign="top" id="idm45930686816912" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="middle" headers="idm45930686821264">
+						</p><div class="informaltable"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 15%; " class="col_1"/><col style="width: 15%; " class="col_2"/><col style="width: 20%; " class="col_3"/><col style="width: 15%; " class="col_4"/><col style="width: 35%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45817460902304" scope="col">Provider</th><th align="left" valign="top" id="idm45817460901216" scope="col">Capability</th><th align="left" valign="top" id="idm45817460900128" scope="col">Field</th><th align="left" valign="top" id="idm45817460899040" scope="col">Required?</th><th align="left" valign="top" id="idm45817460897952" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="7" align="left" valign="middle" headers="idm45817460902304">
 										<p>
 											<code class="literal">java</code>
 										</p>
-										</td><td rowspan="3" align="left" valign="middle" headers="idm45930686820176">
+										</td><td rowspan="3" align="left" valign="middle" headers="idm45817460901216">
 										<p>
 											<code class="literal">referenced</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">pattern</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Regular expression pattern
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">location</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Source code location; see below for a list of all supported search locations
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">annotated</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Annotations and their elements (name and value)
 										</p>
-										</td></tr><tr><td rowspan="4" align="left" valign="middle" headers="idm45930686820176">
+										</td></tr><tr><td rowspan="4" align="left" valign="middle" headers="idm45817460901216">
 										<p>
 											<code class="literal">dependency</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">name</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Name of the dependency
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">nameregex</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Regular expression pattern to match the name
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">upperbound</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Matches version numbers lower than or equal to
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">lowerbound</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Matches version numbers greater than or equal to
 										</p>
-										</td></tr><tr><td rowspan="9" align="left" valign="middle" headers="idm45930686821264">
+										</td></tr><tr><td rowspan="9" align="left" valign="middle" headers="idm45817460902304">
 										<p>
 											<code class="literal">builtin</code>
 										</p>
-										</td><td rowspan="3" align="left" valign="middle" headers="idm45930686820176">
+										</td><td rowspan="3" align="left" valign="middle" headers="idm45817460901216">
 										<p>
 											<code class="literal">xml</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">xpath</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											XPath query
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">namespaces</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											A map to scope down query to namespaces
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">filepaths</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Optional list of files to scope down search
 										</p>
-										</td></tr><tr><td rowspan="2" align="left" valign="middle" headers="idm45930686820176">
+										</td></tr><tr><td rowspan="2" align="left" valign="middle" headers="idm45817460901216">
 										<p>
 											<code class="literal">json</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">xpath</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											XPath query
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">filepaths</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Optional list of files to scope down search
 										</p>
-										</td></tr><tr><td rowspan="2" align="left" valign="middle" headers="idm45930686820176">
+										</td></tr><tr><td rowspan="2" align="left" valign="middle" headers="idm45817460901216">
 										<p>
 											<code class="literal">filecontent</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">pattern</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Regular expression pattern to match in content
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">filePattern</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Only searches in files with names matching this pattern
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686820176">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460901216">
 										<p>
 											<code class="literal">file</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">pattern</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Finds files with names matching this pattern
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686820176">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460901216">
 										<p>
 											<code class="literal">hasTags</code>
 										</p>
-										</td><td colspan="3" align="center" valign="top" headers="idm45930686820176 idm45930686821264 idm45930686818000">
+										</td><td colspan="3" align="center" valign="top" headers="idm45817460901216 idm45817460902304 idm45817460899040">
 										<p>
 											This is an inline list of string tags. See <span class="strong strong"><strong>Tag Actions</strong></span> in <a class="link" href="#yaml-rule-actions_rules-development-guide" title="2.3.3. Rule actions">Rule Actions</a> for details on tag format.
 										</p>
-										</td></tr><tr><td rowspan="5" align="left" valign="middle" headers="idm45930686821264">
+										</td></tr><tr><td rowspan="5" align="left" valign="middle" headers="idm45817460902304">
 										<p>
 											<code class="literal">go</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686820176">
+										</td><td align="left" valign="top" headers="idm45817460901216">
 										<p>
 											<code class="literal">referenced</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">pattern</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Regular expression pattern
 										</p>
-										</td></tr><tr><td rowspan="4" align="left" valign="middle" headers="idm45930686820176">
+										</td></tr><tr><td rowspan="4" align="left" valign="middle" headers="idm45817460901216">
 										<p>
 											<code class="literal">dependency</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686819088">
+										</td><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">name</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											Yes
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Name of the dependency
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">nameregex</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Regular expression pattern to match the name
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">upperbound</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Matches version numbers lower than or equal to
 										</p>
-										</td></tr><tr><td align="left" valign="top" headers="idm45930686819088">
+										</td></tr><tr><td align="left" valign="top" headers="idm45817460900128">
 										<p>
 											<code class="literal">lowerbound</code>
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686818000">
+										</td><td align="left" valign="top" headers="idm45817460899040">
 										<p>
 											No
 										</p>
-										</td><td align="left" valign="top" headers="idm45930686816912">
+										</td><td align="left" valign="top" headers="idm45817460897952">
 										<p>
 											Matches version numbers greater than or equal to
 										</p>
@@ -1705,9 +1705,9 @@ message: The class-loading element is no longer valid in the jboss-web.xml file.
 						</li></ol></div></section></section><section class="section" id="create-go-custom-rule_rules-development-guide"><div class="titlepage"><div><div><h2 class="title">2.5. Creating a custom Go rule</h2></div></div></div><p class="_abstract _abstract">
 				You can create custom rules for Golang (Go) applications based on the following example.
 			</p><p>
-				You can use the following custom rule to check if MTA triggers an incident when it detects a go file in your project.
+				You can use the following custom rule to check if MTA triggers an incident when it detects a <code class="literal">go</code> file in your project.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
-						Create a <code class="literal">go-rule-001.yml</code> file in a directory. .
+						Create a <code class="literal">go-rule-001.yml</code> file in a directory.
 					</li><li class="listitem"><p class="simpara">
 						Copy the following rule in the <code class="literal">yaml</code> file:
 					</p><pre class="programlisting language-yaml">- message: golang apiextensions/v1/customresourcedefinitions found
@@ -1733,17 +1733,21 @@ func main() {
 
 }</pre></li><li class="listitem"><p class="simpara">
 						Run the following command in the MTA CLI:
-					</p><pre class="programlisting language-terminal">$ ./mta-cli analyze -i &lt;path_to_Go_project&gt; -o &lt;path_to_report_directory&gt; \ --run-local=false --rules &lt;path_to_go-rule-001.yml&gt;</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
-							Add the --overwrite option if you want to use the same directory for the report when you run subsequent tests. MTA overwrites the current report with the result of the latest analysis that you run.
+					</p><pre class="programlisting language-terminal">$ ./mta-cli analyze -i _&lt;path_to_Go_project&gt;_ -o _&lt;path_to_report_directory&gt;_ \ --run-local=false --rules _&lt;path_to_go-rule-001.yml&gt;_</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+							Add the <code class="literal">--overwrite</code> option if you want to use the same directory for the report when you run subsequent tests. MTA overwrites the current report with the result of the latest analysis that you run.
 						</p></div></div></li><li class="listitem">
-						Open the static report in the path <code class="literal">/home/&lt;USER&gt;/output/static-report/</code> in your browser.
+						Open the static report at <code class="literal">/home/&lt;USER&gt;/output/static-report/</code> in your browser.
 					</li><li class="listitem">
 						Navigate to the issues to verify the <code class="literal">golang apiextensions/v1/customresourcedefinitions found {{file}}:{{lineNumber}}</code> issue.
 					</li></ol></div></section><section class="section" id="create-python-custom-rule_rules-development-guide"><div class="titlepage"><div><div><h2 class="title">2.6. Creating custom Python rules</h2></div></div></div><p class="_abstract _abstract">
-				MTA requires you to create custom rules to analyze <code class="literal">Python</code> applications. A <code class="literal">Python</code> rule can contain <code class="literal">python.referenced</code> capability with the supported fields.
+				You must create custom rules to analyze <code class="literal">Python</code> applications by using MTA. A <code class="literal">Python</code> rule can contain <code class="literal">python.referenced</code> capability with the supported fields.
 			</p><p>
-				The following example uses two custom rules: the first rule checks if <code class="literal">bad_method</code> is specified and the second rule checks if <code class="literal">hello_world</code> is specified in <code class="literal">file_a.py</code> in your project.
-			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+				The following example uses two custom rules:
+			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+						The first rule checks if <code class="literal">bad_method</code> is specified
+					</li><li class="listitem">
+						The second rule checks if <code class="literal">hello_world</code> is specified in <code class="literal">file_a.py</code> in your project.
+					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 						Create the directory <code class="literal">test-python</code>.
 					</p><pre class="programlisting language-terminal">$ mkdir -p ~/test-python</pre></li><li class="listitem"><p class="simpara">
 						Create a <code class="literal">python-rule-001.yml</code> file in the directory and add the following rule:
@@ -1778,19 +1782,17 @@ print(file_b.bad_method())</pre></li><li class="listitem"><p class="simpara">
 ~/test-python/report --run-local=false \
 --rules ~/test-python/python-rule-001. \
 --rules ~/test-python/python-rule-002.yml</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
-							Add the --overwrite option if you want to use the same directory for the report when you run subsequent tests. MTA overwrites the current report with the result of the latest analysis that you run.
+							Add the <code class="literal">--overwrite</code> option if you want to use the same directory for the report when you run subsequent tests. MTA overwrites the current report with the result of the latest analysis that you run.
 						</p></div></div></li><li class="listitem">
 						Open the static report at <code class="literal">~/test-python/report/static-report/index.html</code> in your browser.
 					</li><li class="listitem">
-						Click the &lt;application_name&gt; to open the Dashboard.
+						Click the <span class="emphasis"><em>&lt;application_name&gt;</em></span> to open the Dashboard.
 					</li><li class="listitem">
 						Review the incidents in the <span class="strong strong"><strong>Issues</strong></span> tab.
-					</li></ol></div></section><section class="section" id="create-nodejs-custom-rule_rules-development-guide"><div class="titlepage"><div><div><h2 class="title">2.7. Creating a custom Node.js rule</h2></div></div></div><p class="_abstract _abstract">
-				MTA requires you to create custom rules to analyze <code class="literal">Node.js</code> applications. A <code class="literal">Node.js</code> rule can contain <code class="literal">nodejs.referenced</code> capability which supports the <code class="literal">pattern</code> field.
-			</p><p>
+					</li></ol></div></section><section class="section" id="create-nodejs-custom-rule_rules-development-guide"><div class="titlepage"><div><div><h2 class="title">2.7. Creating a custom Node.js rule</h2></div></div></div><pre class="literallayout _abstract">You must create custom rules to analyze `Node.js` applications by using {ProductShortName}. A `Node.js` rule can contain `nodejs.referenced` capability which supports the `pattern` field.</pre><p>
 				The following example uses a custom rule to check if a <code class="literal">.tsx</code> file in the <code class="literal">Node.js</code> project imports the <code class="literal">React</code> framework.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
-						Create the directory <code class="literal">test-nodejs</code>.
+						Create the <code class="literal">test-nodejs</code> directory.
 					</p><pre class="programlisting language-terminal">$ mkdir -p ~/test-nodejs</pre></li><li class="listitem"><p class="simpara">
 						Save the following rule as <code class="literal">nodejs-rule-001.yml</code> in the <code class="literal">test-nodejs</code> directory:
 					</p><pre class="programlisting language-yaml">- ruleID: test-tsx-support-00000
@@ -1807,18 +1809,18 @@ print(file_b.bad_method())</pre></li><li class="listitem"><p class="simpara">
 					</p><pre class="programlisting language-terminal">$ ./mta-cli analyze -i ~/test-nodejs/ -o \
 ~/test-nodejs/report --run-local=false \
 --rules ~/test-nodejs/nodejs-rule-001.yml</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
-							Add the --overwrite option if you want to use the same directory for the report when you run subsequent tests. MTA overwrites the current report with the result of the latest analysis that you run.
+							Add the <code class="literal">--overwrite</code> option if you want to use the same directory for the report when you run subsequent tests. MTA overwrites the current report with the result of the latest analysis that you run.
 						</p></div></div></li><li class="listitem">
 						Open the static report at <code class="literal">~/test-nodejs/report/static-report/index.html</code> in your browser.
 					</li><li class="listitem">
-						Click the &lt;application_name&gt; to open the Dashboard.
+						Click the <span class="emphasis"><em>&lt;application_name&gt;</em></span> to open the Dashboard.
 					</li><li class="listitem">
 						Review the incidents in the <span class="strong strong"><strong>Issues</strong></span> tab.
 					</li></ol></div></section><section class="section" id="additional_resources"><div class="titlepage"><div><div><h2 class="title">2.8. Additional resources</h2></div></div></div><section class="section" id="rules-important-links_rules-development-guide"><div class="titlepage"><div><div><h3 class="title">2.8.1. Additional resources</h3></div></div></div><div class="itemizedlist _abstract"><ul class="itemizedlist _abstract" type="disc"><li class="listitem">
 							MTA Jira issue tracker: <a class="link" href="https://issues.redhat.com/projects/MTA/issues">https://issues.redhat.com/projects/MTA/issues</a>
 						</li><li class="listitem">
 							MTA mailing list: <a class="link" href="mailto:windup-eng@redhat.com">windup-eng@redhat.com</a>
-						</li></ul></div></section></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45930690351696"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+						</li></ul></div></section></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45817460177728"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2025 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
