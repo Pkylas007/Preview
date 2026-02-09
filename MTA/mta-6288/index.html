@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and managing the migration toolkit for applications user interface</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA) user interface, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels."/><link rel="next" href="#intro-to-mta-ui_user-interface-guide" title="Chapter 1. Introduction to the migration toolkit for applications user interface"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45587883984576"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and managing the migration toolkit for applications user interface</h1></div><div><h2 class="subtitle">Assessing and analyzing applications with the migration toolkit for applications user interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45587884033472">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and managing the migration toolkit for applications user interface</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA) user interface, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels."/><link rel="next" href="#intro-to-mta-ui_user-interface-guide" title="Chapter 1. Introduction to the migration toolkit for applications user interface"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46066115664640"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and managing the migration toolkit for applications user interface</h1></div><div><h2 class="subtitle">Assessing and analyzing applications with the migration toolkit for applications user interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm46066094999616">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				By using the migration toolkit for applications (MTA) user interface, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro-to-mta-ui_user-interface-guide">1. Introduction to the migration toolkit for applications user interface</a></span></li><li><span class="chapter"><a href="#configuring-mta-instance-environment_user-interface-guide">2. Configuring the migration toolkit for applications instance environment</a></span><ul><li><span class="section"><a href="#prerequisites">2.1. Prerequisites</a></span></li><li><span class="section"><a href="#configuring-credentials_configuring-mta-instance-environment">2.2. Configuring credentials</a></span><ul><li><span class="section"><a href="#configuring-source-control-credentials_configuring-credentials">2.2.1. Configuring source control credentials</a></span></li><li><span class="section"><a href="#configuring-maven-credentials_configuring-credentials">2.2.2. Configuring Maven credentials</a></span></li><li><span class="section"><a href="#mta-web-config-proxy-credentials_configuring-credentials">2.2.3. Configuring proxy credentials</a></span></li></ul></li><li><span class="section"><a href="#configuring-repositories_configuring-mta-instance-environment">2.3. Configuring repositories</a></span><ul><li><span class="section"><a href="#configuring-git-repos_configuring-repositories">2.3.1. Configuring Git repositories</a></span></li><li><span class="section"><a href="#configuring-subversion-repos_configuring-repositories">2.3.2. Configuring subversion repositories</a></span></li><li><span class="section"><a href="#configuring-maven-repo_configuring-repositories">2.3.3. Configuring a Maven repository</a></span></li></ul></li><li><span class="section"><a href="#configuring-proxy-settings_configuring-mta-instance-environment">2.4. Configuring proxy settings</a></span></li><li><span class="section"><a href="#next_steps">2.5. Next steps</a></span></li></ul></li><li><span class="chapter"><a href="#configuring-mta-instance_user-interface-guide">3. Configuring a migration toolkit for applications instance</a></span><ul><li><span class="section"><a href="#creating-a-stakeholder_configuring-mta-instance">3.1. Creating a stakeholder</a></span></li><li><span class="section"><a href="#creating-a-business-service_configuring-mta-instance">3.2. Creating a business service</a></span></li><li><span class="section"><a href="#creating-a-tag_configuring-mta-instance">3.3. Creating a tag</a></span></li></ul></li><li><span class="chapter"><a href="#creating-and-configuring-a-jira-connection_user-interface-guide">4. Creating and configuring a Jira connection</a></span><ul><li><span class="section"><a href="#configuring-jira-credentials_creating-and-configuring-a-jira-connection">4.1. Configuring Jira credentials</a></span></li><li><span class="section"><a href="#creating-a-jira-connection_creating-and-configuring-a-jira-connection">4.2. Creating a Jira connection</a></span></li></ul></li><li><span class="chapter"><a href="#managing-applications_user-interface-guide">5. Managing applications with </a></span><ul><li><span class="section"><a href="#adding-applications_managing-applications">5.1. Adding a new application to the MTA UI</a></span></li><li><span class="section"><a href="#displaying-automated-tasks_managing-applications">5.2. Displaying automated tasks</a></span></li><li><span class="section"><a href="#importing-an-app-list_managing-applications">5.3. Importing a list of applications</a></span></li><li><span class="section"><a href="#mta-web-assigning-application-credentials_managing-applications">5.4. Assigning credentials to an application</a></span></li><li><span class="section"><a href="#setting-default-credentials_managing-applications">5.5. Setting default credentials</a></span></li><li><span class="section"><a href="#creating-migration-waves_managing-applications">5.6. Creating a migration wave</a></span></li><li><span class="section"><a href="#creating-jira-issues-for-migration-wave_managing-applications">5.7. Creating Jira issues for a migration wave</a></span></li></ul></li><li><span class="chapter"><a href="#assessing-applications_user-interface-guide">6. Assessing applications with the MTA</a></span><ul><li><span class="section"><a href="#assessment-module-features_assessing-applications">6.1. The Assessment module features</a></span></li><li><span class="section"><a href="#assessment-questionnaires_assessing-applications">6.2. MTA assessment questionnaires</a></span><ul><li><span class="section"><a href="#mta-default-questionnaire_assessment-questionnaires">6.2.1. The default assessment questionnaire</a></span></li><li><span class="section"><a href="#mta-custom-questionnaire_assessment-questionnaires">6.2.2. The custom assessment questionnaire</a></span></li></ul></li><li><span class="section"><a href="#managing-mta-questionnaires_assessing-applications">6.3. Managing assessment questionnaires</a></span></li><li><span class="section"><a href="#assessing-an-application_assessing-applications">6.4. Assessing an application</a></span></li><li><span class="section"><a href="#reviewing-an-application_assessing-applications">6.5. Reviewing an application</a></span></li><li><span class="section"><a href="#reviewing-assessment-report_assessing-applications">6.6. Reviewing an assessment report</a></span></li></ul></li><li><span class="chapter"><a href="#tagging-applications_user-interface-guide">7. Tagging an application</a></span><ul><li><span class="section"><a href="#creating-application-tags_tagging-applications">7.1. Creating application tags</a></span></li><li><span class="section"><a href="#manual-tagging-of-an-application_tagging-applications">7.2. Manually tagging an application</a></span></li><li><span class="section"><a href="#automatic-tagging-of-an-application_tagging-applications">7.3. Automatic tagging</a></span></li><li><span class="section"><a href="#displaying-the-tags-of-an-application_tagging-applications">7.4. Displaying application tags</a></span></li></ul></li><li><span class="chapter"><a href="#working-with-archetypes_user-interface-guide">8. Working with archetypes</a></span><ul><li><span class="section"><a href="#defining-an-archetype_working-with-archetypes">8.1. Creating an archetype</a></span></li><li><span class="section"><a href="#assessing-an-archetype_working-with-archetypes">8.2. Assessing an archetype</a></span></li><li><span class="section"><a href="#reviewing-an-archetype_working-with-archetypes">8.3. Reviewing an archetype</a></span></li></ul></li><li><span class="chapter"><a href="#centralized-configurations_user-interface-guide">9. Analyzing an application with centralized profiles</a></span><ul><li><span class="section"><a href="#configuring-profile-application-analysis_centralized-configurations">9.1. Configuring an analysis profile</a></span></li><li><span class="section"><a href="#creating-custom-migration-targets_centralized-configurations">9.2. Creating custom migration targets</a></span></li><li><span class="section"><a href="#profile-application-analysis_centralized-configurations">9.3. Using a profile to run an application analysis</a></span></li></ul></li><li><span class="chapter"><a href="#analyzing-applications_user-interface-guide">10. Analyzing an application with MTA</a></span><ul><li><span class="section"><a href="#configuring-and-running-an-application-analysis_analyzing-applications">10.1. Configuring and running an application analysis manually</a></span></li><li><span class="section"><a href="#reviewing-an-analysis-report_analyzing-applications">10.2. Reviewing analysis details</a></span></li><li><span class="section"><a href="#accessing-unmatched-rules_analyzing-applications">10.3. Accessing unmatched rules</a></span></li><li><span class="section"><a href="#downloading-an-analysis-report_analyzing-applications">10.4. Downloading an analysis report</a></span></li><li><span class="section"><a href="#accessing-analysis-insights_analyzing-applications">10.5. Accessing analysis insights</a></span></li></ul></li><li><span class="chapter"><a href="#controlling-tasks-with-task-manager_user-interface-guide">11. Controlling MTA tasks by using Task Manager</a></span><ul><li><span class="section"><a href="#reviewing-a-task-log_controlling-tasks-with-task-manager">11.1. Reviewing a task log</a></span></li><li><span class="section"><a href="#controlling-task-order-with-task-manager_controlling-tasks-with-task-manager">11.2. Controlling the order of task execution</a></span></li></ul></li><li><span class="chapter"><a href="#platform-awareness_user-interface-guide">12. Platform awareness in MTA user interface</a></span><ul><li><span class="section"><a href="#creating-source-platform_platform-awareness">12.1. Creating a source platform in MTA user interface</a></span></li><li><span class="section"><a href="#discovering-apps-source-platform_platform-awareness">12.2. Discovering applications through source platform in the Administration view</a></span></li><li><span class="section"><a href="#discovering-apps-source-platform-migration-view_platform-awareness">12.3. Discovering applications through source platform in the Migration view</a></span></li><li><span class="section"><a href="#adding-source-platform-application_platform-awareness">12.4. Associating an application with a source platform</a></span></li><li><span class="section"><a href="#generating-discovery-manifests_platform-awareness">12.5. Generating discovery manifests</a></span></li></ul></li><li><span class="chapter"><a href="#asset-generation-ui_user-interface-guide">13. Generating assets for application deployment in user interface</a></span><ul><li><span class="section"><a href="#configuring-generators_asset-generation-ui">13.1. Configuring a generator</a></span></li><li><span class="section"><a href="#configuring-target-profiles_asset-generation-ui">13.2. Configuring a target profile</a></span></li><li><span class="section"><a href="#configuring-asset-repository_asset-generation-ui">13.3. Configuring an asset repository</a></span></li><li><span class="section"><a href="#generating-deployment-assets_asset-generation-ui">13.4. Generating deployment assets</a></span></li></ul></li><li><span class="appendix"><a href="#contributing-to-mta-development">A. How to contribute to the MTA project</a></span></li></ul></div><section class="chapter" id="intro-to-mta-ui_user-interface-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to the migration toolkit for applications user interface</h1></div></div></div><p>
 			You can use the migration toolkit for applications (MTA) user interface (UI) to assess and analyze applications for risks and suitability for migration to hybrid cloud environments on Red Hat OpenShift. You can get insights about potential issues in the adoption process, at both the portfolio and application levels as you inventory, assess, analyze, and manage applications for faster migration to OpenShift.
@@ -692,7 +692,7 @@
 					Through interaction with the default questionnaire and the review process, the system is enriched with application knowledge exposed through the collection of assessment reports.
 				</p><p>
 					You can export the default questionnaire to a YAML file:
-				</p><div class="example" id="idm45587879055808"><p class="title"><strong>Example 6.1. The Legacy Pathfinder YAML file</strong></p><div class="example-contents"><pre class="programlisting language-yaml">name: Legacy Pathfinder
+				</p><div class="example" id="idm46066090610592"><p class="title"><strong>Example 6.1. The Legacy Pathfinder YAML file</strong></p><div class="example-contents"><pre class="programlisting language-yaml">name: Legacy Pathfinder
 description: ''
 sections:
   - order: 1
@@ -1923,7 +1923,7 @@ questions:
             tag: Spring Boot
 ...</pre></dd></dl></div><section class="section" id="yaml-template-for-custom-questionnaire_mta-custom-questionnaire"><div class="titlepage"><div><div><h4 class="title">6.2.2.1. The YAML template for the custom questionnaire</h4></div></div></div><p class="_abstract _abstract">
 						You can use the following YAML template to build your custom questionnaire. You can download this template by clicking <span class="strong strong"><strong>Download YAML template</strong></span> on the <span class="strong strong"><strong>Assessment questionnaires</strong></span> page.
-					</p><div class="example" id="idm45587880980128"><p class="title"><strong>Example 6.2. The YAML template for the custom questionnaire</strong></p><div class="example-contents"><pre class="programlisting language-yaml">name: Uploadable Cloud Readiness Questionnaire Template
+					</p><div class="example" id="idm46066090707904"><p class="title"><strong>Example 6.2. The YAML template for the custom questionnaire</strong></p><div class="example-contents"><pre class="programlisting language-yaml">name: Uploadable Cloud Readiness Questionnaire Template
 description: This questionnaire is an example template for assessing cloud readiness. It serves as a guide for users to create and customize their own questionnaire templates.
 required: true
 sections:
@@ -2024,27 +2024,27 @@ thresholds:
     red: 30
     yellow: 45
     unknown: 5
-...</pre><div class="table" id="idm45587880948768"><p class="title"><strong>Table 6.1. The custom questionnaire fields</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45587880943824" scope="col">Questionnaire field</th><th align="left" valign="top" id="idm45587880942736" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45587880943824">
+...</pre><div class="table" id="idm46066090691920"><p class="title"><strong>Table 6.1. The custom questionnaire fields</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm46066090687120" scope="col">Questionnaire field</th><th align="left" valign="top" id="idm46066090686032" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm46066090687120">
 									<p>
 										<code class="literal">name</code> (required, string)
 									</p>
-									</td><td align="left" valign="top" headers="idm45587880942736">
+									</td><td align="left" valign="top" headers="idm46066090686032">
 									<p>
 										The name of the questionnaire. This field must be unique for the entire MTA instance.
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm45587880943824">
+									</td></tr><tr><td align="left" valign="top" headers="idm46066090687120">
 									<p>
 										<code class="literal">description</code> (optional, string)
 									</p>
-									</td><td align="left" valign="top" headers="idm45587880942736">
+									</td><td align="left" valign="top" headers="idm46066090686032">
 									<p>
 										A short description of the questionnaire.
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm45587880943824">
+									</td></tr><tr><td align="left" valign="top" headers="idm46066090687120">
 									<p>
 										<code class="literal">thresholds</code> (required)
 									</p>
-									</td><td align="left" valign="top" headers="idm45587880942736">
+									</td><td align="left" valign="top" headers="idm46066090686032">
 									<p>
 										The definition of a threshold for each risk category of the application or archetype that is considered to be affected by that risk level. The threshold values can be the following:
 									</p>
@@ -2058,11 +2058,11 @@ thresholds:
 									<p>
 										The higher risk level always takes precedence. For example, if the <code class="literal">yellow</code> threshold is set to 30% and <code class="literal">red</code> to 5%, and the answers for the application or archetype are set to have 35% <code class="literal">yellow</code> and 6% <code class="literal">red</code>, the risk level for the application or archetype is red.
 									</p>
-									</td></tr><tr><td align="left" valign="top" headers="idm45587880943824">
+									</td></tr><tr><td align="left" valign="top" headers="idm46066090687120">
 									<p>
 										<code class="literal">riskMessages</code> (required)
 									</p>
-									</td><td align="left" valign="top" headers="idm45587880942736">
+									</td><td align="left" valign="top" headers="idm46066090686032">
 									<p>
 										Messages to be displayed in reports for each risk category. The <span class="emphasis"><em>risk_messages</em></span> map is defined by the following fields:
 									</p>
@@ -2075,11 +2075,11 @@ thresholds:
 											</li><li class="listitem">
 												<code class="literal">unknown</code> (required, string): A message to be displayed in reports for the unknown risk level.
 											</li></ul></div>
-									</td></tr><tr><td align="left" valign="top" headers="idm45587880943824">
+									</td></tr><tr><td align="left" valign="top" headers="idm46066090687120">
 									<p>
 										<code class="literal">sections</code> (required)
 									</p>
-									</td><td align="left" valign="top" headers="idm45587880942736">
+									</td><td align="left" valign="top" headers="idm46066090686032">
 									<p>
 										A list of sections that the questionnaire must include.
 									</p>
@@ -2477,15 +2477,33 @@ thresholds:
 							</li></ul></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Submit review</strong></span>.
 					</li></ol></div></section></section><section class="chapter" id="centralized-configurations_user-interface-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 9. Analyzing an application with centralized profiles</h1></div></div></div><p class="_abstract _abstract">
-			Centralized configuration management allows organizations to enforce standardized configurations across various components of Migration toolkit for applications. This feature allows Architects to create and manage configurations, for example, analysis profiles and custom rulesets. Migrators can use these configurations that are available as profiles to perform an application analysis and code resolutions before migrating to a target platform.
+			Centralized configuration management allows organizations to use standardized configurations across components of Migration toolkit for applications such as the user interface, CLI, and the Visual Studio Code MTA plugin.
 		</p><p>
-			The profile configurations are synced with the MTA Hub. MTA components such as CLI user interface, and the MTA plugin periodically sync with the Hub and pull the configuration profiles with the latest changes.
+			This feature allows Architects to create, edit, and delete custom migration targets and configurations. For example, analysis profiles and custom rulesets in the MTA user interface. The analysis profiles contain the following details:
+		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
+					Analysis configuration
+				</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+							Mode of analysis (for example, <code class="literal">source code</code>)
+						</li><li class="listitem">
+							Scope of an analysis (for example, application analysis that includes all dependencies, including known Open Source libraries)
+						</li><li class="listitem">
+							Migration targets (default or custom)
+						</li></ol></div></li><li class="listitem"><p class="simpara">
+					Advanced configuration
+				</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+							Custom rules
+						</li><li class="listitem">
+							Rule labels to include or exclude rules for an analysis
+						</li></ol></div></li></ul></div><p>
+			Migrators can use these profiles to perform an application analysis.
+		</p><p>
+			The MTA Hub stores and syncs the profile configurations. MTA components periodically sync with the Hub and pull the analysis profiles that contain the latest updates to the configuration.
 		</p><div class="admonition important"><div class="admonition_header">Important</div><div><p>
 				Analysis Profile is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
 			</p><p>
 				For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
 			</p></div></div><section class="section" id="configuring-profile-application-analysis_centralized-configurations"><div class="titlepage"><div><div><h2 class="title">9.1. Configuring an analysis profile</h2></div></div></div><p class="_abstract _abstract">
-				You can configure a profile that contains the configuration needed to analyze an application for a specific migration target.
+				You can configure a profile that has the configuration needed to analyze an application for a specific migration target.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						In the <span class="strong strong"><strong>Migration</strong></span> view, click <span class="strong strong"><strong>Analysis Profiles</strong></span>.
 					</li><li class="listitem">
@@ -2503,7 +2521,7 @@ thresholds:
 							</li><li class="listitem">
 								Source code and dependencies
 							</li><li class="listitem">
-								Upload a local binary. This option only appears if you are analyzing a single application. If you chose this option, you are prompted to <span class="strong strong"><strong>Upload a local binary</strong></span>. Either drag a file into the area provided or click <span class="strong strong"><strong>Upload</strong></span> and select the file to upload.
+								Upload a local binary. This option only appears if you are analyzing a single application. If you chose this option, you must <span class="strong strong"><strong>Upload a local binary</strong></span>. Either drag a file into the area provided or click <span class="strong strong"><strong>Upload</strong></span> and select the file to upload.
 							</li></ul></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Next</strong></span>.
 					</li><li class="listitem"><p class="simpara">
@@ -2549,17 +2567,17 @@ thresholds:
 							</li><li class="listitem">
 								Application and all dependencies, including known Open Source libraries.
 							</li><li class="listitem">
-								Select the list of packages to be analyzed manually. If you choose this option, type the file name and click <span class="strong strong"><strong>Add</strong></span>.
+								Select the list of packages that you want to analyze manually. If you choose this option, type the file name and click <span class="strong strong"><strong>Add</strong></span>.
 							</li><li class="listitem">
 								Exclude packages. If you toggle this option on, type the name of the package and click <span class="strong strong"><strong>Add</strong></span>.
 							</li></ul></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Next</strong></span>.
 					</li><li class="listitem"><p class="simpara">
-						In <span class="strong strong"><strong>Advanced</strong></span>, you can attach additional custom rules to the analysis by selecting the <span class="strong strong"><strong>Manual</strong></span> or <span class="strong strong"><strong>Repository</strong></span> mode:
+						In <span class="strong strong"><strong>Advanced</strong></span>, you can attach custom rules to the analysis by selecting the <span class="strong strong"><strong>Manual</strong></span> or <span class="strong strong"><strong>Repository</strong></span> mode:
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								In the <span class="strong strong"><strong>Manual</strong></span> mode, click <span class="strong strong"><strong>Add Rules</strong></span>. Drag the relevant files or select the files from their directory and click <span class="strong strong"><strong>Add</strong></span>.
 							</li><li class="listitem"><p class="simpara">
-								In the <span class="strong strong"><strong>Repository</strong></span> mode, you can add rule files from a Git or Subversion repository.
+								In the <span class="strong strong"><strong>Repository</strong></span> mode, you can add rule files from a <span class="strong strong"><strong>Git</strong></span> or <span class="strong strong"><strong>Subversion</strong></span> repository.
 							</p><div class="admonition important"><div class="admonition_header">Important</div><div><p>
 									Attaching custom rules is optional if you have already attached a migration target to the analysis. If you have not attached any migration target, you must attach rules.
 								</p></div></div></li></ul></div></li><li class="listitem"><p class="simpara">
@@ -2631,7 +2649,7 @@ thresholds:
 					</li><li class="listitem"><p class="simpara">
 						<span class="strong strong"><strong>Enable automated tagging</strong></span>. Select the checkbox to automatically attach tags to the application. This checkbox is selected by default.
 					</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
-							Automatically attached tags are displayed only <span class="emphasis"><em>after</em></span> you run the analysis. You can attach tags to the application manually instead of enabling automated tagging or in addition to it.
+							MTA displays automatically attached tags only <span class="emphasis"><em>after</em></span> you run the analysis. You can attach tags to the application manually instead of enabling automated tagging or in addition to it.
 						</p></div></div></li><li class="listitem">
 						<span class="strong strong"><strong>Enable enhanced analysis details</strong></span>.
 					</li><li class="listitem">
@@ -2641,7 +2659,7 @@ thresholds:
 					</li><li class="listitem"><p class="simpara">
 						Click <span class="strong strong"><strong>Run</strong></span>.
 					</p><p class="simpara">
-						The analysis status is <code class="literal">Scheduled</code> as MTA downloads the image for the container to execute. When the image is downloaded, the status changes to <code class="literal">In-progress.</code>
+						The analysis status is <code class="literal">Scheduled</code> as MTA downloads the image for the container. When MTA downloads the image, the status changes to <code class="literal">In-progress.</code>
 					</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							Analysis takes minutes to hours to run depending on the size of the application and the capacity and resources of the cluster.
 						</p></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
@@ -3172,7 +3190,7 @@ thresholds:
 								</p></div></div></li></ol></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Save</strong></span>. You can click anywhere on the generator row to open the details view that shows the generator configuration details, parameters, and values.
 					</li></ol></div></section><section class="section" id="configuring-target-profiles_asset-generation-ui"><div class="titlepage"><div><div><h2 class="title">13.2. Configuring a target profile</h2></div></div></div><p class="_abstract _abstract">
-				A target profile contains one or more generators, with each generator generating assets for different migration paths. A migrator can create and track the target profiles for a specific archetype on the <span class="strong strong"><strong>Archetypes</strong></span> page. You can configure more than one target profiles for an archetype based on the target platforms to which you want to migrate applications of the specific archetype.
+				A target profile contains one or more generators, with each generator generating assets for different migration paths. An Architect can create and track the target profiles for a specific archetype on the <span class="strong strong"><strong>Archetypes</strong></span> page. You can configure more than one target profile for an archetype based on the target platforms to which you want to migrate applications of the specific archetype.
 			</p><p>
 				The generators are run in a priority order, in which manifests generated by lower priority generators do not override manifests generated by other generators.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
@@ -3192,7 +3210,7 @@ thresholds:
 					</li><li class="listitem">
 						Select specific generators and click the right arrow to move the generator from the <span class="strong strong"><strong>Available generators</strong></span> list to the <span class="strong strong"><strong>Chosen generators</strong></span> list.
 					</li><li class="listitem">
-						Select an analysis profile from the list.
+						(Optional) Select an analysis profile from the list.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Create</strong></span>.
 					</li></ol></div><p>
@@ -3289,7 +3307,7 @@ thresholds:
 					<a class="link" href="https://developer.jboss.org/en/windup">MTA forums</a>
 				</li><li class="listitem">
 					<a class="link" href="https://issues.redhat.com/projects/MTA/issues/MTA-4961?filter=allopenissues">Jira issues tracker</a>
-				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45587884033472"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm46066094999616"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2026 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
