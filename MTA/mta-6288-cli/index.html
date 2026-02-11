@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Using the migration toolkit for applications command-line interface</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA) command-line interface (CLI), you can assess and prioritize migration and modernization efforts for applications written in different languages. You can use the CLI to customize MTA analysis options or integrate with external automation tools. You can also use the MTA CLI to generate the manifests needed to deploy a Cloud Foundry (CF) application on Red Hat OpenShift."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45651992979904"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Using the migration toolkit for applications command-line interface</h1></div><div><h2 class="subtitle">Preparing your applications for modernization and migration by using the migration toolkit for applications command-line interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45651972139024">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Using the migration toolkit for applications command-line interface</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA) command-line interface (CLI), you can assess and prioritize migration and modernization efforts for applications written in different languages. You can use the CLI to customize MTA analysis options or integrate with external automation tools. You can also use the MTA CLI to generate the manifests needed to deploy a Cloud Foundry (CF) application on Red Hat OpenShift."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45418091071952"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Using the migration toolkit for applications command-line interface</h1></div><div><h2 class="subtitle">Preparing your applications for modernization and migration by using the migration toolkit for applications command-line interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45418074845792">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				By using the migration toolkit for applications (MTA) command-line interface (CLI), you can assess and prioritize migration and modernization efforts for applications written in different languages. You can use the CLI to customize MTA analysis options or integrate with external automation tools. You can also use the MTA CLI to generate the manifests needed to deploy a Cloud Foundry (CF) application on Red Hat OpenShift.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#intro-to-the-cli_cli-guide">1. Introduction to the MTA command-line interface</a></span></li><li><span class="chapter"><a href="#supported-migration-paths_cli-guide">2. Supported migration toolkit for applications migration paths</a></span></li><li><span class="chapter"><a href="#analyzing-applications-mta-cli_cli-guide">3. Analyzing Java applications with MTA command-line interface</a></span><ul><li><span class="section"><a href="#analyzing-single-app-wth-mta-cli_analyzing-applications-mta-cli">3.1. Analyzing a single application</a></span></li><li><span class="section"><a href="#analyzing-multiple-apps-with-mta-cli_analyzing-applications-mta-cli">3.2. Analyzing multiple applications</a></span></li><li><span class="section"><a href="#running-the-containerless-mta-cli_analyzing-applications-mta-cli">3.3. Analyzing an application in containerless mode</a></span></li><li><span class="section"><a href="#mta-cli-analyze-flags_analyzing-applications-mta-cli">3.4. The analyze command options</a></span></li></ul></li><li><span class="chapter"><a href="#analyzing-nonjava-applications_cli-guide">4. Analyzing applications written in languages other than Java with MTA command-line interface</a></span><ul><li><span class="section"><a href="#analyze-selected-provider_analyzing-nonjava-applications">4.1. Analyzing an application for the selected supported language provider</a></span></li><li><span class="section"><a href="#analyze-unsupported-provider_analyzing-nonjava-applications">4.2. Analyzing an application for an unsupported language provider</a></span></li></ul></li><li><span class="chapter"><a href="#analyzing-apps-profiles_cli-guide">5. Analyzing applications by using profiles from the MTA Hub</a></span><ul><li><span class="section"><a href="#analyzing-app-with-profile_analyzing-apps-profiles">5.1. Analyzing an application by using a profile</a></span></li><li><span class="section"><a href="#mta-cli-config-flags_analyzing-apps-profiles">5.2. The config command options</a></span></li><li><span class="section"><a href="#modifying-app-profile_analyzing-apps-profiles">5.3. A sample profile configuration</a></span></li></ul></li><li><span class="chapter"><a href="#reviewing-analysis-reports_cli-guide">6. Reviewing an analysis report</a></span><ul><li><span class="section"><a href="#accessing-analysis-report_reviewing-analysis-reports">6.1. Accessing an analysis report</a></span></li><li><span class="section"><a href="#analysis-report-sections_reviewing-analysis-reports">6.2. Analysis report sections</a></span></li><li><span class="section"><a href="#reviewing-analysis-issues-and-incidents_reviewing-analysis-reports">6.3. Reviewing the analysis issues and incidents</a></span></li></ul></li><li><span class="chapter"><a href="#performing-transformation_cli-guide">7. Performing a transformation with the MTA command-line interface</a></span><ul><li><span class="section"><a href="#transforming-application-source-code_performing-transformation">7.1. Transforming applications source code</a></span></li><li><span class="section"><a href="#available-openrewrite-recipes_performing-transformation">7.2. Available OpenRewrite recipes</a></span></li><li><span class="section"><a href="#openrewrite-command-options_performing-transformation">7.3. The openrewrite command options</a></span></li></ul></li><li><span class="chapter"><a href="#generating-assets_cli-guide">8. Generating platform assets for application deployment</a></span><ul><li><span class="section"><a href="#generating-discovery-manifest_generating-assets">8.1. Generating a discovery manifest</a></span></li><li><span class="section"><a href="#performing-a-live-discovery_generating-assets">8.2. Performing a live discovery in a remote CF instance</a></span></li><li><span class="section"><a href="#concealing-sensitive-information_generating-assets">8.3. Concealing sensitive information in a discovery manifest</a></span></li><li><span class="section"><a href="#generating-deployment-manifest_generating-assets">8.4. Generating a deployment manifest</a></span></li><li><span class="section"><a href="#assets-generation-example_generating-assets">8.5. Assets generation example</a></span></li><li><span class="section"><a href="#discover-generate-command-options_generating-assets">8.6. The discover and generate command options</a></span></li></ul></li><li><span class="chapter"><a href="#cli-known-issues_cli-guide">9. MTA CLI known issues</a></span></li><li><span class="appendix"><a href="#reference-material">A. Reference material</a></span><ul><li><span class="section"><a href="#mta-tech-tags_reference-material">A.1. Supported technology tags</a></span></li><li><span class="section"><a href="#rule-story-points_reference-material">A.2. Rule story points</a></span><ul><li><span class="section"><a href="#effort-level-estimation_rule-story-points">A.2.1. Guidelines for the level of effort estimation</a></span></li><li><span class="section"><a href="#migration-tasks-categories_rule-story-points">A.2.2. Migration tasks categories</a></span></li></ul></li><li><span class="section"><a href="#additional_resources">A.3. Additional resources</a></span></li></ul></li><li><span class="appendix"><a href="#contributing-to-mta-development">B. How to contribute to the MTA project</a></span></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
@@ -28,435 +28,435 @@
 				For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
 			</p></div></div></section><section class="chapter" id="supported-migration-paths_cli-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Supported migration toolkit for applications migration paths</h1></div></div></div><p class="_abstract _abstract">
 			You can use the migration toolkit for applications (MTA) to assess your applications' suitability for the migration to multiple target platforms. Review the supported migration paths to verify that your planned migration uses a valid combination of source and target technologies. Adhering to these paths helps ensure that MTA can successfully analyze and migrate your applications.
-		</p><div class="table" id="idm45651979322624"><p class="title"><strong>Table 2.1. Supported Java migration paths</strong></p><div class="table-contents"><table class="gt-8-cols lt-7-rows"><colgroup><col style="width: 19%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 10%; " class="col_5"/><col style="width: 10%; " class="col_6"/><col style="width: 10%; " class="col_7"/><col style="width: 10%; " class="col_8"/><col style="width: 10%; " class="col_9"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651979447168" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45651979446048" scope="col">Migration to JBoss EAP 7 &amp; 8</th><th align="left" valign="top" id="idm45651979444992" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45651979443936" scope="col">OpenJDK 11, 17, and 21</th><th align="left" valign="top" id="idm45651979293920" scope="col">Jakarta EE 9</th><th align="left" valign="top" id="idm45651979292832" scope="col">Camel 3 &amp; 4</th><th align="left" valign="top" id="idm45651979291744" scope="col">Spring Boot in Red Hat Runtimes</th><th align="left" valign="top" id="idm45651979290688" scope="col">Quarkus</th><th align="left" valign="top" id="idm45651979289600" scope="col">Open Liberty</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651979447168">
+		</p><div class="table" id="idm45418079749408"><p class="title"><strong>Table 2.1. Supported Java migration paths</strong></p><div class="table-contents"><table class="gt-8-cols lt-7-rows"><colgroup><col style="width: 19%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 10%; " class="col_5"/><col style="width: 10%; " class="col_6"/><col style="width: 10%; " class="col_7"/><col style="width: 10%; " class="col_8"/><col style="width: 10%; " class="col_9"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418079468624" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45418079895008" scope="col">Migration to JBoss EAP 7 &amp; 8</th><th align="left" valign="top" id="idm45418079893888" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45418079892784" scope="col">OpenJDK 11, 17, and 21</th><th align="left" valign="top" id="idm45418079891696" scope="col">Jakarta EE 9</th><th align="left" valign="top" id="idm45418079890608" scope="col">Camel 3 &amp; 4</th><th align="left" valign="top" id="idm45418079889520" scope="col">Spring Boot in Red Hat Runtimes</th><th align="left" valign="top" id="idm45418079929696" scope="col">Quarkus</th><th align="left" valign="top" id="idm45418079928608" scope="col">Open Liberty</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Oracle WebLogic Server
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							IBM WebSphere Application Server
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							✔
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							JBoss EAP 4
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✘ <a href="#ftn.note2" class="footnote"><sup class="footnote" id="note2">[a]</sup></a>
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							JBoss EAP 5
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							JBoss EAP 6
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							JBoss EAP 7
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Thorntail
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							✔ <a href="#ftn.note3" class="footnote"><sup class="footnote" id="note3">[b]</sup></a>
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Oracle JDK
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Camel 2
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Spring Boot
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Any Java application
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45651979447168">
+						</td></tr><tr><td align="left" valign="top" headers="idm45418079468624">
 						<p>
 							Any Java EE application
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979446048">
+						</td><td align="left" valign="top" headers="idm45418079895008">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979444992">
+						</td><td align="left" valign="top" headers="idm45418079893888">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979443936">
+						</td><td align="left" valign="top" headers="idm45418079892784">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979293920">
+						</td><td align="left" valign="top" headers="idm45418079891696">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979292832">
+						</td><td align="left" valign="top" headers="idm45418079890608">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979291744">
+						</td><td align="left" valign="top" headers="idm45418079889520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979290688">
+						</td><td align="left" valign="top" headers="idm45418079929696">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979289600">
+						</td><td align="left" valign="top" headers="idm45418079928608">
 						<p>
 							-
 						</p>
@@ -466,15 +466,15 @@
 								Requires JBoss Enterprise Application Platform expansion pack 2 (EAP XP 2)
 							</div></div></td></tr></tbody></table></div></div><p>
 			..NET migration paths
-		</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651979564096" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45651979562976" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45651979561920" scope="col">Migration to .NET 8.0</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651979564096">
+		</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418080302816" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45418080301696" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45418080300592" scope="col">Migration to .NET 8.0</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418080302816">
 						<p>
 							.NET Framework 4.5+ (Windows only)
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979562976">
+						</td><td align="left" valign="top" headers="idm45418080301696">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45651979561920">
+						</td><td align="left" valign="top" headers="idm45418080300592">
 						<p>
 							✔
 						</p>
@@ -615,19 +615,19 @@
 						<a class="link" href="#mta-cli-analyze-flags_analyzing-applications-mta-cli" title="3.4. The analyze command options">The mta-cli analyze command options</a>
 					</li></ul></div></section><section class="section" id="mta-cli-analyze-flags_analyzing-applications-mta-cli"><div class="titlepage"><div><div><h2 class="title">3.4. The analyze command options</h2></div></div></div><p class="_abstract _abstract">
 				You can customize the application analysis process with migration toolkit for applications (MTA) command-line interface (CLI) by using the <code class="literal">mta-cli analyze</code> command options. You can use these options to specify input sources, define target migration paths, configure output directories, and perform other adjustments.
-			</p><div class="table" id="idm45651972231136"><p class="title"><strong>Table 3.1. <code class="literal">mta-cli analyze</code> command options</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651972292496" scope="col">Option</th><th align="left" valign="top" id="idm45651972291408" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651972292496">
+			</p><div class="table" id="idm45418075621664"><p class="title"><strong>Table 3.1. <code class="literal">mta-cli analyze</code> command options</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418075616512" scope="col">Option</th><th align="left" valign="top" id="idm45418075615424" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--analyze-known-libraries</code> (bool)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Analyze open-source libraries.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--disable-maven-search</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Set <code class="literal">--disable-maven-search=true</code> to disable MTA from relying on the Maven search index to determine if a dependency is publicly available, such as an open-source dependency, or internal to the Java binary application during analysis.
 							</p>
@@ -637,141 +637,141 @@
 							<p>
 								By default, <code class="literal">--disable-maven-search=false</code>. Therefore, MTA uses the SHA digest of the JAR file to search the Maven search index. This setting generates more accurate dependencies but the drawback is that the Maven search index is frequently unavailable.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--context-lines</code> (int)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								The number of lines of source code to include in the output for each incident. The default is 100.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--dependency-folders</code> (stringArray)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A directory for dependencies.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--enable-default-rulesets</code> (bool)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Run default rulesets with analysis. The default is <code class="literal">true</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--help</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Display the available flags for the <code class="literal">analyze</code> command.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--http-proxy</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								An HTTP proxy string URL.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--https-proxy</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								An HTTPS proxy string URL.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--incident-selector</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								An expression to select incidents based on custom variables, for example:
 							</p>
 							
 <pre class="screen">!package=io.demo.config-utils</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--input</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A path to the application source code or a binary.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--jaeger-endpoint</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A Jaeger endpoint to collect traces.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--json-output</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Create analysis and dependence output as a JSON file.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--label-selector</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Run rules based on specified label selector expression.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--list-languages</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								List all languages in the source application. This flag is not supported for binary applications.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--list-providers</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								List available supported providers.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--list-sources</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								List rules for available migration sources.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--list-targets</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								List rules for available migration targets.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--maven-settings</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A path to the custom Maven settings file to use.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--mode</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								An analysis mode. Must be set to either of the following values:
 							</p>
@@ -780,87 +780,87 @@
 									</li><li class="listitem">
 										<code class="literal">source-only</code>
 									</li></ul></div>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--no-proxy</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Proxy-excluded URLs (relevant only with proxy).
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--output</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A path to the directory for analysis output.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--overwrite</code> (bool)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Overwrite the output directory.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--rules</code> (stringArray)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A filename or directory that contains rule files.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--run-local</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Enable or disable container runtime usage for Java applications. For example, to enable container runtime, set <code class="literal">--run-local</code> to <code class="literal">false</code>. Note that the analysis of non-Java applications runs in container mode only.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--skip-static-report</code> (bool)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Do not generate the static report.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--source</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A source technology to consider for the analysis. To specify multiple sources, repeat the parameter, for example:
 							</p>
 							
 <pre class="screen">--source &lt;source_1&gt; --source &lt;source_2&gt; ...</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--target</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A target technology to consider for the analysis. To specify multiple targets, repeat the parameter, for example:
 							</p>
 							
 <pre class="screen">--target &lt;target_1&gt; --target &lt;target_2&gt; ...</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--log-level uint32</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								A log level. The default is 4.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972292496">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075616512">
 							<p>
 								<code class="literal">--no-cleanup</code> (bool)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972291408">
+							</td><td align="left" valign="top" headers="idm45418075615424">
 							<p>
 								Do not clean up temporary resources.
 							</p>
@@ -958,54 +958,62 @@ Password: <span class="emphasis"><em>&lt;my-password&gt;</em></span></pre><div c
 						<a class="link" href="#mta-cli-config-flags_analyzing-apps-profiles" title="5.2. The config command options">The config command options</a>
 					</li></ul></div></section><section class="section" id="mta-cli-config-flags_analyzing-apps-profiles"><div class="titlepage"><div><div><h2 class="title">5.2. The config command options</h2></div></div></div><p class="_abstract _abstract">
 				You can connect to the migration toolkit for applications (MTA) Hub and download profile bundles from the command-line interface (CLI) by using the <code class="literal">mta-cli config</code> command options.
-			</p><div class="table" id="idm45651975267872"><p class="title"><strong>Table 5.1. <code class="literal">mta-cli config</code> command options</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651977308128" scope="col">Option</th><th align="left" valign="top" id="idm45651977307040" scope="col">Flag</th><th align="left" valign="top" id="idm45651977305952" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm45651977308128">
+			</p><div class="table" id="idm45418075890336"><p class="title"><strong>Table 5.1. <code class="literal">mta-cli config</code> command options</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418075884256" scope="col">Option</th><th align="left" valign="top" id="idm45418075883168" scope="col">Flag</th><th align="left" valign="top" id="idm45418075882080" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="2" align="left" valign="top" headers="idm45418075884256">
 							<p>
 								<code class="literal">config</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651977307040"> </td><td align="left" valign="top" headers="idm45651977305952">
+							</td><td align="left" valign="top" headers="idm45418075883168"> </td><td align="left" valign="top" headers="idm45418075882080">
 							<p>
 								Connect to the MTA Hub.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651977307040">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075883168">
 							<p>
 								<code class="literal">--k</code>, <code class="literal">--insecure</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651977305952">
+							</td><td align="left" valign="top" headers="idm45418075882080">
 							<p>
 								Skip TLS certificate verification.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651977308128">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45418075884256">
 							<p>
 								<code class="literal">list</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651977307040"> </td><td align="left" valign="top" headers="idm45651977305952">
+							</td><td align="left" valign="top" headers="idm45418075883168"> </td><td align="left" valign="top" headers="idm45418075882080">
 							<p>
 								Lists the profiles downloaded and stored locally in the application.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651977308128">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075883168">
+							<p>
+								<code class="literal">--profile-dir</code>
+							</p>
+							</td><td align="left" valign="top" headers="idm45418075882080">
+							<p>
+								Specify the path to the application in your system to find the path where MTA downloaded the profile directory.
+							</p>
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075884256">
 							<p>
 								<code class="literal">login</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651977307040"> </td><td align="left" valign="top" headers="idm45651977305952">
+							</td><td align="left" valign="top" headers="idm45418075883168"> </td><td align="left" valign="top" headers="idm45418075882080">
 							<p>
 								Use the command to enter the <code class="literal">host</code> URL, <code class="literal">username</code>, and the <code class="literal">password</code>. +
 							</p>
 							<p>
 								The <code class="literal">host</code> URL is the MTA user interface URL. The username and password are the MTA realm credentials.
 							</p>
-							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45651977308128">
+							</td></tr><tr><td rowspan="2" align="left" valign="top" headers="idm45418075884256">
 							<p>
 								<code class="literal">sync</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651977307040"> </td><td align="left" valign="top" headers="idm45651977305952">
+							</td><td align="left" valign="top" headers="idm45418075883168"> </td><td align="left" valign="top" headers="idm45418075882080">
 							<p>
 								Use this command to sync and download the application profile currently stored in the MTA Hub.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651977307040">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075883168">
 							<p>
 								<code class="literal">--url</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651977305952">
+							</td><td align="left" valign="top" headers="idm45418075882080">
 							<p>
 								Specify the URL of the application repository.
 							</p>
@@ -1097,43 +1105,43 @@ rules:
 					Insights is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
 				</p><p>
 					For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
-				</p></div></div><div class="table" id="idm45651972252960"><p class="title"><strong>Table 6.1. Analysis report sections</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651974555040" scope="col">Section</th><th align="left" valign="top" id="idm45651974553952" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651974555040">
+				</p></div></div><div class="table" id="idm45418078840112"><p class="title"><strong>Table 6.1. Analysis report sections</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418078835264" scope="col">Section</th><th align="left" valign="top" id="idm45418078834176" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418078835264">
 							<p>
 								Dashboard
 							</p>
-							</td><td align="left" valign="top" headers="idm45651974553952">
+							</td><td align="left" valign="top" headers="idm45418078834176">
 							<p>
 								An overview of the incidents and total story points, sorted by category.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651974555040">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418078835264">
 							<p>
 								Issues
 							</p>
-							</td><td align="left" valign="top" headers="idm45651974553952">
+							</td><td align="left" valign="top" headers="idm45418078834176">
 							<p>
 								A concise summary of all issues and their details that require attention.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651974555040">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418078835264">
 							<p>
 								Dependencies
 							</p>
-							</td><td align="left" valign="top" headers="idm45651974553952">
+							</td><td align="left" valign="top" headers="idm45418078834176">
 							<p>
 								All Java-packaged dependencies found within the application.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651974555040">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418078835264">
 							<p>
 								Technologies
 							</p>
-							</td><td align="left" valign="top" headers="idm45651974553952">
+							</td><td align="left" valign="top" headers="idm45418078834176">
 							<p>
 								All embedded libraries grouped by functionality. Use this report to display the technologies used in each application.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651974555040">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418078835264">
 							<p>
 								Insights
 							</p>
-							</td><td align="left" valign="top" headers="idm45651974553952">
+							</td><td align="left" valign="top" headers="idm45418078834176">
 							<p>
 								Information about a violation generated by a rule with zero effort. Issues are generated by general rules, whereas string tags are generated by the tagging rules. String tags indicate the presence of a technology but do not show the code location. Insights contain information about the technologies used in the application and their usage in the code.
 							</p>
@@ -1202,136 +1210,136 @@ rules:
 						<a class="link" href="#openrewrite-command-options_performing-transformation" title="7.3. The openrewrite command options">The openrewrite command options</a>
 					</li></ul></div></section><section class="section" id="available-openrewrite-recipes_performing-transformation"><div class="titlepage"><div><div><h2 class="title">7.2. Available OpenRewrite recipes</h2></div></div></div><p class="_abstract _abstract">
 				The migration toolkit for applications (MTA) command-line interface (CLI) provides <code class="literal">OpenRewrite</code> recipes that define specific code transformation logic. Check the following table to view the available recipes that you can use for transforming application source code.
-			</p><div class="table" id="idm45651972599488"><p class="title"><strong>Table 7.1. Available OpenRewrite recipes</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 25%; " class="col_3"/><col style="width: 25%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651975291872" scope="col">Migration path</th><th align="left" valign="top" id="idm45651975290784" scope="col">Purpose</th><th align="left" valign="top" id="idm45651975289696" scope="col">The <code class="literal">rewrite.config</code> file location</th><th align="left" valign="top" id="idm45651975288128" scope="col">Active recipes</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651975291872">
+			</p><div class="table" id="idm45418075412512"><p class="title"><strong>Table 7.1. Available OpenRewrite recipes</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 25%; " class="col_3"/><col style="width: 25%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418076087664" scope="col">Migration path</th><th align="left" valign="top" id="idm45418076086576" scope="col">Purpose</th><th align="left" valign="top" id="idm45418076085488" scope="col">The <code class="literal">rewrite.config</code> file location</th><th align="left" valign="top" id="idm45418076083920" scope="col">Active recipes</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418076087664">
 							<p>
 								Java EE to Jakarta EE
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975290784">
+							</td><td align="left" valign="top" headers="idm45418076086576">
 							<p>
 								Replace import of <code class="literal">javax</code> packages with equivalent <code class="literal">jakarta</code> packages.
 							</p>
 							<p>
 								Replace <code class="literal">javax</code> artifacts, declared within <code class="literal">pom.xml</code> files, with the <code class="literal">jakarta</code> equivalents.
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975289696">
+							</td><td align="left" valign="top" headers="idm45418076085488">
 							<p>
 								<code class="literal"><span class="emphasis"><em>&lt;MTA_HOME&gt;</em></span>/rules/openrewrite/jakarta \ /javax/imports/rewrite.yml</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975288128">
+							</td><td align="left" valign="top" headers="idm45418076083920">
 							<p>
 								<code class="literal">org.jboss.windup.JavaxToJakarta</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651975291872">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418076087664">
 							<p>
 								Java EE to Jakarta EE
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975290784">
+							</td><td align="left" valign="top" headers="idm45418076086576">
 							<p>
 								Rename bootstrapping files.
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975289696">
+							</td><td align="left" valign="top" headers="idm45418076085488">
 							<p>
 								<code class="literal"><span class="emphasis"><em>&lt;MTA_HOME&gt;</em></span>/rules/openrewrite/jakarta \ /javax/bootstrapping/rewrite.yml</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975288128">
+							</td><td align="left" valign="top" headers="idm45418076083920">
 							<p>
 								<code class="literal">org.jboss.windup.jakarta.javax. \ BootstrappingFiles</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651975291872">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418076087664">
 							<p>
 								Java EE to Jakarta EE
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975290784">
+							</td><td align="left" valign="top" headers="idm45418076086576">
 							<p>
 								Transform the <code class="literal">persistence.xml</code> file configuration.
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975289696">
+							</td><td align="left" valign="top" headers="idm45418076085488">
 							<p>
 								<code class="literal"><span class="emphasis"><em>&lt;MTA_HOME&gt;</em></span>/rules/openrewrite/jakarta \ /javax/xml/rewrite.yml</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975288128">
+							</td><td align="left" valign="top" headers="idm45418076083920">
 							<p>
 								<code class="literal">org.jboss.windup.javax-jakarta. \ PersistenceXML</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651975291872">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418076087664">
 							<p>
 								Spring Boot to Quarkus
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975290784">
+							</td><td align="left" valign="top" headers="idm45418076086576">
 							<p>
 								Replace <code class="literal">spring.jpa.hibernate.ddl-auto</code> property within files matching <code class="literal">application*.properties</code>.
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975289696">
+							</td><td align="left" valign="top" headers="idm45418076085488">
 							<p>
 								<code class="literal"><span class="emphasis"><em>&lt;MTA_HOME&gt;</em></span>/rules/openrewrite/quarkus \ /springboot/properties/rewrite.yml</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651975288128">
+							</td><td align="left" valign="top" headers="idm45418076083920">
 							<p>
 								<code class="literal">org.jboss.windup.sb-quarkus.Properties</code>
 							</p>
 							</td></tr></tbody></table></div></div></section><section class="section" id="openrewrite-command-options_performing-transformation"><div class="titlepage"><div><div><h2 class="title">7.3. The openrewrite command options</h2></div></div></div><p class="_abstract _abstract">
 				The migration toolkit for applications (MTA) command-line interface (CLI) provides the <code class="literal">mta-cli transform openrewrite</code> command options to customize the transformation of your application source code. Check the following table to identify the available arguments for applying specific migration recipes and controlling the output of the transformation process.
-			</p><div class="table" id="idm45651976729248"><p class="title"><strong>Table 7.2. The mta-cli transform openrewrite command options</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651976724448" scope="col">Option</th><th align="left" valign="top" id="idm45651976723360" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651976724448">
+			</p><div class="table" id="idm45418075863776"><p class="title"><strong>Table 7.2. The mta-cli transform openrewrite command options</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418075858976" scope="col">Option</th><th align="left" valign="top" id="idm45418075686448" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--goal</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								A target goal. The default is <code class="literal">"dryRun"</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--help</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								Display all <code class="literal">mta-cli transform openrewrite</code> command options.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--input</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								A path to the application source code directory.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--list-targets</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								List all available OpenRewrite recipes.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">-maven-settings</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								A path to a custom Maven settings file.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--target</code> (string)
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								A target OpenRewrite recipe.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--log-level uint32</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								A log level. The default is <code class="literal">4</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651976724448">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418075858976">
 							<p>
 								<code class="literal">--no-cleanup</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651976723360">
+							</td><td align="left" valign="top" headers="idm45418075686448">
 							<p>
 								Do not clean up temporary resources.
 							</p>
@@ -1570,31 +1578,31 @@ data:
 						<a class="link" href="#discover-generate-command-options_generating-assets" title="8.6. The discover and generate command options">The discover and generate command options</a>
 					</li></ul></div></section><section class="section" id="discover-generate-command-options_generating-assets"><div class="titlepage"><div><div><h2 class="title">8.6. The discover and generate command options</h2></div></div></div><p class="_abstract _abstract">
 				The migration toolkit for applications (MTA) command-line interface (CLI) provides options that you can use together with the <code class="literal">discover</code> or <code class="literal">generate</code> commands to customize the discovery of applications and the generation of static assets. Check the following table to identify the available arguments for defining input paths, output locations, and the scope of your assessment.
-			</p><div class="table" id="idm45651973452736"><p class="title"><strong>Table 8.1. Options for <code class="literal">discover</code> and <code class="literal">generate</code> commands</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 30%; " class="col_1"/><col style="width: 30%; " class="col_2"/><col style="width: 40%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651972455728" scope="col">Command</th><th align="left" valign="top" id="idm45651972454640" scope="col">Option</th><th align="left" valign="top" id="idm45651972453552" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="5" align="left" valign="top" headers="idm45651972455728">
+			</p><div class="table" id="idm45418077538400"><p class="title"><strong>Table 8.1. Options for <code class="literal">discover</code> and <code class="literal">generate</code> commands</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 30%; " class="col_1"/><col style="width: 30%; " class="col_2"/><col style="width: 40%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418077530944" scope="col">Command</th><th align="left" valign="top" id="idm45418077529856" scope="col">Option</th><th align="left" valign="top" id="idm45418077528768" scope="col">Description</th></tr></thead><tbody><tr><td rowspan="5" align="left" valign="top" headers="idm45418077530944">
 							<p>
 								<code class="literal">discover</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972454640">
+							</td><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--app-name</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								An application to run the discovery for.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">-h</code>, <code class="literal">--help</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Display details for different command arguments.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--list-apps</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								List the available applications on the source platform, for example:
 							</p>
@@ -1610,43 +1618,43 @@ Space: space
 - test-app
 Space: space-2
 - test-app</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--list-platforms</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								List the supported platforms for the discovery process.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--log-level</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Set the log level, for example, <code class="literal">discover --log-level 1</code>. The default log level is <code class="literal">4</code>.
 							</p>
-							</td></tr><tr><td rowspan="7" align="left" valign="top" headers="idm45651972455728">
+							</td></tr><tr><td rowspan="7" align="left" valign="top" headers="idm45418077530944">
 							<p>
 								<code class="literal">discover cloud-foundry</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972454640"> </td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077529856"> </td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Discover Cloud Foundry applications.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--conceal-sensitive-data</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Extract sensitive information from a discovery manifest and put it into a separate file.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--input</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Specify the location of the YAML manifest file to discover the CF applications, for example:
 							</p>
@@ -1657,99 +1665,99 @@ Space: space-2
 									</li><li class="listitem">
 										A path to the directory with multiple manifest files.
 									</li></ul></div>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--output</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Specify the location to save the <span class="emphasis"><em>&lt;discovery-manifest-name&gt;</em></span>.yaml file.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--spaces</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								A comma-separated list of Cloud Foundry spaces to analyze during a live discovery, for example:
 							</p>
 							
 <pre class="screen">--spaces=space1,space2,…</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--use-live-connection</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Enable real-time discovery by using live platform connections.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--orgs</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								A comma-separated list of Cloud Foundry organizations that you specify to discover application manifests during a live discovery. For example,
 							</p>
 							
 <pre class="programlisting language-terminal">--orgs=org1,org2</pre>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972455728">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077530944">
 							<p>
 								<code class="literal">generate</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972454640">
+							</td><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">-h</code>, <code class="literal">--help</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Display details for different command arguments.
 							</p>
-							</td></tr><tr><td rowspan="6" align="left" valign="top" headers="idm45651972455728">
+							</td></tr><tr><td rowspan="6" align="left" valign="top" headers="idm45418077530944">
 							<p>
 								<code class="literal">generate helm</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972454640"> </td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077529856"> </td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Generate a deployment manifest by using the Helm template.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--chart-dir</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Specify a directory that contains the Helm chart.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--input</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Specify a location of the <span class="emphasis"><em>&lt;discovery-manifest-name&gt;</em></span>.yaml file to generate the deployment manifest.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--non-k8s-only</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Generate only non-Kubernetes templates, such as a Dockerfile.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--output-dir</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Specify a location to which the deployment manifests are saved.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45651972454640">
+							</td></tr><tr><td align="left" valign="top" headers="idm45418077529856">
 							<p>
 								<code class="literal">--set</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45651972453552">
+							</td><td align="left" valign="top" headers="idm45418077528768">
 							<p>
 								Override values of attributes in the discovery manifest with the key-value pair entered from the CLI.
 							</p>
@@ -2537,75 +2545,75 @@ Space: space-2
 				View the migration toolkit for applications (MTA) rule story points to estimate the level of effort required for specific migration tasks. Understanding these values helps you prioritize application migration based on complexity and resource requirements.
 			</p><section class="section" id="effort-level-estimation_rule-story-points"><div class="titlepage"><div><div><h3 class="title">A.2.1. Guidelines for the level of effort estimation</h3></div></div></div><p class="_abstract _abstract">
 					View the general guidelines the migration toolkit for applications (MTA) uses for effort level estimations to determine the complexity of issues identified during the analysis. Understanding the rule story points helps you predict the time and resources required to migrate your applications effectively.
-				</p><div class="table" id="idm45651978237056"><p class="title"><strong>Table A.1. Guidelines for the level of effort estimation</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 15%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45651978231328" scope="col">Level of Effort</th><th align="left" valign="top" id="idm45651978230240" scope="col">Story Points</th><th align="left" valign="top" id="idm45651978229152" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45651978231328">
+				</p><div class="table" id="idm45418077244032"><p class="title"><strong>Table A.1. Guidelines for the level of effort estimation</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 15%; " class="col_2"/><col style="width: 60%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45418077238240" scope="col">Level of Effort</th><th align="left" valign="top" id="idm45418077237152" scope="col">Story Points</th><th align="left" valign="top" id="idm45418077236064" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45418077238240">
 								<p>
 									Information
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978230240">
+								</td><td align="left" valign="top" headers="idm45418077237152">
 								<p>
 									0
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978229152">
+								</td><td align="left" valign="top" headers="idm45418077236064">
 								<p>
 									An informational warning with very low or no priority for migration.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45651978231328">
+								</td></tr><tr><td align="left" valign="top" headers="idm45418077238240">
 								<p>
 									Trivial
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978230240">
+								</td><td align="left" valign="top" headers="idm45418077237152">
 								<p>
 									1
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978229152">
+								</td><td align="left" valign="top" headers="idm45418077236064">
 								<p>
 									The migration is a trivial change or a simple library swap with no or minimal API changes.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45651978231328">
+								</td></tr><tr><td align="left" valign="top" headers="idm45418077238240">
 								<p>
 									Complex
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978230240">
+								</td><td align="left" valign="top" headers="idm45418077237152">
 								<p>
 									3
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978229152">
+								</td><td align="left" valign="top" headers="idm45418077236064">
 								<p>
 									The changes required for the migration task are complex, but have a documented solution.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45651978231328">
+								</td></tr><tr><td align="left" valign="top" headers="idm45418077238240">
 								<p>
 									Redesign
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978230240">
+								</td><td align="left" valign="top" headers="idm45418077237152">
 								<p>
 									5
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978229152">
+								</td><td align="left" valign="top" headers="idm45418077236064">
 								<p>
 									The migration task requires a redesign or a complete library change, with significant API changes.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45651978231328">
+								</td></tr><tr><td align="left" valign="top" headers="idm45418077238240">
 								<p>
 									Rearchitecture
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978230240">
+								</td><td align="left" valign="top" headers="idm45418077237152">
 								<p>
 									7
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978229152">
+								</td><td align="left" valign="top" headers="idm45418077236064">
 								<p>
 									The migration requires a complete rearchitecture of the component or subsystem.
 								</p>
-								</td></tr><tr><td align="left" valign="top" headers="idm45651978231328">
+								</td></tr><tr><td align="left" valign="top" headers="idm45418077238240">
 								<p>
 									Unknown
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978230240">
+								</td><td align="left" valign="top" headers="idm45418077237152">
 								<p>
 									13
 								</p>
-								</td><td align="left" valign="top" headers="idm45651978229152">
+								</td><td align="left" valign="top" headers="idm45418077236064">
 								<p>
 									The migration solution is not known and may need a complete rewrite.
 								</p>
@@ -2659,7 +2667,7 @@ Space: space-2
 					<a class="link" href="https://developer.jboss.org/en/windup">MTA forums</a>
 				</li><li class="listitem">
 					<a class="link" href="https://issues.redhat.com/projects/MTA/issues/MTA-4961?filter=allopenissues">Jira issues tracker</a>
-				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45651972139024"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45418074845792"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2026 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
