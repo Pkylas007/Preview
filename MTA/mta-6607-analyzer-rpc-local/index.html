@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and using the Visual Studio Code Extension for MTA</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="You can use the migration toolkit for applications extension for Visual Studio Code to accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. You can analyze your applications and identify and resolve issues to prepare these applications for a successful migration."/><link rel="next" href="#intro-to-vscode-for-mta_vsc-extension-guide" title="Chapter 1. Introduction to the MTA extension for Microsoft Visual Code"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45587798293584"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and using the Visual Studio Code Extension for MTA</h1></div><div><h2 class="subtitle">Using the migration toolkit for applications extension for Visual Studio Code to identify and resolve migration issues</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45587791799856">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Configuring and using the Visual Studio Code Extension for MTA</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="You can use the migration toolkit for applications extension for Visual Studio Code to accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. You can analyze your applications and identify and resolve issues to prepare these applications for a successful migration."/><link rel="next" href="#intro-to-vscode-for-mta_vsc-extension-guide" title="Chapter 1. Introduction to the MTA extension for Microsoft Visual Code"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45074668119296"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.0</span></div><div><h1 class="title">Configuring and using the Visual Studio Code Extension for MTA</h1></div><div><h2 class="subtitle">Using the migration toolkit for applications extension for Visual Studio Code to identify and resolve migration issues</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45074646337280">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				You can use the migration toolkit for applications extension for Visual Studio Code to accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. You can analyze your applications and identify and resolve issues to prepare these applications for a successful migration.
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro-to-vscode-for-mta_vsc-extension-guide">1. Introduction to the MTA extension for Microsoft Visual Code</a></span></li><li><span class="chapter"><a href="#installing-vscode-extension_vsc-extension-guide">2. Installing the MTA extension for Visual Studio Code</a></span></li><li><span class="chapter"><a href="#configuring-lighstspeed-ide-settings_vsc-extension-guide">3. Configuring the IDE settings</a></span></li><li><span class="chapter"><a href="#configuring-profile-settings_vsc-extension-guide">4. Configuring the MTA profile settings</a></span></li><li><span class="chapter"><a href="#vscode-analyzing-application_vsc-extension-guide">5. Running an application analysis</a></span></li><li><span class="chapter"><a href="#analyzing-application-profiles_vsc-extension-guide">6. Running an application analysis by using a profile</a></span></li><li><span class="chapter"><a href="#vscode-reviewing-and-resolving-issues_vsc-extension-guide">7. Reviewing and resolving migration issues</a></span></li></ul></div><section class="chapter" id="intro-to-vscode-for-mta_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to the MTA extension for Microsoft Visual Code</h1></div></div></div><p class="_abstract _abstract">
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro-to-vscode-for-mta_vsc-extension-guide">1. Introduction to the MTA extension for Microsoft Visual Code</a></span></li><li><span class="chapter"><a href="#installing-vscode-extension_vsc-extension-guide">2. Installing the MTA extension for Visual Studio Code</a></span></li><li><span class="chapter"><a href="#installing-analyzer-rpc_vsc-extension-guide">3. Configuring and using the MTA analyzer RPC binary in your system</a></span></li><li><span class="chapter"><a href="#configuring-lighstspeed-ide-settings_vsc-extension-guide">4. Configuring the IDE settings</a></span></li><li><span class="chapter"><a href="#configuring-profile-settings_vsc-extension-guide">5. Configuring the MTA profile settings</a></span></li><li><span class="chapter"><a href="#vscode-analyzing-application_vsc-extension-guide">6. Running an application analysis</a></span></li><li><span class="chapter"><a href="#vscode-reviewing-and-resolving-issues_vsc-extension-guide">7. Reviewing and resolving migration issues</a></span></li></ul></div><section class="chapter" id="intro-to-vscode-for-mta_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to the MTA extension for Microsoft Visual Code</h1></div></div></div><p class="_abstract _abstract">
 			You can migrate and modernize applications by using the migration toolkit for applications (MTA) extension for Microsoft Visual Studio Code.
 		</p><p>
 			The MTA extension can perform the following actions:
@@ -17,7 +17,13 @@
 				</li></ul></div><p>
 			The MTA extension is also compatible with Visual Studio Codespaces, the Microsoft cloud-hosted development environment.
 		</p></section><section class="chapter" id="installing-vscode-extension_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Installing the MTA extension for Visual Studio Code</h1></div></div></div><p class="_abstract _abstract">
-			You can use the migration toolkit for applications (MTA) Visual Studio (VS) Code plugin to perform a standard application analysis. You can also enable Red Hat Developer Lightspeed for the migration toolkit for applications to use Generative AI (GenAI) capabilities to fix code issues before migrating to target technologies. Note that Developer Lightspeed for MTA is enabled by default. For more information, see <a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html-single/configuring_and_using_red_hat_developer_lightspeed_for_mta/index">Configuring and using Developer Lightspeed for MTA</a>.
+			You can use the migration toolkit for applications (MTA) Visual Studio Code plugin to perform a standard application analysis.
+		</p><p>
+			You can download the MTA plugin version 8.1.0 as an extension pack that bundles the Core extension along with all the supported language-specific extensions. You can use this extension even when you want to analyze a project in a specific programming language.
+		</p><p>
+			Alternatively, you can also download the MTA Core extension and one language-specific extension to analyze a project coded in the programming language supported by the extension.
+		</p><p>
+			You can also enable Red Hat Developer Lightspeed for the migration toolkit for applications to use Generative AI (GenAI) capabilities to fix code issues before migrating to target technologies. Note that Developer Lightspeed for MTA is enabled by default. For more information, see <a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html-single/configuring_and_using_red_hat_developer_lightspeed_for_mta/index">Configuring and using Developer Lightspeed for MTA</a>.
 		</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
 					You installed the Java Development Kit (JDK). MTA supports the following JDKs:
 				</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
@@ -31,8 +37,50 @@
 				</li><li class="listitem">
 					For macOS installation, you have the value of <code class="literal">maxproc</code> set to <code class="literal">2048</code> or greater.
 				</li></ul></div><div class="itemizedlist"><p class="title"><strong>Procedure</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-					Install the MTA 8.0.1 Visual Studio (VS) Code plugin from the <a class="link" href="https://marketplace.visualstudio.com/search?term=migration%20toolkit&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">VS Code marketplace</a>.
-				</li></ul></div></section><section class="chapter" id="configuring-lighstspeed-ide-settings_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 3. Configuring the IDE settings</h1></div></div></div><p class="_abstract _abstract">
+					Install the MTA 8.1.0 Visual Studio (VS) Code plugin extension pack from the <a class="link" href="https://marketplace.visualstudio.com/items?itemName=konveyor.konveyor">VS Code marketplace</a>.
+				</li><li class="listitem">
+					Alternatively, install the MTA 8.1.0 Core plugin along with the MTA extension for a supported language from the <a class="link" href="https://marketplace.visualstudio.com/search?term=konveyor&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">VS Code marketplace</a>
+				</li></ul></div></section><section class="chapter" id="installing-analyzer-rpc_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 3. Configuring and using the MTA analyzer RPC binary in your system</h1></div></div></div><p class="_abstract _abstract">
+			The migration toolkit for applications (MTA) Visual Studio Code extension consists of an analyzer RPC binary that runs an analysis for <code class="literal">Java</code>, <code class="literal">Go</code>, <code class="literal">Python</code>, <code class="literal">Node.js</code> and <code class="literal">C#</code> or <code class="literal">.NET</code> applications.
+		</p><p>
+			When you install the MTA Visual Studio Code extension, the extension downloads the analyzer RPC binary of the latest version from the Red Hat Developer portal.
+		</p><p>
+			In a restricted network environment where the MTA extension cannot access the link to download the analyzer RPC binary, you can download the binary in your system and configure its path in the Visual Studio Code extension.
+		</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
+					You installed the Java Development Kit (JDK). MTA supports the following JDKs:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+							Oracle JDK 17 or later
+						</li><li class="listitem">
+							Eclipse Temurin™ JDK 17 or later
+						</li><li class="listitem">
+							OpenJDK 17 or later
+						</li></ul></div></li><li class="listitem">
+					You have 8 GB of RAM available.
+				</li><li class="listitem">
+					For macOS installation, you have the value of <code class="literal">maxproc</code> set to <code class="literal">2048</code> or greater.
+				</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					Download the MTA 8.1.0 analyzer RPC from <a class="link" href="https://developers.redhat.com/content-gateway/rest/browse/pub/mta/">Red Hat Developer portal</a> to your system.
+				</li><li class="listitem"><p class="simpara">
+					Access the MTA extension settings in either of the following ways:
+				</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+							Click <code class="literal">Extensions &gt; MTA Extension for VSCode &gt; Settings</code>.
+						</li><li class="listitem">
+							Type <code class="literal">Preferences: Open User Settings (JSON)</code> in the Command Palette to open the <code class="literal">settings.json</code> file.
+						</li></ol></div></li><li class="listitem"><p class="simpara">
+					Configure the analyzer RPC binary path for the extension in one of the following ways:
+				</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+							Enter the analyzer RPC binary path in the <code class="literal">Analyzer Path</code> field in the MTA extension settings.
+						</li><li class="listitem">
+							Configure the path to the local analyzer RPC binary in the <code class="literal">mta-vscode-extension.analyzerPath</code> field in the <code class="literal">settings.json</code> file.
+						</li><li class="listitem">
+							Type <code class="literal">MTA: Override Analyzer Binary</code> in the Command Palette to select the analyzer binary in your system.
+						</li></ol></div></li><li class="listitem">
+					Reload the Visual Studio Code window by typing <code class="literal">Developer: Reload Window</code> in the Command Palette.
+				</li><li class="listitem">
+					Open the extension analysis view by typing <code class="literal">MTA: Open Analysis View</code> in the Command Palette.
+				</li><li class="listitem">
+					Click <span class="strong strong"><strong>Start</strong></span> to use the analyzer RPC binary to perform an analysis.
+				</li></ol></div></section><section class="chapter" id="configuring-lighstspeed-ide-settings_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Configuring the IDE settings</h1></div></div></div><p class="_abstract _abstract">
 			MTA settings apply to every analysis that you perform by using the Visual Studio (VS) Code extension. The extension settings have the following categories:
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 					Analysis-related settings
@@ -61,15 +109,15 @@
 						</li><li class="listitem">
 							Debug:Webview: Enable debug level logging for Webview message handling in VS Code.
 						</li></ul></div></li></ol></div><div class="itemizedlist"><p class="title"><strong>Next steps</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-					<a class="link" href="#configuring-profile-settings_vsc-extension-guide" title="Chapter 4. Configuring the MTA profile settings">Configure the MTA profile settings</a>.
+					<a class="link" href="#configuring-profile-settings_vsc-extension-guide" title="Chapter 5. Configuring the MTA profile settings">Configure the MTA profile settings</a>.
 				</li></ul></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
-					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/developer-lightspeed-guide/index">Configuring and using Developer Lightspeed for MTA</a>
-				</li></ul></div></section><section class="chapter" id="configuring-profile-settings_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Configuring the MTA profile settings</h1></div></div></div><p class="_abstract _abstract">
+					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/configuring_and_using_red_hat_developer_lightspeed_for_mta/index">Configuring and using Developer Lightspeed for MTA</a>
+				</li></ul></div></section><section class="chapter" id="configuring-profile-settings_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 5. Configuring the MTA profile settings</h1></div></div></div><p class="_abstract _abstract">
 			You can use the Visual Studio (VS) Code plugin to run an analysis to discover issues in the code.
 		</p><p>
 			To generate code changes by using the MTA extension, you must configure a profile that contains all the necessary configurations, such as rules and source and target technologies.
 		</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-					You configured the VS Code IDE settings. For more information, see <a class="link" href="#configuring-lighstspeed-ide-settings_vsc-extension-guide" title="Chapter 3. Configuring the IDE settings">Configuring the Red Hat Developer Lightspeed for MTA IDE settings</a>.
+					You configured the VS Code IDE settings. For more information, see <a class="link" href="#configuring-lighstspeed-ide-settings_vsc-extension-guide" title="Chapter 4. Configuring the IDE settings">Configuring the Red Hat Developer Lightspeed for MTA IDE settings</a>.
 				</li><li class="listitem">
 					You opened a Java project in your VS Code workspace.
 				</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
@@ -91,15 +139,15 @@
 						</li></ul></div></li></ol></div><div class="itemizedlist"><p class="title"><strong>Verification</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 					After you completed the profile configuration, close the <code class="literal">Get Ready to Analyze</code> pane and run an application analysis.
 				</li></ul></div><div class="itemizedlist"><p class="title"><strong>Next steps</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-					<a class="link" href="#vscode-analyzing-application_vsc-extension-guide" title="Chapter 5. Running an application analysis">Run an application analysis</a>.
+					<a class="link" href="#vscode-analyzing-application_vsc-extension-guide" title="Chapter 6. Running an application analysis">Run an application analysis</a>.
 				</li></ul></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
-					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/developer-lightspeed-guide/index">Configuring and using Developer Lightspeed for MTA</a>
-				</li></ul></div></section><section class="chapter" id="vscode-analyzing-application_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 5. Running an application analysis</h1></div></div></div><p class="_abstract _abstract">
+					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/configuring_and_using_red_hat_developer_lightspeed_for_mta/index">Configuring and using Developer Lightspeed for MTA</a>
+				</li></ul></div></section><section class="chapter" id="vscode-analyzing-application_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 6. Running an application analysis</h1></div></div></div><p class="_abstract _abstract">
 			You can run a static code analysis of an application with or without enabling the Generative AI (GenAI) features. The RPC (Remote Procedure Call) server runs the analysis to detect all issues in the code for one or more target technologies which you want to migrate the application to.
 		</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 					You opened a Java project in your VS Code workspace.
 				</li><li class="listitem">
-					You configured an analysis profile on the <span class="strong strong"><strong>MTA Analysis View</strong></span> page. For more information, see <a class="link" href="#configuring-profile-settings_vsc-extension-guide" title="Chapter 4. Configuring the MTA profile settings">Configuring the MTA profile settings</a>.
+					You configured an analysis profile on the <span class="strong strong"><strong>MTA Analysis View</strong></span> page. For more information, see <a class="link" href="#configuring-profile-settings_vsc-extension-guide" title="Chapter 5. Configuring the MTA profile settings">Configuring the MTA profile settings</a>.
 				</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 					Click the Red Hat Developer Lightspeed for MTA extension and click <span class="strong strong"><strong>Open MTA Analysis View</strong></span>.
 				</li><li class="listitem">
@@ -109,47 +157,7 @@
 				</li><li class="listitem">
 					Click <span class="strong strong"><strong>Run Analysis</strong></span> on the <span class="strong strong"><strong>MTA Analysis View</strong></span> page.
 				</li></ol></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
-					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/developer-lightspeed-guide/index">Configuring and using Developer Lightspeed for MTA</a>
-				</li></ul></div></section><section class="chapter" id="analyzing-application-profiles_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 6. Running an application analysis by using a profile</h1></div></div></div><p class="_abstract _abstract">
-			To run a static code analysis of an application, you can use a profile that is created and managed by your architect in the MTA Hub. The centralized configuration management standardizes the analysis configuration and custom rules across projects to produce a consistent result. This allows the architect to create and manage the necessary profiles, thereby simplifying the lifecycle of analysis configurations and rules. Migrators can run analyses either by using local profile configuration or by using profiles from the Hub.
-		</p><p>
-			When you connect to the Hub from your Visual Studio Code instance, MTA downloads the analysis profiles and custom rules present in the Hub to the <code class="literal">.konveyor/profiles</code> location in your hard disk. You can use the analysis profile that contains custom rules to perform analyses in your Visual Studio Code IDE environment. If you connect to the Hub, the profile configuration options in your IDE instance are disabled.
-		</p><div class="admonition important"><div class="admonition_header">Important</div><div><p>
-				Analysis Profile is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
-			</p><p>
-				For more information about the support scope of Red Hat Technology Preview features, see <a class="link" href="https://access.redhat.com/support/offerings/techpreview/">Technology Preview Features Support Scope</a>.
-			</p></div></div><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-					You opened a project written in one of the supported languages in your VS Code workspace.
-				</li><li class="listitem">
-					An architect has configured an analysis profile in the Hub.
-				</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
-					Click the Red Hat Developer Lightspeed for MTA extension and click <span class="strong strong"><strong>Open Analysis Panel</strong></span>.
-				</li><li class="listitem">
-					Click <span class="strong strong"><strong>Configure Hub Settings</strong></span> in settings (
-					<span class="inlinemediaobject"><img src="images/topics/images/settings-icon.png" alt="settings icon"/></span>
-					).
-				</li><li class="listitem"><p class="simpara">
-					Configure the following settings on the <span class="strong strong"><strong>Hub Configuration</strong></span> page:
-				</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
-							Enable <span class="strong strong"><strong>Hub</strong></span>.
-						</li><li class="listitem">
-							Enter the MTA user interface URL in the <span class="strong strong"><strong>Hub URL</strong></span> field.
-						</li><li class="listitem">
-							Enable <span class="strong strong"><strong>Skip SSL certificate verification</strong></span> if you want to connect to your Hub without verifying the local SSL certificate in the host.
-						</li><li class="listitem">
-							Toggle <span class="strong strong"><strong>Enable authentication</strong></span> on to log in to your Hub.
-						</li><li class="listitem">
-							Enter the username and password credentials of the MTA user interface.
-						</li><li class="listitem">
-							Enable <span class="strong strong"><strong>Solution Server</strong></span> to use the solution server to suggest resolutions for the issues in the source code.
-						</li><li class="listitem">
-							Enable <span class="strong strong"><strong>Profile Sync</strong></span> to sync the profiles with the Hub. MTA periodically downloads the latest version of the profiles from the Hub. MTA does not update the profiles and rules if you do not sync the profiles with the Hub.
-						</li></ol></div></li><li class="listitem">
-					Select a profile from the list on the <span class="strong strong"><strong>MTA Analysis View</strong></span> page.
-				</li><li class="listitem">
-					Click <span class="strong strong"><strong>Run Analysis</strong></span>.
-				</li></ol></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
-					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/developer-lightspeed-guide/index">Configuring and using Developer Lightspeed for MTA</a>
+					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.0/html/configuring_and_using_red_hat_developer_lightspeed_for_mta/index">Configuring and using Developer Lightspeed for MTA</a>
 				</li></ul></div></section><section class="chapter" id="vscode-reviewing-and-resolving-issues_vsc-extension-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 7. Reviewing and resolving migration issues</h1></div></div></div><p class="_abstract _abstract">
 			You can use the MTA extension icons to prioritize issues based on their severity.
 		</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
@@ -176,7 +184,7 @@
 							Make any changes needed to the code and save the file.
 						</li><li class="listitem">
 							Optional: Right-click the issue and select <span class="strong strong"><strong>Mark as Complete</strong></span> or <span class="strong strong"><strong>Delete</strong></span>.
-						</li></ol></div></li></ol></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45587791799856"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+						</li></ol></div></li></ol></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45074646337280"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2026 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
