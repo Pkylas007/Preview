@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Installing the migration toolkit for applications</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA), you can accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. For example, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45995766908368"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.1</span></div><div><h1 class="title">Installing the migration toolkit for applications</h1></div><div><h2 class="subtitle">Installing the migration toolkit for applications user interface and command-line interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45995750745872">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Installing the migration toolkit for applications</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA), you can accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. For example, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm44969477459312"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.1</span></div><div><h1 class="title">Installing the migration toolkit for applications</h1></div><div><h2 class="subtitle">Installing the migration toolkit for applications user interface and command-line interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm44969455362048">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				By using the migration toolkit for applications (MTA), you can accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. For example, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#intro-to-mta_installing-mta-title">1. Introduction to the migration toolkit for applications</a></span><ul><li><span class="section"><a href="#mta-features_intro-to-mta">1.1. MTA features</a></span></li><li><span class="section"><a href="#mta-rules_intro-to-mta">1.2. MTA rules</a></span></li><li><span class="section"><a href="#mta-tools_intro-to-mta">1.3. MTA tools</a></span></li></ul></li><li><span class="chapter"><a href="#supported-migration-paths_installing-mta-title">2. Supported migration toolkit for applications migration paths</a></span></li><li><span class="chapter"><a href="#installing-mta-ui_installing-mta-title">3. Installing the migration toolkit for applications user interface</a></span><ul><li><span class="section"><a href="#persistent-volume-requirements_installing-mta-ui">3.1. Persistent volume requirements</a></span></li><li><span class="section"><a href="#red-hat-build-of-keycloak_installing-mta-ui">3.2. Red Hat build of Keycloak</a></span><ul><li><span class="section"><a href="#accessing-rhbk-admin-console_red-hat-build-of-keycloak">3.2.1. Accessing the RHBK Admin Console</a></span></li><li><span class="section"><a href="#roles-personas-users-permissions_red-hat-build-of-keycloak">3.2.2. Roles, personas, users, and permissions</a></span></li></ul></li><li><span class="section"><a href="#installing-mta-operator_installing-mta-ui">3.3. Installing the MTA Operator</a></span></li><li><span class="section"><a href="#creating-mta-instance_installing-mta-ui">3.4. Creating an MTA instance</a></span></li><li><span class="section"><a href="#custom-resource-settings_installing-mta-ui">3.5. Custom resource settings</a></span></li></ul></li><li><span class="chapter"><a href="#installing-mta-cli_installing-mta-title">4. Installing the migration toolkit for applications command-line interface</a></span><ul><li><span class="section"><a href="#installing-cli-zip_installing-mta-cli">4.1. Installing the CLI by using a .zip file</a></span></li><li><span class="section"><a href="#installing-mta-disconnected-environment_installing-mta-cli">4.2. Installing the CLI on a disconnected environment</a></span></li><li><span class="section"><a href="#installing-cli-for-docker_installing-mta-cli">4.3. Installing the CLI for use with Docker on Windows</a></span></li></ul></li><li><span class="appendix"><a href="#contributing-to-mta-development">A. How to contribute to the MTA project</a></span></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
@@ -120,438 +120,438 @@
 						<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.1/html-single/configuring_and_using_the_visual_studio_code_extension_for_mta/index">Configuring and using the Visual Studio Code Extension for MTA</a>
 					</li></ul></div></section></section><section class="chapter" id="supported-migration-paths_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Supported migration toolkit for applications migration paths</h1></div></div></div><p class="_abstract _abstract">
 			You can use the migration toolkit for applications (MTA) to assess your applications' suitability for the migration to multiple target platforms. Review the supported migration paths to verify that your planned migration uses a valid combination of source and target technologies. Adhering to these paths helps ensure that MTA can successfully analyze and migrate your applications.
-		</p><div class="table" id="idm45995747225088"><p class="title"><strong>Table 2.1. Supported Java migration paths</strong></p><div class="table-contents"><table class="gt-8-cols lt-7-rows"><colgroup><col style="width: 19%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 10%; " class="col_5"/><col style="width: 10%; " class="col_6"/><col style="width: 10%; " class="col_7"/><col style="width: 10%; " class="col_8"/><col style="width: 10%; " class="col_9"/></colgroup><thead><tr><th align="left" valign="top" id="idm45995746718880" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45995752071776" scope="col">Migration to JBoss EAP 7 &amp; 8</th><th align="left" valign="top" id="idm45995753240576" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45995747171536" scope="col">OpenJDK 11, 17, and 21</th><th align="left" valign="top" id="idm45995753268624" scope="col">Jakarta EE 9</th><th align="left" valign="top" id="idm45995747167728" scope="col">Camel 3 &amp; 4</th><th align="left" valign="top" id="idm45995747169888" scope="col">Spring Boot in Red Hat Runtimes</th><th align="left" valign="top" id="idm45995747169024" scope="col">Quarkus</th><th align="left" valign="top" id="idm45995753259040" scope="col">Open Liberty</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45995746718880">
+		</p><div class="table" id="idm44969456939632"><p class="title"><strong>Table 2.1. Supported Java migration paths</strong></p><div class="table-contents"><table class="gt-8-cols lt-7-rows"><colgroup><col style="width: 19%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 10%; " class="col_5"/><col style="width: 10%; " class="col_6"/><col style="width: 10%; " class="col_7"/><col style="width: 10%; " class="col_8"/><col style="width: 10%; " class="col_9"/></colgroup><thead><tr><th align="left" valign="top" id="idm44969458243760" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm44969459002448" scope="col">Migration to JBoss EAP 7 &amp; 8</th><th align="left" valign="top" id="idm44969459001520" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm44969459039776" scope="col">OpenJDK 11, 17, and 21</th><th align="left" valign="top" id="idm44969459038912" scope="col">Jakarta EE 9</th><th align="left" valign="top" id="idm44969458991760" scope="col">Camel 3 &amp; 4</th><th align="left" valign="top" id="idm44969458990896" scope="col">Spring Boot in Red Hat Runtimes</th><th align="left" valign="top" id="idm44969452428592" scope="col">Quarkus</th><th align="left" valign="top" id="idm44969452427728" scope="col">Open Liberty</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Oracle WebLogic Server
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							IBM WebSphere Application Server
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							✔
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							JBoss EAP 4
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✘ <a href="#ftn.note2" class="footnote"><sup class="footnote" id="note2">[a]</sup></a>
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							JBoss EAP 5
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							JBoss EAP 6
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							JBoss EAP 7
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
 						<p>
 							
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Thorntail 
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							✔ <a href="#ftn.note3" class="footnote"><sup class="footnote" id="note3">[b]</sup></a>
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Oracle JDK
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Camel 2
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Spring Boot
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Any Java application
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45995746718880">
+						</td></tr><tr><td align="left" valign="top" headers="idm44969458243760">
 						<p>
 							Any Java EE application
 						</p>
-						</td><td align="left" valign="top" headers="idm45995752071776">
+						</td><td align="left" valign="top" headers="idm44969459002448">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753240576">
+						</td><td align="left" valign="top" headers="idm44969459001520">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747171536">
+						</td><td align="left" valign="top" headers="idm44969459039776">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753268624">
+						</td><td align="left" valign="top" headers="idm44969459038912">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747167728">
+						</td><td align="left" valign="top" headers="idm44969458991760">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169888">
+						</td><td align="left" valign="top" headers="idm44969458990896">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995747169024">
+						</td><td align="left" valign="top" headers="idm44969452428592">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45995753259040">
+						</td><td align="left" valign="top" headers="idm44969452427728">
 						<p>
 							-
 						</p>
@@ -561,15 +561,15 @@
 								Requires JBoss EAP expansion pack 2 (JBoss EAP XP 2).
 							</div></div></td></tr></tbody></table></div></div><p>
 			..NET migration paths
-		</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45995747179424" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45995750744480" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45995750743424" scope="col">Migration to .NET 8.0</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45995747179424">
+		</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm44969454632288" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm44969454631168" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm44969454630112" scope="col">Migration to .NET 8.0</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm44969454632288">
 						<p>
 							.NET Framework 4.5+ (Windows only)
 						</p>
-						</td><td align="left" valign="top" headers="idm45995750744480">
+						</td><td align="left" valign="top" headers="idm44969454631168">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45995750743424">
+						</td><td align="left" valign="top" headers="idm44969454630112">
 						<p>
 							✔
 						</p>
@@ -587,83 +587,83 @@
 				To successfully deploy the migration toolkit for applications (MTA) Operator, you must create a persistent volume (PV) used by different MTA components.
 			</p><p>
 				 The MTA Operator requires two <code class="literal">ReadWriteOnce</code> (RWO) PVs. If the <code class="literal">rwx_supported</code> configuration option is set to <code class="literal">true</code>, the MTA Operator needs two additional ReadWriteMany (RWX) PVs used by Maven and the hub file storage. 
-			</p><div class="table" id="idm45995752645648"><p class="title"><strong>Table 3.1. Required persistent volumes</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 25%; " class="col_3"/><col style="width: 25%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45995750148240" scope="col">Name</th><th align="left" valign="top" id="idm45995750147152" scope="col">Default size</th><th align="left" valign="top" id="idm45995752217744" scope="col">Access mode</th><th align="left" valign="top" id="idm45995752216656" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45995750148240">
+			</p><div class="table" id="idm44969454154800"><p class="title"><strong>Table 3.1. Required persistent volumes</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 25%; " class="col_3"/><col style="width: 25%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm44969452515504" scope="col">Name</th><th align="left" valign="top" id="idm44969452514416" scope="col">Default size</th><th align="left" valign="top" id="idm44969452513328" scope="col">Access mode</th><th align="left" valign="top" id="idm44969452512240" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm44969452515504">
 							<p>
 								<code class="literal">hub database</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995750147152">
+							</td><td align="left" valign="top" headers="idm44969452514416">
 							<p>
 								<code class="literal">10Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752217744">
+							</td><td align="left" valign="top" headers="idm44969452513328">
 							<p>
 								RWO
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752216656">
+							</td><td align="left" valign="top" headers="idm44969452512240">
 							<p>
 								Hub database
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995750148240">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969452515504">
 							<p>
 								<code class="literal">hub bucket</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995750147152">
+							</td><td align="left" valign="top" headers="idm44969452514416">
 							<p>
 								<code class="literal">100Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752217744">
+							</td><td align="left" valign="top" headers="idm44969452513328">
 							<p>
 								RWX
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752216656">
+							</td><td align="left" valign="top" headers="idm44969452512240">
 							<p>
 								Hub file storage required if the <code class="literal">rwx_supported</code> configuration option is set to <code class="literal">true</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995750148240">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969452515504">
 							<p>
 								<code class="literal">keycloak postgresql</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995750147152">
+							</td><td align="left" valign="top" headers="idm44969452514416">
 							<p>
 								<code class="literal">1Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752217744">
+							</td><td align="left" valign="top" headers="idm44969452513328">
 							<p>
 								RWO
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752216656">
+							</td><td align="left" valign="top" headers="idm44969452512240">
 							<p>
 								Keycloak backend database
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995750148240">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969452515504">
 							<p>
 								<code class="literal">cache</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995750147152">
+							</td><td align="left" valign="top" headers="idm44969452514416">
 							<p>
 								<code class="literal">100Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752217744">
+							</td><td align="left" valign="top" headers="idm44969452513328">
 							<p>
 								RWX
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752216656">
+							</td><td align="left" valign="top" headers="idm44969452512240">
 							<p>
 								Maven m2 cache required if the <code class="literal">rwx_supported</code> configuration option is set to <code class="literal">true</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995750148240">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969452515504">
 							<p>
 								<code class="literal">kai-db</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995750147152">
+							</td><td align="left" valign="top" headers="idm44969452514416">
 							<p>
 								<code class="literal">5Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752217744">
+							</td><td align="left" valign="top" headers="idm44969452513328">
 							<p>
 								RWO
 							</p>
-							</td><td align="left" valign="top" headers="idm45995752216656">
+							</td><td align="left" valign="top" headers="idm44969452512240">
 							<p>
 								Red Hat Developer Lightspeed for MTA database required to run an AI-assisted code resolution.
 							</p>
@@ -706,7 +706,7 @@
 			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 						Your environment has 4 vCPUs, 8 GB RAM, and 40 GB persistent storage.
 					</li><li class="listitem">
-						Your environment uses Red Hat OpenShift (cloud service or self-hosted), version 4.22–4.21. 
+						Your environment uses Red Hat OpenShift (cloud service or self-hosted), version 4.21–4.22. 
 					</li><li class="listitem">
 						You created two RWO persistent volumes (PVs) used by different components. 
 					</li><li class="listitem">
@@ -789,195 +789,195 @@ spec:
 				When installing the migration toolkit for applications (MTA) Operator, you might need to create custom resource (CR) settings. The default settings are acceptable. However, make sure to check the system requirements for storage, memory, and cores.
 			</p><p>
 				The following are the most commonly used CR settings that you can find in the <code class="literal">spec</code> section of the YAML file.
-			</p><div class="table" id="idm45995746669472"><p class="title"><strong>Table 3.2. Common custom resource settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45995747160864" scope="col">CR name</th><th align="left" valign="top" id="idm45995747159776" scope="col">Default size</th><th align="left" valign="top" id="idm45995747158688" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45995747160864">
+			</p><div class="table" id="idm44969453444128"><p class="title"><strong>Table 3.2. Common custom resource settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm44969454133904" scope="col">CR name</th><th align="left" valign="top" id="idm44969454132816" scope="col">Default size</th><th align="left" valign="top" id="idm44969454131728" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">cache_data_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								100 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A size requested for the cache volume. This CR is ignored when the <code class="literal">rwx_supported</code> option is set to <code class="literal">false</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">cache_storage_class</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								Default storage class
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A storage class used for the cache volume. This CR is ignored when the <code class="literal">rwx_supported</code> option is set to <code class="literal">false</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">feature_auth_required</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								True
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A flag that indicates whether keycloak authorization is required. When set to <code class="literal">false</code>, the flag mounts to <code class="literal">“noauth“</code>, which means only a single user can use the web console. The single user is the default <code class="literal">admin</code> user.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">feature_isolate_namespace</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								True
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A flag that indicates whether namespace isolation by using network policies is enabled.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">hub_database_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								10 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A size requested for the Hub database volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">hub_bucket_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								100 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A size requested for the Hub bucket volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">hub_bucket_storage_class</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								Default storage class
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A storage class used for the bucket volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">keycloak_database_data_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								1 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A size requested for the Keycloak database volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">pathfinder_database_data_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								1 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A size requested for the Pathfinder database volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">rwx_supported</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								True
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A flag that indicates whether the cluster storage supports RWX mode.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">rwo_storage_class</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								NA
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A storage class requested for the Tackle RWO volumes.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">rhsso_external_access</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								False
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A flag that indicates whether a dedicated route is created to access the MTA managed RHSSO instance.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">analyzer_container_limits_cpu</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								1
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A maximum number of CPUs the pod is allowed to use.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">analyzer_container_limits_memory</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								4 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								Maximum amount of memory the pod is allowed to use. You can increase this limit if the pod displays <code class="literal">OOMKilled</code> errors.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">analyzer_container_requests_cpu</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								1
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								A minimum number of CPUs the pod needs to run.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45995747160864">
+							</td></tr><tr><td align="left" valign="top" headers="idm44969454133904">
 							<p>
 								<code class="literal">analyzer_container_requests_memory</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747159776">
+							</td><td align="left" valign="top" headers="idm44969454132816">
 							<p>
 								4 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45995747158688">
+							</td><td align="left" valign="top" headers="idm44969454131728">
 							<p>
 								Minimum amount of memory the pod needs to run.
 							</p>
@@ -1159,7 +1159,7 @@ Server: Docker Desktop 4.32.0 (157355)
 					<a class="link" href="https://developer.jboss.org/en/windup">MTA forums</a>
 				</li><li class="listitem">
 					<a class="link" href="https://issues.redhat.com/projects/MTA/issues/MTA-4961?filter=allopenissues">Jira issues tracker</a>
-				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45995750745872"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm44969455362048"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2026 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
