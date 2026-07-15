@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Installing the migration toolkit for applications</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA), you can accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. For example, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45101887950016"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.1</span></div><div><h1 class="title">Installing the migration toolkit for applications</h1></div><div><h2 class="subtitle">Installing the migration toolkit for applications user interface and command-line interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45101885514016">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Installing the migration toolkit for applications</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="By using the migration toolkit for applications (MTA), you can accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. For example, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45025268184816"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.1</span></div><div><h1 class="title">Installing the migration toolkit for applications</h1></div><div><h2 class="subtitle">Installing the migration toolkit for applications user interface and command-line interface</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45025249443024">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				By using the migration toolkit for applications (MTA), you can accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. For example, you can inventory, assess, analyze, and manage applications for faster migration to OpenShift through the user interface at both the portfolio and application levels.
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#intro-to-mta_installing-mta-title">1. Introduction to the migration toolkit for applications</a></span><ul><li><span class="section"><a href="#mta-features_intro-to-mta">1.1. MTA features</a></span></li><li><span class="section"><a href="#mta-rules_intro-to-mta">1.2. MTA rules</a></span></li><li><span class="section"><a href="#mta-tools_intro-to-mta">1.3. MTA tools</a></span></li></ul></li><li><span class="chapter"><a href="#supported-migration-paths_installing-mta-title">2. Supported migration toolkit for applications migration paths</a></span></li><li><span class="chapter"><a href="#installing-mta-ui_installing-mta-title">3. Installing the migration toolkit for applications user interface</a></span><ul><li><span class="section"><a href="#persistent-volume-requirements_installing-mta-ui">3.1. Persistent volume requirements</a></span></li><li><span class="section"><a href="#installing-mta-operator_installing-mta-ui">3.2. Installing the MTA Operator</a></span></li><li><span class="section"><a href="#creating-mta-instance_installing-mta-ui">3.3. Creating an MTA instance</a></span></li><li><span class="section"><a href="#custom-resource-settings_installing-mta-ui">3.4. Custom resource settings</a></span></li></ul></li><li><span class="chapter"><a href="#installing-mta-cli_installing-mta-title">4. Installing the migration toolkit for applications command-line interface</a></span><ul><li><span class="section"><a href="#installing-cli-zip_installing-mta-cli">4.1. Installing the CLI by using a .zip file</a></span></li><li><span class="section"><a href="#installing-mta-disconnected-environment_installing-mta-cli">4.2. Installing the CLI on a disconnected environment</a></span></li><li><span class="section"><a href="#installing-cli-for-docker_installing-mta-cli">4.3. Installing the CLI for use with Docker on Windows</a></span></li></ul></li><li><span class="chapter"><a href="#hub-oidc-authentication_installing-mta-title">5. Authentication and Authorization</a></span><ul><li><span class="section"><a href="#why-use-hub-oidc_hub-oidc-authentication">5.1. Why use the Hub OIDC</a></span></li><li><span class="section"><a href="#administrative-tasks_hub-oidc-authentication">5.2. Administrative tasks</a></span><ul><li><span class="section"><a href="#optional-configuration_hub-oidc-authentication">5.2.1. Optional configurations</a></span></li></ul></li><li><span class="section"><a href="#enable-authentication-cr_hub-oidc-authentication">5.3. Enable authentication in Tackle custom resource</a></span></li></ul></li><li><span class="chapter"><a href="#basic-authentication-local-users_installing-mta-title">6. Basic authentication for local users</a></span><ul><li><span class="section"><a href="#add-users-assign-roles-web-console_basic-authentication-local-users">6.1. Add users and assign roles in the web console</a></span></li><li><span class="section"><a href="#change-password-web-console_basic-authentication-local-users">6.2. Change password in the web console</a></span></li><li><span class="section"><a href="#create-custom-role-assign-permissions_basic-authentication-local-users">6.3. Create a custom role and assign permissions</a></span></li></ul></li><li><span class="chapter"><a href="#ldap-authentication_installing-mta-title">7. LDAP authentication</a></span><ul><li><span class="section"><a href="#ldap-token-lifecycle_ldap-authentication">7.1. LDAP token lifecycle</a></span></li><li><span class="section"><a href="#create-custom-resource-ldap-federation_ldap-authentication">7.2. Create a custom resource for LDAP or AD federation</a></span></li><li><span class="section"><a href="#logic-operators-rule-semantics-ldap-mappings_ldap-authentication">7.3. Logic operators and rules in LDAP mappings</a></span></li><li><span class="section"><a href="#openldap-active-directory-configurations_ldap-authentication">7.4. OpenLDAP and Active Directory configurations</a></span></li></ul></li><li><span class="chapter"><a href="#red-hat-build-of-keycloak_installing-mta-title">8. Red Hat build of Keycloak</a></span><ul><li><span class="section"><a href="#keycloak-migration_red-hat-build-of-keycloak">8.1. Keycloak migration</a></span></li><li><span class="section"><a href="#scope-rhbk_red-hat-build-of-keycloak">8.2. Scope management in RHBK</a></span><ul><li><span class="section"><a href="#dynamic_scopes">8.2.1. Dynamic scopes</a></span></li></ul></li><li><span class="section"><a href="#accessing-rhbk-admin-console_red-hat-build-of-keycloak">8.3. Accessing the RHBK Admin Console</a></span></li><li><span class="section"><a href="#roles-personas-users-permissions_red-hat-build-of-keycloak">8.4. Roles, personas, users, and permissions</a></span></li></ul></li><li><span class="chapter"><a href="#identity-provider-authentication_installing-mta-title">9. Identity provider authentication</a></span><ul><li><span class="section"><a href="#create-secret-idp-client_identity-provider-authentication">9.1. Create a secret for the IdP client</a></span></li><li><span class="section"><a href="#configure-identity-provider-cr_identity-provider-authentication">9.2. Configure an identity provider custom resource</a></span></li></ul></li><li><span class="chapter"><a href="#managing-access-tokens-api-keys_installing-mta-title">10. Token management</a></span><ul><li><span class="section"><a href="#generate-api-key-web-console_managing-access-tokens-api-keys">10.1. Generate API key from the web console</a></span></li><li><span class="section"><a href="#revoke-api-key-admin_managing-access-tokens-api-keys">10.2. Revoke API keys as an administrator</a></span></li><li><span class="section"><a href="#revoke-api-key-migrator_managing-access-tokens-api-keys">10.3. Revoke API keys as an migrator</a></span></li></ul></li><li><span class="chapter"><a href="#authentication-fields-tackle-cr_installing-mta-title">11. Authentication fields in the Tackle CR</a></span></li><li><span class="chapter"><a href="#uri-templating-wildcard-patterns_installing-mta-title">12. URI templating and wildcard patterns</a></span><ul><li><span class="section"><a href="#uri-template-variables_uri-templating-wildcard-patterns">12.1. URI template variables</a></span></li><li><span class="section"><a href="#uri-wildcard-patterns_uri-templating-wildcard-patterns">12.2. URI wildcard patterns</a></span></li></ul></li><li><span class="appendix"><a href="#contributing-to-mta-development">A. How to contribute to the MTA project</a></span></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#intro-to-mta_installing-mta-title">1. Introduction to the migration toolkit for applications</a></span><ul><li><span class="section"><a href="#mta-features_intro-to-mta">1.1. MTA features</a></span></li><li><span class="section"><a href="#mta-rules_intro-to-mta">1.2. MTA rules</a></span></li><li><span class="section"><a href="#mta-tools_intro-to-mta">1.3. MTA tools</a></span></li></ul></li><li><span class="chapter"><a href="#supported-migration-paths_installing-mta-title">2. Supported migration toolkit for applications migration paths</a></span></li><li><span class="chapter"><a href="#installing-mta-ui_installing-mta-title">3. Installing the migration toolkit for applications user interface</a></span><ul><li><span class="section"><a href="#persistent-volume-requirements_installing-mta-ui">3.1. Persistent volume requirements</a></span></li><li><span class="section"><a href="#installing-mta-operator_installing-mta-ui">3.2. Installing the MTA Operator</a></span></li><li><span class="section"><a href="#creating-mta-instance_installing-mta-ui">3.3. Creating an MTA instance</a></span></li><li><span class="section"><a href="#custom-resource-settings_installing-mta-ui">3.4. Custom resource settings</a></span></li></ul></li><li><span class="chapter"><a href="#installing-mta-cli_installing-mta-title">4. Installing the migration toolkit for applications command-line interface</a></span><ul><li><span class="section"><a href="#installing-cli-zip_installing-mta-cli">4.1. Installing the CLI by using a .zip file</a></span></li><li><span class="section"><a href="#installing-mta-disconnected-environment_installing-mta-cli">4.2. Installing the CLI on a disconnected environment</a></span></li><li><span class="section"><a href="#installing-cli-for-docker_installing-mta-cli">4.3. Installing the CLI for use with Docker on Windows</a></span></li></ul></li><li><span class="chapter"><a href="#hub-oidc-authentication_installing-mta-title">5. Authentication and Authorization</a></span><ul><li><span class="section"><a href="#why-use-hub-oidc_hub-oidc-authentication">5.1. Why use the Hub OIDC</a></span></li><li><span class="section"><a href="#administrative-tasks_hub-oidc-authentication">5.2. Administrative tasks</a></span><ul><li><span class="section"><a href="#optional-configuration_hub-oidc-authentication">5.2.1. Optional configurations</a></span></li></ul></li><li><span class="section"><a href="#enable-authentication-cr_hub-oidc-authentication">5.3. Enable authentication in Tackle custom resource</a></span></li></ul></li><li><span class="chapter"><a href="#basic-authentication-local-users_installing-mta-title">6. Basic authentication for local users</a></span><ul><li><span class="section"><a href="#add-users-assign-roles-web-console_basic-authentication-local-users">6.1. Add users and assign roles in the web console</a></span></li><li><span class="section"><a href="#change-password-web-console_basic-authentication-local-users">6.2. Change password in the web console</a></span></li><li><span class="section"><a href="#create-custom-role-assign-permissions_basic-authentication-local-users">6.3. Create a custom role and assign permissions</a></span></li></ul></li><li><span class="chapter"><a href="#ldap-authentication_installing-mta-title">7. LDAP authentication</a></span><ul><li><span class="section"><a href="#ldap-token-lifecycle_ldap-authentication">7.1. LDAP token lifecycle</a></span></li><li><span class="section"><a href="#create-custom-resource-ldap-federation_ldap-authentication">7.2. Create a custom resource for LDAP or AD federation</a></span></li><li><span class="section"><a href="#logic-operators-rule-semantics-ldap-mappings_ldap-authentication">7.3. Logic operators and rules in LDAP mappings</a></span></li><li><span class="section"><a href="#openldap-active-directory-configurations_ldap-authentication">7.4. OpenLDAP and Active Directory configurations</a></span></li></ul></li><li><span class="chapter"><a href="#red-hat-build-of-keycloak_installing-mta-title">8. Red Hat build of Keycloak</a></span><ul><li><span class="section"><a href="#keycloak-migration_red-hat-build-of-keycloak">8.1. Keycloak migration</a></span></li><li><span class="section"><a href="#scope-rhbk_red-hat-build-of-keycloak">8.2. Dynamic scope expansion in RHBK</a></span><ul><li><span class="section"><a href="#manual_scope_management">8.2.1. Manual scope management</a></span></li></ul></li><li><span class="section"><a href="#accessing-rhbk-admin-console_red-hat-build-of-keycloak">8.3. Accessing the RHBK Admin Console</a></span></li><li><span class="section"><a href="#roles-personas-users-permissions_red-hat-build-of-keycloak">8.4. Roles, personas, users, and permissions</a></span></li></ul></li><li><span class="chapter"><a href="#identity-provider-authentication_installing-mta-title">9. Identity provider authentication</a></span><ul><li><span class="section"><a href="#create-secret-idp-client_identity-provider-authentication">9.1. Create a secret for the IdP client</a></span></li><li><span class="section"><a href="#configure-identity-provider-cr_identity-provider-authentication">9.2. Configure an identity provider custom resource</a></span></li></ul></li><li><span class="chapter"><a href="#managing-access-tokens-api-keys_installing-mta-title">10. Token management</a></span><ul><li><span class="section"><a href="#generate-api-key-web-console_managing-access-tokens-api-keys">10.1. Generate API key from the web console</a></span></li><li><span class="section"><a href="#revoke-api-key-admin_managing-access-tokens-api-keys">10.2. Revoke API keys as an administrator</a></span></li><li><span class="section"><a href="#revoke-api-key-migrator_managing-access-tokens-api-keys">10.3. Revoke API keys as an migrator</a></span></li></ul></li><li><span class="chapter"><a href="#authentication-fields-tackle-cr_installing-mta-title">11. Authentication fields in the Tackle CR</a></span></li><li><span class="chapter"><a href="#uri-templating-wildcard-patterns_installing-mta-title">12. URI templating and wildcard patterns</a></span><ul><li><span class="section"><a href="#uri-template-variables_uri-templating-wildcard-patterns">12.1. URI template variables</a></span></li><li><span class="section"><a href="#uri-wildcard-patterns_uri-templating-wildcard-patterns">12.2. URI wildcard patterns</a></span></li></ul></li><li><span class="appendix"><a href="#contributing-to-mta-development">A. How to contribute to the MTA project</a></span></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
 		</p></section><section class="chapter" id="intro-to-mta_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction to the migration toolkit for applications</h1></div></div></div><p class="_abstract _abstract">
 			The migration toolkit for applications (MTA) is a set of tools that you can use to accelerate large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. MTA looks for common resources and problematic spots when migrating applications. It gives a high-level view of the technologies used by the application. MTA also generates a detailed report that evaluates a migration or modernization path. By using this report, you can estimate the effort needed for large-scale projects and reduce the workload involved in the process.
@@ -120,438 +120,438 @@
 						<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.1/html-single/configuring_and_using_the_visual_studio_code_extension_for_mta/index">Configuring and using the Visual Studio Code Extension for MTA</a>
 					</li></ul></div></section></section><section class="chapter" id="supported-migration-paths_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Supported migration toolkit for applications migration paths</h1></div></div></div><p class="_abstract _abstract">
 			You can use the migration toolkit for applications (MTA) to assess your applications' suitability for the migration to multiple target platforms. Review the supported migration paths to verify that your planned migration uses a valid combination of source and target technologies. Adhering to these paths helps ensure that MTA can successfully analyze and migrate your applications.
-		</p><div class="table" id="idm45101882855472"><p class="title"><strong>Table 2.1. Supported Java migration paths</strong></p><div class="table-contents"><table class="gt-8-cols lt-7-rows"><colgroup><col style="width: 19%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 10%; " class="col_5"/><col style="width: 10%; " class="col_6"/><col style="width: 10%; " class="col_7"/><col style="width: 10%; " class="col_8"/><col style="width: 10%; " class="col_9"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101889934336" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45101889933216" scope="col">Migration to JBoss EAP 7 &amp; 8</th><th align="left" valign="top" id="idm45101889932096" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45101889930992" scope="col">OpenJDK 11, 17, and 21</th><th align="left" valign="top" id="idm45101890457456" scope="col">Jakarta EE 9</th><th align="left" valign="top" id="idm45101890456368" scope="col">Camel 3 &amp; 4</th><th align="left" valign="top" id="idm45101890455280" scope="col">Spring Boot in Red Hat Runtimes</th><th align="left" valign="top" id="idm45101890454176" scope="col">Quarkus</th><th align="left" valign="top" id="idm45101890453088" scope="col">Open Liberty</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101889934336">
+		</p><div class="table" id="idm45025252422032"><p class="title"><strong>Table 2.1. Supported Java migration paths</strong></p><div class="table-contents"><table class="gt-8-cols lt-7-rows"><colgroup><col style="width: 19%; " class="col_1"/><col style="width: 10%; " class="col_2"/><col style="width: 10%; " class="col_3"/><col style="width: 10%; " class="col_4"/><col style="width: 10%; " class="col_5"/><col style="width: 10%; " class="col_6"/><col style="width: 10%; " class="col_7"/><col style="width: 10%; " class="col_8"/><col style="width: 10%; " class="col_9"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025252727952" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45025252726832" scope="col">Migration to JBoss EAP 7 &amp; 8</th><th align="left" valign="top" id="idm45025247645776" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45025247644720" scope="col">OpenJDK 11, 17, and 21</th><th align="left" valign="top" id="idm45025247643632" scope="col">Jakarta EE 9</th><th align="left" valign="top" id="idm45025247642544" scope="col">Camel 3 &amp; 4</th><th align="left" valign="top" id="idm45025247641456" scope="col">Spring Boot in Red Hat Runtimes</th><th align="left" valign="top" id="idm45025247640400" scope="col">Quarkus</th><th align="left" valign="top" id="idm45025247639312" scope="col">Open Liberty</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Oracle WebLogic Server
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							IBM WebSphere Application Server
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							✔
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							JBoss EAP 4
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✘ <a href="#ftn.note2" class="footnote"><sup class="footnote" id="note2">[a]</sup></a>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							JBoss EAP 5
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							JBoss EAP 6
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							JBoss EAP 7
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
 						<p>
 							
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Thorntail 
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							✔ <a href="#ftn.note3" class="footnote"><sup class="footnote" id="note3">[b]</sup></a>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Oracle JDK
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Camel 2
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Spring Boot
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Any Java application
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101889934336">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025252727952">
 						<p>
 							Any Java EE application
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889933216">
+						</td><td align="left" valign="top" headers="idm45025252726832">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889932096">
+						</td><td align="left" valign="top" headers="idm45025247645776">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101889930992">
+						</td><td align="left" valign="top" headers="idm45025247644720">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890457456">
+						</td><td align="left" valign="top" headers="idm45025247643632">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890456368">
+						</td><td align="left" valign="top" headers="idm45025247642544">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890455280">
+						</td><td align="left" valign="top" headers="idm45025247641456">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890454176">
+						</td><td align="left" valign="top" headers="idm45025247640400">
 						<p>
 							-
 						</p>
-						</td><td align="left" valign="top" headers="idm45101890453088">
+						</td><td align="left" valign="top" headers="idm45025247639312">
 						<p>
 							-
 						</p>
@@ -561,15 +561,15 @@
 								Requires JBoss EAP expansion pack 2 (JBoss EAP XP 2).
 							</div></div></td></tr></tbody></table></div></div><p>
 			..NET migration paths
-		</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101885939008" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45101885937888" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45101885936784" scope="col">Migration to .NET 8.0</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101885939008">
+		</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025247379936" scope="col">Source platform ⇒</th><th align="left" valign="top" id="idm45025247378816" scope="col">OpenShift (cloud readiness)</th><th align="left" valign="top" id="idm45025247377760" scope="col">Migration to .NET 8.0</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025247379936">
 						<p>
 							.NET Framework 4.5+ (Windows only)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101885937888">
+						</td><td align="left" valign="top" headers="idm45025247378816">
 						<p>
 							✔
 						</p>
-						</td><td align="left" valign="top" headers="idm45101885936784">
+						</td><td align="left" valign="top" headers="idm45025247377760">
 						<p>
 							✔
 						</p>
@@ -587,83 +587,83 @@
 				To successfully deploy the migration toolkit for applications (MTA) Operator, you must create a persistent volume (PV) used by different MTA components.
 			</p><p>
 				 The MTA Operator requires two <code class="literal">ReadWriteOnce</code> (RWO) PVs. If the <code class="literal">rwx_supported</code> configuration option is set to <code class="literal">true</code>, the MTA Operator needs two additional ReadWriteMany (RWX) PVs used by Maven and the hub file storage. 
-			</p><div class="table" id="idm45101889843216"><p class="title"><strong>Table 3.1. Required persistent volumes</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 25%; " class="col_3"/><col style="width: 25%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101884655344" scope="col">Name</th><th align="left" valign="top" id="idm45101884654256" scope="col">Default size</th><th align="left" valign="top" id="idm45101884653168" scope="col">Access mode</th><th align="left" valign="top" id="idm45101884652080" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101884655344">
+			</p><div class="table" id="idm45025245035984"><p class="title"><strong>Table 3.1. Required persistent volumes</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 25%; " class="col_1"/><col style="width: 25%; " class="col_2"/><col style="width: 25%; " class="col_3"/><col style="width: 25%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025248586336" scope="col">Name</th><th align="left" valign="top" id="idm45025248585248" scope="col">Default size</th><th align="left" valign="top" id="idm45025248584160" scope="col">Access mode</th><th align="left" valign="top" id="idm45025248583072" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025248586336">
 							<p>
 								<code class="literal">hub database</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884654256">
+							</td><td align="left" valign="top" headers="idm45025248585248">
 							<p>
 								<code class="literal">10Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884653168">
+							</td><td align="left" valign="top" headers="idm45025248584160">
 							<p>
 								RWO
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884652080">
+							</td><td align="left" valign="top" headers="idm45025248583072">
 							<p>
 								Hub database
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101884655344">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248586336">
 							<p>
 								<code class="literal">hub bucket</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884654256">
+							</td><td align="left" valign="top" headers="idm45025248585248">
 							<p>
 								<code class="literal">100Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884653168">
+							</td><td align="left" valign="top" headers="idm45025248584160">
 							<p>
 								RWX
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884652080">
+							</td><td align="left" valign="top" headers="idm45025248583072">
 							<p>
 								Hub file storage required if the <code class="literal">rwx_supported</code> configuration option is set to <code class="literal">true</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101884655344">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248586336">
 							<p>
 								<code class="literal">keycloak postgresql</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884654256">
+							</td><td align="left" valign="top" headers="idm45025248585248">
 							<p>
 								<code class="literal">1Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884653168">
+							</td><td align="left" valign="top" headers="idm45025248584160">
 							<p>
 								RWO
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884652080">
+							</td><td align="left" valign="top" headers="idm45025248583072">
 							<p>
 								Keycloak backend database
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101884655344">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248586336">
 							<p>
 								<code class="literal">cache</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884654256">
+							</td><td align="left" valign="top" headers="idm45025248585248">
 							<p>
 								<code class="literal">100Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884653168">
+							</td><td align="left" valign="top" headers="idm45025248584160">
 							<p>
 								RWX
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884652080">
+							</td><td align="left" valign="top" headers="idm45025248583072">
 							<p>
 								Maven m2 cache required if the <code class="literal">rwx_supported</code> configuration option is set to <code class="literal">true</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101884655344">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248586336">
 							<p>
 								<code class="literal">kai-db</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884654256">
+							</td><td align="left" valign="top" headers="idm45025248585248">
 							<p>
 								<code class="literal">5Gi</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884653168">
+							</td><td align="left" valign="top" headers="idm45025248584160">
 							<p>
 								RWO
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884652080">
+							</td><td align="left" valign="top" headers="idm45025248583072">
 							<p>
 								Red Hat Developer Lightspeed for MTA database required to run an AI-assisted code resolution.
 							</p>
@@ -757,183 +757,183 @@ spec:
 				When installing the migration toolkit for applications (MTA) Operator, you might need to create custom resource (CR) settings. The default settings are acceptable. However, make sure to check the system requirements for storage, memory, and cores.
 			</p><p>
 				The following are the most commonly used CR settings that you can find in the <code class="literal">spec</code> section of the YAML file.
-			</p><div class="table" id="idm45101887554912"><p class="title"><strong>Table 3.2. Common custom resource settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101887549136" scope="col">CR name</th><th align="left" valign="top" id="idm45101883223952" scope="col">Default size</th><th align="left" valign="top" id="idm45101883222976" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101887549136">
+			</p><div class="table" id="idm45025245533456"><p class="title"><strong>Table 3.2. Common custom resource settings</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025245818656" scope="col">CR name</th><th align="left" valign="top" id="idm45025245817568" scope="col">Default size</th><th align="left" valign="top" id="idm45025245816480" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">cache_data_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								100 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A size requested for the cache volume. This CR is ignored when the <code class="literal">rwx_supported</code> option is set to <code class="literal">false</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">cache_storage_class</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								Default storage class
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A storage class used for the cache volume. This CR is ignored when the <code class="literal">rwx_supported</code> option is set to <code class="literal">false</code>.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">feature_auth_required</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								True
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A flag that indicates whether keycloak authorization is required. When set to <code class="literal">false</code>, the flag mounts to <code class="literal">“noauth“</code>, which means only a single user can use the web console. The single user is the default <code class="literal">admin</code> user.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">feature_isolate_namespace</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								True
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A flag that indicates whether namespace isolation by using network policies is enabled.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">hub_database_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								10 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A size requested for the Hub database volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">hub_bucket_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								100 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A size requested for the Hub bucket volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">hub_bucket_storage_class</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								Default storage class
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A storage class used for the bucket volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">pathfinder_database_data_volume_size</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								1 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A size requested for the Pathfinder database volume.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">rwx_supported</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								True
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A flag that indicates whether the cluster storage supports RWX mode.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">rwo_storage_class</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								NA
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A storage class requested for the Tackle RWO volumes.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">rhsso_external_access</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								False
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A flag that indicates whether a dedicated route is created to access the MTA managed RHSSO instance.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">analyzer_container_limits_cpu</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								1
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A maximum number of CPUs the pod is allowed to use.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">analyzer_container_limits_memory</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								4 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								Maximum amount of memory the pod is allowed to use. You can increase this limit if the pod displays <code class="literal">OOMKilled</code> errors.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">analyzer_container_requests_cpu</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								1
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								A minimum number of CPUs the pod needs to run.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101887549136">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025245818656">
 							<p>
 								<code class="literal">analyzer_container_requests_memory</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883223952">
+							</td><td align="left" valign="top" headers="idm45025245817568">
 							<p>
 								4 GB
 							</p>
-							</td><td align="left" valign="top" headers="idm45101883222976">
+							</td><td align="left" valign="top" headers="idm45025245816480">
 							<p>
 								Minimum amount of memory the pod needs to run.
 							</p>
@@ -1080,45 +1080,45 @@ Server: Docker Desktop 4.32.0 (157355)
 					</p><pre class="screen">PS C:\Users\&lt;user_name&gt;&gt; <span class="strong strong"><strong>$env:RUNNER_IMG="quay.io/konveyor/kantra:v0.5.0"</strong></span></pre></li></ol></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
 						<a class="link" href="https://docs.docker.com/desktop/install/windows-install/">Install Docker Desktop on Windows</a>
 					</li></ul></div></section></section><section class="chapter" id="hub-oidc-authentication_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 5. Authentication and Authorization</h1></div></div></div><p class="_abstract _abstract">
-			To authenticate users in the migration toolkit for applications (MTA) 8.2.0 installations, you can use the Hub OpenID Connect (OIDC) provider. When upgrading to MTA 8.2.0, you can use the Hub OIDC to reduce infrastructure management or integrate MTA with any OIDC provider.
+			To authenticate users in the migration toolkit for applications (MTA), you can use the Hub OpenID Connect (OIDC) provider to reduce infrastructure management or integrate MTA with any OIDC provider.
 		</p><section class="section" id="why-use-hub-oidc_hub-oidc-authentication"><div class="titlepage"><div><div><h2 class="title">5.1. Why use the Hub OIDC</h2></div></div></div><p class="_abstract _abstract">
 				The migration toolkit for applications (MTA) Hub implements an OpenID Connect (OIDC) standards-compliant provider that offers local user authentication and federation to other providers.
 			</p><p>
 				The MTA Hub OIDC provider offers the following advantages:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						Provides you with an option to remove Keycloak dependency to configure users, roles, and permissions. To use Keycloak, you must provision and manage more infrastructure resources.
+						An option to remove the Keycloak dependency for configuring users, roles, and permissions. Without Keycloak, you need not provision and manage extra infrastructure resources.
 					</li><li class="listitem">
-						Simplifies role-based access control (RBAC) deployment by allowing you to manage users, default and custom roles, and permissions in the MTA application.
+						Simplified role-based access control (RBAC) deployment that allows you to manage users, default and custom roles, and permissions in the MTA application.
 					</li><li class="listitem">
-						Provides you with an option to integrate Lightweight Directory Access Protocol (LDAP) or federate to another Identity Provider (IdP).
+						An option to integrate Lightweight Directory Access Protocol (LDAP) or federate to another identity provider (IdP).
 					</li><li class="listitem">
-						Provides a permanent list of immutable permissions that map to specific API resources and operations. This ensures authorization works consistently across deployments and simplifies security audits.
+						A permanent list of immutable permissions that map to specific application programming interface (API) resources and operations. This list ensures that authorization works consistently across deployments and simplifies security audits.
 					</li><li class="listitem">
-						Allows tasks and add-ons access to the MTA Application Programming Interfaces (APIs) through Personal Access Tokens (PATs) with fine-grained permissions.
+						Tasks and add-on access to the MTA APIs through personal access tokens (PATs) with fine-grained permissions.
 					</li></ul></div></section><section class="section" id="administrative-tasks_hub-oidc-authentication"><div class="titlepage"><div><div><h2 class="title">5.2. Administrative tasks</h2></div></div></div><p class="_abstract _abstract">
-				Administrators can configure user authentication and understand user, role, and token management. migration toolkit for applications (MTA) offers you the flexibility to customize configuration as you need.
+				As an administrator, you can configure user authentication and manage users, roles, and tokens to customize your environment.
 			</p><p>
-				You can use any one of the authentication flows by using MTA Hub OpenID Connect (OIDC):
+				You can use one of the following authentication flows with the MTA Hub OpenID Connect (OIDC):
 			</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">Local authentication and authorization</span></dt><dd>
-							Add users and link roles to them in the MTA application. You do not need any extra configuration.
+							You can add users and link roles to them in the MTA application without any extra configuration.
 						</dd><dt><span class="term">Lightweight Directory Access Protocol (LDAP)-backed authentication</span></dt><dd>
-							Configure an <code class="literal">LdapProvider</code> CR to integrate LDAP users. Optionally, configure and deploy secrets in your Red Hat OpenShift cluster for a secure connection with the LDAP client.
+							Configure an <code class="literal">LdapProvider</code> custom resource (CR) to integrate LDAP users. Optionally, configure and deploy secrets in your Red Hat OpenShift cluster for a secure connection with the LDAP client.
 						</dd><dt><span class="term">Federated authentication to Identity Providers (IdPs)</span></dt><dd>
 							Configure the <code class="literal">IdentityProvider</code> CR to federate authentication to an IdP such as Google, Okta, Keycloak, or Microsoft Entra ID (formerly, Azure Active Directory). Optionally, configure and deploy secrets in your Red Hat OpenShift cluster for a secure connection with the IdP client.
 						</dd></dl></div><p>
-				To migrate Keycloak implemented in previous versions after an MTA 8.2.0 upgrade, see Keycloak migration.
+				To migrate Keycloak that you implemented in earlier versions after an MTA 8.2.0 upgrade, see Keycloak migration.
 			</p><section class="section" id="optional-configuration_hub-oidc-authentication"><div class="titlepage"><div><div><h3 class="title">5.2.1. Optional configurations</h3></div></div></div><p>
-					If necessary, you can configure authentication fields, custom roles, and API keys.
+					You can complete the following optional configure tasks:
 				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 							Configure authentication and token variables in the Tackle custom resource (CR).
 						</li><li class="listitem">
 							Create custom roles.
 						</li><li class="listitem">
-							Create and revoke API keys.
+							Create and revoke application programming interface (API) keys.
 						</li></ul></div><div class="itemizedlist"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist" type="role=_additional-resources"><li class="listitem">
 							<a class="link" href="#red-hat-build-of-keycloak_installing-mta-title" title="Chapter 8. Red Hat build of Keycloak">Keycloak migration</a>
 						</li></ul></div></section></section><section class="section" id="enable-authentication-cr_hub-oidc-authentication"><div class="titlepage"><div><div><h2 class="title">5.3. Enable authentication in Tackle custom resource</h2></div></div></div><p class="_abstract _abstract">
-				Administrators can optionally configure authentication fields and token lifespan in the Tackle custom resource. If you do not configure, the migration toolkit for applications (MTA) Hub applies default values for the authentication and token fields.
+				As an administrator, you can configure authentication fields and the token lifespan in the Tackle custom resource (CR). If you do not configure these fields, the migration toolkit for applications (MTA) Hub applies default values.
 			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 						You deployed a Red Hat OpenShift cluster.
 					</li><li class="listitem">
@@ -1138,123 +1138,125 @@ Server: Docker Desktop 4.32.0 (157355)
   hub_auth_cache_lifespan:5
   hub_ldap_auth_lifespan:5
   hub_oidc_key_rotation:90</pre><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-								<code class="literal">feature_auth_required</code>:: Enforces authentication to the Hub API and the web console. By default, the value is <code class="literal">true</code>.
+								<code class="literal">feature_auth_required</code>:: Specifies whether to enforce authentication to the Hub API and the web console. By default, the value is <code class="literal">true</code>.
+							</li><li class="listitem"><p class="simpara">
+								<code class="literal">idp_primary</code>:: Specifies whether MTA Hub automatically redirects authentication to the auto-discovered Keycloak identity provider in upgraded deployments. When this value is <code class="literal">true</code> in other deployments, the Hub redirects to the IdP automatically.
+							</p><p class="simpara">
+								When <code class="literal">false</code>, users can authenticate on the MTA login page. If you configured an identity provider (IdP), then users can authenticate by using the IdP button on the login page.
+							</p></li><li class="listitem">
+								<code class="literal">hub_oidc_token_lifespan</code>:: Specifies the OAuth access token lifespan. The default value is 300 seconds.
 							</li><li class="listitem">
-								<code class="literal">idp_primary</code>:: If you set this field <code class="literal">true</code>, MTA Hub automatically redirects authentication to the auto-discovered Keycloak Identity Provider in upgraded deployments where users authenticated using Keycloak. If the field value is <code class="literal">false</code>, users can authenticate on the MTA login page. If you configured an identity provider (IdP), then users can authenticate by using the IdP button on the login page.
+								<code class="literal">hub_oidc_refresh_token_lifespan</code>:: Specifies the OAuth refresh token lifespan. The default value is 172800 seconds (2 days).
 							</li><li class="listitem">
-								<code class="literal">hub_oidc_token_lifespan</code>:: By default, the OAuth access token lifespan is 300 seconds.
+								<code class="literal">hub_apikey_lifespan</code>:: Specifies the OAuth API key lifespan. The default value is 87600 hours.
 							</li><li class="listitem">
-								<code class="literal">hub_oidc_refresh_token_lifespan</code>:: By default, the OAuth refresh token lifespan is 172800 seconds or 2 days.
+								<code class="literal">hub_auth_cache_lifespan</code>:: Specifies the OAuth authentication cache lifespan. The default lifespan is 5 minutes.
 							</li><li class="listitem">
-								<code class="literal">hub_apikey_lifespan</code>:: By default, the OAuth API key lifespan is 87600 hours.
+								<code class="literal">hub_ldap_auth_lifespan</code>:: Specifies the LDAP authentication lifespan. The default lifespan is 5 minutes.
 							</li><li class="listitem">
-								<code class="literal">hub_auth_cache_lifespan</code>:: By default, the OAuth authentication cache lifespan is 5 minutes.
-							</li><li class="listitem">
-								<code class="literal">hub_ldap_auth_lifespan</code>:: By default, the LDAP authentication lifespan is 5 minutes.
-							</li><li class="listitem">
-								<code class="literal">hub_oidc_key_rotation</code>:: By default, the OIDC key rotation interval is 90 days.
+								<code class="literal">hub_oidc_key_rotation</code>:: Specifies the OIDC key rotation interval. The default value is 90 days.
 							</li></ul></div></li><li class="listitem"><p class="simpara">
 						Save the changes and exit the text editor to apply the changes:
 					</p><pre class="screen"><span class="strong strong"><strong>:wq!</strong></span></pre></li></ol></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
 						<a class="link" href="#authentication-fields-tackle-cr_installing-mta-title" title="Chapter 11. Authentication fields in the Tackle CR">Authentication fields in the Tackle CR</a>
 					</li></ul></div></section></section><section class="chapter" id="basic-authentication-local-users_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 6. Basic authentication for local users</h1></div></div></div><p class="_abstract _abstract">
-			Administrators can use a simple authentication workflow to manage users, roles, role-based access control (RBAC) permissions in the MTA inventory with no added infrastructure requirements.
+			As an administrator, you can use a simple authentication workflow to manage users, roles, and role-based access control (RBAC) permissions in the MTA inventory with no added infrastructure requirements.
 		</p><section class="section" id="add-users-assign-roles-web-console_basic-authentication-local-users"><div class="titlepage"><div><div><h2 class="title">6.1. Add users and assign roles in the web console</h2></div></div></div><p class="_abstract _abstract">
-				Administrators can manage users and assign one or more roles to a user for local authentication and authorization. If you assign one or more roles to a user, the user gets all the unique permissions associated with the roles.
+				As an administrator, you can manage users and assign one or more roles to them for local authentication and authorization. When you assign roles to a user, they receive all the unique permissions that are associated with the roles.
 			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-						You are an MTA Administrator.
+						You are an MTA administrator.
 					</li><li class="listitem">
-						The cluster administrator installed MTA 8.2.
+						The cluster administrator has installed MTA 8.2 or later.
 					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						Log in to the MTA web console.
 					</li><li class="listitem">
-						In the Administration mode, go to <span class="strong strong"><strong>User Management</strong></span>.
+						In the <span class="strong strong"><strong>Administration</strong></span> mode, click <span class="strong strong"><strong>User Management</strong></span>.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Users</strong></span>.
 					</li><li class="listitem"><p class="simpara">
-						Enter the following on the <span class="strong strong"><strong>Create user</strong></span> page:
+						On the <span class="strong strong"><strong>Create user</strong></span> page, enter the following information:
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-								Username in the <span class="strong strong"><strong>Login</strong></span> field.
+								Enter the username in the <span class="strong strong"><strong>Login</strong></span> field.
 							</li><li class="listitem">
-								Name of the user.
+								Enter the name of the user.
 							</li><li class="listitem">
-								Email address of the user.
+								Enter the email address of the user.
 							</li><li class="listitem">
-								A new password in the <span class="strong strong"><strong>Password</strong></span> field.
+								Enter a new password in the <span class="strong strong"><strong>Password</strong></span> field.
 							</li><li class="listitem">
-								The same password in the <span class="strong strong"><strong>Confirm Password</strong></span> field.
+								Enter the same password in the <span class="strong strong"><strong>Confirm Password</strong></span> field.
 							</li><li class="listitem">
 								Select one or more roles from the <span class="strong strong"><strong>Roles</strong></span> list.
 							</li></ul></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Create</strong></span>.
 					</li></ol></div></section><section class="section" id="change-password-web-console_basic-authentication-local-users"><div class="titlepage"><div><div><h2 class="title">6.2. Change password in the web console</h2></div></div></div><p class="_abstract _abstract">
-				To ensure that your account is not accessible with the default <code class="literal">admin</code> password, you must change your account password after the first login. When you change your password for the first time, you must also enter your account details.
+				To ensure that your account is not accessible with the default <code class="literal">admin</code> password, you must change your account password after you log in for the first time. When you change your password for the first time, also specify your account details.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						Log in to the MTA application with <code class="literal">admin</code> as your password.
 					</li><li class="listitem">
-						Click your role dropdown at the top right corner.
+						In the upper-right corner, click your role drop-down list.
 					</li><li class="listitem">
 						Select <span class="strong strong"><strong>User account</strong></span>.
 					</li><li class="listitem"><p class="simpara">
-						Enter the following on the Edit user page:
+						On the <span class="strong strong"><strong>Edit</strong></span> user page, enter the following information:
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-								Name
+								Enter your name.
 							</li><li class="listitem">
-								Email address
+								Enter your email address
 							</li><li class="listitem">
-								A new password in the <span class="strong strong"><strong>Password</strong></span> field.
+								Enter a new password in the <span class="strong strong"><strong>Password</strong></span> field.
 							</li><li class="listitem">
-								The same password in the <span class="strong strong"><strong>Confirm Password</strong></span> field.
+								Enter the same password in the <span class="strong strong"><strong>Confirm Password</strong></span> field.
 							</li></ul></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Save</strong></span>.
 					</li></ol></div><div class="formalpara"><p class="title"><strong>Verification</strong></p><p>
 					Log out of your account and log in with your new password.
 				</p></div></section><section class="section" id="create-custom-role-assign-permissions_basic-authentication-local-users"><div class="titlepage"><div><div><h2 class="title">6.3. Create a custom role and assign permissions</h2></div></div></div><p class="_abstract _abstract">
-				To enforce fine-grained role-based access control (RBAC) permissions for users to perform specific tasks, create custom roles and assign specific permissions in the migration toolkit for applications (MTA) web console. MTA exposes features based on the scope of the permissions you assign.
+				To enforce fine-grained role-based access control (RBAC) permissions for users to perform specific tasks, create custom roles and assign specific permissions in the migration toolkit for applications (MTA) web console. Users can access features based on the permissions that you assign to them.
 			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					You cannot alter or delete the default roles and permissions scoped to them.
 				</p></div></div><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 						You are an MTA Administrator user.
 					</li><li class="listitem">
-						You installed MTA 8.2.0.
+						You have installed MTA 8.2 or later.
 					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						Log in to the MTA web console.
 					</li><li class="listitem">
-						In the Administration mode, go to <span class="strong strong"><strong>User Management</strong></span>.
+						In the <span class="strong strong"><strong>Administration</strong></span> mode, go to <span class="strong strong"><strong>User Management</strong></span>.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Roles</strong></span>.
 					</li><li class="listitem">
 						Click the number of permissions scoped to the <code class="literal">admin</code> role to explore the resources and scoped permissions.
 					</li><li class="listitem">
-						On the Roles page, click <span class="strong strong"><strong>Create</strong></span>.
+						On the <span class="strong strong"><strong>Roles</strong></span> page, click <span class="strong strong"><strong>Create</strong></span>.
 					</li><li class="listitem">
-						Enter a unique name for the new role in the <span class="strong strong"><strong>Name</strong></span> field.
+						In the <span class="strong strong"><strong>Name</strong></span> field, enter a unique name for the new role.
 					</li><li class="listitem">
 						Type the name of a resource to see the list of permissions.
 					</li><li class="listitem"><p class="simpara">
-						Add one or more permissions:
+						Add one or more permissions by using one of the following methods:
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-								Select a permission from the <span class="strong strong"><strong>Permissions</strong></span> list and click the <span class="strong strong"><strong>Add selected</strong></span> icon.
+								From the <span class="strong strong"><strong>Permissions</strong></span> list, select a permission and click the <span class="strong strong"><strong>Add selected</strong></span> icon.
 							</li><li class="listitem">
 								Click the <span class="strong strong"><strong>Add all</strong></span> icon to select all the permissions for that resource.
 							</li></ul></div></li><li class="listitem">
 						Click <span class="strong strong"><strong>Create</strong></span>.
 					</li></ol></div></section></section><section class="chapter" id="ldap-authentication_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 7. LDAP authentication</h1></div></div></div><p class="_abstract _abstract">
-			Manage users by organization hierarchy, apply centralized identity management, and scale role assignment, by integrating the Hub OpenID Connect (OIDC) provider with Lightweight Directory Access Protocol (LDAP)-based authentication.
+			You can manage users by organization hierarchy, apply centralized identity management, and scale role assignment by integrating the Hub OpenID Connect (OIDC) provider with Lightweight Directory Access Protocol (LDAP)-based authentication.
 		</p><section class="section" id="ldap-token-lifecycle_ldap-authentication"><div class="titlepage"><div><div><h2 class="title">7.1. LDAP token lifecycle</h2></div></div></div><p class="_abstract _abstract">
-				Migration toolkit for applications (MTA) Hub manages token lifecycle in a Lightweight Directory Access Protocol (LDAP)-based authentication to account for changes in membership, user permission, and user account status.
+				The Migration toolkit for applications (MTA) Hub manages token lifecycle for Lightweight Directory Access Protocol (LDAP)-based authentication to account for changes in membership, user permission, and user account status.
 			</p><p>
-				A user authenticated by LDAP gets an access token that has a default lifespan of 5 minutes. When the access token expires, the authentication server checks for a cached LDAP identity. If the LDAP identity is cached and not expired, the Hub OIDC provider issues a new token with the cached scopes for the user. If the LDAP identity expires or is not cached, the Hub OIDC provider reauthenticates the user by connecting with the Directory Server (DS).
+				A user authenticated by LDAP receives an access token that has a default lifespan of 5 minutes. When the access token expires, the authentication server checks for a cached LDAP identity. If the LDAP identity is cached and not expired, the Hub OpenID Connect (OIDC) provider issues a new token with the cached scopes for the user. If the LDAP identity expires or is not cached, the Hub OIDC provider reauthenticates the user by connecting to the Directory Server (DS).
 			</p><p>
-				To issue or refresh an access token, the migration toolkit for applications (MTA) Hub connects with the DS by using the stored password, queries the LDAP groups again, maps the LDAP groups to MTA roles, and updates the user identity with expiration. The user need not manually reauthenticate to start the token refresh process.
+				To issue or refresh an access token, the migration toolkit for applications (MTA) Hub connects to the DS by using the stored password, queries the LDAP groups again, maps the LDAP groups to MTA roles, and updates the user identity with an expiration time. The user need not manually reauthenticate to start the token refresh process.
 			</p></section><section class="section" id="create-custom-resource-ldap-federation_ldap-authentication"><div class="titlepage"><div><div><h2 class="title">7.2. Create a custom resource for LDAP or AD federation</h2></div></div></div><p class="_abstract _abstract">
-				To enable the Hub OpenID Connect (OIDC) provider to federate authentication to the Lightweight Directory Access Protocol (LDAP) or an Active Directory (AD) server, the Administrator must create an <code class="literal">LdapProvider</code> custom resource and a secret for the LDAP service account.
+				To enable the Hub OpenID Connect (OIDC) provider to federate authentication to an LDAP or an Active Directory (AD) server, create an <code class="literal">LdapProvider</code> custom resource (CR) and a secret for the LDAP service account.
 			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-						You installed MTA 8.2.0 in an OpenShift cluster.
+						You have installed the MTA 8.2.0 in an OpenShift cluster.
 					</li><li class="listitem">
 						You have <code class="literal">admin</code> access to the cluster.
 					</li><li class="listitem">
-						You configured an LDAP service account with read-only permissions.
+						You have configured an LDAP service account with read-only permissions.
 					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 						Create an <code class="literal">ldap-secret.yaml</code> file:
 					</p><pre class="programlisting language-yaml">apiVersion: v1
@@ -1296,50 +1298,50 @@ spec:
         - admin</pre><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								<code class="literal">kind</code>:: Server type is "ACTIVEDIRECTORY", "AD", or blank for other LDAP implementations such as OpenLDAP.
 							</li><li class="listitem">
-								<code class="literal">url</code>:: LDAP server URL
+								<code class="literal">url</code>:: Specifies the LDAP server URL.
 							</li><li class="listitem">
-								<code class="literal">baseDN</code>:: Base Distinguished Name to narrow the scope for LDAP searches
+								<code class="literal">baseDN</code>:: Specifies the base distinguished name (DN) to narrow the scope for LDAP searches.
 							</li><li class="listitem">
-								<code class="literal">bindDN</code>:: unique identifier of the service account used to authenticate against the LDAP directory
+								<code class="literal">bindDN</code>:: Specifies the unique identifier of the service account that is used to authenticate against the LDAP directory.
 							</li><li class="listitem">
-								<code class="literal">password</code>:: Reference to Secret containing service account password
+								<code class="literal">password</code>:: Refers to the secret that contains the service account password.
 							</li><li class="listitem"><p class="simpara">
-								<code class="literal">userFilter</code>:: User search filter. The default value for the user filter in AD is <code class="literal">(sAMAccountName=%s)</code> and <code class="literal">(uid=%s)</code> for other LDAP implementations when you do not configure a value in the CR.
+								<code class="literal">userFilter</code>:: Specifies the user search filter. The default value for the user filter in AD is <code class="literal">(sAMAccountName=%s)</code>, and <code class="literal">(uid=%s)</code> for other LDAP implementations, when you do not configure a value in the CR.
 							</p><p class="simpara">
 								To override the default, configure <code class="literal">userFilter: "(sAMAccountName=${login})"</code> for AD or <code class="literal">userFilter: "(uid=${uid})"</code> for other LDAP implementations.
 							</p></li><li class="listitem"><p class="simpara">
-								<code class="literal">groupFilter</code>:: Group search filter. The default value for the group filter in AD is <code class="literal">groupFilter: "(&amp;(objectClass=group)(member=%s))"</code> and <code class="literal">(&amp;(objectClass=*)(member=%s))</code> for other LDAP implementations when you do not configure a group in the CR.
+								<code class="literal">groupFilter</code>:: Specifies the group search filter. The default value for the group filter in AD is <code class="literal">groupFilter: "(&amp;(objectClass=group)(member=%s))"</code>, and <code class="literal">(&amp;(objectClass=*)(member=%s))</code> for other LDAP implementations, when you do not configure a group in the CR.
 							</p><p class="simpara">
 								To override the default, configure <code class="literal">groupFilter: "(&amp;(objectClass=group)(member=${dn}))"</code> for distinguished name. You can replace <code class="literal">{dn}</code> with <code class="literal">{uid}</code> for a unique identifier or <code class="literal">{cn}</code> for a common name.
 							</p></li><li class="listitem">
-								<code class="literal">hasMemberOf</code>:: Use memberOf attribute for group membership in AD.
+								<code class="literal">hasMemberOf</code>:: Specifies whether to use the <code class="literal">memberOf</code> attribute for group membership in AD.
 							</li><li class="listitem">
-								<code class="literal">roleMappings</code>:: Map LDAP groups to Hub roles. The MTA roles can be a list of default or custom roles. When you use global patterns to match the LDAP roles, you must use the DoubleStar pattern or double asterisk to match the complete role name.
+								<code class="literal">roleMappings</code>:: Specifies the mapping of LDAP groups to the Hub roles. The MTA roles can be a list of default or custom roles. When you use global patterns to match the LDAP roles, you must use the <code class="literal">doublestar</code> pattern or a double asterisk (<code class="literal">**</code>) to match the complete role name.
 							</li></ul></div></li><li class="listitem"><p class="simpara">
 						Apply the LDAP CR in the cluster:
 					</p><pre class="screen">$ <span class="strong strong"><strong>oc apply -f ldap.yaml</strong></span></pre></li><li class="listitem"><p class="simpara">
 						Restart the Hub to load the new client and the secret:
 					</p><pre class="screen">$ <span class="strong strong"><strong>oc rollout restart deployment/tackle-hub -n openshift-mta</strong></span></pre></li></ol></div></section><section class="section" id="logic-operators-rule-semantics-ldap-mappings_ldap-authentication"><div class="titlepage"><div><div><h2 class="title">7.3. Logic operators and rules in LDAP mappings</h2></div></div></div><p class="_abstract _abstract">
-				To apply flexible policy changes without code changes for Lightweight Directory Access Protocol (LDAP) and Active Directory (AD) integrations, you can configure the LDAP group-to-migration toolkit for applications (MTA) role mapping as YAML rules.
+				To apply flexible policy changes without code changes for LDAP and Active Directory (AD) integrations, you can configure the LDAP group-to-migration toolkit for applications (MTA) role mapping as YAML rules.
 			</p><p>
 				In the rule, you can use the <code class="literal">or</code> and <code class="literal">and</code> logic. You can write the <code class="literal">or</code> logic to apply the <code class="literal">any</code> condition while the <code class="literal">and</code> logic to apply the <code class="literal">and</code> condition. The rules for role mapping follow certain behaviors:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 						Rule matches for LDAP groups are case sensitive. For example, <span class="strong strong"><strong>Admins</strong></span> match <code class="literal">Global-Admins</code> but not <code class="literal">global-admins</code>.
 					</li><li class="listitem"><p class="simpara">
-						When you use wildcards (*), the pattern must match the common name (CN) that the LDAP server returns.
+						When you use wildcards (<code class="literal">*</code>), the pattern must match the common name (CN) that the LDAP server returns.
 					</p><p class="simpara">
-						You can use the wildcard (*) pattern at the start or at the end for partial matching. For example, the rule <code class="literal">CN=\*, OU=Security,*</code> matches any common name in the Security organizational unit (OU) but not in other OUs.
+						You can use the wildcard (<code class="literal">*</code>) pattern at the start or at the end for partial matching. For example, the rule <code class="literal">CN=\*, OU=Security,*</code> matches any common name in the Security organizational unit (OU) but not in other OUs.
 					</p></li><li class="listitem">
-						An LDAP user that matches multiple rules gets roles mapped in all the rules.
-					</li></ul></div><div class="table" id="idm45101885748336"><p class="title"><strong>Table 7.1. <code class="literal">RoleMappings</code> field description</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 14%; " class="col_1"/><col style="width: 43%; " class="col_2"/><col style="width: 43%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101885742256" scope="col">Fields</th><th align="left" valign="top" id="idm45101885741168" scope="col">Description</th><th align="left" valign="top" id="idm45101885740080" scope="col">Example</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101885742256">
+						An LDAP user who matches multiple rules is assigned the roles that are mapped in all matching rules.
+					</li></ul></div><div class="table" id="idm45025249958544"><p class="title"><strong>Table 7.1. <code class="literal">RoleMappings</code> field description</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 14%; " class="col_1"/><col style="width: 43%; " class="col_2"/><col style="width: 43%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025248301824" scope="col">Fields</th><th align="left" valign="top" id="idm45025248300736" scope="col">Description</th><th align="left" valign="top" id="idm45025248299648" scope="col">Example</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025248301824">
 							<p>
 								<code class="literal">and</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885741168">
+							</td><td align="left" valign="top" headers="idm45025248300736">
 							<p>
 								ALL patterns must match at least one group
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885740080">
+							</td><td align="left" valign="top" headers="idm45025248299648">
 <pre class="programlisting language-yaml">roleMappings:
   - and:
       - "**migration**"
@@ -1349,15 +1351,15 @@ spec:
 							<p>
 								MTA assigns the <code class="literal">Migrator</code> role to all users of the LDAP group <code class="literal">mta-migration-team</code> since the group matches both "migration" and "mta".
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885742256">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248301824">
 							<p>
 								<code class="literal">any</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885741168">
+							</td><td align="left" valign="top" headers="idm45025248300736">
 							<p>
 								At least one pattern must match a group
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885740080">
+							</td><td align="left" valign="top" headers="idm45025248299648">
 <pre class="programlisting language-yaml">roleMappings:
   - any:
       - "**-administrators"
@@ -1370,236 +1372,236 @@ spec:
 							<p>
 								MTA assigns a role from either rule to the LDAP user. LDAP users who match both rules get two roles.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885742256">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248301824">
 							<p>
 								<code class="literal">roles</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885741168">
+							</td><td align="left" valign="top" headers="idm45025248300736">
 							<p>
 								Roles assigned when the LDAP member matches a rule
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885740080"> </td></tr></tbody></table></div></div><div class="table" id="idm45101885338272"><p class="title"><strong>Table 7.2. Wildcard operators</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 14%; " class="col_1"/><col style="width: 43%; " class="col_2"/><col style="width: 43%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101885863120" scope="col">Wildcard</th><th align="left" valign="top" id="idm45101885862032" scope="col">Behavior</th><th align="left" valign="top" id="idm45101885860944" scope="col">Example</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101885863120">
+							</td><td align="left" valign="top" headers="idm45025248299648"> </td></tr></tbody></table></div></div><div class="table" id="idm45025248236448"><p class="title"><strong>Table 7.2. Wildcard operators</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 14%; " class="col_1"/><col style="width: 43%; " class="col_2"/><col style="width: 43%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025248230688" scope="col">Wildcard</th><th align="left" valign="top" id="idm45025248229600" scope="col">Behavior</th><th align="left" valign="top" id="idm45025248228512" scope="col">Example</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025248230688">
 							<p>
 								<code class="literal">*</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885862032">
+							</td><td align="left" valign="top" headers="idm45025248229600">
 							<p>
 								Matches any characters within a segment. The match does not cross the comma (<code class="literal">,</code>) separator in common names.
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885860944">
+							</td><td align="left" valign="top" headers="idm45025248228512">
 							<p>
 								<code class="literal"><span class="strong strong"><strong>Administrator</strong></span></code> matches <code class="literal">Global-Administrator</code> or <code class="literal">AdministratorGroup</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885863120">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248230688">
 							<p>
 								<code class="literal">**</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885862032">
+							</td><td align="left" valign="top" headers="idm45025248229600">
 							<p>
 								Matches across multiple segments. The match crosses comma (<code class="literal">,</code>) separators.
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885860944">
+							</td><td align="left" valign="top" headers="idm45025248228512">
 							<p>
 								<code class="literal">CN=IT,**/Administrators</code> matches <code class="literal">CN=IT,OU=Security,CN=Administrators</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885863120">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248230688">
 							<p>
 								<code class="literal">{a,b}</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885862032">
+							</td><td align="left" valign="top" headers="idm45025248229600">
 							<p>
 								Brace expansion matches either <code class="literal">a</code> or <code class="literal">b</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885860944">
+							</td><td align="left" valign="top" headers="idm45025248228512">
 							<p>
 								<code class="literal">{<span class="strong strong"><strong>-admins,</strong></span>-administrators}</code> matches either pattern
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885863120">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248230688">
 							<p>
 								<code class="literal">?</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885862032">
+							</td><td align="left" valign="top" headers="idm45025248229600">
 							<p>
 								Matches exactly one character
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885860944">
+							</td><td align="left" valign="top" headers="idm45025248228512">
 							<p>
 								<code class="literal">Administrator?</code> matches <code class="literal">Administrators</code> or <code class="literal">Administrator1</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885863120">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025248230688">
 							<p>
 								<code class="literal">[abc]</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885862032">
+							</td><td align="left" valign="top" headers="idm45025248229600">
 							<p>
 								Matches one character from the set
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885860944">
+							</td><td align="left" valign="top" headers="idm45025248228512">
 							<p>
 								<code class="literal">Administrator[123]</code> matches <code class="literal">Administrator1</code>, <code class="literal">Administrator2</code>, <code class="literal">Administrator3</code>
 							</p>
-							</td></tr></tbody></table></div></div><div class="table" id="idm45101885603216"><p class="title"><strong>Table 7.3. Common wildcard patterns to match LDAP groups patterns</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 14%; " class="col_1"/><col style="width: 29%; " class="col_2"/><col style="width: 29%; " class="col_3"/><col style="width: 29%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101885596560" scope="col">Pattern</th><th align="left" valign="top" id="idm45101886824384" scope="col">Description</th><th align="left" valign="top" id="idm45101886823296" scope="col">Matched parameters</th><th align="left" valign="top" id="idm45101886822208" scope="col">Unmatched parameters</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101885596560">
+							</td></tr></tbody></table></div></div><div class="table" id="idm45025250677776"><p class="title"><strong>Table 7.3. Common wildcard patterns to match LDAP groups patterns</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 14%; " class="col_1"/><col style="width: 29%; " class="col_2"/><col style="width: 29%; " class="col_3"/><col style="width: 29%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025250671056" scope="col">Pattern</th><th align="left" valign="top" id="idm45025250669968" scope="col">Description</th><th align="left" valign="top" id="idm45025250668880" scope="col">Matched parameters</th><th align="left" valign="top" id="idm45025250667792" scope="col">Unmatched parameters</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025250671056">
 							<p>
 								<code class="literal">**Administrators**</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886824384">
+							</td><td align="left" valign="top" headers="idm45025250669968">
 							<p>
 								Contains "Administrators" anywhere
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886823296">
+							</td><td align="left" valign="top" headers="idm45025250668880">
 							<p>
 								<code class="literal">CN=Global-Administrators,OU=Groups</code>, <code class="literal">Security-Administrators</code>, <code class="literal">CN=Administrators-IT</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886822208">
+							</td><td align="left" valign="top" headers="idm45025250667792">
 							<p>
 								<code class="literal">CN=Administrator,OU=Users</code> as 's' is absent in the common name. <code class="literal">CN=ADMINISTRATORS</code> as the pattern does not match the uppercase in the common name.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885596560">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025250671056">
 							<p>
 								<code class="literal">**-administrators</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886824384">
+							</td><td align="left" valign="top" headers="idm45025250669968">
 							<p>
 								Ends with "-administrators"
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886823296">
+							</td><td align="left" valign="top" headers="idm45025250668880">
 							<p>
 								<code class="literal">platform-administrators</code>, <code class="literal">security-administrators</code>, <code class="literal">CN=it-administrators,OU=Groups</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886822208">
+							</td><td align="left" valign="top" headers="idm45025250667792">
 							<p>
 								<code class="literal">administrator-users</code> as the common name does not end with "administrators". <code class="literal">Administrators-Group</code> as the role name starts with uppercase and does not occur at the end.
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885596560">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025250671056">
 							<p>
 								<code class="literal">Developers,**</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886824384">
+							</td><td align="left" valign="top" headers="idm45025250669968">
 							<p>
 								Starts with "Developers"
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886823296">
+							</td><td align="left" valign="top" headers="idm45025250668880">
 							<p>
 								<code class="literal">CN=Developers,OU=Groups,DC=example,DC=com</code>, <code class="literal">CN=Developers,DC=example</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886822208">
+							</td><td align="left" valign="top" headers="idm45025250667792">
 							<p>
 								<code class="literal">CN=Senior,OU=Developers</code>, <code class="literal">OU=Developers,CN=Team</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885596560">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025250671056">
 							<p>
 								<code class="literal">**Developer**</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886824384">
+							</td><td align="left" valign="top" headers="idm45025250669968">
 							<p>
 								Contains "Developer"
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886823296">
+							</td><td align="left" valign="top" headers="idm45025250668880">
 							<p>
 								<code class="literal">CN=Developers,OU=IT</code>, <code class="literal">Senior-Developer</code>, <code class="literal">Developer-Team</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886822208">
+							</td><td align="left" valign="top" headers="idm45025250667792">
 							<p>
 								<code class="literal">CN=Develop,OU=Groups</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885596560">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025250671056">
 							<p>
 								<code class="literal">{**-administrators,**-administrator}</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886824384">
+							</td><td align="left" valign="top" headers="idm45025250669968">
 							<p>
 								Ends with <code class="literal">-administrators</code> or <code class="literal">-administrator</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886823296">
+							</td><td align="left" valign="top" headers="idm45025250668880">
 							<p>
 								<code class="literal">platform-administrators</code>, <code class="literal">global-administrator</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101886822208">
+							</td><td align="left" valign="top" headers="idm45025250667792">
 							<p>
 								<code class="literal">administrator-group</code>
 							</p>
 							</td></tr></tbody></table></div></div></section><section class="section" id="openldap-active-directory-configurations_ldap-authentication"><div class="titlepage"><div><div><h2 class="title">7.4. OpenLDAP and Active Directory configurations</h2></div></div></div><p class="_abstract _abstract">
-				The OpenLDAP and Active Directory (AD) implementations have different configurations for select fields.
-			</p><div class="table" id="idm45101886830512"><p class="title"><strong>Table 7.4. OpenLDAP and Active Directory configurations</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101885236064" scope="col">Fields</th><th align="left" valign="top" id="idm45101885234976" scope="col">Active Directory</th><th align="left" valign="top" id="idm45101885233888" scope="col">OpenLDAP</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101885236064">
+				OpenLDAP and Active Directory (AD) implementations require different configurations for specific fields.
+			</p><div class="table" id="idm45025246768448"><p class="title"><strong>Table 7.4. OpenLDAP and Active Directory configurations</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025249214384" scope="col">Fields</th><th align="left" valign="top" id="idm45025249213296" scope="col">Active Directory</th><th align="left" valign="top" id="idm45025249212208" scope="col">OpenLDAP</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025249214384">
 							<p>
 								Username attribute
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885234976">
+							</td><td align="left" valign="top" headers="idm45025249213296">
 							<p>
 								<code class="literal">sAMAccountName</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885233888">
+							</td><td align="left" valign="top" headers="idm45025249212208">
 							<p>
 								<code class="literal">uid</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885236064">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025249214384">
 							<p>
 								Group objectClass
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885234976">
+							</td><td align="left" valign="top" headers="idm45025249213296">
 							<p>
 								<code class="literal">group</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885233888">
+							</td><td align="left" valign="top" headers="idm45025249212208">
 							<p>
 								Generic wildcard (<code class="literal">*</code>)
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885236064">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025249214384">
 							<p>
 								<code class="literal">memberOf</code> support
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885234976">
+							</td><td align="left" valign="top" headers="idm45025249213296">
 							<p>
 								Usually present
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885233888">
+							</td><td align="left" valign="top" headers="idm45025249212208">
 							<p>
 								May not be present
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885236064">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025249214384">
 							<p>
 								<code class="literal">userFilter</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885234976">
+							</td><td align="left" valign="top" headers="idm45025249213296">
 							<p>
 								<code class="literal">(sAMAccountName=${login})</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885233888">
+							</td><td align="left" valign="top" headers="idm45025249212208">
 							<p>
 								<code class="literal">(uid=${uid})</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101885236064">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025249214384">
 							<p>
 								<code class="literal">groupFilter</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885234976">
+							</td><td align="left" valign="top" headers="idm45025249213296">
 							<p>
 								<code class="literal">(&amp;(objectClass=group)(member=${dn}))</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101885233888">
+							</td><td align="left" valign="top" headers="idm45025249212208">
 							<p>
 								<code class="literal">(&amp;(objectClass=*)(member=${uid}))</code>
 							</p>
 							</td></tr></tbody></table></div></div></section></section><section class="chapter" id="red-hat-build-of-keycloak_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 8. Red Hat build of Keycloak</h1></div></div></div><p class="_abstract _abstract">
-			The migration toolkit for applications (MTA) Hub OpenID Connect supports integration of a Red Hat build of Keycloak (RHBK) instance for user authentication and authorization for users who upgrade to MTA 8.2.0.
+			When you upgrade to MTA 8.2.0, you can integrate a Red Hat build of Keycloak (RHBK) instance with the migration toolkit for applications (MTA) Hub OpenID Connect to authenticate users.
 		</p><section class="section" id="keycloak-migration_red-hat-build-of-keycloak"><div class="titlepage"><div><div><h2 class="title">8.1. Keycloak migration</h2></div></div></div><p class="_abstract _abstract">
 				As a Migration toolkit for applications (MTA) administrator, you can federate user authentication to your Keycloak instance and reduce configuration complexity when you upgrade to MTA 8.2.0.
 			</p><p>
-				When you upgrade to MTA 8.2.0, the MTA Operator finds the Red Hat Build of Keycloak (RHBK) in the MTA namespace if you deployed Keycloak in earlier versions.
+				When you upgrade to MTA 8.2.0, the MTA Operator finds the Red Hat build of Keycloak (RHBK) in the MTA namespace if you deployed Keycloak in earlier versions.
 			</p><p>
-				If RHBK is available, MTA installs a Keycloak Operator and deploys an <code class="literal">IdentityProvider</code> custom resource (CR) for your Keycloak instance.
+				If RHBK is available, the MTA Operator installs a Keycloak Operator and deploys an <code class="literal">IdentityProvider</code> custom resource (CR) for your Keycloak instance.
 			</p><p>
-				In this case, the Keycloak Operator manages the RHBK instance and configures a dedicated realm with necessary roles and permissions. You can configure Keycloak as the primary authentication method in the MTA Tackle CR for an automatic redirect to your instance for user authentication. If you do not configure Keycloak as the primary authentication, you can select the <span class="strong strong"><strong>Sign-in with Keycloak</strong></span> option from the Hub login page to redirect authentication.
+				In this case, the Keycloak Operator manages the RHBK instance and configures a dedicated realm with necessary roles and permissions. You can configure Keycloak as the primary authentication method in the MTA Tackle CR for an automatic redirect to your instance for user authentication. If you do not configure Keycloak as the primary authentication method, you can click the <span class="strong strong"><strong>Sign-in with Keycloak</strong></span> option on the Hub login page to redirect authentication.
 			</p><p>
-				If you did not deploy an RHBK instance in the MTA namespace (openshift-mta) before the upgrade or if you install MTA for the first time, then MTA no longer deploys the Keycloak Operator, Postgres database, and other RHBK resources. You no longer need to provision <code class="literal">1 GiB</code> for Keycloak database volume in the MTA namespace.
+				If you did not deploy an RHBK instance in the MTA namespace before the upgrade, or if you install MTA for the first time, the MTA Operator does not deploy the Keycloak Operator, PostgreSQL database, and other RHBK resources. You no longer need to provision <code class="literal">1 GiB</code> for the Keycloak database volume in the MTA namespace.
 			</p><p>
-				In such cases, you can configure a Keycloak instance separately and integrate it as an Identity Provider (IdP) for user authentication in MTA. The Hub OpenID Connect (OIDC) federates user authentication to the Keycloak provider.
+				In such cases, you can configure a Keycloak instance separately and integrate it as an identity provider (IdP) for user authentication in MTA. The Hub OpenID Connect (OIDC) provider federates user authentication to the Keycloak provider.
 			</p><p>
-				Configure Keycloak as the OIDC provider by using the <code class="literal">IdentityProvider</code> CR. You can continue to manage users and roles in Keycloak.
+				You can configure Keycloak as the OIDC provider by using the <code class="literal">IdentityProvider</code> CR and continue to manage users and roles in Keycloak.
 			</p><p>
-				To configure the existing Keycloak instance as an IdP for user authentication:
+				To configure the existing Keycloak instance as an IdP for user authentication, complete the following tasks:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						Configure the Idp by using the <code class="literal">IdentityProvider</code> CR.
+						Configure the IdP by using the <code class="literal">IdentityProvider</code> CR.
 					</li><li class="listitem">
 						Configure the Keycloak instance uniform resource identifier (URI) as the OIDC issuer in the CR.
 					</li><li class="listitem">
@@ -1608,66 +1610,66 @@ spec:
 						Deploy the CR in the same namespace where you installed the MTA application in your cluster.
 					</p><p class="simpara">
 						The MTA Operator reconfigures the Hub to federate OIDC to your existing Keycloak instance.
-					</p></li></ul></div></section><section class="section" id="scope-rhbk_red-hat-build-of-keycloak"><div class="titlepage"><div><div><h2 class="title">8.2. Scope management in RHBK</h2></div></div></div><p class="_abstract _abstract">
-				You can manually manage migration toolkit for applications (MTA) scopes in Red Hat Build of Keycloak (RHBK) and assign the scopes to roles so that MTA assigns the necessary permissions to the Keycloak user.
+					</p></li></ul></div></section><section class="section" id="scope-rhbk_red-hat-build-of-keycloak"><div class="titlepage"><div><div><h2 class="title">8.2. Dynamic scope expansion in RHBK</h2></div></div></div><p class="_abstract _abstract">
+				You can create roles that the migration toolkit for applications (MTA) Hub OpenID Connect (OIDC) provider supports in your RHBK instance. The Hub dynamically expands the RHBK roles to apply necessary permissions for the role.
 			</p><p>
-				For example, Keycloak administrators can perform create, read, update, and delete tasks for users, tokens, and roles in MTA only if the administrator role has the following scopes:
+				You can define the following roles in RHBK:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						users:get
+						<code class="literal">role.admin</code>
 					</li><li class="listitem">
-						users:post
+						<code class="literal">role.architect</code>
 					</li><li class="listitem">
-						users:put
+						<code class="literal">role.migrator</code>
 					</li><li class="listitem">
-						users:delete
-					</li><li class="listitem">
-						roles:get
-					</li><li class="listitem">
-						roles:post
-					</li><li class="listitem">
-						roles:put
-					</li><li class="listitem">
-						roles:delete
-					</li><li class="listitem">
-						tokens:get
-					</li><li class="listitem">
-						tokens:post
-					</li><li class="listitem">
-						tokens:delete
-					</li><li class="listitem">
-						scopes:get
-					</li></ul></div><p>
-				You can assign the following scopes to non-administrator user roles in Keycloak:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						users:get
-					</li><li class="listitem">
-						users:put
-					</li><li class="listitem">
-						users:delete
-					</li><li class="listitem">
-						roles:get
-					</li><li class="listitem">
-						tokens:get
-					</li><li class="listitem">
-						tokens:post
-					</li><li class="listitem">
-						tokens:delete
-					</li><li class="listitem">
-						scopes:get
-					</li></ul></div><section class="section" id="dynamic_scopes"><div class="titlepage"><div><div><h3 class="title">8.2.1. Dynamic scopes</h3></div></div></div><p>
-					You need not manage more than 100 scopes that the migration toolkit for applications (MTA) Hub OpenID Connect (OIDC) supports in your RHBK instance. The Hub dynamically expands the RHBK roles to apply necessary permissions for the role.
+						<code class="literal">role.project-manager</code>
+					</li></ul></div><section class="section" id="manual_scope_management"><div class="titlepage"><div><div><h3 class="title">8.2.1. Manual scope management</h3></div></div></div><p>
+					Although dynamic scope expansion is the preferred method to assign scopes, you can manually manage individual migration toolkit for applications (MTA) scopes in Red Hat build of Keycloak (RHBK) and assign the them to roles. During authorization, MTA grants the necessary permissions to the Keycloak user.
 				</p><p>
-					You can define the following roles in RHBK:
+					For example, Keycloak administrators can perform create, read, update, and delete tasks for users, tokens, and roles in MTA only if the administrator role has the following scopes:
 				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-							<code class="literal">role.admin</code>
+							users:get
 						</li><li class="listitem">
-							<code class="literal">role.architect</code>
+							users:post
 						</li><li class="listitem">
-							<code class="literal">role.migrator</code>
+							users:put
 						</li><li class="listitem">
-							<code class="literal">role.project-manager</code>
+							users:delete
+						</li><li class="listitem">
+							roles:get
+						</li><li class="listitem">
+							roles:post
+						</li><li class="listitem">
+							roles:put
+						</li><li class="listitem">
+							roles:delete
+						</li><li class="listitem">
+							tokens:get
+						</li><li class="listitem">
+							tokens:post
+						</li><li class="listitem">
+							tokens:delete
+						</li><li class="listitem">
+							scopes:get
 						</li></ul></div><p>
-					If the access token request also specifies specific scopes, the MTA Hub additionally assigns permissions based on the scope reference.
+					You can assign the following scopes to non-administrator user roles in Keycloak:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							users:get
+						</li><li class="listitem">
+							users:put
+						</li><li class="listitem">
+							users:delete
+						</li><li class="listitem">
+							roles:get
+						</li><li class="listitem">
+							tokens:get
+						</li><li class="listitem">
+							tokens:post
+						</li><li class="listitem">
+							tokens:delete
+						</li><li class="listitem">
+							scopes:get
+						</li></ul></div><p>
+					If the access token request specifies specific scopes, the MTA Hub additionally assigns permissions based on the scope reference.
 				</p></section></section><section class="section" id="accessing-rhbk-admin-console_red-hat-build-of-keycloak"><div class="titlepage"><div><div><h2 class="title">8.3. Accessing the RHBK Admin Console</h2></div></div></div><p class="_abstract _abstract">
 				To perform advanced configurations on an RHBK instance, you must log in to the RHBK Admin Console.
 			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
@@ -1689,21 +1691,21 @@ spec:
 			</p><p>
 				A user can have more than one role. Each role must correspond to a specific persona:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						The <code class="literal">admin</code> role corresponds to the Administrator persona. The Administrator has all permissions that Architects and Migrators have. Administrators can also create application-wide configuration parameters that other users can consume but cannot change or view, for example, Git credentials or Maven <code class="literal">settings.xml</code> files.
+						The <code class="literal">admin</code> role corresponds to the administrator persona. Administrators have all the permissions of architects and migrators. They can also create application-wide configuration parameters that other users can consume but cannot change or view, such as Git credentials or Maven <code class="literal">settings.xml</code> files.
 					</li><li class="listitem">
-						The <code class="literal">architect</code> role corresponds to the Architect persona. An Architect is a technical lead for the migration project. Architects can run assessments and can create and modify applications and information related to the applications. Architects cannot modify or delete sensitive information, but can consume such information. For example, architects can associate an existing set of credentials to the repository of a specific application.
+						The <code class="literal">architect</code> role corresponds to the architect persona. An architect is a technical lead for the migration project. They can run assessments, create and modify applications and related information. They cannot modify or delete sensitive information, but can view it. For example, they can associate an existing set of credentials with a specific application repository.
 					</li><li class="listitem">
-						The <code class="literal">migrator</code> role corresponds to the Migrator persona. A Migrator can analyze applications. However, the Migrator cannot create, modify, or delete the applications.
+						The <code class="literal">migrator</code> role corresponds to the migrator persona. A migrator can analyze applications but cannot create, modify, or delete the them.
 					</li><li class="listitem">
-						The <code class="literal">project-manager</code> role corresponds to the Project Manager persona. Project managers can create, read, update, and delete migration waves. They can also create Red Hat Developer Lightspeed for migration toolkit for applications resources and adoption plans, and update business stakeholders included in a project. Project managers have read-only access to other MTA resources.
+						The <code class="literal">project-manager</code> role corresponds to the project manager persona. Project managers can create, read, update, and delete migration waves. They can also create Red Hat Developer Lightspeed for migration toolkit for applications resources and adoption plans, and update business stakeholders included in a project. They have read-only access to other MTA resources.
 					</li></ul></div><p>
-				MTA has two views, <span class="strong strong"><strong>Administration</strong></span>, and <span class="strong strong"><strong>Migration</strong></span>. Only an Administrator can access the <span class="strong strong"><strong>Administration</strong></span> view. Architects and Migrators cannot see or access the <span class="strong strong"><strong>Administration</strong></span> view. Administrators can perform all actions supported by the <span class="strong strong"><strong>Migration</strong></span> view. Architects and Migrators can see all elements of the <span class="strong strong"><strong>Migration</strong></span> view. However, whether Architects and Migrators can perform actions in the <span class="strong strong"><strong>Migration</strong></span> view depends on the permissions granted to their role.
+				MTA has two views, <span class="strong strong"><strong>Administration</strong></span>, and <span class="strong strong"><strong>Migration</strong></span>. Only an Administrator can access the <span class="strong strong"><strong>Administration</strong></span> view. Administrators can perform all actions in the <span class="strong strong"><strong>Migration</strong></span> view. Architects and migrators can see all elements in the <span class="strong strong"><strong>Migration</strong></span> view but their ability to perform actions in the view depends on their role permissions.
 			</p></section></section><section class="chapter" id="identity-provider-authentication_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 9. Identity provider authentication</h1></div></div></div><p class="_abstract _abstract">
-			Administrators can simplify security and regulatory compliance by implementing the migration toolkit for applications (MTA) Hub as an OpenID Connect (OIDC) Broker to federate user authentication to an identity provider (IdP).
+			As an administrator, you can simplify security and regulatory compliance by implementing the migration toolkit for applications (MTA) Hub as an OpenID Connect (OIDC) broker to federate user authentication to an identity provider (IdP).
 		</p><p>
-			MTA supports integrating IdPs and managing roles and permissions in the MTA web console for authorization:
+			You can integrate the following IdPs and managing roles and permissions in the MTA web console for authorization:
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-					Keycloak instance
+					Keycloak
 				</li><li class="listitem">
 					Microsoft Entra ID (formerly, Azure Active Directory)
 				</li><li class="listitem">
@@ -1736,13 +1738,13 @@ stringData:
 					</p><pre class="screen">$ <span class="strong strong"><strong>oc apply -f <code class="literal"><span class="emphasis"><em>&lt;idp-client-secret&gt;.yaml</em></span></code></strong></span></pre></li><li class="listitem"><p class="simpara">
 						Restart the Hub to load the secret:
 					</p><pre class="screen">$ <span class="strong strong"><strong>oc rollout restart deployment/tackle-hub -n openshift-mta</strong></span></pre></li></ol></div></section><section class="section" id="configure-identity-provider-cr_identity-provider-authentication"><div class="titlepage"><div><div><h2 class="title">9.2. Configure an identity provider custom resource</h2></div></div></div><p class="_abstract _abstract">
-				To enable the migration toolkit for applications (MTA) Hub OpenID Connect (OIDC) to integrate with the Identity Provider (IdP), you must create an <code class="literal">IdentityProvider</code> custom resource (CR).
+				To enable the migration toolkit for applications (MTA) Hub OpenID Connect (OIDC) provider to integrate with an identity provider (IdP), create an <code class="literal">IdentityProvider</code> custom resource (CR).
 			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-						You installed the MTA 8.2 application in an OpenShift cluster.
+						You have installed the MTA 8.2 application in a Red Hat OpenShift cluster.
 					</li><li class="listitem">
 						You have <code class="literal">admin</code> access to the cluster.
 					</li><li class="listitem">
-						You optionally created a secret for the IdP.
+						Optionally, you have created a secret for the IdP.
 					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 						Create an <code class="literal"><span class="emphasis"><em>&lt;my-idp&gt;.yaml</em></span></code> custom resource:
 					</p><pre class="programlisting language-yaml">apiVersion: tackle.konveyor.io/v1alpha1
@@ -1753,7 +1755,7 @@ metadata:
 spec:
   name: "Corporate SSO"
   issuer: "https://idp.example.com/realms/tackle"
-  clientId: "tackle-hub"
+  clientId: "my-client-id"
   clientSecret:
     name: idp-client-secret
     namespace: openshift-mta
@@ -1765,19 +1767,19 @@ spec:
     - openid
     - profile
     - email</pre><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-								<code class="literal">name</code>:: A display name for the IdP button in the UI.
+								<code class="literal">name</code>:: Specifies the display name for the IdP button in the UI.
 							</li><li class="listitem">
-								<code class="literal">issuer</code>:: IdP issuer URL for OIDC discovery. You can use template variables in the issuer field. For example, <code class="literal">"${issuer.proto}://${issuer.host}/auth/realms/tackle"</code>.
+								<code class="literal">issuer</code>:: Specifies the IdP issuer URL for OIDC discovery. You can use template variables in the issuer field. For example, <code class="literal">"${issuer.proto}://${issuer.host}/auth/realms/tackle"</code>.
 							</li><li class="listitem">
-								<code class="literal">clientId</code>:: OAuth client ID registered with the IdP.
+								<code class="literal">clientId</code>:: Specifies the OAuth client ID that is registered with the IdP.
 							</li><li class="listitem">
-								<code class="literal">clientSecret</code>:: Optional Kubernetes secret for the MTA Hub to securely connect to the IdP. Omit this configuration if you did not create a secret for the IdP.
+								<code class="literal">clientSecret</code>:: Specifies an optional Kubernetes secret for the MTA Hub to securely connect to the IdP. Omit this configuration if you did not create a secret for the IdP.
 							</li><li class="listitem">
-								<code class="literal">redirectURI</code>:: Callback URI to the MTA Hub after the IdP authentication completes. You must add the <code class="literal">/oidc/idp/callback</code> path to the Hub URI. You can use template variables in the redirect URI field. For example, <code class="literal">"${issuer.proto}://${issuer.host}/oidc/idp/callback"</code>.
+								<code class="literal">redirectURI</code>:: Specifies the callback uniform resource identifier (URI) to the MTA Hub after the IdP authentication completes. You must add the <code class="literal">/oidc/idp/callback</code> path to the Hub URI. You can use template variables in the redirect URI field. For example, <code class="literal">"${issuer.proto}://${issuer.host}/oidc/idp/callback"</code>.
 							</li><li class="listitem">
-								<code class="literal">primary</code>:: IdP is the primary authentication method. When <code class="literal">true</code>, the Hub redirects users automatically to this IdP for authentication. If you configured the field in the Tackle CR, the MTA Hub resolves the configuration for this field from the Tackle CR value.
+								<code class="literal">primary</code>:: Specifies whether the IdP is the primary authentication method. When <code class="literal">true</code>, the Hub redirects users automatically to this IdP for authentication. If you configured the field in the Tackle CR, the MTA Hub resolves the configuration for this field from the Tackle CR value.
 							</li><li class="listitem">
-								<code class="literal">scopes</code>:: OAuth scopes used by an OpenID Connect client to request the access privileges for the access token.
+								<code class="literal">scopes</code>:: Specifies the OAuth scopes that are used by an OpenID Connect client to request the access privileges for the access token.
 							</li></ul></div></li><li class="listitem"><p class="simpara">
 						Apply the <code class="literal">`<span class="emphasis"><em>&lt;my-idp&gt;.yaml</em></span></code> file in the cluster:
 					</p><pre class="screen">$ <span class="strong strong"><strong>oc apply -f <code class="literal"><span class="emphasis"><em>&lt;my-idp&gt;.yaml</em></span></code></strong></span></pre></li><li class="listitem"><p class="simpara">
@@ -1785,7 +1787,9 @@ spec:
 					</p><pre class="screen">$ <span class="strong strong"><strong>oc rollout restart deployment/tackle-hub -n openshift-mta</strong></span></pre></li></ol></div></section></section><section class="chapter" id="managing-access-tokens-api-keys_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 10. Token management</h1></div></div></div><p class="_abstract _abstract">
 			As an administrator, you can manage access tokens and application programming interface (API) keys in the Migration toolkit for applications (MTA) web console. To enhance security for task-authentication, the MTA Hub generates task personal access tokens with task-scoped permissions.
 		</p><section class="section" id="generate-api-key-web-console_managing-access-tokens-api-keys"><div class="titlepage"><div><div><h2 class="title">10.1. Generate API key from the web console</h2></div></div></div><p class="_abstract _abstract">
-				You can generate application programming interface (API) keys in the Migration toolkit for applications (MTA) web console. The API key inherits permissions from the authenticated user’s roles and has a maximum lifespan limit of 10 years. You can optionally configure the lifespan period when you create a token.
+				As an administrator, you can generate application programming interface (API) keys in the Migration toolkit for applications (MTA) web console. An API key inherits permissions from the authenticated user’s roles.
+			</p><p>
+				The API key has a maximum lifespan limit of 10 years. You can optionally configure the lifespan period when you create a token.
 			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
 						You installed MTA 8.2.0 in a Red Hat OpenShift cluster.
 					</li><li class="listitem">
@@ -1793,13 +1797,13 @@ spec:
 					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						Log in to the MTA application.
 					</li><li class="listitem">
-						In the Administration mode, go to <span class="strong strong"><strong>User Management</strong></span>.
+						In the <span class="strong strong"><strong>Administration</strong></span> mode, go to <span class="strong strong"><strong>User Management</strong></span>.
 					</li><li class="listitem">
-						Select <span class="strong strong"><strong>Tokens</strong></span>.
+						Click <span class="strong strong"><strong>Tokens</strong></span>.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Create API Key</strong></span>.
 					</li><li class="listitem">
-						Optionally enter the lifespan of the token.
+						Optional: Enter the lifespan of the token.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Create</strong></span>.
 					</li><li class="listitem"><p class="simpara">
@@ -1807,183 +1811,183 @@ spec:
 					</p><p class="simpara">
 						You can use the API key for the Red Hat Developer Lightspeed for migration toolkit for applications agent.
 					</p></li></ol></div></section><section class="section" id="revoke-api-key-admin_managing-access-tokens-api-keys"><div class="titlepage"><div><div><h2 class="title">10.2. Revoke API keys as an administrator</h2></div></div></div><p class="_abstract _abstract">
-				Administrators can revoke an application programming interface (API) key before its lifespan in the migration toolkit for application (MTA) web console.
+				As an administrator, you can revoke an application programming interface (API) key before its lifespan period in the migration toolkit for application (MTA) web console.
 			</p><div class="formalpara"><p class="title"><strong>Prerequisites</strong></p><p>
 					You installed MTA 8.2.0 in a Red Hat OpenShift cluster.
 				</p></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						Log in to the MTA web console.
 					</li><li class="listitem">
-						In the Administration mode, go to <span class="strong strong"><strong>User Management</strong></span>.
+						In the <span class="strong strong"><strong>Administration</strong></span> mode, click <span class="strong strong"><strong>User Management</strong></span>.
 					</li><li class="listitem">
-						Select <span class="strong strong"><strong>Tokens</strong></span>.
+						Click <span class="strong strong"><strong>Tokens</strong></span>.
 					</li><li class="listitem">
 						On the <span class="strong strong"><strong>Tokens</strong></span> page, click the options icon.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Revoke</strong></span>.
 					</li></ol></div></section><section class="section" id="revoke-api-key-migrator_managing-access-tokens-api-keys"><div class="titlepage"><div><div><h2 class="title">10.3. Revoke API keys as an migrator</h2></div></div></div><p class="_abstract _abstract">
-				As a Migrator, you can revoke an application programming interface (API) key before its lifespan in Migration toolkit for applications (MTA) web console.
-			</p><div class="formalpara"><p class="title"><strong>Prerequisites</strong></p><p>
-					Your administrator installed MTA 8.2.0 in a Red Hat OpenShift cluster.
-				</p></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+				As a migrator, you can revoke an application programming interface (API) key before its lifespan period in Migration toolkit for applications (MTA) web console.
+			</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+						You have installed MTA 8.2 in a Red Hat OpenShift cluster.
+					</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 						Log in to the MTA web console.
 					</li><li class="listitem">
-						In the Migration mode, click your username at the top right corner.
+						In the <span class="strong strong"><strong>Migration</strong></span> mode, in the upper-right corner, click your username.
 					</li><li class="listitem">
-						Select <span class="strong strong"><strong>Tokens</strong></span>.
+						Click <span class="strong strong"><strong>Tokens</strong></span>.
 					</li><li class="listitem">
 						On the <span class="strong strong"><strong>Tokens</strong></span> page, click the options icon.
 					</li><li class="listitem">
 						Click <span class="strong strong"><strong>Revoke</strong></span>.
 					</li></ol></div></section></section><section class="chapter" id="authentication-fields-tackle-cr_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 11. Authentication fields in the Tackle CR</h1></div></div></div><p class="_abstract _abstract">
-			Administrators can enable migration toolkit for applications (MTA) to include permission and role changes in new tokens, apply stateless validation, and control staleness for sessions and tokens by configuring the authentication fields in the Tackle custom resource (CR).
+			As an administrator, you can configure the authentication fields in the Tackle custom resource (CR) to include permission and role changes in new tokens, apply stateless validation, and control staleness for sessions and tokens by
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
-					JSON Web Token: The MTA Hub generates JWTs as short-lived access tokens for API authentication. When Hub issues a JWT token, it signs the token by using the Rivest-Shamir-Adleman (RSA) algorithm. The Hub also supports signing JWTs with the Hash-based Message Authentication Code (HMAC) algorithm for backward compatibility.
+					<code class="literal">JSON Web Token</code>:: The MTA Hub generates JWTs as short-lived access tokens for API authentication. When the Hub issues a JWT token, it signs the token by using the Rivest-Shamir-Adleman (RSA) algorithm. The Hub also supports signing JWTs with the Hash-based Message Authentication Code (HMAC) algorithm for backward compatibility.
 				</p><p class="simpara">
-					The JWT payload does not expose personally identifiable information (PII) such as username or password. The default lifespan is 5 minutes but you can configure a custom lifespan by using the <code class="literal">hub_oidc_token_lifespan</code> field. If an administrator updates a user’s roles or permissions, the changes will not apply to their current active token. The new permissions will only take effect after the current token expires and the Hub issues a new one, such as during a token refresh.
+					The JWT payload does not expose personally identifiable information (PII), such as a username or a password. The default lifespan is 5 minutes but you can configure a custom lifespan by using the <code class="literal">hub_oidc_token_lifespan</code> field. If you update a user’s roles or permissions, the changes do not apply to their current active token. The new permissions take effect only after the current token expires and the Hub issues a new one, such as during a token refresh.
 				</p></li><li class="listitem"><p class="simpara">
-					Refresh tokens: After the current token expires, clients use the long-lived refresh tokens to request a new access token to refresh the session. The refresh token workflow does not require the user to manually reauthenticate.
+					<code class="literal">Refresh tokens</code>:: After the current token expires, clients use the long-lived refresh tokens to request a new access token to refresh the session. The refresh token workflow does not require the user to reauthenticate manually.
 				</p><p class="simpara">
-					When a session for the Lightweight Directory Access Protocol (LDAP) or an Identity Provider (IdP) client expires, the refresh token workflow checks for changes in user permission scopes to include when the MTA Hub issues a new token.
+					When a session for the Lightweight Directory Access Protocol (LDAP) or an identity provider (IdP) client expires, the refresh token workflow checks for changes in user permission scopes to include them when the MTA Hub issues a new token.
 				</p><p class="simpara">
-					The default token lifespan is 2 days or 172800 seconds. You can configure a custom lifespan by using the <code class="literal">hub_oidc_refresh_token_lifespan</code> field.
+					The default token lifespan is 172800 seconds (2 days). You can configure a custom lifespan by using the <code class="literal">hub_oidc_refresh_token_lifespan</code> field.
 				</p></li><li class="listitem"><p class="simpara">
-					API keys: The maximum default token lifespan is 10 years. Administrators can configure the maximum permissible lifespan by using the <code class="literal">hub_apikey_lifespan</code> field.
+					<code class="literal">API keys</code>:: The default maximum token lifespan is 10 years. You can configure the maximum permissible lifespan by using the <code class="literal">hub_apikey_lifespan</code> field.
 				</p><p class="simpara">
-					To provide security against a cache miss or a direct database modification, a safety-net cache refresh guarantees that the worst-case staleness for API key is 5 minutes. You can configure the <code class="literal">hub_auth_cache_lifespan</code> field for the safety-net cache refresh period.
-				</p></li></ul></div><div class="table" id="idm45101884275152"><p class="title"><strong>Table 11.1. Authentication fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 17%; " class="col_1"/><col style="width: 17%; " class="col_2"/><col style="width: 17%; " class="col_3"/><col style="width: 50%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101884268464" scope="col">Field</th><th align="left" valign="top" id="idm45101884267376" scope="col">Type</th><th align="left" valign="top" id="idm45101884266288" scope="col">Default</th><th align="left" valign="top" id="idm45101884265200" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101884268464">
+					To provide security against a cache miss or a direct database modification, a safety-net cache refresh ensures that the worst-case staleness for an API key is 5 minutes. You can configure the <code class="literal">hub_auth_cache_lifespan</code> field for the safety-net cache refresh period.
+				</p></li></ul></div><div class="table" id="idm45025250407104"><p class="title"><strong>Table 11.1. Authentication fields</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 17%; " class="col_1"/><col style="width: 17%; " class="col_2"/><col style="width: 17%; " class="col_3"/><col style="width: 50%; " class="col_4"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025250400416" scope="col">Field</th><th align="left" valign="top" id="idm45025250399328" scope="col">Type</th><th align="left" valign="top" id="idm45025250398240" scope="col">Default</th><th align="left" valign="top" id="idm45025250397152" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">feature_auth_required</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Boolean
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							true
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							Enable the flag to enforce authentication for the web console and the Hub API. To allow insecure access, set this flag to false.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">hub_auth_cache_lifespan</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Integer (minutes)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							5
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							Specifies the cache refresh interval in minutes. The Hub periodically refreshes every cache lifespan interval as a secondary mechanism to control staleness for Basic authentication and personal access tokens.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">hub_ldap_auth_lifespan</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Integer (minutes)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							5
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							Specifies LDAP identity cache duration to control LDAP query frequency.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">hub_oidc_token_lifespan</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Integer (seconds)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							300
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							Specifies the OAuth access token lifespan in seconds. By default, the lifespan is 5 minutes.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">hub_oidc_refresh_token_lifespan</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Integer (seconds)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							172800
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							Specifies the OAuth refresh token lifespan in seconds. By default, the refresh token lifespan is 2 days.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">hub_oidc_key_rotation</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Integer (days)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							90
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							Specify key rotation interval in days.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">hub_apikey_lifespan</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Integer (hours)
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							87600
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							API key lifespan in hours. By default, the lifespan period is 10 years.
 						</p>
-						</td></tr><tr><td align="left" valign="top" headers="idm45101884268464">
+						</td></tr><tr><td align="left" valign="top" headers="idm45025250400416">
 						<p>
 							<code class="literal">idp_primary</code>
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884267376">
+						</td><td align="left" valign="top" headers="idm45025250399328">
 						<p>
 							Boolean
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884266288">
+						</td><td align="left" valign="top" headers="idm45025250398240">
 						<p>
 							true
 						</p>
-						</td><td align="left" valign="top" headers="idm45101884265200">
+						</td><td align="left" valign="top" headers="idm45025250397152">
 						<p>
 							By default, the field has the value <code class="literal">true</code> to mark an auto-discovered Identity Provider as the primary authentication method. MTA automatically redirects users to the IdP for authentication.
 						</p>
 						</td></tr></tbody></table></div></div></section><section class="chapter" id="uri-templating-wildcard-patterns_installing-mta-title"><div class="titlepage"><div><div><h1 class="title">Chapter 12. URI templating and wildcard patterns</h1></div></div></div><p class="_abstract _abstract">
-			To enable portable configuration, the Hub OpenID Connect (OIDC) provider resolves template variables and wildcard patterns with the expected OIDC issuer in client configuration at runtime.
+			To enable portable configuration, the Hub OpenID Connect (OIDC) provider resolves template variables and wildcard patterns with the expected OIDC issuer in the client configuration at runtime.
 		</p><section class="section" id="uri-template-variables_uri-templating-wildcard-patterns"><div class="titlepage"><div><div><h2 class="title">12.1. URI template variables</h2></div></div></div><p class="_abstract _abstract">
-				The migration toolkit for applications (MTA) Hub OIDC provider must resolve the redirect uniform resource identifier (URI) dynamically in deployment environments such as local development and testing (localhost), OpenShift custom routes, and custom domains.
+				The migration toolkit for applications (MTA) Hub OpenID Connect (OIDC) provider dynamically resolves the uniform resource identifier (URI) in deployment environments such as local development (<code class="literal">localhost</code>), Red Hat OpenShift custom routes, and custom domains.
 			</p><p>
-				To prevent entering hard-coded redirect URIs for an MTA client deployed in different environments, you can use template variables. In the authorization workflow, the Hub OIDC provider resolves the template variables by substituting them with values in the incoming HTTP request from the OIDC Issuer at runtime.
+				To prevent entering hard-coded redirect URIs for an MTA client deployed in different environments, you can use template variables. In the authorization workflow, the Hub OIDC provider substitutes the template variables at runtime with values from the incoming HTTP request sent by the OIDC Issuer.
 			</p><p>
 				You can use the following template variables in the URIs:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -2005,64 +2009,64 @@ spec:
 					</li><li class="listitem">
 						<code class="literal">"http://localhost:${issuer.port}/done"</code> becomes <code class="literal"><a class="link" href="http://localhost:8080/done">http://localhost:8080/done</a></code>
 					</li></ul></div></section><section class="section" id="uri-wildcard-patterns_uri-templating-wildcard-patterns"><div class="titlepage"><div><div><h2 class="title">12.2. URI wildcard patterns</h2></div></div></div><p class="_abstract _abstract">
-				After template variable substitution, the Hub OIDC provider matches the wildcard patterns in the uniform resource identifier (URI) configuration against the requested URI. The wildcard uses <code class="literal">/</code> as path separator to split the pattern and matches the URI segment-by-segment.
-			</p><div class="table" id="idm45101884679632"><p class="title"><strong>Table 12.1. Wildcard pattern behavior</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 11%; " class="col_1"/><col style="width: 22%; " class="col_2"/><col style="width: 22%; " class="col_3"/><col style="width: 22%; " class="col_4"/><col style="width: 22%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45101884672000" scope="col">Wildcard</th><th align="left" valign="top" id="idm45101884670912" scope="col">Behavior</th><th align="left" valign="top" id="idm45101884669824" scope="col">Example Pattern</th><th align="left" valign="top" id="idm45101884668736" scope="col">Matched URI</th><th align="left" valign="top" id="idm45101884667648" scope="col">Unmatched URI</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45101884672000">
+				After template variable substitution, the Hub OpenID Connect (OIDC) provider matches the wildcard patterns in the uniform resource identifier (URI) configuration against the requested URI. The provider uses the <code class="literal">/</code> character as a path separator to match the URI segment by segment.
+			</p><div class="table" id="idm45025246027248"><p class="title"><strong>Table 12.1. Wildcard pattern behavior</strong></p><div class="table-contents"><table class="gt-4-cols lt-7-rows"><colgroup><col style="width: 11%; " class="col_1"/><col style="width: 22%; " class="col_2"/><col style="width: 22%; " class="col_3"/><col style="width: 22%; " class="col_4"/><col style="width: 22%; " class="col_5"/></colgroup><thead><tr><th align="left" valign="top" id="idm45025250027744" scope="col">Wildcard</th><th align="left" valign="top" id="idm45025250026656" scope="col">Behavior</th><th align="left" valign="top" id="idm45025250025568" scope="col">Example Pattern</th><th align="left" valign="top" id="idm45025250024480" scope="col">Matched URI</th><th align="left" valign="top" id="idm45025250023392" scope="col">Unmatched URI</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm45025250027744">
 							<p>
 								<code class="literal">*</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884670912">
+							</td><td align="left" valign="top" headers="idm45025250026656">
 							<p>
 								Matches any characters except <code class="literal">/</code> within one path segment
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884669824">
+							</td><td align="left" valign="top" headers="idm45025250025568">
 							<p>
 								<code class="literal">https://*/callback</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884668736">
+							</td><td align="left" valign="top" headers="idm45025250024480">
 							<p>
 								<code class="literal">https://app.example.com/callback</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884667648">
+							</td><td align="left" valign="top" headers="idm45025250023392">
 							<p>
 								<code class="literal">https://app.example.com/auth/callback</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101884672000">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025250027744">
 							<p>
 								<code class="literal">**</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884670912">
+							</td><td align="left" valign="top" headers="idm45025250026656">
 							<p>
 								Matches zero or more complete path segments. For example, matches across segments separated by <code class="literal">/</code> in URI.
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884669824">
+							</td><td align="left" valign="top" headers="idm45025250025568">
 							<p>
 								<code class="literal">https://**/callback</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884668736">
+							</td><td align="left" valign="top" headers="idm45025250024480">
 							<p>
 								<code class="literal">https://app.example.com/auth/v1/callback</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884667648">
+							</td><td align="left" valign="top" headers="idm45025250023392">
 							<p>
 								<code class="literal">https://different.com/</code>
 							</p>
-							</td></tr><tr><td align="left" valign="top" headers="idm45101884672000">
+							</td></tr><tr><td align="left" valign="top" headers="idm45025250027744">
 							<p>
 								<code class="literal">{a,b}</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884670912">
+							</td><td align="left" valign="top" headers="idm45025250026656">
 							<p>
 								Brace expansion - matches either <code class="literal">a</code> or <code class="literal">b</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884669824">
+							</td><td align="left" valign="top" headers="idm45025250025568">
 							<p>
 								<code class="literal">https://host{,<span class="strong strong"><strong>}/</strong></span>*</code>
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884668736">
+							</td><td align="left" valign="top" headers="idm45025250024480">
 							<p>
 								Matches URIs with or without port and with or without path
 							</p>
-							</td><td align="left" valign="top" headers="idm45101884667648">
+							</td><td align="left" valign="top" headers="idm45025250023392">
 							<p>
 								N/A
 							</p>
@@ -2110,7 +2114,7 @@ spec:
 					<a class="link" href="https://developer.jboss.org/en/windup">MTA forums</a>
 				</li><li class="listitem">
 					<a class="link" href="https://issues.redhat.com/projects/MTA/issues/MTA-4961?filter=allopenissues">Jira issues tracker</a>
-				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45101885514016"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</li></ul></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45025249443024"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2026 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
