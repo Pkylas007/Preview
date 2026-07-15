@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Upgrading migration toolkit for applications</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="The migration toolkit for applications (MTA) upgrade guide provides information for administrators to migrate Keycloak users, upgrade MTA, and update commands that impact your deployment."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45814234234464"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.2</span></div><div><h1 class="title">Upgrading migration toolkit for applications</h1></div><div><h2 class="subtitle">Upgrade MTA to include new features and deprecations.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45814220331232">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Upgrading migration toolkit for applications</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="The migration toolkit for applications (MTA) upgrade guide provides information for administrators to migrate Keycloak users, upgrade MTA, and update commands that impact your deployment."/><link rel="next" href="#making-open-source-more-inclusive" title="Making open source more inclusive"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm44859467595904"><div class="titlepage"><div><div class="producttitle"><span class="productname">migration toolkit for applications</span> <span class="productnumber">8.2</span></div><div><h1 class="title">Upgrading migration toolkit for applications</h1></div><div><h2 class="subtitle">Upgrade MTA to include new features and deprecations.</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm44859454001184">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				The migration toolkit for applications (MTA) upgrade guide provides information for administrators to migrate Keycloak users, upgrade MTA, and update commands that impact your deployment.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#making-open-source-more-inclusive">Making open source more inclusive</a></span></li><li><span class="chapter"><a href="#intro-mta-upgrade_upgrade-guide">1. Upgrading the migration toolkit for applications</a></span><ul><li><span class="section"><a href="#update-strategy">1.1. Update strategy</a></span></li></ul></li><li><span class="chapter"><a href="#upgrade-mta_upgrade-guide">2. Upgrade to migration toolkit for applications 8.2</a></span></li><li><span class="chapter"><a href="#keycloak-migration_upgrade-guide">3. Migrate Keycloak users</a></span></li><li><span class="chapter"><a href="#cli-command-updates_upgrade-guide">4. Command-line updates</a></span><ul><li><span class="section"><a href="#deprecated_cli_commands">4.1. Deprecated CLI commands</a></span></li><li><span class="section"><a href="#updated_cli_commands">4.2. Updated CLI commands</a></span></li></ul></li></ul></div><section class="preface" id="making-open-source-more-inclusive"><div class="titlepage"><div><div><h1 class="title">Making open source more inclusive</h1></div></div></div><p class="_abstract _abstract">
 			Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <a class="link" href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</a>.
 		</p></section><section class="chapter" id="intro-mta-upgrade_upgrade-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Upgrading the migration toolkit for applications</h1></div></div></div><p class="_abstract _abstract">
-			As an administrator, you can upgrade the migration toolkit for applications (MTA) to the 8.2 version on your Red Hat OpenShift cluster. The MTA Operator is released every four months. You can check the MTA Operator release cadence for general availability, full support, and maintenance support lifecycle.
+			As an administrator, you can upgrade the migration toolkit for applications (MTA) to the 8.2.0 version on your Red Hat OpenShift cluster. The MTA Operator is released every four months. You can check the MTA Operator release cadence for general availability, full support, and maintenance support lifecycle.
 		</p><p>
 			You can upgrade MTA in the following Red Hat OpenShift deployments:
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -30,10 +30,10 @@
 					You reviewed the persistent volume requirements.
 				</li><li class="listitem">
 					You backed up the data.
-				</li></ul></div><div class="itemizedlist"><p class="title"><strong>Procedure</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
-					On the Red Hat OpenShift cluster, go to <span class="strong strong"><strong>Ecosystem &gt; Installed Operators</strong></span>.
+				</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					On the Red Hat OpenShift cluster, click <span class="strong strong"><strong>Ecosystem &gt; Installed Operators</strong></span>.
 				</li><li class="listitem">
-					Select the project from the list where you installed MTA.
+					Select your project from the <span class="strong strong"><strong>project</strong></span> list where you installed MTA.
 				</li><li class="listitem">
 					Click the <span class="strong strong"><strong>Upgrade available</strong></span> link in the <span class="strong strong"><strong>Status</strong></span> column.
 				</li><li class="listitem"><p class="simpara">
@@ -44,7 +44,7 @@
 					Check the resource list for the upgrade version.
 				</li><li class="listitem">
 					Click <span class="strong strong"><strong>Approve</strong></span> in the <span class="strong strong"><strong>Review Manual Install Plan</strong></span> section of the <span class="strong strong"><strong>components</strong></span> tab.
-				</li></ul></div><div class="itemizedlist"><p class="title"><strong>Verification</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+				</li></ol></div><div class="orderedlist"><p class="title"><strong>Verification</strong></p><ol class="orderedlist" type="1"><li class="listitem">
 					Navigate to the <span class="strong strong"><strong>Installed Operators</strong></span> page.
 				</li><li class="listitem">
 					The MTA Operator status for the old version changes to <span class="strong strong"><strong>Replacing</strong></span>.
@@ -54,33 +54,37 @@
 					Verify the updated version number under the operator name.
 				</p><p class="simpara">
 					The old operator is automatically removed from the page.
-				</p></li></ul></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
+				</p></li></ol></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
 					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.2/html/release_notes/index">Release notes</a>
 				</li><li class="listitem">
 					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.2/html/installing_the_migration_toolkit_for_applications/installing-mta-ui_installing-mta-title#persistent-volume-requirements_installing-mta-ui">Persistent volume requirements</a>
 				</li></ul></div></section><section class="chapter" id="keycloak-migration_upgrade-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 3. Migrate Keycloak users</h1></div></div></div><p class="_abstract _abstract">
-			As a migration toolkit for applications (MTA) administrator, you can federate user authentication to Keycloak to reduce configuration complexity.
+			As a Migration toolkit for applications (MTA) administrator, you can federate user authentication to your Keycloak instance and reduce configuration complexity when you upgrade to MTA 8.2.0.
 		</p><p>
-			When you upgrade to MTA 8.2 or later, the MTA Operator finds the Red Hat Build of Keycloak (RHBK) resource if you deployed one for an earlier MTA version. If RHBK is available, MTA automatically deploys a local Keycloak Operator and an IdentityProvider custom resource (CR) for Keycloak.
+			When you upgrade to MTA 8.2.0, the MTA Operator finds the Red Hat build of Keycloak (RHBK) in the MTA namespace if you deployed Keycloak in earlier versions.
 		</p><p>
-			If you do not deploy an RHBK instance in the MTA namespace before the upgrade or if you install MTA for the first time, then MTA no longer deploys the Keycloak Operator, Postgres database, and other Keycloak RHBK resources. You no longer need to provision <code class="literal">1 GiB</code> for Keycloak database volume managed by MTA.
+			If RHBK is available, the MTA Operator installs a Keycloak Operator and deploys an <code class="literal">IdentityProvider</code> custom resource (CR) for your Keycloak instance.
 		</p><p>
-			In such cases, you can configure a Keycloak instance separately and integrate it as an Identity Provider (IdP) for user authentication. The MTA Hub OpenID Connect (OIDC) federates user authentication to the Keycloak provider.
+			In this case, the Keycloak Operator manages the RHBK instance and configures a dedicated realm with necessary roles and permissions. You can configure Keycloak as the primary authentication method in the MTA Tackle CR for an automatic redirect to your instance for user authentication. If you do not configure Keycloak as the primary authentication method, you can click the <span class="strong strong"><strong>Sign-in with Keycloak</strong></span> option on the Hub login page to redirect authentication.
 		</p><p>
-			Configure Keycloak as the OIDC provider with the <code class="literal">IdentityProvider</code> CR. You can continue to manage users and roles in Keycloak.
+			If you did not deploy an RHBK instance in the MTA namespace before the upgrade, or if you install MTA for the first time, the MTA Operator does not deploy the Keycloak Operator, PostgreSQL database, and other RHBK resources. You no longer need to provision <code class="literal">1 GiB</code> for the Keycloak database volume in the MTA namespace.
 		</p><p>
-			To implement the existing Keycloak instance as an IdP for user authentication:
+			In such cases, you can configure a Keycloak instance separately and integrate it as an identity provider (IdP) for user authentication in MTA. The Hub OpenID Connect (OIDC) provider federates user authentication to the Keycloak provider.
+		</p><p>
+			You can configure Keycloak as the OIDC provider by using the <code class="literal">IdentityProvider</code> CR and continue to manage users and roles in Keycloak.
+		</p><p>
+			To configure the existing Keycloak instance as an IdP for user authentication, complete the following tasks:
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
-					Configure the Idp by using the IdentityProvider custom resource (CR).
-				</p><div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
-							Configure the Keycloak instance URL as the OIDC issuer in the CR.
+					Configure the IdP by using the <code class="literal">IdentityProvider</code> CR.
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+							Configure the Keycloak instance uniform resource identifier (URI) as the OIDC issuer in the CR.
 						</li><li class="listitem">
 							Configure the Hub URL with the callback endpoint as the redirect URI.
-						</li></ol></div></li><li class="listitem"><p class="simpara">
+						</li></ul></div></li><li class="listitem">
 					Deploy the CR in the same namespace where you installed the MTA application in your cluster.
-				</p><p class="simpara">
-					The MTA Operator reconfigures the Hub to federate OIDC to your existing Keycloak instance.
-				</p></li></ul></div><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
+				</li></ul></div><p>
+			The MTA Operator reconfigures the Hub to federate OIDC to your existing Keycloak instance.
+		</p><div class="itemizedlist _additional-resources"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist _additional-resources" type="disc"><li class="listitem">
 					<a class="link" href="https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/8.2/html/installing_the_migration_toolkit_for_applications/red-hat-build-of-keycloak_installing-mta-title">Red Hat build of Keycloak</a>
 				</li></ul></div></section><section class="chapter" id="cli-command-updates_upgrade-guide"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Command-line updates</h1></div></div></div><p class="_abstract _abstract">
 			As an administrator, you must make necessary changes to your pipeline or scripts to include the updated migration toolkit for applications (MTA) command-line (CLI) commands and remove deprecated commands.
@@ -106,7 +110,7 @@
 						Test rulesets
 					</p><pre class="screen">$ mta-cli rules test <span class="emphasis"><em>&lt;path_to_ruleset&gt;</em></span></pre></li><li class="listitem"><p class="simpara">
 						Transform
-					</p><pre class="screen">$ mta-cli openrewrite</pre></li></ul></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm45814220331232"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+					</p><pre class="screen">$ mta-cli openrewrite</pre></li></ul></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm44859454001184"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 		Copyright <span class="trademark"/>© 2026 Red Hat, Inc.
 	</div><div class="para">
 		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
